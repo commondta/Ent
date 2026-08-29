@@ -11,7 +11,10 @@ RUN dotnet publish "HRMS_Web/HRMS_Web.csproj" \
     -o /app/publish \
     --no-restore \
     --no-self-contained \
-    -p:WarningLevel=0
+    -p:WarningLevel=0 \
+    -p:DebugType=None \
+    -p:DebugSymbols=false \
+    -p:UseAppHost=false
 
 
 FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
