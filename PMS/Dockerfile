@@ -13,6 +13,7 @@ RUN dotnet publish "HRMS_Web/HRMS_Web.csproj" \
     --no-self-contained \
     -p:UseAppHost=false
 
+
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 
 WORKDIR /app
