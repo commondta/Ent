@@ -1,0 +1,73 @@
+﻿@using DataLayer
+@using Payroll_HCC.Infrastructure
+@{
+    ViewBag.Title = "Activity Log";
+    var entries = (List<ActivityLogModel>)ViewBag.Entries;
+    var users = (List<UserModel>)ViewBag.Users;
+    string[] actions = ViewBag.Actions;
+    DateTime? from = ViewBag.From, to = ViewBag.To;
+}
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>Activity Log</h1>
+        <ol class="breadcrumb">
+            <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+            <li>Security &amp; Administration</li>
+            <li class="active">Activity Log</li>
+        </ol>
+    </section>
+    <section class="content">
+        <div class="box">
+            <div class="box-header"><h3 class="box-title">Activity <span class="tag">@entries.Count@(entries.Count == 1000 ? "+" : "")</span></h3></div>
+            <div class="box-body">
+                <form method="get" class="filter-bar">
+                    <div class="form-group"><label>From</label><input type="date" class="form-control" name="from" value="@(from.HasValue ? from.Value.ToString("yyyy-MM-dd") : "")" /></div>
+                    <div class="form-group"><label>To</label><input type="date" class="form-control" name="to" value="@(to.HasValue ? to.Value.ToString("yyyy-MM-dd") : "")" /></div>
+                    <div class="form-group"><label>User</label>
+                        <select class="form-control" name="user"><option value="">All users</option>@foreach (var u in users) { <option value="@u.Username" @(ViewBag.User == u.Username ? "selected" : "")>@u.Username</option> }</select></div>
+                    <div class="form-group"><label>Action</label>
+                        <select class="form-control" name="act"><option value="">All actions</option>@foreach (var a in actions) { <option value="@a" @(ViewBag.Action == a ? "selected" : "")>@a</option> }</select></div>
+                    <div class="form-group" style="min-width:220px"><label>Contains</label><input type="text" class="form-control" name="q" value="@ViewBag.Q" placeholder="Detail, module or form" /></div>
+                    <button type="submit" class="btn btn-primary">Filter</button>
+                    <a href="@Url.Action("ActivityLog")" class="btn btn-default">Reset</a>
+                </form>
+
+                @if (entries.Count == 0)
+                {
+                    <div class="empty"><div class="ico">@Icons.Svg("activity", 30)</div><b>No activity matches</b><span>Widen the date range or clear the filters.</span></div>
+                }
+                else
+                {
+                    <div class="table-responsive">
+                        <table class="table table-hover" id="act-table">
+                            <thead><tr><th>When</th><th>User</th><th>Action</th><th>Module</th><th>Form</th><th>Detail</th><th>IP</th></tr></thead>
+                            <tbody>
+                                @foreach (var a in entries)
+                                {
+                                    var f = FormRegistry.ByKey(a.FormKey);
+                                    <tr>
+                                        <td style="white-space:nowrap" data-order="@a.OccurredAt.Ticks">@a.OccurredAt.ToString("dd MMM yyyy HH:mm:ss")</td>
+                                        <td>@a.Username</td>
+                                        <td><span class="status status-@a.Action">@a.Action</span></td>
+                                        <td>@a.Module</td>
+                                        <td>@if (f != null) { <a href="@Url.Content("~" + f.Url)">@f.Title</a> }</td>
+                                        <td>@a.Detail</td>
+                                        <td><small class="text-muted">@a.IpAddress</small></td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                }
+            </div>
+        </div>
+    </section>
+</div>
+
+@section scripts {
+<script>
+    $(function () {
+        if ($('#act-table').length) $('#act-table').DataTable({ order: [[0, 'desc']], pageLength: 50, dom: 'Bfrtip', buttons: [{ extend: 'csv', text: 'Export CSV', className: 'btn btn-default btn-sm' }, { extend: 'print', text: 'Print', className: 'btn btn-default btn-sm' }], language: { search: '', searchPlaceholder: 'Filter rows…' } });
+    });
+</script>
+}

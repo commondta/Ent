@@ -1,0 +1,675 @@
+﻿
+<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Clearance Form</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16"><path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/><path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/></svg></span>
+                    <h1>CLEARANCE FORM</h1>
+
+                    <div class="menu">
+                        <button id="propertyModal" class="btn btn-warning" style="">Property Detail</button>
+                        <button id="openModal" class="btn btn-warning">Approval History</button>
+                    </div>
+                    <!-- menu -->
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" role="form" id="clear">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Registration No.</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder="" name="RegistrationNo" id="RegistrationNo" />
+                                            </div>
+                                            <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn proprty_btn">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+
+
+                                        @*
+                                        <div class="vd_input-wrapper">
+                                        <span class="menu-icon" data-toggle="modal" data-target="#registrationModal">
+                                        <i class="fa fa-search"></i>
+                                        </span>
+                                        <input type="text" class="form-control" style="padding-left: 39px;" readonly
+                                        placeholder="" name="RegistrationNo" id="RegistrationNo" />
+                                        </div>*@
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder=" " name="PropertyNo" id="PropertyNo" />
+                                            </div>
+                                            <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn proprty_btn">
+                                                    search
+                                                </button>
+                                            </div>
+                                        </div>
+
+
+                                        @*<div class="vd_input-wrapper">
+                                        <span class="menu-icon" data-toggle="modal" data-target="#registrationModal">
+                                        <i class="fa fa-search"></i>
+                                        </span>
+                                        <input type="text" class="form-control" style="padding-left: 39px;" readonly
+                                        placeholder=" " name="PropertyNo" id="PropertyNo" />
+                                        </div>*@
+
+
+
+                                    </div>
+                                </div>
+                                @*<div class="col-sm-6">
+                                <label>Request No.</label>
+                                <div>
+                                <input type="text" class="form-control"
+                                placeholder=" " id="RequestNo" disabled/>
+
+                                </div>
+                                </div>
+                                <div class="col-sm-6">
+                                <label>Request Date/Time</label>
+                                <div>
+                                <input type="datetime-local" class="form-control"
+                                placeholder=" " id="RequestDate" disabled/>
+
+                                </div>
+                                </div>*@
+
+                                <div class="col-sm-6">
+                                    <label>Member Code</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberCode" disabled />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Member Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberName" disabled />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>CNIC</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="CNIC" disabled />
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="card p-3">
+
+                                @* <div class="menu" style="float: right;">
+                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddRow()">Add New</a>
+                                </div>*@
+                                <br>
+                                <br>
+                                <div class="table-responsive">
+                                    <table id="Clear" class="table table-bordered table-hover mb-0">
+                                        <thead class="bg-theme">
+                                            <tr>
+                                                <th class="text-white">#</th>
+                                                <th style="min-width:190px" class="text-white">Charges Type</th>
+                                                @* <th class="text-white">Department</th>*@
+                                                <th class="text-white">Invoice No.</th>
+                                                @*<th class="text-white">Invoice Category</th>*@
+                                                <th class="text-white">Receipt No.</th>
+                                                <th class="text-white">Amount</th>
+                                                <th class="text-white">Balance Due</th>
+                                                <th class="text-white">Remarks</th>
+                                            </tr>
+                                        </thead>
+
+                                        <tbody id="Cleartbody">
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                            </div>
+
+
+                            <div class="row" style="margin-top:50px">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="form-check-label" for="flexCheckDefault">
+                                        <i style="font-size:24px" class="fa">&#xf0a9;</i>
+                                        Dues Clearance Approved.
+                                        <input class="form-check-input" type="checkbox" value="" id="chkapproved">
+                                    </h5>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="form-check-label" for="flexCheckDefault">
+                                        <i style="font-size:24px" class="fa">&#xf0a9;</i>
+                                        Alert Notification For Unclear Dues To Member.
+                                        <input class="form-check-input" type="checkbox" value="" id="chkdues">
+                                    </h5>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-1">
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="form-check-label" for="flexCheckDefault">
+                                        <i style="font-size:24px" class="fa">&#xf0a9;</i>
+                                        Send Alert To SAP department For Record Updation.
+                                        <input class="form-check-input" type="checkbox" value="" id="chksap">
+                                    </h5>
+                                </div>
+                                <div class="col-md-5">
+                                </div>
+                            </div>
+                            <div class="col-12" style="float: right;">
+                                <button onclick="SaveClearance()" class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);" id="submmit">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <a class="btn vd_btn vd_black" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </a>
+                            </div>
+                        </form>
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+
+
+<div class="modal" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Registration Or Property No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="proplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Registration No.</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Member Name</th>
+                                            <th class="text-white">CNIC</th>
+                                            <th class="text-white">Member Code</th>
+                                            <th class="text-white">Redesign Request</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<partial name="~/Views/PartialPage/_History.cshtml" />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+<input class="hide" id="StockId" value="0" />
+<input class="hide" id="rownumber" value="0" />
+<input class="hide" type="text" id="RedesignRequest" />
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+
+
+            $("#clear").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    RegistrationNo: {
+                        // minlength: 3,
+                        required: true
+                    },
+                    PropertyNo: {
+                        //minlength: 3,
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Form Data");
+                    //Swal.fire({
+                    //    icon: 'error',
+                    //    title: 'Error',
+                    //    text: 'Enter Valid Data',
+                    //});
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    //   label
+                    //       .addClass('valid').addClass('help-inline fa fa-check vd_green mgl-10') // mark the current input as valid and display OK icon
+                    //       .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+
+                    SaveClearance();
+                }
+
+            });
+            GetAllPropertyLists();
+
+        });
+
+        var requestAction = 0;
+
+        //checkbox fun
+
+        $("#chkapproved").on('change', function () {
+            if ($(this).prop('checked')) {
+                $("#chkdues").prop('checked', false)
+                $("#chksap").prop('checked', false)
+                $("#chkdues").attr("disabled", true);
+                $("#chksap").attr("disabled", true);
+                requestAction = 1;
+            }
+            else {
+                $("#chkdues").attr("disabled", false);
+                $("#chksap").attr("disabled", false);
+            }
+        });
+
+        $("#chkdues").on('change', function () {
+            if ($(this).prop('checked')) {
+                $("#chkapproved").prop('checked', false)
+                //$("#chksap").prop('checked', false)
+                $("#chkapproved").attr("disabled", true);
+                //$("#chksap").attr("disabled", true);
+                requestAction = 3;
+            }
+            else {
+                $("#chkapproved").attr("disabled", false);
+                //$("#chksap").attr("disabled", false);
+            }
+        });
+
+        $("#chksap").on('change', function () {
+            if ($(this).prop('checked')) {
+                $("#chkapproved").prop('checked', false)
+                //$("#chkdues").prop('checked', false)
+                $("#chkapproved").attr("disabled", true);
+                //$("#chkdues").attr("disabled", true);
+                requestAction = 2;
+            }
+            else {
+                $("#chkapproved").attr("disabled", false);
+                // $("#chkdues").attr("disabled", false);
+            }
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function GetAllPropertyLists() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Clearance/GetAllClearnceFilterList`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Propertytbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td class="id">' + list.id + '</td> ' +
+                                    ' <td class="registrationNo">' + list.registrationNo + '</td>           ' +
+                                    ' <td class="propertyNo">' + list.propertyNo + '</td>           ' +
+                                    ' <td class="memberName">' + list.memberName + '</td>       ' +
+                                    ' <td class="cnic">' + list.cnic + '</td>' +
+                                    ' <td class="memberCode">' + list.memberCode + '</td> ' +
+                                    ' <td class="redesignRequest">' + list.redesignRequest + '</td> ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectRegistration(this)">Select</a></td> </tr>';
+                                //</tr>';
+                                $("#Propertytbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#proplist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectRegistration(el) {
+
+            var id = $(el).parents('tr').find(".id").text();
+            var property = $(el).parents('tr').find(".propertyNo").text();
+            var Registration = $(el).parents('tr').find(".registrationNo").text();
+            var memberName = $(el).parents('tr').find(".memberName").text();
+            var memberCode = $(el).parents('tr').find(".memberCode").text();
+            var cnic = $(el).parents('tr').find(".cnic").text();
+            var redesignRequest = $(el).parents('tr').find(".redesignRequest").text();
+
+
+            $(".id").val(id);
+            $("#StockId").val(id);
+            $("#RegistrationNo").val(Registration);
+            $("#PropertyNo").val(property);
+            $("#MemberName").val(memberName);
+            $("#MemberCode").val(memberCode);
+            $("#CNIC").val(cnic);
+            $("#RedesignRequest").val(redesignRequest);
+
+            LoadApprovalHistory(id, 9);
+            ShowAlert(id);
+            PropertyDetail(id);
+            GetDataFromSap(Registration);
+            $("#registrationModal").modal("hide");
+        }
+
+        function GetDataFromSap(registrationNo) {
+
+            $('#loader').fadeIn();
+            NProgress.start();
+            NProgress.set(0.0);
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetDemarcationClearanceData`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { registrationNo: registrationNo },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        $('#loader').fadeOut();
+                        NProgress.done();
+                        $("#Cleartbody").empty();
+                        $.each(response.data, function (index, clearence) {
+                            var rownumber = index + 1;
+
+                            var row = '<tr id="L' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td> <input disabled class="form-control line" value="' + clearence.chargeType + '"/></td>' +
+                                //'<td> <input disabled class="form-control line" value=""/></td>' +
+                                '<td> <input disabled class="form-control line" value="' + clearence.docNum + '"/></td>' +
+                                //'<td> <input disabled class="form-control line" value="' + clearence.accntntCod + '"/></td>' +
+                                '<td> <input disabled class="form-control line" value="' + clearence.receiptNum + '"/></td>' +
+                                '<td> <input disabled class="form-control line" value="' + clearence.docTotal + '"/></td>' +
+                                '<td> <input disabled class="form-control line" value="' + clearence.balanceDue + '"/></td>' +
+                                '<td> <input disabled class="form-control line" value=""/></td>' +
+                                '</tr>';
+
+                            $("#Cleartbody").append(row);
+
+                        });
+                    }
+
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+
+        function SaveClearance() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+
+
+        function Submit() {
+
+            if ((document.getElementById('chkapproved').checked == false) && (document.getElementById('chkdues').checked == false) && (document.getElementById('chksap').checked == false))
+
+            //alert('You didn\'t choose any of the checkboxes!');
+            {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please Select Any One of CheckBox',
+                    customClass: 'swal-wide',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                })
+            }
+            else {
+
+                var stockId = $("#StockId").val();
+                var redesignRequest = $("#RedesignRequest").val();
+
+                $('#submmit').prop('disabled', true); //disble
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: 'GET',
+                    url: `/api/Clearance/AddClearnceRequest`,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    data: { requestAction: requestAction, stockId: stockId, redesignRequest: redesignRequest },
+                    async: false,
+                    contentType: 'application/json',
+                    success: function (response) {
+
+                        $('#loader').fadeOut();
+                        debugger;
+                        if (response.code === 2) {
+                            $('#submmit').prop('disabled', false);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                        }
+
+                        else if (response.code === 100) {
+
+                            //Swal.fire('Saved', response.message, 'success')
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+
+                        else {
+                            //notification("topright", "error", "fa fa-exclamation-circle vd_red", "Error", "No Record Found");
+                            $('#submmit').prop('disabled', false);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'No Record Found',
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+
+                            // window.alert(response.message);
+                        }
+                    }
+                });
+                //$('#submmit').prop('disabled', false); //enable
+            }
+        }
+    </script>
+
+
+}

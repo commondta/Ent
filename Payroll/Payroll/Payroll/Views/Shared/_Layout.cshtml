@@ -1,0 +1,194 @@
+﻿@using DataLayer
+@using Payroll_HCC.Infrastructure
+@{
+    SessionUser me = Payroll_HCC.Infrastructure.App.CurrentUser;
+    string activeCompany = Session["activeComp"] as string;
+    bool canApprovals = me != null && me.CanView("Security.Approvals");
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>@(string.IsNullOrEmpty(ViewBag.Title) ? "" : ViewBag.Title + " · ")@Payroll_HCC.Infrastructure.App.ProductName</title>
+
+    <link rel="icon" type="image/svg+xml" href="~/Content/brand/favicon.svg?v=20260828d">
+    <link rel="shortcut icon" href="~/favicon.ico?v=20260828d">
+    <link rel="apple-touch-icon" href="~/Content/brand/favicon.svg?v=20260828d">
+
+    <!-- Bootstrap 3.3.7 -->
+    <link rel="stylesheet" href="~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <!-- Font Awesome (legacy form views still use fa-* icons) -->
+    <link rel="stylesheet" href="~/Content/bower_components/font-awesome/css/font-awesome.min.css">
+    <!-- AdminLTE layout mechanics + Material inputs (visuals overridden by theme.css) -->
+    <link rel="stylesheet" href="~/Content/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="~/Content/dist/css/bootstrap-material-design.min.css">
+    <link rel="stylesheet" href="~/Content/dist/css/ripples.min.css">
+    <link rel="stylesheet" href="~/Content/dist/css/MaterialAdminLTE.min.css">
+    <!-- DataTables -->
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.6/kt-2.5.0/sc-2.0.0/datatables.min.css" />
+    <!-- Typography -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+    <!-- Design system -->
+    <link rel="stylesheet" href="~/Content/admin.css?v=20260828d">
+    <link rel="stylesheet" href="~/Content/master.css?v=20260828d">
+    <link rel="stylesheet" href="~/Content/custom-theme.css?v=20260828d">
+    <link rel="stylesheet" href="~/Content/theme.css?v=20260828d">
+    <link rel="stylesheet" href="~/Content/erp-platform.css?v=20260828d">
+    @RenderSection("styles", required: false)
+</head>
+<body class="sidebar-mini">
+    <form id="af" style="display:none">@Html.AntiForgeryToken()</form>
+
+    <div class="wrapper">
+        <!-- ================= Header ================= -->
+        <header class="main-header">
+            <div class="logo">@Html.Partial("_ErpAppSwitcher")</div>
+            <nav class="navbar navbar-static-top" role="navigation">
+                <a href="#" class="sidebar-toggle" data-toggle="nav-collapse" role="button" title="Collapse / expand navigation">
+                    @Icons.Svg("list", 18)<span class="sr-only">Toggle navigation</span>
+                </a>
+
+                <div class="gs-wrap" role="search">
+                    <input type="search" id="gsInput" placeholder="Search forms, modules, employees…  ( / )" autocomplete="off" aria-label="Global search">
+                    <span class="gs-ico">@Icons.Svg("search", 15)</span>
+                    <div class="gs-results" id="gsResults" role="listbox"></div>
+                </div>
+
+                <div class="navbar-custom-menu">
+                    <ul class="nav navbar-nav">
+                        @if (!string.IsNullOrEmpty(activeCompany))
+                        {
+                            <li><span class="hdr-company" title="Active company">@Icons.Svg("building", 13) <b>@activeCompany</b></span></li>
+                        }
+                        @if (canApprovals)
+                        {
+                            <li>
+                                <a href="@Url.Action("Approvals", "Security")" title="Pending approvals">
+                                    @Icons.Svg("inbox", 18)
+                                    <span class="hdr-badge" id="approvalBadge" data-zero="1"></span>
+                                </a>
+                            </li>
+                        }
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" title="Recent activity" aria-haspopup="true">
+                                @Icons.Svg("activity", 18)
+                            </a>
+                            <ul class="dropdown-menu" id="hdrActivity">
+                                <li class="hdr-pop-title">Recent activity
+                                    @if (me != null && me.CanView("Security.ActivityLog")) { <a href="@Url.Action("ActivityLog", "Security")">View all</a> }
+                                </li>
+                                <li><ul class="hdr-pop-list"><li><div class="hdr-pop-empty">Loading…</div></li></ul></li>
+                            </ul>
+                        </li>
+                        <li class="dropdown user-menu">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true">
+                                <span class="user-chip">
+                                    <span class="avatar">@(me == null ? "?" : me.Initials)</span>
+                                    <span class="user-name"><b>@(me == null ? "" : me.DisplayName)</b><small>@(me == null ? "" : me.RoleName)</small></span>
+                                    @Icons.Svg("chevron-down", 11)
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li class="user-menu-head">
+                                    <span class="avatar">@(me == null ? "?" : me.Initials)</span>
+                                    <span><b>@(me == null ? "" : me.DisplayName)</b><small>@(me == null ? "" : me.Username) · @(me == null ? "" : me.RoleName)</small></span>
+                                </li>
+                                <li class="user-menu-body">
+                                    <a href="@Url.Action("ChangePassword", "Account")">@Icons.Svg("lock") Change password</a>
+                                    <div class="divider"></div>
+                                    <div class="user-menu-row">
+                                        <a href="@Url.Action("Profile", "Account")">@Icons.Svg("person-circle") Profile &amp; activity</a>
+                                        <form method="post" action="@Url.Action("Logout", "Account")" id="logoutForm">
+                                            @Html.AntiForgeryToken()
+                                            <button type="submit" class="danger">@Icons.Svg("box-arrow-right") Sign out</button>
+                                        </form>
+                                    </div>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+
+        <!-- ================= Sidebar ================= -->
+        <aside class="main-sidebar">
+            <section class="sidebar">
+                <ul class="sidebar-menu">
+                    @foreach (ModuleInfo m in FormRegistry.Modules)
+                    {
+                        var visible = me == null ? new System.Collections.Generic.List<FormInfo>() : m.Forms.Where(f => me.CanView(f.Key)).ToList();
+                        if (visible.Count == 0) { continue; }
+                        if (m.Key == "Home")
+                        {
+                            <li><a href="@Url.Action("Index", "Home")" title="Home">@Icons.Svg("home") <span class="nav-text">Home</span></a></li>
+                            <li class="nav-label">Modules</li>
+                            continue;
+                        }
+                        if (m.Key == "Security") { <li class="nav-label">Administration</li> }
+                        <li class="treeview">
+                            <a href="#" title="@m.Title">@Icons.Svg(m.Icon) <span class="nav-text">@m.Title</span> <span class="nav-chevron">@Icons.Svg("chevron-right", 11)</span></a>
+                            <ul class="treeview-menu" data-title="@m.Title">
+                                @foreach (FormInfo f in visible)
+                                {
+                                    <li><a href="@Url.Content("~" + f.Url)">@Icons.Svg(f.Icon, 14) <span class="nav-text">@f.Title</span></a></li>
+                                }
+                            </ul>
+                        </li>
+                    }
+                </ul>
+            </section>
+            <div class="sidebar-foot">
+                <button type="button" data-toggle="nav-collapse" title="Collapsed View" aria-label="Toggle navigation size"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5-1v12h9a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM4 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h2z"/></svg> <span>Collapsed View</span></button>
+            </div>
+        </aside>
+
+        @if (TempData["Success"] != null) { <div data-toast="@TempData["Success"]" data-toast-kind="ok"></div> }
+        @if (TempData["Error"] != null) { <div data-toast="@TempData["Error"]" data-toast-kind="err"></div> }
+
+        @RenderBody()
+
+        <footer class="main-footer">
+            <span class="foot-brand">@Html.Partial("_BrandMark", "dark") &copy; @DateTime.Now.Year <b>N-Stack</b> · Payroll ERP</span>
+            <span class="foot-right">@(me == null ? "" : "Signed in as " + me.Username)</span>
+        </footer>
+    </div>
+
+    <!-- jQuery 3 / jQuery UI -->
+    <script src="~/Content/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="~/Content/bower_components/jquery-ui/jquery-ui.min.js"></script>
+    <script>$.widget.bridge('uibutton', $.ui.button);</script>
+    <!-- Bootstrap 3.3.7 -->
+    <script src="~/Content/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Material Design inputs (used by legacy forms) -->
+    <script src="~/Content/dist/js/material.min.js"></script>
+    <script src="~/Content/dist/js/ripples.min.js"></script>
+    <script>$.material.init();</script>
+    <!-- moment / datepickers (legacy forms) -->
+    <script src="~/Content/bower_components/moment/min/moment.min.js"></script>
+    <script src="~/Content/bower_components/bootstrap-daterangepicker/daterangepicker.js"></script>
+    <script src="~/Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js"></script>
+    <script src="~/Content/bower_components/jquery-slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="~/Content/bower_components/fastclick/lib/fastclick.js"></script>
+    <!-- DataTables -->
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/b-1.5.6/kt-2.5.0/sc-2.0.0/datatables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.colVis.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <!-- Shell -->
+    <script>window.ERP = { base: '@Url.Content("~/")' };</script>
+    <script src="~/Content/theme.js?v=20260828d"></script>
+    <script src="~/Content/erp-platform.js?v=20260828d"></script>
+    <!-- Legacy view scripts -->
+    <script src="~/Content/custom-theme.js?v=20260828d"></script>
+    <script src="~/Content/admin.js?v=20260828d"></script>
+    <script src="~/Content/company.js?v=20260828d"></script>
+    <script src="~/Content/master.js?v=20260828d"></script>
+    <script src="~/Content/transaction.js?v=20260828d"></script>
+    <script src="~/Content/reports.js?v=20260828d"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

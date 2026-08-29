@@ -1,0 +1,1121 @@
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<!-- Specific Page Data -->
+<!-- End of Data -->
+
+
+<head>
+    <meta charset="utf-8" />
+    <title>Real Estate MIS</title>
+    @* ERP (solution-wide) mark — the single login and the App Launcher carry the solution identity,
+       not one application's (docs/brand/ · img/brand/erp/) *@
+    @* favicon: a simple home icon (user instruction 2026-08-23) *@
+    <link rel="icon" type="image/svg+xml" href="~/img/brand/erp/home-favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/brand/erp/home-favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/brand/erp/home-favicon-16.png">
+    <link rel="shortcut icon" href="~/img/brand/erp/home-favicon.ico">
+    <meta name="keywords" content="HTML5 Template, CSS3, All Purpose Admin Template, Vendroid" />
+    <meta name="description" content="Login Pages - Responsive Admin HTML Template">
+    <meta name="author" content="Venmond">
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/img/brand/erp/home-favicon-180.png">
+    @*    <link rel="shortcut icon" href="img/ico/favicon.png">*@
+
+
+    <!-- CSS -->
+    <!-- Bootstrap & FontAwesome & Entypo CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <!--[if IE 7]><link type="text/css" rel="stylesheet" href="css/font-awesome-ie7.min.css"><![endif]-->
+    <link href="~/css/font-entypo.css" rel="stylesheet" asp-append-version="true" type="text/css">
+
+    <!-- Fonts CSS -->
+    <link href="~/css/fonts.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <!-- Inter (theme spec 2026-08-20) — falls back to local Open Sans offline -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link href="~/plugins/jquery-ui/jquery-ui.custom.min.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/prettyPhoto-plugin/css/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/isotope/css/isotope.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/pnotify/css/jquery.pnotify.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="~/plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/tagsInput/jquery.tagsinput.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/bootstrap-switch/bootstrap-switch.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/colorpicker/css/colorpicker.css" rel="stylesheet" type="text/css">
+    <link href="~/css/customstyle.css" rel="stylesheet" asp-append-version="true" />
+    <!-- Specific CSS -->
+    <!-- Theme CSS -->
+    <link href="~/css/theme.min.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <!--[if IE]> <link href="css/ie.css" rel="stylesheet" > <![endif]-->
+    <link href="~/css/chrome.css" rel="stylesheet" type="text/chrome"> <!-- chrome only css -->
+    <!-- Responsive CSS -->
+    <link href="~/css/theme-responsive.min.css" rel="stylesheet" asp-append-version="true" type="text/css">
+
+    <!-- for specific page in style css -->
+    <!-- for specific page responsive in style css -->
+    <!-- Custom CSS -->
+    <link href="~/custom/custom.css" rel="stylesheet" type="text/css">
+
+
+        <!-- Other head elements -->
+        <!-- Include SweetAlert library -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- Head SCRIPTS -->
+    <script type="text/javascript" src="~/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/js/mobile-detect.min.js"></script>
+    <script type="text/javascript" src="~/js/mobile-detect-modernizr.js"></script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="js/html5shiv.js"></script>
+      <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        /* =====================================================================
+           N-Stack login — premium dark crystal + white login
+           (Theme folder: Login Page Instructions, 2026-08-20).
+           LEFT: white, clean, functional login card.
+           RIGHT: dark glass/crystal enterprise visual. Monochrome only.
+           Functionality (form ids, validation, LogIn()) untouched.
+           ===================================================================== */
+        :root {
+            --ink: #111111;
+            --ink-strong: #000000;
+            --text-secondary: #4D4D4D;
+            --text-muted: #777777;
+            --border: #E5E5E5;
+            --surface: #F7F7F7;
+        }
+
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+
+        body.login-layout-modern {
+            min-height: 100vh;
+            background: #fff;
+            font-family: 'Inter', 'Open Sans', Arial, sans-serif;
+        }
+
+        /* Toaster (kept) */
+        .toaster {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #111111;
+            color: #ffffff;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            z-index: 999;
+        }
+
+        .login-split {
+            display: flex;
+            min-height: 100vh;
+        }
+
+        /* ---------- LEFT 45%: white login area ---------- */
+        .login-split-left {
+            position: relative;
+            flex: 0 0 45%;
+            max-width: 45%;
+            background: #FFFFFF;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 24px;
+        }
+
+        .login-support {
+            position: absolute;
+            top: 28px;
+            right: 40px;
+            font-size: 13px;
+            color: #777777;
+        }
+
+        .login-support a {
+            color: #111111;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .login-support a:hover {
+            text-decoration: underline;
+        }
+
+        /* Floating login card */
+        .login-card {
+            width: 100%;
+            max-width: 400px;
+            background: #FFFFFF;
+            border: 1px solid #E5E5E5;
+            border-radius: 10px;
+            box-shadow: 0 8px 28px rgba(0, 0, 0, .06);
+            padding: 38px 36px 30px;
+        }
+
+        /* Staggered entrance: fade + rise, 500ms, ~80ms apart. */
+        @@keyframes loginRise {
+            from { opacity: 0; transform: translateY(15px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-card { animation: loginRise .5s ease-out both; }
+        .login-anim { animation: loginRise .5s ease-out both; }
+        .login-anim.d1 { animation-delay: .08s; }
+        .login-anim.d2 { animation-delay: .16s; }
+        .login-anim.d3 { animation-delay: .24s; }
+        .login-anim.d4 { animation-delay: .32s; }
+        .login-anim.d5 { animation-delay: .40s; }
+        .login-anim.d6 { animation-delay: .48s; }
+
+        @@media (prefers-reduced-motion: reduce) {
+            .login-card, .login-anim,
+            .crystal-shape, .crystal-line, .crystal-glow,
+            .crystal-hero .hero-art, .crystal-hero .hero-hook, .crystal-hero .hero-glint {
+                animation: none !important;
+            }
+        }
+
+        .login-logo {
+            width: 54px;
+            height: 54px;
+            border-radius: 12px;
+            border: 1px solid #EEEEEE;
+            background: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 18px;
+            overflow: hidden;
+        }
+
+        .login-logo img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: cover;
+        }
+
+        .login-logo img.login-mark {
+            width: auto;
+            height: 36px;
+            object-fit: contain;
+        }
+
+        /* the ERP mark (black / gray, no background box) — wide (≈1.7:1), so the holder is just spacing */
+        .login-logo:has(.login-mark-erp) { width: auto; height: auto; min-width: 0; padding: 0; border: 0; background: transparent; border-radius: 0; overflow: visible; }
+        .login-logo img.login-mark-erp { height: 52px; }
+
+        .login-card h2 {
+            font-size: 26px;
+            font-weight: 600;
+            color: #000000;
+            text-align: center;
+            margin: 0 0 6px;
+        }
+
+        .login-sub {
+            color: #666666;
+            font-size: 13.5px;
+            text-align: center;
+            margin: 0 0 28px;
+        }
+
+        .login-field {
+            margin-bottom: 18px;
+        }
+
+        .login-field label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #333333;
+            margin-bottom: 6px;
+        }
+
+        .login-input-wrap {
+            position: relative;
+        }
+
+        .login-input-wrap i.login-input-icon {
+            position: absolute;
+            left: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #999999;
+            font-size: 14px;
+            pointer-events: none;
+            transition: color .15s ease;
+        }
+
+        .login-input-wrap input {
+            box-sizing: border-box !important;
+            width: 100% !important;
+            height: 44px !important;
+            border: 1px solid #DCDCDC !important;
+            border-radius: 6px !important;
+            padding: 0 16px 0 40px !important;
+            font-size: 14px !important;
+            color: #111111;
+            background: #FFFFFF;
+            transition: border-color .15s ease, box-shadow .15s ease;
+        }
+
+        .login-input-wrap input::placeholder { color: #999999; }
+
+        .login-input-wrap input:focus {
+            outline: none;
+            border-color: #111111 !important;
+            box-shadow: 0 0 0 3px rgba(17, 17, 17, .07);
+        }
+
+        .login-input-wrap input:focus ~ i.login-input-icon,
+        .login-input-wrap input:focus + i.login-input-icon {
+            color: #111111;
+        }
+
+        .login-input-wrap input.vd_bd-red {
+            border-color: #e11d48 !important;
+        }
+
+        .login-input-wrap input#password {
+            padding-right: 42px !important;
+        }
+
+        .login-eye-toggle {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            color: #999999;
+            font-size: 14px;
+            cursor: pointer;
+            padding: 4px;
+        }
+
+        .login-eye-toggle:hover {
+            color: #111111;
+        }
+
+        .login-options {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: -2px 0 22px;
+        }
+
+        .login-remember {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            color: #4D4D4D;
+            cursor: pointer;
+            font-weight: 400;
+            margin: 0;
+        }
+
+        .login-remember input {
+            width: 15px;
+            height: 15px;
+            accent-color: #111111;
+            cursor: pointer;
+            margin: 0;
+        }
+
+        .login-options a {
+            font-size: 13px;
+            color: #333333;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .login-options a:hover {
+            text-decoration: underline;
+        }
+
+        /* Black primary button */
+        .login-btn {
+            width: 100%;
+            height: 46px;
+            border: none;
+            border-radius: 6px;
+            background: #000000;
+            color: #fff;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: background-color .15s ease, transform .1s ease, box-shadow .15s ease;
+        }
+
+        .login-btn:hover {
+            background: #222222;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, .18);
+        }
+
+        .login-btn:active {
+            background: #000000;
+            transform: translateY(1px);
+        }
+
+        .login-powered {
+            margin-top: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .login-powered span {
+            font-size: 10.5px;
+            letter-spacing: .6px;
+            color: #999999;
+            font-weight: 600;
+        }
+
+        .login-powered svg {
+            height: 16px;
+            width: auto;
+        }
+
+        /* ---------- RIGHT 55%: dark crystal visual ---------- */
+        .login-split-right {
+            position: relative;
+            flex: 1;
+            overflow: hidden;
+            background: #0A0A0A;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            /* the panel always fits the screen: viewport-scaled padding and a
+               hard ceiling — the page never has to scroll for the visual */
+            padding: clamp(24px, 5vh, 60px) clamp(32px, 5vw, 72px);
+            max-height: 100vh;
+            min-height: 0;
+            color: #fff;
+        }
+
+        /* Crystal facets: translucent glass polygons, extremely slow drift. */
+        .crystal-shape {
+            position: absolute;
+            pointer-events: none;
+            background: linear-gradient(135deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.06) 55%, rgba(255,255,255,0.01) 100%);
+            border: 1px solid rgba(255,255,255,0.28);
+        }
+
+        .crystal-shape.s1 {
+            width: 480px; height: 480px;
+            top: -160px; right: -120px;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 12% 88%);
+            animation: crystalDrift1 18s ease-in-out infinite;
+        }
+
+        .crystal-shape.s2 {
+            width: 360px; height: 360px;
+            bottom: -100px; left: -80px;
+            clip-path: polygon(0% 30%, 62% 0%, 100% 70%, 30% 100%);
+            background: linear-gradient(45deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0.05) 60%, rgba(255,255,255,0.01) 100%);
+            animation: crystalDrift2 22s ease-in-out infinite;
+        }
+
+        .crystal-shape.s3 {
+            width: 260px; height: 260px;
+            top: 34%; right: 8%;
+            clip-path: polygon(30% 0%, 100% 22%, 70% 100%, 0% 72%);
+            background: linear-gradient(160deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.02) 80%);
+            animation: crystalDrift1 26s ease-in-out infinite reverse;
+        }
+
+        .crystal-shape.s4 {
+            width: 190px; height: 190px;
+            bottom: 18%; right: 34%;
+            clip-path: polygon(0% 40%, 55% 0%, 100% 55%, 42% 100%);
+            background: linear-gradient(200deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.02) 75%);
+            animation: crystalDrift2 20s ease-in-out infinite reverse;
+        }
+
+        /* Thin light seams between facets */
+        .crystal-line {
+            position: absolute;
+            pointer-events: none;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.55) 50%, rgba(255,255,255,0) 100%);
+            transform-origin: left center;
+        }
+
+        .crystal-line.l1 { width: 62%; top: 24%; left: 30%; transform: rotate(-24deg); animation: seamPulse 12s ease-in-out infinite; }
+        .crystal-line.l2 { width: 48%; top: 66%; left: 8%;  transform: rotate(18deg);  animation: seamPulse 15s ease-in-out infinite 3s; }
+        .crystal-line.l3 { width: 40%; top: 84%; left: 48%; transform: rotate(-12deg); animation: seamPulse 17s ease-in-out infinite 6s; }
+
+        /* Soft moving glow */
+        .crystal-glow {
+            position: absolute;
+            pointer-events: none;
+            width: 560px; height: 560px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.10) 0%, rgba(255,255,255,0) 65%);
+            top: 8%; left: 42%;
+            animation: glowRoam 20s ease-in-out infinite;
+        }
+
+        @@keyframes crystalDrift1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50%      { transform: translate(-14px, 12px) rotate(1.5deg); }
+        }
+
+        @@keyframes crystalDrift2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50%      { transform: translate(12px, -10px) rotate(-1.5deg); }
+        }
+
+        @@keyframes seamPulse {
+            0%, 100% { opacity: .35; }
+            50%      { opacity: .8; }
+        }
+
+        @@keyframes glowRoam {
+            0%, 100% { transform: translate(0, 0); opacity: .8; }
+            50%      { transform: translate(-60px, 40px); opacity: 1; }
+        }
+
+        /* Right-side identity content — minimal, above the crystal layers */
+        .crystal-content {
+            position: relative;
+            z-index: 1;
+            max-width: 460px;
+        }
+
+        /* Hero vector (your brief 2026-08-21): an original skyline-and-homes
+           illustration — tower crane, glass towers, three gabled homes on a
+           ground sweep — drawn monochrome for contrast on the near-black panel.
+           Inline SVG, so it is razor-sharp at any size; drifts very slowly with
+           the crystal layers, the crane hook sways a little. */
+        .crystal-hero {
+            width: 100%;             /* same width as the text column below it */
+            margin: 0 0 clamp(10px, 2.4vh, 22px);
+        }
+
+        /* Height follows the screen (≈30% of it, 120–240px) so the whole panel —
+           vector, headline, copy, three features — fits without scrolling on
+           1366×768 laptops as well as 1080p/1440p monitors; the SVG keeps its
+           aspect ratio and stays left-aligned with the text (xMinYMid). */
+        .crystal-hero svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            max-height: clamp(120px, 30vh, 240px);
+            overflow: visible;
+            filter: drop-shadow(0 22px 34px rgba(0,0,0,.55));
+        }
+
+        .crystal-hero .hero-art { animation: heroFloat 14s ease-in-out infinite; }
+
+        .crystal-hero .hero-hook {
+            transform-origin: 214px 99px;
+            transform-box: view-box;
+            animation: hookSway 9s ease-in-out infinite;
+        }
+
+        .crystal-hero .hero-glint { animation: seamPulse 11s ease-in-out infinite 2s; }
+
+        @@keyframes heroFloat {
+            0%, 100% { transform: translateY(0); }
+            50%      { transform: translateY(-7px); }
+        }
+
+        @@keyframes hookSway {
+            0%, 100% { transform: rotate(-2.2deg); }
+            50%      { transform: rotate(2.2deg); }
+        }
+
+        .crystal-title {
+            font-size: clamp(22px, 1.2vw + 1.6vh + 6px, 30px);
+            font-weight: 600;
+            line-height: 1.25;
+            color: #fff;
+            margin: 0 0 14px;
+        }
+
+        .crystal-title::after {
+            content: "";
+            display: block;
+            width: 44px;
+            height: 2px;
+            background: rgba(255,255,255,.85);
+            margin-top: 18px;
+        }
+
+        .crystal-text {
+            font-size: 14.5px;
+            line-height: 1.7;
+            color: rgba(255,255,255,.62);
+            margin: 18px 0 30px;
+        }
+
+        .crystal-feature {
+            display: flex;
+            align-items: center;
+            gap: 13px;
+            margin-bottom: 14px;
+        }
+
+        /* Glass icon chips — icon containers get deliberate care */
+        .crystal-feature .cf-icon {
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            background: rgba(255,255,255,0.07);
+            border: 1px solid rgba(255,255,255,0.14);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            flex: 0 0 auto;
+        }
+
+        .crystal-feature .cf-label {
+            font-size: 14px;
+            font-weight: 500;
+            color: rgba(255,255,255,.85);
+        }
+
+        /* Short screens (≤760px tall — 1366×768 laptops, small windows): tighter
+           rhythm so the identity column still fits without a scrollbar. */
+        @@media (max-height: 760px) {
+            .crystal-title { margin-bottom: 10px; }
+            .crystal-title::after { margin-top: 12px; }
+            .crystal-text { margin: 12px 0 18px; font-size: 13.5px; line-height: 1.55; }
+            .crystal-feature { margin-bottom: 10px; }
+            .crystal-feature .cf-icon { width: 34px; height: 34px; }
+        }
+
+        @@media (max-height: 640px) {
+            .crystal-text { display: none; }
+            .crystal-hero svg { max-height: 22vh; }
+        }
+
+        .crystal-footer {
+            position: absolute;
+            bottom: 26px;
+            right: 40px;
+            z-index: 1;
+            font-size: 11px;
+            color: rgba(255,255,255,.38);
+        }
+
+        /* ---------- Responsive: crystal must never reduce usability ---------- */
+        @@media (max-width: 900px) {
+            .login-split {
+                flex-direction: column;
+            }
+
+            .login-split-left {
+                max-width: 100%;
+                flex: 1 1 auto;
+                padding: 32px 20px;
+            }
+
+            .login-split-right {
+                display: none;
+            }
+
+            .login-support {
+                position: static;
+                text-align: right;
+                margin-bottom: 12px;
+            }
+        }
+    </style>
+</head>
+
+<body id="pages" class="login-layout-modern" data-active="pages " data-smooth-scrolling="1">
+    <div class="login-split">
+        @* LEFT — white, clean, functional login (Login Page Instructions §1–§3, §8–§13) *@
+        <div class="login-split-left">
+            <div class="login-support">Need Support? <a href="javascript:void(0);">Reach Us</a></div>
+
+            <div class="login-card">
+                <div class="login-logo login-anim d1">
+                    @* ERP solution mark (the single login serves every application); N-Stack stays as "Powered by" below *@
+                    <img src="~/img/brand/erp/erp-mark-mono.svg" alt="Real Estate Management System" class="login-mark login-mark-erp" />
+                </div>
+                <h2 class="login-anim d2">Your Workspace Awaits!</h2>
+                <p class="login-sub login-anim d2">Sign in to your workspace</p>
+
+                <form class="form-horizontal" id="login-form" action="#" role="form">
+                    <div class="alert alert-danger vd_hidden">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="icon-cross"></i></button>
+                        <span class="vd_alert-icon"><i class="fa fa-exclamation-circle vd_red"></i></span><strong>Oh snap!</strong> Change a few things up and try submitting again.
+                    </div>
+                    <div class="alert alert-success vd_hidden">
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true"><i class="icon-cross"></i></button>
+                        <span class="vd_alert-icon"><i class="fa fa-check-circle vd_green"></i></span><strong>Well done!</strong>.
+                    </div>
+
+                    <div class="login-field login-anim d3" id="email-input-wrapper">
+                        <label for="email">User</label>
+                        <div class="login-input-wrap">
+                            <i class="fa fa-envelope-o login-input-icon"></i>
+                            <input type="text" placeholder="Enter your email" id="email" name="email" class="required" required>
+                        </div>
+                    </div>
+                    <div class="login-field login-anim d4">
+                        <label for="password">Password</label>
+                        <div class="login-input-wrap">
+                            <i class="fa fa-lock login-input-icon"></i>
+                            <input type="password" placeholder="Enter your password" id="password" name="password" class="required" required>
+                            <button type="button" class="login-eye-toggle" id="togglePassword" tabindex="-1" aria-label="Show password"><i class="fa fa-eye"></i></button>
+                        </div>
+                    </div>
+                    <div id="password-input-wrapper"></div>
+                    <div id="toaster" class="toaster"></div>
+                    <div id="vd_login-error" class="alert alert-danger hidden"><i class="fa fa-exclamation-circle fa-fw"></i> Please fill the necessary field </div>
+
+                    <div class="login-options login-anim d5">
+                        <label class="login-remember">
+                            <input type="checkbox" id="rememberMe" /> Remember me
+                        </label>
+                        <a asp-action="Forget" asp-controller="Login">Forgot password?</a>
+                    </div>
+
+                    <button class="login-btn login-anim d6" type="submit" id="login-submit">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/></svg>
+                        Log In
+                    </button>
+                </form>
+
+                @* Branding per AI file.xlsx req. 12 — N-Stack wordmark; the previous
+                   consultancy's chevron logomark was removed. The durable mechanism
+                   (Company Profile & Branding form, N-9) lands in Stage E. *@
+                <div class="login-powered login-anim d6">
+                    <span>POWERED BY</span>
+                    <svg viewBox="0 0 130 32" xmlns="http://www.w3.org/2000/svg" aria-label="N-Stack">
+                        <text x="0" y="23" font-family="Arial, Helvetica, sans-serif" font-size="19" font-weight="800" letter-spacing="1.5" fill="#111">N-STACK</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+
+        @* RIGHT — dark crystal enterprise visual (Login Page Instructions §4–§7).
+           Pure CSS: layered glass polygons, light seams and a roaming glow on
+           near-black, all monochrome, 12–26s cycles. Identity content only. *@
+        <div class="login-split-right" aria-hidden="true">
+            <span class="crystal-shape s1"></span>
+            <span class="crystal-shape s2"></span>
+            <span class="crystal-shape s3"></span>
+            <span class="crystal-shape s4"></span>
+            <span class="crystal-line l1"></span>
+            <span class="crystal-line l2"></span>
+            <span class="crystal-line l3"></span>
+            <span class="crystal-glow"></span>
+
+            <div class="crystal-content">
+                @* Hero vector — original artwork (no stock): tower crane + glass skyline
+                   behind three gabled homes on a ground sweep. Monochrome on purpose:
+                   white and greys carry the contrast against the near-black panel. *@
+                <div class="crystal-hero">
+                    <svg viewBox="0 0 640 350" preserveAspectRatio="xMinYMid meet" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Skyline with a tower crane behind a row of homes">
+                        <defs>
+                            <radialGradient id="pmsHalo" cx="50%" cy="58%" r="50%">
+                                <stop offset="0" stop-color="#FFFFFF" stop-opacity=".17" />
+                                <stop offset="1" stop-color="#FFFFFF" stop-opacity="0" />
+                            </radialGradient>
+                            <linearGradient id="pmsTower" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#FFFFFF" stop-opacity=".46" />
+                                <stop offset="1" stop-color="#FFFFFF" stop-opacity=".14" />
+                            </linearGradient>
+                            <linearGradient id="pmsTowerFar" x1="0" y1="0" x2="0" y2="1">
+                                <stop offset="0" stop-color="#FFFFFF" stop-opacity=".26" />
+                                <stop offset="1" stop-color="#FFFFFF" stop-opacity=".08" />
+                            </linearGradient>
+                            <linearGradient id="pmsRoof" x1="0" y1="0" x2="1" y2="1">
+                                <stop offset="0" stop-color="#FFFFFF" />
+                                <stop offset="1" stop-color="#DADADA" />
+                            </linearGradient>
+                            <pattern id="pmsWin" width="14" height="16" patternUnits="userSpaceOnUse">
+                                <rect x="4" y="4" width="6" height="8" rx=".6" fill="#0A0A0A" fill-opacity=".58" />
+                            </pattern>
+                            @* tower outlines, referenced twice: glass fill + window grid *@
+                            <path id="pt0" d="M92 300V222h50v78z" />
+                            <path id="pt1" d="M150 300V140h16v-22h12v22h10v-14h10v14h17v160z" />
+                            <path id="pt2" d="M225 300V90h20V62h35v28h20v210z" />
+                            <path id="pt3" d="M310 300V150h40v150z" />
+                            <path id="pt4" d="M360 300V110h24V84h26v26h22v190z" />
+                            <path id="pt5" d="M442 300V150l58-18v168z" />
+                            <path id="pt6" d="M508 300V185h54v115z" />
+                            @* one window, reused on every house *@
+                            <g id="pmsWindow">
+                                <rect width="24" height="22" rx="1" fill="#0A0A0A" />
+                                <path d="M12 0v22M0 11h24" stroke="#FFFFFF" stroke-width="2" />
+                            </g>
+                        </defs>
+
+                        <ellipse cx="330" cy="225" rx="310" ry="175" fill="url(#pmsHalo)" />
+
+                        <g class="hero-art">
+                            @* ---- skyline (far, quiet) ---- *@
+                            <g>
+                                <use href="#pt0" fill="url(#pmsTowerFar)" />
+                                <use href="#pt0" fill="url(#pmsWin)" />
+                                <use href="#pt3" fill="url(#pmsTowerFar)" />
+                                <use href="#pt3" fill="url(#pmsWin)" />
+                                <use href="#pt6" fill="url(#pmsTowerFar)" />
+                                <use href="#pt6" fill="url(#pmsWin)" />
+                            </g>
+                            @* ---- skyline (near) ---- *@
+                            <g>
+                                <use href="#pt1" fill="url(#pmsTower)" />
+                                <use href="#pt1" fill="url(#pmsWin)" />
+                                <use href="#pt1" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="1" />
+                                <use href="#pt2" fill="url(#pmsTower)" />
+                                <use href="#pt2" fill="url(#pmsWin)" />
+                                <use href="#pt2" fill="none" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="1" />
+                                <path d="M262 62V30" stroke="#FFFFFF" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" />
+                                <use href="#pt4" fill="url(#pmsTower)" />
+                                <use href="#pt4" fill="url(#pmsWin)" />
+                                <use href="#pt4" fill="none" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="1" />
+                                <path d="M397 84V52" stroke="#FFFFFF" stroke-opacity=".8" stroke-width="2" stroke-linecap="round" />
+                                <circle class="hero-glint" cx="397" cy="50" r="2.2" fill="#FFFFFF" />
+                                <use href="#pt5" fill="url(#pmsTower)" />
+                                <use href="#pt5" fill="url(#pmsWin)" />
+                                <use href="#pt5" fill="none" stroke="#FFFFFF" stroke-opacity=".45" stroke-width="1" />
+                                @* a few lit windows, on the same grid as the pattern *@
+                                <g fill="#FFFFFF" fill-opacity=".9" class="hero-glint">
+                                    <rect x="242" y="100" width="6" height="8" rx=".6" /><rect x="270" y="132" width="6" height="8" rx=".6" /><rect x="256" y="196" width="6" height="8" rx=".6" /><rect x="284" y="228" width="6" height="8" rx=".6" />
+                                    <rect x="368" y="116" width="6" height="8" rx=".6" /><rect x="396" y="164" width="6" height="8" rx=".6" /><rect x="410" y="228" width="6" height="8" rx=".6" />
+                                    <rect x="158" y="148" width="6" height="8" rx=".6" /><rect x="186" y="212" width="6" height="8" rx=".6" />
+                                    <rect x="452" y="180" width="6" height="8" rx=".6" /><rect x="480" y="244" width="6" height="8" rx=".6" />
+                                </g>
+                            </g>
+
+                            @* ---- tower crane ---- *@
+                            <g fill="#FFFFFF">
+                                <rect x="118" y="92" width="10" height="210" fill-opacity=".88" />
+                                <path d="M118 106l10 12m0-12l-10 12M118 130l10 12m0-12l-10 12M118 154l10 12m0-12l-10 12M118 178l10 12m0-12l-10 12M118 202l10 12m0-12l-10 12M118 226l10 12m0-12l-10 12M118 250l10 12m0-12l-10 12M118 274l10 12m0-12l-10 12" stroke="#0A0A0A" stroke-opacity=".55" stroke-width="1.2" fill="none" />
+                                <path d="M60 88h202v7H60z" fill-opacity=".9" />
+                                <path d="M70 88l8-8 8 8 8-8 8 8 8-8 8 8 8-8 8 8 8-8 8 8 8-8 8 8 8-8 8 8 8-8 8 8 8-8 8 8 8-8 8 8" stroke="#FFFFFF" stroke-opacity=".9" stroke-width="1.4" fill="none" />
+                                <path d="M113 92h20l-3-12h-14z" />
+                                <path d="M123 66L76 86M123 66l118 20M119 80V66h8v14" stroke="#FFFFFF" stroke-opacity=".75" stroke-width="1.4" fill="none" stroke-linecap="round" />
+                                <rect x="128" y="95" width="18" height="14" rx="2" />
+                                <rect x="131" y="98" width="8" height="6" rx="1" fill="#0A0A0A" fill-opacity=".6" />
+                                <rect x="60" y="82" width="14" height="8" rx="1" fill-opacity=".9" />
+                                <g class="hero-hook">
+                                    <rect x="208" y="95" width="12" height="5" rx="1" />
+                                    <path d="M214 100v40" stroke="#FFFFFF" stroke-opacity=".9" stroke-width="1.6" fill="none" />
+                                    <path d="M214 140v5a5.5 5.5 0 1 1-9.5 3.5" stroke="#FFFFFF" stroke-width="2.4" fill="none" stroke-linecap="round" />
+                                </g>
+                            </g>
+
+                            @* ---- homes (left and right behind, centre in front) ---- *@
+                            <g>
+                                <path d="M185 192L98 268h174z" fill="#F3F3F3" />
+                                <path d="M185 206L116 266M185 206l69 60" stroke="#0A0A0A" stroke-opacity=".16" stroke-width="2" fill="none" />
+                                <rect x="112" y="268" width="146" height="34" fill="#E6E6E6" />
+                                <use href="#pmsWindow" x="173" y="230" />
+                                <use href="#pmsWindow" x="126" y="275" />
+                                <rect x="176" y="276" width="18" height="26" rx="1" fill="#0A0A0A" />
+                            </g>
+                            <g>
+                                <path d="M478 188l-86 74h174z" fill="#F3F3F3" />
+                                <path d="M478 202l-70 60M478 202l70 60" stroke="#0A0A0A" stroke-opacity=".16" stroke-width="2" fill="none" />
+                                <rect x="406" y="262" width="146" height="40" fill="#E6E6E6" />
+                                <use href="#pmsWindow" x="466" y="224" />
+                                <use href="#pmsWindow" x="514" y="270" />
+                                <rect x="466" y="272" width="18" height="30" rx="1" fill="#0A0A0A" />
+                            </g>
+                            <g>
+                                @* chimney sits on the right slope *@
+                                <path d="M392 160h20v49l-20-16z" fill="#FFFFFF" />
+                                <rect x="389" y="155" width="26" height="6" rx="1" fill="#FFFFFF" />
+                                <path d="M330 142L195 252h270z" fill="url(#pmsRoof)" />
+                                <path d="M330 160L218 250M330 160l112 90" stroke="#0A0A0A" stroke-opacity=".18" stroke-width="2.2" fill="none" />
+                                <path d="M195 252h270l-8 8H203z" fill="#C9C9C9" />
+                                <rect x="212" y="260" width="236" height="42" fill="#F2F2F2" />
+                                <use href="#pmsWindow" x="318" y="206" />
+                                <use href="#pmsWindow" x="232" y="268" />
+                                <use href="#pmsWindow" x="404" y="268" />
+                                <rect x="318" y="268" width="24" height="34" rx="1" fill="#0A0A0A" />
+                                <circle cx="337" cy="286" r="1.6" fill="#FFFFFF" />
+                            </g>
+
+                            @* ---- ground sweep ---- *@
+                            <path d="M28 318Q330 284 612 318Q330 303 28 318z" fill="#FFFFFF" fill-opacity=".92" />
+                            <path d="M80 328H560" stroke="#FFFFFF" stroke-opacity=".22" stroke-width="1.5" stroke-linecap="round" />
+                        </g>
+                    </svg>
+                </div>
+
+                <h1 class="crystal-title">Real Estate Management Simplified. Operations Streamlined.</h1>
+                <p class="crystal-text">Manage properties. Manage stakeholders. Manage operations — all in one place.</p>
+
+                <div class="crystal-feature">
+                    <span class="cf-icon"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022M6 8.694 1 10.36V15h5zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5z"/></svg></span>
+                    <span class="cf-label">Manage Properties</span>
+                </div>
+                <div class="crystal-feature">
+                    <span class="cf-icon"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6m-5.784 6A2.24 2.24 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.3 6.3 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1zM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5"/></svg></span>
+                    <span class="cf-label">Manage Stakeholders</span>
+                </div>
+                <div class="crystal-feature">
+                    <span class="cf-icon"><svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" viewBox="0 0 16 16"><path d="M0 0h1v15h15v1H0zm10 3.5a.5.5 0 0 1 .5-.5h4a.5.5 0 0 1 .5.5v4a.5.5 0 0 1-1 0V4.9l-3.613 4.417a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 1 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61L13.445 4H10.5a.5.5 0 0 1-.5-.5"/></svg></span>
+                    <span class="cf-label">Drive Performance</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- Javascript =============================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="js/excanvas.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='~/plugins/jquery-ui/jquery-ui.custom.min.js'></script>
+    <script type="text/javascript" src="~/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+    <script type="text/javascript" src="~/js/caroufredsel.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+
+    <script type="text/javascript" src="~/plugins/breakpoints/breakpoints.js"></script>
+    <script type="text/javascript" src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/plugins/prettyPhoto-plugin/js/jquery.prettyPhoto.js"></script>
+
+    <script type="text/javascript" src="~/plugins/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/plugins/tagsInput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="~/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="~/plugins/blockUI/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="~/plugins/pnotify/js/jquery.pnotify.min.js"></script>
+
+
+    <script type="text/javascript" src="js/theme.js"></script>
+    <script type="text/javascript" src="custom/custom.js"></script>
+
+    <!-- Specific Page Scripts Put Here -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+            "use strict";
+
+            var rememberedEmail = localStorage.getItem('rememberedEmail');
+            if (rememberedEmail) {
+                $('#email').val(rememberedEmail);
+                $('#rememberMe').prop('checked', true);
+            }
+
+            $('#togglePassword').on('click', function () {
+                var pwd = $('#password');
+                var icon = $(this).find('i');
+                if (pwd.attr('type') === 'password') {
+                    pwd.attr('type', 'text');
+                    icon.removeClass('fa-eye').addClass('fa-eye-slash');
+                } else {
+                    pwd.attr('type', 'password');
+                    icon.removeClass('fa-eye-slash').addClass('fa-eye');
+                }
+            });
+
+            var form_register_2 = $('#login-form');
+            var error_register_2 = $('.alert-danger', form_register_2);
+            var success_register_2 = $('.alert-success', form_register_2);
+
+            form_register_2.validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+
+                    email: {
+                        required: true,
+                      //  email: true
+                    },
+                    password: {
+                        required: true,
+                        // minlength: 3
+                    },
+
+                },
+
+                errorPlacement: function (error, element) {
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    success_register_2.hide();
+                    error_register_2.show();
+
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).parent().siblings('.help-inline').removeClass('help-inline hidden');
+                    if ($(element).parent().hasClass("vd_checkbox") || $(element).parent().hasClass("vd_radio")) {
+                        $(element).siblings('.help-inline').removeClass('help-inline hidden');
+                    }
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    label
+                        .addClass('valid').addClass('help-inline hidden') // mark the current input as valid and display OK icon
+                        .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
+                    $(element).removeClass('vd_bd-red');
+
+
+                },
+
+                submitHandler: function (form) {
+                    
+                    LogIn();
+                }
+            });
+
+
+        });
+    </script>
+    <!-- Specific Page Scripts END -->
+    <!-- Google Analytics: Change UA-XXXXX-X to be your site's ID. Go to http://www.google.com/analytics/ for more information. -->
+
+    <script>
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-XXXXX-X']);
+            _gaq.push(['_trackPageview']);
+
+            (function () {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+
+
+           function LogIn(){
+
+            if ($("#email").val() !== "" && $("#password").val() !== "" ) {
+            if ($("#rememberMe").is(":checked")) {
+                localStorage.setItem("rememberedEmail", $("#email").val());
+            } else {
+                localStorage.removeItem("rememberedEmail");
+            }
+            var block =
+            {
+
+                Email: $("#email").val(),
+                Password: $("#password").val(),
+                RememberMe: $("#rememberMe").is(":checked"),   // keeps the single sign-on across browser restarts; otherwise it ends with the browser
+            };
+ 
+              $('#loader').fadeIn();
+             $.ajax({
+                type: "POST",
+                url: `Login/LoginToPortal`,
+                
+                data: block,
+                success: function (response) {
+                    debugger;
+                    $('#loader').fadeOut();
+                    console.log(response);
+                    if (response.code == 0) {
+                        localStorage.setItem("token", response.token);
+                        url = "/Apps";
+                        window.location.replace(url);
+                    }
+                    else if (response.code === 1) {
+                        debugger;
+                        // Swal.fire({
+                        //     icon: 'error',
+                        //     title: 'Error',
+                        //     text: response.message,
+                        //     allowOutsideClick: false,
+                        //     allowEscapeKey: false
+                        // }).then((result) => {
+                        //     if (result.isConfirmed) {
+                        //     }
+                        //     else if (result.isDenied) {
+                        //         Swal.fire('Changes are not saved', '', 'info')
+                        //     }
+                        // })
+                        showToaster();
+                    }
+                    else {
+                        showToaster();
+                    }
+                    }
+            });
+            }
+            else if ($("#email").val() == "" || $("#password").val() == "") {
+                debugger;
+
+            $("#login-form").submit(function (e) {
+                e.preventDefault();
+            });
+            // notification("topright","error","fa fa-exclamation-circle vd_red","Error","Please enter complete data.");
+           // alert("Please enter complete data.")
+                showToaster();
+
+            }
+            }
+
+
+        function showToaster() {
+            // Get the toaster element
+            var toaster = document.getElementById("toaster");
+
+            // Set the content for the toaster
+            toaster.innerHTML = "Email Or Password You Have Entered is Wrong";
+
+            // Show the toaster
+            toaster.style.display = "block";
+
+            // Hide the toaster after 3 seconds (adjust as needed)
+            setTimeout(function () {
+                toaster.style.display = "none";
+            }, 4000);
+        }
+    </script>
+
+</body>
+</html>

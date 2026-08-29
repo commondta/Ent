@@ -1,0 +1,1041 @@
+﻿<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Case Profile</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bank2" viewBox="0 0 16 16"><path d="M8.277.084a.5.5 0 0 0-.554 0l-7.5 5A.5.5 0 0 0 .5 6h1.875v7H1.5a.5.5 0 0 0 0 1h13a.5.5 0 1 0 0-1h-.875V6H15.5a.5.5 0 0 0 .277-.916zM12.375 6v7h-1.25V6zm-2.5 0v7h-1.25V6zm-2.5 0v7h-1.25V6zm-2.5 0v7h-1.25V6zM8 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2M.5 15a.5.5 0 0 0 0 1h15a.5.5 0 1 0 0-1z"/></svg></span>
+                    <h1>CASE PROFILE</h1>
+
+                    <button id="propertyModal" class="btn btn-warning">Property Detail</button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" action="#" role="form" id="CaseProfile">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Document No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Id" readonly/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" readonly
+                                               placeholder=" " value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Reference No.</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input style="" type="text" class="form-control" readonly name="RegistrationNo"
+                                                   placeholder="" id="RegistrationNo" />
+
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn" 
+                                     >Search</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PropertyNo" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Case ID</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CaseID" id="CaseID"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Case Title</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CaseTitle" id="CaseTitle" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Case Type</label>
+                                    <div>
+                                         <select name="CaseType" class="js-example-basic-single" id="CaseType">
+                                           
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Case Category</label>
+                                    <div>
+                                        <select name="CaseCategory" class="js-example-basic-single" id="CaseCategory">
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Case For</label>
+                                    <div>
+                                        <select name="CaseFor" class="js-example-basic-single" id="CaseFor">
+                                            <option value=""> -- Select Option --</option>
+                                            <option value="Land">Land</option>
+                                            <option value="Plot">Plot</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Land Area</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="LandArea" id="LandArea" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                 <div class="col-sm-3">
+                                    <label>FIR Ref No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="FIRRef" id="FIRRef" />
+                                    </div>
+                                </div>
+                                  <div class="col-sm-3">
+                                    <label>Advance Deposited</label>
+                                    <div>
+                                        <input onkeypress="validateNumberInput(event)" class="form-control"
+                                               placeholder=" " value="0" name="AdvDeposited" id="AdvDeposited" />
+                                    </div>
+                                </div>
+                                  <div class="col-sm-3">
+                                    <label>Settlement Mark</label>
+                                    <div>
+                                        <select name="SettlementMark" class="js-example-basic-single" id="SettleMark">
+                                            <option value=""> -- Select Option --</option>
+                                            <option value="Yes">Yes</option>
+                                            <option value="No">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " value="Pending" name="Status" id="Status" readonly/>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item active"><a class="nav-link active tab_clr" href="#Parties" data-toggle="tab">Parties</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#CaseDetails" data-toggle="tab">Case Details</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#CaseHearings" data-toggle="tab">Case Hearings</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Notices" data-toggle="tab">Notices</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Appeals" data-toggle="tab">Appeals</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Attachments" data-toggle="tab">Attachments</a></li>
+                            </ul>
+
+                            <br />
+
+                            <div class="tab-content  mgbt-xs-20">
+
+                                <div class="tab-pane active" id="Parties">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom:.5rem">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddPartiesRow()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="Prownumber" value="0" class="hide" />
+                                            </div>
+                                            
+                                            
+                                            <div class="table-responsive">
+                                                <table id="PartiesTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Type</th>
+                                                            <th class="text-white" style="text-align: center;">Name</th>
+                                                            <th class="text-white" style="text-align: center;">CNIC</th>
+                                                            <th class="text-white" style="text-align: center;">Mobile No.</th>
+                                                            <th class="text-white" style="text-align: center;">Address</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Partytbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="CaseHearings">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom:.5rem;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddCaseHearing()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="Crownumber" value="0" class="hide" />
+                                            </div>
+                                            
+                                            
+                                            <div class="table-responsive">
+                                                <table id="CaseHearingsTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Date</th>
+                                                            <th class="text-white" style="text-align: center;">Time</th>
+                                                            <th class="text-white" style="text-align: center;">Proceeding</th>
+                                                            <th class="text-white" style="text-align: center;">Remind</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="CaseHearingtbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Appeals">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom:.5rem;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddAppealsRow()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="Arownumber" value="0" class="hide" />
+                                            </div>
+                                            
+                                            
+                                            <div class="table-responsive">
+                                                <table id="AppealsTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Date</th>
+                                                            <th class="text-white" style="text-align: center;">Time</th>
+                                                            <th class="text-white" style="text-align: center;">Description</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Appealstbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Attachments">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom:.5rem;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddAtachmentRow()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="AArownumber" value="0" class="hide" />
+                                            </div>
+                                            
+                                            
+                                            <div class="table-responsive">
+                                                <table id="AttachmentTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Attachment Path</th>
+                                                            <th class="text-white" style="text-align: center;">Attachment Name</th>
+                                                            <th class="text-white" style="text-align: center;">Attachment Date</th>
+                                                            <th class="text-white" style="text-align: center;">Remarks</th>
+                                                            <th class="text-white" style="text-align: center;">View Attachment</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Atachmenttbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Notices">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom:.5rem;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddNoticeRow()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="Nrownumber" value="0" class="hide" />
+                                            </div>
+                                           
+                                           
+                                            <div class="table-responsive">
+                                                <table id="NoticesTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">From</th>
+                                                            <th class="text-white" style="text-align: center;">Date</th>
+                                                            <th class="text-white" style="text-align: center;">Detail</th>
+                                                            <th class="text-white" style="text-align: center;">Response</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Noticestbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="CaseDetails">
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label>Reference of Settlement</label>
+                                            <div>
+                                                <input type="text" class="form-control"
+                                                       placeholder=" " id="Reference"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>Forum</label>
+                                            <div>
+                                                <select name="Forum" class="js-example-basic-single" id="Forum">
+                                                   
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>Reason</label>
+                                            <div>
+                                                <input type="text" class="form-control"
+                                                       placeholder=" " id="Reason"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>Assigned Lawyer</label>
+                                            <div>
+                                                <select name="AssignedLawyer" class="js-example-basic-single" id="AssignedLawyer">
+                                                    
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <label>Terms & Conditions of Lawyer</label>
+                                            <div>
+                                                <textarea type="text" class="form-control" name="Terms" id="Terms"
+                                                       placeholder=" "></textarea>
+                                          
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>Lawyer Fee</label>
+                                            <div>
+                                                <input onkeypress="validateNumberInput(event)" class="form-control"
+                                                       placeholder=" " id="LawyerFee" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>Court Fee</label>
+                                            <div>
+                                                <input onkeypress="validateNumberInput(event)" class="form-control"
+                                                       placeholder=" " id="CourtFee" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <label>Outcome</label>
+                                            <div>
+                                                <textarea type="text" class="form-control" name="Outcome" id="Outcome"
+                                                       placeholder=" "></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </form>
+                        <div class="col-12" style="float: right; ">
+                            <button class="btn dha_theme_btn" type="submit" onclick="PostRequest()">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                            </button>
+                            <button class="btn btn-light" href="javascript:void(0);">
+                                <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+</div>
+<!-- .vd_container -->
+<div class="modal" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Reference Or Property No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="proplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            @*<th class="text-white hidden">StockId</th>*@
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Member Name</th>
+                                            <th class="text-white">Member Code</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<input id="rownumber" value="0" class="hide" />
+<input id="StockCreationId" value="0" class="hide" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+
+            $('#proplist').dataTable();
+
+            GetCaseCategory();
+            GetCaseType();
+            GetForum();
+            GetLaywerData();
+            GetAllPropertyLists();
+        });
+
+            function GetAllPropertyLists() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Filter/GetAllProperiesForIndiviualBillGenration`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        debugger;
+                        $("#Propertytbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    //' <td class="sr">' + sr + '</td> ' +
+                                    ' <td class="stockId">' + list.id + '</td> ' +
+                                    ' <td class="registrationNo">' + list.registrationNo + '</td>           ' +
+                                    ' <td class="propertyNo">' + list.propertyNo + '</td>           ' +
+                                    ' <td class="memberName">' + list.memberName + '</td>       ' +
+                                    ' <td class="memberCode">' + list.memberCode + '</td> ' +
+                                     '<td><a class="btn btn-primary" onclick="SelectRegistration(this)" >Select</a></td> </tr>';
+                                //</tr>';
+                                $("#Propertytbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#proplist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectRegistration(el) {
+            debugger;
+            var stockCreationId = $(el).parents('tr').find(".stockId").text();
+            var property = $(el).parents('tr').find(".propertyNo").text();
+            var Registration = $(el).parents('tr').find(".registrationNo").text();
+           
+
+            $("#StockCreationId").val(stockCreationId);
+            $("#RegistrationNo").val(Registration);
+            $("#PropertyNo").val(property);
+            $("#registrationModal").modal("hide");
+            PropertyDetail(stockCreationId);
+            ShowAlert(stockCreationId);
+        }
+
+        function GetLaywerData() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/LawyerData/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+
+                        $("#AssignedLawyer").empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#AssignedLawyer").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.name + '</option> ';
+
+                                $("#AssignedLawyer").append(row);
+
+                                sr++;
+                            }
+                            $('#AssignedLawyer').select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function GetForum() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Forum/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+
+                        $("#Forum").empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#Forum").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Forum").append(row);
+
+                                sr++;
+                            }
+                            $('#Forum').select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function GetCaseCategory() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/CaseCategory/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+
+                        $("#CaseCategory").empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#CaseCategory").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#CaseCategory").append(row);
+
+                                sr++;
+                            }
+                            $('#CaseCategory').select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function GetCaseType() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/CaseType/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+
+                        $("#CaseType").empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#CaseType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#CaseType").append(row);
+
+                                sr++;
+                            }
+                            $('#CaseType').select2();
+                        }
+                    }
+                }
+            });
+        }
+
+        function AddAtachmentRow() {
+
+
+            var rownumber = parseInt($("#AArownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#AArownumber").val(rownumber);
+
+
+            var row = '<tr id="AA' + rownumber + '">' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input type="file" class="form-control attachmentPath" /><input  class="form-control CopyToTargetDocument hide" /></td>' +
+                '<td> <input  class="form-control attachmentName" /></td>' +
+                '<td> <input type="date" class="form-control attachmentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/></td>' +
+                '<td> <textarea  class="form-control remarks" ></textarea></td>' +
+                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmentItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+
+            $("#Atachmenttbody").append(row);
+
+
+        }
+        function DeleteAttachmentItemRow(id) {
+            $('#AA' + id).remove();
+            var rownumber = 1;
+            $("#Atachmenttbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#AArownumber").val(rownumber - 1);
+        }
+
+         // image from body
+        $('body').on('change', '.attachmentPath', UploadImageOnServerforAttachmenttbody);
+
+        function UploadImageOnServerforAttachmenttbody() {
+
+            var row = $(this);
+            var extension = row.parents('tr').find('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                // alert();
+                // notification("topright", "error", "fa fa-exclamation-circle vd_red", "Eror", "Sorry, invalid extension.");
+                ResponseMessageModal("warning", "Sorry, invalid extension.");
+                var filepath = row.parents('tr').find('input[type=file]').val();
+                row.parents('tr').find('input[type=file]').val("");
+                // $("#PreviewUrl").attr("src", "/img/placeholder-photo.svg");
+                return false;
+            }
+            else {
+                debugger;
+                var file = row.parents('td').find('input[type=file]').get(0).files[0];
+                row.parents("tr").find(".attachmentName").val(file.name);
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        row.parents('td').find('.CopyToTargetDocument').val(reader.result);
+                        row.parents('tr').find('.viewAttachment img').attr("src", reader.result);
+                        row.parents('tr').find('input[type=file]').get(0).files[0];
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        function AddPartiesRow() {
+            var rownumber = parseInt($("#Prownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#Prownumber").val(rownumber);
+
+
+            var row = '<tr id="P' + rownumber + '">' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td><select id="Type'+ rownumber+"" + '" class="form-control Type"><option value="">Select Option</option><option value="Defendant">Defendant</option><option value="Plaintiff">Plaintiff</option></select></td>' +
+                '<td> <input  class="form-control Name" /></td>' +
+                '<td> <input onkeypress="validateNumberInput(event)" class="form-control CNIC" /></td>' +
+                '<td> <input onkeypress="validateNumberInput(event)" class="form-control MobileNo" /></td>' +
+                '<td> <textarea  class="form-control Address" ></textarea></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeletePartiesRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+            $("#Partytbody").append(row);
+
+        }
+        function DeletePartiesRow(id) {
+            $('#P' + id).remove();
+            var rownumber = 1;
+            $("#Partytbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#Prownumber").val(rownumber - 1);
+        }
+
+        function AddCaseHearing() {
+            var rownumber = parseInt($("#Crownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#Crownumber").val(rownumber);
+
+
+            var row = '<tr id="C' + rownumber + '">' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input type="date" class="form-control Date" /></td>' +
+                '<td> <input type="time" class="form-control Time" /></td>' +
+                '<td> <textarea  class="form-control Proceeding" ></textarea></td>' +
+                '<td> <input  class="form-control Remind" /></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteCaseHearingRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+
+            $("#CaseHearingtbody").append(row);
+
+
+        }
+        function DeleteCaseHearingRow(id) {
+            $('#C' + id).remove();
+            var rownumber = 1;
+            $("#CaseHearingtbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#Crownumber").val(rownumber - 1);
+        }
+
+         function AddAppealsRow() {
+            var rownumber = parseInt($("#Arownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#Arownumber").val(rownumber);
+
+
+            var row = '<tr id="A' + rownumber + '">' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input type="date" class="form-control Date" /></td>' +
+                '<td> <input type="time" class="form-control Time" /></td>' +
+                '<td> <textarea  class="form-control Description" ></textarea></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAppealRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+
+            $("#Appealstbody").append(row);
+
+
+        }
+        function DeleteAppealRow(id) {
+            $('#A' + id).remove();
+            var rownumber = 1;
+            $("#Appealstbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#Arownumber").val(rownumber - 1);
+        }
+
+        function AddNoticeRow() {
+            var rownumber = parseInt($("#Nrownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#Nrownumber").val(rownumber);
+
+
+            var row = '<tr id="N' + rownumber + '">' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input class="form-control From" /></td>' +
+                '<td> <input type="date" class="form-control Date" /></td>' +
+                '<td> <textarea class="form-control Detail" ></textarea></td>' +
+                '<td> <textarea class="form-control Response" ></textarea></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteNoticeRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+
+            $("#Noticestbody").append(row);
+
+
+        }
+        function DeleteNoticeRow(id) {
+            $('#N' + id).remove();
+            var rownumber = 1;
+            $("#Noticestbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#Nrownumber").val(rownumber - 1);
+        }
+
+        function PostRequest() {
+
+            var methodType = 'POST';
+            var url = "/api/CaseProfile/AddNewCaseProfile";
+
+            var caseProfile = new Object();
+
+            var partiesArr = new Array();
+            var hearingsArr = new Array();
+            var appealsArr = new Array();
+            var noticesArr = new Array();
+            var attachmentsArr = new Array();
+
+            //if ($("#Id").val()) {
+
+            //    debugger;
+
+            //    meterInstallation.id = parseInt($("#Id").val());
+            //    methodType = 'PUT';
+            //    url = "/api/MeterInstallation/UpdateMeterInstallation"
+            //}
+
+            caseProfile.StockCreationId = $('#stockCreationId').val();
+            caseProfile.CaseId = $('#CaseID').val();
+            caseProfile.CaseTitle = $('#CaseTitle').val();
+            caseProfile.CaseTypeId = $('#CaseType').val();
+            caseProfile.CaseCategoryId = $('#CaseCategory').val();
+            caseProfile.CaseFor = $('#CaseFor').val();
+            caseProfile.LandArea = $('#LandArea').val();
+            caseProfile.FIRReferenceNo = $('#FIRRef').val();
+            caseProfile.AdvanceDeposit = $('#AdvDeposited').val();
+            caseProfile.SettlementMark = $('#SettleMark').val();
+            caseProfile.Status = $('#Status').val();
+            caseProfile.ReferenceOfSettlement = $('#Reference').val();
+            caseProfile.ForumId = $('#Forum').val();
+            caseProfile.Reason = $('#Reason').val();
+            caseProfile.LawyerDataId = $('#AssignedLawyer').val();
+            caseProfile.TermsAndConditionsOfLawyer = $('#Terms').val();
+            caseProfile.LawyerFee = $('#LawyerFee').val();
+            caseProfile.CourtFee = $('#CourtFee').val();
+            caseProfile.Outcome = $('#Outcome').val();
+            caseProfile.CreatedBy = $("#User_Id").val();
+            caseProfile.ModifiedBy = $("#User_Id").val();
+            caseProfile.LastModifiedUserName = $("#User_Name").val();
+            
+            $('#Partytbody tr').each(function () {
+
+                var row = $(this);
+                var partiesDetail = new Object();
+
+                partiesDetail.Type = row.find('.Type').val();
+                partiesDetail.Name = row.find('.Name').val();
+                partiesDetail.CNIC = row.find('.CNIC').val();
+                partiesDetail.MobileNo = row.find('.MobileNo').val();
+                partiesDetail.Address = row.find('.Address').val();
+               
+                partiesArr.push(partiesDetail);
+            });
+
+            $('#CaseHearingtbody tr').each(function () {
+
+                var row = $(this);
+                var hearingDetail = new Object();
+
+                hearingDetail.Date = row.find('.Date').val();
+                hearingDetail.Time = row.find('.Time').val();
+                hearingDetail.Proceeding = row.find('.Proceeding').val();
+                hearingDetail.Remind = row.find('.Remind').val();
+               
+                hearingsArr.push(hearingDetail);
+            });
+
+            $('#Appealstbody tr').each(function () {
+
+                var row = $(this);
+                var appealDetail = new Object();
+
+                appealDetail.Date = row.find('.Date').val();
+                appealDetail.Time = row.find('.Time').val();
+                appealDetail.Description = row.find('.Description').val();
+              
+                appealsArr.push(appealDetail);
+            });
+
+            $('#Noticestbody tr').each(function () {
+
+                var row = $(this);
+                var noticeDetail = new Object();
+
+                noticeDetail.From = row.find('.From').val();
+                noticeDetail.Date = row.find('.Date').val();
+                noticeDetail.Detail = row.find('.Detail').val();
+                noticeDetail.Response = row.find('.Response').val();
+              
+                noticesArr.push(noticeDetail);
+            });
+
+            $('#Atachmenttbody tr').each(function () {
+
+                var row = $(this);
+                var attachmentDetail = new Object();
+
+                attachmentDetail.AttachmentPath = row.find('.CopyToTargetDocument').val();
+                attachmentDetail.AttachmentName = row.find('.attachmentName').val();
+                attachmentDetail.AttachmentDate = row.find('.attachmentDate').val();
+                attachmentDetail.Remarks = row.find('.remarks').val();
+              
+                attachmentsArr.push(attachmentDetail);
+            });
+
+            caseProfile.CaseProfileParties = partiesArr;
+            caseProfile.CaseProfileCaseHearings = hearingsArr;
+            caseProfile.CaseProfileNotices = noticesArr;
+            caseProfile.CaseProfileAppeals = appealsArr;
+            caseProfile.CaseProfileAttachments = attachmentsArr;
+
+            var model = JSON.stringify(caseProfile);
+            debugger;
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                }
+            });
+        }
+    </script>
+
+
+    }

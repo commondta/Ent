@@ -1,0 +1,1246 @@
+﻿@section css {
+    <style>
+        .f-8 {
+            font-size: 10px
+        }
+
+        .pagebreak {
+            clear: both;
+            page-break-after: always;
+        }
+
+        .container1 {
+            margin-bottom: 0px;
+            margin-top: 0px;
+            padding-bottom: 0px;
+            padding-top: 0px;
+        }
+
+        @@media print {
+            @@page {
+                padding-top: 30px;
+                padding-bottom: 30px;
+            }
+        }
+    </style>
+}
+
+<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Monthly Bill Generation</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>MONTHLY BILL GENERATION</h1>
+                    <button type="button" data-toggle="modal" data-target="#ServicesChargesHeadsModal" class="btn btn-warning">
+                        Service Charges Heads
+                    </button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="MonthlyBill">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                               placeholder=" " id="DocDate" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>For the Month</label>
+                                    <div>
+                                        <input type="month" class="form-control"
+                                               placeholder=" " id="FortheMonth" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Due Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder=" " id="DueDate" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Bill For</label>
+                                    <div>
+                                        <select name="BillFor" class="js-example-basic-single" id="BillFor">
+                                            <option value=""> -- Select Option --</option>
+                                            <option value="Electricity">Electricity</option>
+                                            <option value="Water">Water</option>
+                                            <option value="Constructed">Constructed</option>
+                                            <option value="Non-Constructed">Non-Constructed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>Property No</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="regNo" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2" style="margin-top: 26px;">
+                                    <button class="btn btn-primary" type="button" id="searchRegBtn">Search</button>
+                                </div>
+                            </div>
+
+
+                            <div class="container-fluid">
+                                <div class="card p-3">
+                                    <div class="col-md-12">
+                                        <br>
+                                        <br>
+                                        <div class="table-responsive">
+                                            <table id="MBillGenerate" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white" style="min-width: 90px;">#</th>
+                                                        <th class="text-white" style="min-width: 160px;">Registration No.</th>
+                                                        <th class="text-white" style="min-width: 170px;">Property No.</th>
+                                                        <th class="text-white" style="min-width: 130px;">Current Month  Amount</th>
+                                                        <th class="text-white" style="min-width: 130px;">Arrears</th>
+                                                        <th class="text-white" style="min-width: 130px;">Total Amount</th>
+                                                        <th class="text-white" style="min-width: 130px;">Meter No</th>
+                                                        <th class="text-white" style="min-width: 130px;">Action</th>
+                                                </thead>
+                                                <tbody id="MBGeneratetbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+
+
+                            <div>
+                                <label>Remarks</label>
+                                <textarea class="form-control"
+                                          id="Remarks"
+                                          name="Remarks"
+                                          maxlength="200"
+                                          oninput="this.value = this.value.slice(0, 200)">
+                                 </textarea>
+                                <small id="charCount" class="text-muted">200 characters remaining</small>
+
+
+                            </div>
+                        </form>
+                        <br>
+                        <div class="col-12" style="float: right;">
+                            <button class="btn vd_btn vd_black" href="javascript:void(0);" onclick="PostRequest();">
+                                <span class="menu-icon"><i class="fa fa-fw fa-file"></i></span>Generate Bills Print
+                            </button>
+                            <button class="btn vd_btn vd_black" href="javascript:void(0);" onclick="PostRequestInSAP();">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check"></i></span>SAP Posting
+                            </button>
+                            <button class="btn vd_btn vd_black" href="javascript:void(0);">
+                                <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<div class="modal" id="ServicesChargesHeadsModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Service Charges Heads. </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="ServicesChargesHeads" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                            <th class="text-white" style="text-align: center;">Description</th>
+                                            <th class="text-white" style="text-align: center;">Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ServicesChargesHeadstbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="PrintRangeModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Bill Range For Print You Can only Select 100 Records At Once.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="BillPrintButtons" class="table table-bordered table-hover mb-0">
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="hide">
+    <div id="printdiv">
+    </div>
+</div>
+@section Scripts {
+    <script src="~/js/QrCode.js"></script>
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            $('#MBillGenerate').dataTable();
+
+            //var today = new Date();
+            //var currentMonth = today.toISOString().slice(0, 7);
+            //$('input[type="month"]').attr('min', currentMonth);
+        });
+
+        const textarea = document.getElementById("Remarks");
+        const charCount = document.getElementById("charCount");
+
+        textarea.addEventListener("input", function () {
+            const remaining = 200 - this.value.length;
+            charCount.textContent = `${remaining} characters remaining`;
+        });
+
+        function OpenPrintRangeModal() {
+            $("#PrintRangeModal").modal("show");
+        }
+
+        $("#BillFor").change(function () {
+            let readingFor = $(this).val();
+            let month = $("#FortheMonth").val();
+
+            if (month && readingFor) { // Check if both month and readingFor are truthy
+                if (readingFor == "Fixed Dues" || readingFor == "Constructed" || readingFor == "Non-Constructed") {
+                    GetFixedDues(readingFor, month);
+                }
+                else if (readingFor == "All") {
+                    GetAllDues(readingFor, month);
+                }
+                else {
+                    GetAllBillDetial(readingFor, month);
+                }
+            }
+        });
+
+        $("#FortheMonth").change(function () {
+            var month = $(this).val();
+            var readingFor = $("#BillFor").val();
+            GetHeadsdata(month);
+
+            if (month && readingFor) { // Check if both month and readingFor are truthy
+                if (readingFor == "Fixed Dues" || readingFor == "Constructed" || readingFor == "Non-Constructed") {
+                    GetFixedDues(readingFor, month);
+                }
+                else if (readingFor == "All") {
+                    GetAllDues(readingFor, month);
+                }
+                else {
+                    GetAllBillDetial(readingFor, month);
+                }
+            }
+        });
+
+
+        function GetAllDues(readingFor, month) {
+
+
+            var url = "/api/SP/GetCombineBillFromMonthlyBillGeneration?readingFor=" + readingFor + "&month=" + month;
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+
+                        var datatabl = $('#MBillGenerate').DataTable();
+                        datatabl.destroy();
+
+                        $("#MBGeneratetbody").empty();
+
+                        var relist = response.data;
+
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+
+                            for (let list of relist) {
+
+                                let arrears = Number(list.arrears ?? 0);
+                                let netAmount = Number(list.netAmount);
+                                let totalAmount = netAmount + arrears;
+
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td> <input disabled class="form-control registrationNo" value="' + list.registrationNo + '" /></td>' +
+                                    '<td> <input disabled class="form-control propertyNo" value="' + list.propertyNo + '" /></td>' +
+                                    '<td> <input disabled name="netAmount" class="form-control netAmount" value="' + list.netAmount + '" /></td>' +
+                                    '<td> <input disabled name="arrears" class="form-control arrears" value="' + arrears + '" /></td>' +
+                                    '<td> <input disabled name="totalAmount" class="form-control totalAmount" value="' + (list.netAmount + arrears) + '" /></td>' +
+                                    '<td> <input disabled name="meterNo" class="form-control meterNo" value="' + (list.meterNo || '') + '" /></td>' +
+                                    '<td><a class="btn btn-primary btn-sm" onclick="PrintSingleBill(\'' + list.registrationNo + '\', \'' + list.propertyNo + '\', \'' + list.meterNo + '\', ' + list.netAmount + ')">Print</a></td>'
+
+                                    '</tr>';
+
+                                $("#MBGeneratetbody").append(row);
+
+                                sr++;
+                            }
+
+                        }
+                        $('#MBillGenerate').dataTable();
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        function GetFixedDues(readingFor, month) {
+
+
+            var url = "/api/SP/GetDetailsFixedDuesFromMonthlyBillGeneration?readingFor=" + readingFor + "&month=" + month;
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+
+                        var datatabl = $('#MBillGenerate').DataTable();
+                        datatabl.destroy();
+
+                        $("#MBGeneratetbody").empty();
+
+                        var relist = response.data;
+
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+
+                            for (let list of relist) {
+
+                                let arrears = Number(list.arrears ?? 0);
+                                let netAmount = Number(list.netAmount);
+                                let totalAmount = netAmount + arrears;
+
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td> <input disabled class="form-control registrationNo" value="' + list.registrationNo + '" /></td>' +
+                                    '<td> <input disabled class="form-control propertyNo" value="' + list.propertyNo + '" /></td>' +
+                                    '<td> <input disabled name="netAmount" class="form-control netAmount" value="' + list.netAmount + '" /></td>' +
+                                    '<td> <input disabled name="arrears" class="form-control arrears" value="' + arrears + '" /></td>' +
+                                    '<td> <input disabled name="totalAmount" class="form-control totalAmount" value="' + (list.netAmount + arrears) + '" /></td>' +
+                                    '<td> <input disabled name="meterNo" class="form-control meterNo" value="' + (list.meterNo || '') + '" /></td>' +
+                                    '<td><a class="btn btn-primary btn-sm" onclick="PrintSingleBill(\'' + list.registrationNo + '\', \'' + list.propertyNo + '\', \'' + list.meterNo + '\', ' + list.netAmount + ')">Print</a></td>'
+                                '</tr>';
+
+                                $("#MBGeneratetbody").append(row);
+
+                                sr++;
+                            }
+                        }
+                        $('#MBillGenerate').dataTable();
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        function GetAllBillDetial(readingFor, month) {
+
+            var url = "/api/SP/GetDetailsFromMonthlyBillGeneration?readingFor=" + readingFor + "&month=" + month;
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+
+                        var datatabl = $('#MBillGenerate').DataTable();
+                        datatabl.destroy();
+
+                        $("#MBGeneratetbody").empty();
+
+                        var model = response.data;
+
+                        var relist = model;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+
+                            for (let list of relist) {
+
+                                let arrears = Number(list.arrears ?? 0);
+                                let netAmount = Number(list.netAmount);
+                                let totalAmount = netAmount + arrears;
+
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td> <input disabled class="form-control registrationNo" value="' + list.registrationNo + '" /></td>' +
+                                    '<td> <input disabled class="form-control propertyNo" value="' + list.propertyNo + '" /></td>' +
+                                    '<td> <input disabled name="netAmount" class="form-control netAmount" value="' + list.netAmount + '" /></td>' +
+                                    '<td> <input disabled name="arrears" class="form-control arrears" value="' + arrears + '" /></td>' +
+                                    '<td> <input disabled name="totalAmount" class="form-control totalAmount" value="' + (list.netAmount + arrears) + '" /></td>' +
+                                    '<td> <input disabled name="meterNo" class="form-control meterNo" value="' + (list.meterNo || '') + '" /></td>' +
+                                    '<td><a class="btn btn-primary btn-sm" onclick="PrintSingleBill(\'' + list.registrationNo + '\', \'' + list.propertyNo + '\', \'' + list.meterNo + '\', ' + list.netAmount + ')">Print</a></td>'
+                                '</tr>';
+
+                                $("#MBGeneratetbody").append(row);
+
+                                sr++;
+                            }
+                        }
+                        $('#MBillGenerate').dataTable();
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        function GetHeadsdata(month) {
+
+            var url = "/api/FixedChargeGeneration/GetHeads?month=" + month;
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+
+                        $("#ServicesChargesHeadstbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            var totalAmount = 0;
+                            for (let list of relist) {
+                                totalAmount += list.totalAmount;
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.description + '</td>' +
+                                    ' <td style="text-align:right;padding-right:3px;" >' + formatPKR(list.totalAmount) + '</td>' +
+                                    '</tr>';
+                                $("#ServicesChargesHeadstbody").append(row);
+                                sr++;
+                            }
+                            var totalRow = '<tr>' +
+                                '<td colspan="2" style="text-align: center; font-weight: bold;">Total</td>' +
+                                '<td style="font-weight: bold; text-align:right;padding-right:3px;">' + formatPKR(totalAmount) + '</td>' +
+                                '</tr>';
+                            $("#ServicesChargesHeadstbody").append(totalRow);
+
+                        }
+                        $('#ServicesChargesHeads').dataTable();
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        var dataforprint = new Array();
+
+        function PostRequest() {
+
+            var methodType = 'POST';
+            var url = "/api/Filter/PrintBill";
+
+            var bill = new Object();
+
+            var billDetailArr = new Array();
+
+            bill.DocDate = $('#DocDate').val();
+            bill.BillMonth = $('#FortheMonth').val();
+            bill.BillFor = $('#BillFor').val();
+            bill.DueDate = $('#DueDate').val();
+            bill.Remarks = $('#Remarks').val();
+
+            var table = $('#MBillGenerate').DataTable();
+            table.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                var data = this.data();
+                var billDetail = new Object();
+
+                billDetail.RegistrationNo = $(data[1]).val();
+                billDetail.PropertyNo = $(data[2]).val();
+                billDetail.Amount = $(data[3]).val();
+                billDetail.MeterNo = $(data[6]).val();
+                billDetailArr.push(billDetail);
+            });
+
+            bill.BillList = billDetailArr;
+
+            var model = JSON.stringify(bill);
+
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: model,
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        dataforprint = response.data;
+                        var responselength = response.data.length;
+                        var totalbuttons = responselength / 100;
+                        var val = 1;
+                        $("#BillPrintButtons").empty();
+                        for (var i = 1; i < totalbuttons; i++) {
+                            val = i * 100;
+                            $("#BillPrintButtons").append("<tr><td><a class='btn btn-success btn-block' onclick='PrintBill(" + (parseInt(val) - 99) + "," + val + ")'> Print " + (parseInt(val) - 99) + " To " + val + "<a></td></tr>");
+                        }
+                        if (totalbuttons % 100 > 0) {
+                            $("#BillPrintButtons").append("<tr><td><a class='btn btn-success btn-block' onclick='PrintBill(" + (parseInt(val) + 1) + "," + responselength + ")'> Print " + (parseInt(val) + 1) + " To " + responselength + "<a></td></tr>");
+
+                        }
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        OpenPrintRangeModal();
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+
+        }
+
+        function PrintSingleBill(regNo, PropertyNo, meterNo, amount) {
+
+            var methodType = 'POST';
+            var url = "/api/Filter/PrintBill";
+
+            var bill = new Object();
+
+            var billDetailArr = new Array();
+
+            bill.DocDate = $('#DocDate').val();
+            bill.BillMonth = $('#FortheMonth').val();
+            bill.BillFor = $('#BillFor').val();
+            bill.DueDate = $('#DueDate').val();
+            bill.Remarks = $('#Remarks').val();
+
+            var billDetail = new Object();
+
+            billDetail.RegistrationNo = regNo;
+            billDetail.PropertyNo = PropertyNo;
+            billDetail.MeterNo = meterNo;
+            billDetail.Amount = amount;
+
+            billDetailArr.push(billDetail);
+
+
+
+            bill.BillList = billDetailArr;
+
+            var model = JSON.stringify(bill);
+
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: model,
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        dataforprint = response.data;
+                        var responselength = response.data.length;
+                        PrintBill(0, 1)
+                        NProgress.done();
+                        $('#loader').fadeOut();
+
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+
+        }
+        function PostRequestInSAP() {
+
+            var methodType = 'POST';
+            var url = "/api/SapIntegration/BillPostingInSAP";
+
+            var bill = new Object();
+
+            var billDetailArr = new Array();
+
+            bill.BillMonth = $('#FortheMonth').val();
+            bill.BillFor = $('#BillFor').val();
+            bill.DueDate = $('#DueDate').val();
+            bill.DocDate = $('#DocDate').val();
+
+            var table = $('#MBillGenerate').DataTable();
+            table.rows().every(function (rowIdx, tableLoop, rowLoop) {
+                var data = this.data();
+                var billDetail = new Object();
+
+                billDetail.RegistrationNo = $(data[1]).val();
+                billDetail.PropertyNo = $(data[2]).val();
+                billDetail.Amount = $(data[3]).val();
+                billDetail.MeterNo = $(data[6]).val();
+                billDetailArr.push(billDetail);
+            });
+
+            bill.BillList = billDetailArr;
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            var model = JSON.stringify(bill);
+
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: model,
+                success: function (response) {
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+        function PrintBill(min, max) {
+            $("#printdiv").empty();
+            var readingFor = $("#BillFor").val();
+            var docDate = $("#DocDate").val();
+
+            const style = `
+                <style>
+                    @@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+
+
+                    @@page {
+        size: A4;
+        margin-top: 0 !important;
+        margin-left: 0;
+        margin-right: 0;
+        margin-bottom: 0;
+                            }
+
+                    body {
+                        font-family: 'Poppins', sans-serif;
+                    }
+
+                    #printdiv > div {
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 11px;
+                        max-width: 7.5in;
+                        margin: auto;
+                        padding: 0px !important;
+                        page-break-after: always;
+                    }
+
+                    table {
+                        width: 100%;
+                        border-collapse: collapse;
+                        font-size: 13px;
+                    }
+
+                    table, th, td {
+                        border: 1px solid black;
+                    }
+
+                    th, td {
+                        padding: 2px 4px;
+                        text-align: left;
+                        vertical-align: top;
+                    }
+
+                    pre {
+                        margin: 0;
+                        white-space: pre-wrap;
+                        font-family: 'Poppins', sans-serif;
+                        font-size: 13px;
+                    }
+
+                    h1 {
+                        font-size: 20px;
+                        font-weight: bold;
+                        margin: 0;
+                    }
+
+                    h4 {
+                        font-size: 13px;
+                        margin: 0px 0;
+                    }
+
+                    .flex-container {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: flex-start;
+                        gap: 0px !important;
+                    }
+
+                    .flex-item-58 {
+                        width: 58%;
+                    }
+
+                    .flex-item-38 {
+                        width: 38%;
+                    }
+
+                    .warning-text {
+                        font-weight: bold;
+                        color: red;
+                        font-size: 16px;
+                        line-height: 1;
+                        margin-top: 0px;
+                    }
+
+                    img {
+                        max-width: 100%;
+                        height: auto;
+                    }
+
+                    @@media print {
+                        html, body {
+                            zoom: 100%;
+                        }
+                    }
+                </style>
+            `;
+
+            $("#printdiv").append(style);
+
+            for (let i = 0; i < dataforprint.length; i++) {
+                if (i < (min - 1) || i > (max - 1)) continue;
+                const item = dataforprint[i];
+
+                const isElectricity = readingFor === 'Electricity';
+                const qrcodeId = isElectricity ? `qrcode2_${i}` : `qrcode1_${i}`;
+
+                const charges = isElectricity
+                    ? item.meterBillGenerationDetail || []
+                    : item.fixedChargeBillDetail || [];
+
+                const chargesRows = charges
+                    .filter(c => Number(c.amount) > 0)
+                    .map(c => `
+                                <tr>
+                                    <td>${isElectricity ? "Electricity" : (c.description || "")}</td>
+                                            <td class="amount" style="text-align: right !important;">${formatPKR(c.amount)}</td>
+                                </tr>
+                            `).join("");
+
+
+                const payableBefore = Math.floor(item.billBeforeDueDate  + (item.meterBillGenerationDetail?.[0]?.fuelAdjustment || 0));
+                const payableAfter = Math.floor(item.billAfterDueDate  + (item.meterBillGenerationDetail?.[0]?.fuelAdjustment || 0));
+
+                const html = `
+                    <div>
+                        <div class="flex-container" style="align-items: center; margin-bottom: 0px;">
+                            <!-- Left: Logo -->
+                            <div style="width: 100px; height: 100px; text-align: left;">
+                                        <img src="/img/n-stack-logo.png" alt="Logo" style="width: 100px !importan t; height: 100px !important; object-fit: contain;">
+                            </div>
+
+                <div style="flex: 1; text-align: center;text-decoration: underline; line-height: 1; font-size: 20px; font-weight: bold;">
+            N-STACK<br>
+            MAINTENANCE CHARGES BILL
+        </div>
+
+
+                            <!-- Right: QR Code with Border -->
+                                    <!-- QR Code (commented out)
+                             <div style="text-align: right;">
+                                 <div style="
+                                     border: 2px solid #007BFF;
+                                     border-radius: 8px;
+                                     padding: 4px;
+                                     width: 140px;
+                                     height: 140px;
+                                     display: flex;
+                                     align-items: center;
+                                     justify-content: center;
+                                     box-sizing: border-box;
+                                 ">
+                                     <div id="${qrcodeId}" style="width: 130px; height: 130px;"></div>
+                                 </div>
+                             </div>
+                             -->
+
+                        </div>
+
+                                <div class="flex-container" style="margin-top: 0px; line-height: 1 !important;">
+                            <div class="flex-item-38">
+                                <div style="border: 1px solid black; padding: 4px;">
+                                    <p><b>Consumer No. : </b> ${item.consumerNo}</p>
+                                    <p><b>Registration No. : </b> ${item.registrationNo}</p>
+                                    <p><b>Property No. : </b> ${item.propertyNo}</p>
+                                    <p><b>Name : </b>${item.memberName}</p>
+                                    <p><b>Address : </b>${item.address}</p>
+                                </div>
+                                        ${isElectricity ? `
+            <div style="margin-top: 0px;">
+                <img src="${item.meterPicture}"
+                     style="max-height: 250px; object-fit: contain;"
+                     alt="Bill Image">
+            </div>
+        ` : `
+            <div style="margin-top: 1px;">
+                <h6 style="margin-bottom: 0px;">Payment History</h6>
+
+                ${item.previousBillDetailDTO && item.previousBillDetailDTO.length > 0
+                        ? `
+                                <table style="width:100%; border-collapse: collapse; font-size: 13px; line-height: 1 !important;">
+                            <thead>
+                                <tr>
+                                    <th style="border:1px solid #ccc; padding:6px;">Month</th>
+                                    <th style="border:1px solid #ccc; padding:6px;">Amount</th>
+                                    <th style="border:1px solid #ccc; padding:6px;">Pending</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                ${item.previousBillDetailDTO.map(bill => `
+                                    <tr>
+                                         <td style="border:1px solid #ccc; padding:6px;text-align:center !important;">
+                                            <b>${bill.month}</b>
+                                        </td>
+                                        <td style="border:1px solid #ccc; padding:6px; text-align:right !important;">
+                                                    <b>${formatPKR(bill.totalAmount) ?? 0}</b>
+                                        </td>
+                                                <td style="border:1px solid #ccc; padding:6px; text-align:right !important;">
+                                                                    <b>${formatPKR(bill.pendingAmount) ?? 0}</b>
+                                                </td>
+                                           </td>
+                                                       
+                                    </tr>
+                                `).join("")}
+                            </tbody>
+                        </table>
+                    `
+                        : `<p style="font-size: 13px; color: #777;">No previous bill records found.</p>`
+                    }
+            </div>
+        `}
+
+                            </div>
+
+                            <div class="flex-item-58">
+
+                                          <div style="display: flex; width: 100%; line-height: 1 !important; margin-bottom: 0;">
+
+                    <!-- Right 60% -->
+                    <div style="width: 60%; border: 1px solid black; padding: 4px; border-left: none;">
+                        <p><b>Account No :</b> 2206-0104603050</p>
+                        <p><b>Bank :</b> Meezan Bank, Villa Community, DHAB</p>
+                        <p><b>See Instructions on Back Side</b></p>
+                    </div>
+            <!-- Left 40% -->
+            <div style="width: 40%; border: 1px solid black; padding: 4px;">
+                <p><b>Invoice Date :</b> ${convertDate(docDate)}</p>
+                <p><b>Invoice Month :</b> ${item.billMonth}</p>
+                <p><b>Due Date :</b> ${convertDate(item.dueDate)}</p>
+
+                ${isElectricity ? `
+                    <p><b>Meter No :</b> ${item.meterBillGenerationDetail?.[0]?.meterNo || ''}</p>
+                    <p><b>Reading Date :</b> ${convertDate(item.readingDate)}</p>
+                ` : ''}
+            </div>
+        </div>
+
+
+                                        <h4 style="text-align: center; text-decoration: underline;">${isElectricity ? 'Electricity Charges' : 'Maintenance Charges Bill'}</h4>
+                                <table>
+                                              <thead>
+                                                                <tr><th style="width:85% !important">Charges Type</th><th style="width:15% !important; text-align: right !important;">Amount</th></tr>
+                                            </thead>  
+                                    <tbody>
+                                                       ${chargesRows}
+                                                <tr>
+                                            <td><b>Current Bill</b></td>
+                                                                    <td style="text-align: right !important;"><b>${formatPKR(item.currentBill)}</b></td>
+                                        </tr>
+                                        ${isElectricity ? `
+                                            <tr>
+                                                        <td style="text-align: right !important;"><b>Fuel Adjustment (${item.fuelAdjustmentMonth})</b></td>
+                                                        <td style="text-align: right !important;"><b>${Math.floor(item.meterBillGenerationDetail?.[0]?.fuelAdjustment || 0)}</b></td>
+                                            </tr>
+                                        ` : ''}
+                                        <tr>
+                                            <td><b>Arrears</b></td>
+                                                            <td style="text-align: right !important;"><b>${formatPKR(item.arrears)}</b></td>
+                                        </tr>
+                                                <tr>
+                                                    <td><b>Advance</b></td>
+                                                                            <td style="text-align: right !important;"><b>${formatPKR(item.advance)}</b></td>
+                                                </tr>
+                                        <tr>
+                                            <td><b>Payable Before Due Date</b></td>
+                                                            <td style="text-align: right !important;"><b>${formatPKR(payableBefore)}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Payable After Due Date</b></td>
+                                                            <td style="text-align: right !important;"><b>${formatPKR(payableAfter)}</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td><b>Balance</b></td>
+                                                            <td style="text-align: right !important;"><b>${formatPKR(item.maintenceAdvanceBillPaid)}</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                                ${isElectricity ? `
+            <div class="warning-text">
+                Consider this Bill as Last Warning. Failing which your Supply may be Disconnected.As this Bill has not been paid since last 2 Month(s).
+            </div>
+        ` : item?.remarks ? `
+            <div class="warning-text">
+                ${item.remarks}
+            </div>
+        ` : ''}
+
+
+                        <img src="/img/all-logo.png" style="width: 100%; margin-top: 0px;" alt="brand image">
+                        <p style="border: none; margin-top: 0px; padding: 0;">${'-'.repeat(110)}</p>
+
+                        ${["Accounts Copy", "Office Copy","Bank Copy"].map((copy, index, arr) => `
+                            <div>
+                                        <p><b>${isElectricity ? 'Electricity Charges' : 'Maintenance Charges Bill'}</b> ${copy}</p>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th><b>Reg. No.</b></th>
+                                            <th><b>Property No.</b></th>
+                                            <th style="width: 130px;"><b>Member</b></th>
+                                            <th><b>Size</b></th>
+                                            <th><b>Bill Month</b></th>
+                                            <th style="width: 100px;"><b>Due Date</b></th>
+                                            <th><b>Before Due Date</b></th>
+                                            <th><b>After Due Date</b></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td><b>${item.registrationNo}</b></td>
+                                            <td><b>${item.propertyNo}</b></td>
+                                            <td><b>${item.memberName}</b></td>
+                                            <td><b>${item.size || ""}</b></td>
+                                            <td><b>${item.billMonth}</b></td>
+                                            <td><b>${convertDate(item.dueDate)}</b></td>
+                                                            <td style="text-align: right !important;"><b>${formatPKR(payableBefore)}</b></td>
+                                                            <td style="text-align: right !important;"><b>${formatPKR(payableAfter)}</b></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            ${index < arr.length - 1 ? `<p style="border: none; margin: 0px 0;">${'-'.repeat(110)}</p>` : ''}
+                        `).join('')}
+
+                        <div style="text-align: right; margin-top: 0px;">
+                            <img src="/img/sap.png" alt="Footer Logo" style="width: 80px; height: 26px;">
+                        </div>
+                    </div>
+                `;
+
+                $("#printdiv").append(html);
+
+                // Generate QR code
+                // new QRCode(document.getElementById(qrcodeId), {
+                //     text: item.qrString,
+                //     width: 130,
+                //     height: 130
+                // });
+            }
+
+            printInvoice();
+        }
+
+        function formatPKR(value, withSymbol = false) {
+            if (value === null || value === undefined || value === '') return withSymbol ? 'Rs. 0' : '0';
+
+            const number = Number(value) || 0;
+
+            const formatted = number.toLocaleString('en-PK', {
+                maximumFractionDigits: 0
+            });
+
+            return withSymbol ? `Rs. ${formatted}` : formatted;
+        }
+
+
+
+        function printInvoice() {
+            var printContents = document.getElementById('printdiv').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('printdiv');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+        s
+        function convertDate(date) {
+            if (typeof date === "string")
+                date = new Date(date);
+
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
+                "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+            const day = date.getDate() <= 9 ? "0" + date.getDate() : date.getDate();
+            const month = months[date.getMonth()];
+            const year = date.getFullYear();
+
+            return day + "-" + month + "-" + year;
+        }
+
+
+        $.fn.dataTable.ext.search.push(
+            function (settings, data, dataIndex, rowData, counter) {
+                var inputRegNo = $("#regNo").val().trim().toLowerCase();
+                var row = $('#MBillGenerate').DataTable().row(dataIndex).node();
+                var regNoValue = $(row).find("input.propertyNo").val()?.trim().toLowerCase();
+
+                if (!inputRegNo || regNoValue === inputRegNo) {
+                    return true;
+                }
+                return false;
+            }
+        );
+
+        $("#searchRegBtn").on("click", function () {
+            $('#MBillGenerate').DataTable().draw();
+        });
+
+        $("#regNo").on("input", function () {
+            if ($(this).val().trim() === "") {
+                $('#MBillGenerate').DataTable().draw();
+            }
+        });
+
+        $('#MBillGenerate').DataTable({
+            destroy: true,
+            paging: true
+        });
+
+
+
+
+    </script>
+}

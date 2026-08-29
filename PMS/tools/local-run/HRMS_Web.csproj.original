@@ -1,0 +1,131 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <!--
+    SAP Business One integration switch.
+
+    The SAP DI API is a COM component. Referencing it requires the SAP client to be
+    installed and its type libraries registered, and it can only be resolved by the
+    .NET Framework MSBuild - `dotnet build` fails with MSB4803 before it even starts.
+    That is why this project historically built on exactly one machine.
+
+    Default is OFF, so the app builds and runs anywhere. Turn it on with:
+        msbuild HRMS_Web.csproj /p:SapIntegration=true
+    on a machine that has the SAP client installed.
+
+    Nothing is deleted by turning it off - the SAP source files stay on disk, they are
+    just excluded from compilation, and the SAP call sites in FilterController are
+    guarded by #if SAP_INTEGRATION.
+
+    Temporary. Task #35 replaces this with one interface plus a fake, so the switch
+    disappears and the code always compiles.
+  -->
+  <PropertyGroup>
+    <SapIntegration Condition="'$(SapIntegration)' == ''">false</SapIntegration>
+    <DefineConstants Condition="'$(SapIntegration)' == 'true'">$(DefineConstants);SAP_INTEGRATION</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(SapIntegration)' != 'true'">
+    <Compile Remove="Extensions\SAPConnection.cs" />
+    <Compile Remove="Extensions\SAPBillingDb.cs" />
+    <Compile Remove="Extensions\SAPOperationDb.cs" />
+    <Compile Remove="Controllers\api\SapIntegrationController.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SapIntegration)' == 'true'">
+    <Compile Remove="Extensions\SapIntegrationStub.cs" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(SapIntegration)' == 'true'">
+    <COMReference Include="SAPbobsCOM">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>10</VersionMajor>
+      <Guid>fc8030be-f5d2-4b8e-8f92-44228fe30100</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="SAPbouiCOM">
+      <WrapperTool>tlbimp</WrapperTool>
+      <VersionMinor>0</VersionMinor>
+      <VersionMajor>10</VersionMajor>
+      <Guid>6048236a-956d-498d-a6f1-9c81c13ab6e8</Guid>
+      <Lcid>0</Lcid>
+      <Isolated>false</Isolated>
+      <EmbedInteropTypes>true</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\img\Loader\" />
+    <Folder Include="wwwroot\plugins\jquery-file-upload\server\php\files\thumbnail\htaccess-temporary\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="CloudinaryDotNet" Version="1.20.0" />
+    <PackageReference Include="CsvHelper" Version="33.0.1" />
+    <PackageReference Include="FirebaseAdmin" Version="3.2.0" />
+    <PackageReference Include="iTextSharp" Version="5.5.13.3" />
+    <PackageReference Include="Microsoft.AspNet.WebApi.Core" Version="5.2.9" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.JsonPatch" Version="6.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.2.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.10" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.10">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="SourceAFIS" Version="3.14.0" />
+    <PackageReference Include="Swagger" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\B_DB_Context\B_DB_Context.csproj" />
+    <ProjectReference Include="..\B_DB_Model\B_DB_Model.csproj" />
+    <ProjectReference Include="..\B_Utility\B_Utility.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="Views\PartialPage\searchBuyerMemberModal.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\PartialPage\_CommonTransfer.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\PartialPage\_intimationPaymentGenralSalesLetter.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\PartialPage\_intimationLetter6Mto10M.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\PartialPage\_OnlineOnBehalfTransfer.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\PartialPage\_legalHeirtransferLetterthroughNadra.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\PartialPage\_transferLetterWithPlotNo.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="Views\PartialPage\_allocationCertificate.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+</Project>

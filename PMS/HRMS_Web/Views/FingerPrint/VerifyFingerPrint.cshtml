@@ -1,0 +1,498 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+
+    <link rel="stylesheet" href="~/digital persona/css/bootstrap-min.css">
+    <link rel="stylesheet" href="~/digital persona/app.css" type="text/css" />
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <style>
+        .table-responsive {
+            overflow: auto;
+        }
+
+        .modal-body {
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="vd_content-wrapper">
+        <div class="vd_container">
+            <div class="vd_content clearfix">
+                <div class="vd_head-section clearfix">
+                    <div class="vd_panel-header">
+                        <ul class="breadcrumb">
+                            <li><a href="/Home/index">Home</a> </li>
+                            <li class="active">Fingerprint</li>
+                            <li style="float:right">
+                                <button onclick="goBack()">Go Back</button>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <!-- vd_head-section -->
+                <!-- vd_title-section -->
+            </div>
+            <div id="Container">
+                <nav class="navbar navbar-inverse">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <div class="navbar-brand" href="#" style="color: white;"></div>
+                        </div>
+                        <ul class="nav navbar-nav">
+                            <li id="Reader" class="active">
+                                <a href="#" style="color: white;" onclick="toggle_visibility(['content-reader','content-capture']);setActive('Reader','Capture')">
+                                    Reader
+                                </a>
+                            </li>
+                        </ul>
+
+                        <ul class="nav navbar-nav">
+                            <li id="Capture" class="">
+                                <a href="#" style="color: white;" onclick="toggle_visibility(['content-capture','content-reader']);setActive('Capture','Reader')">
+                                    Capture
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <div id="content-capture" style="display : none;">
+
+                    <div class="container" style="margin-bottom:10px;">
+                        <div class="row d-flex justify-content-center no-gutters">
+                            <div class="col-sm-1" style="margin-top:25px">
+                                <button data-toggle="modal" data-target="#registrationModal" type="button" id="searchbtn" class="btn proprty_btn"
+                                        onmouseover="this.style.background = '#005A7F'; this.style.color = 'white'" onmouseout="this.style.background='#eee';this.style.color = 'black'">
+                                    Search
+                                </button>
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label>Member Name <small style="color:red">*</small></label>
+                                <div>
+                                    <input type="text" disabled class="form-control" placeholder="" id="MemberName" name="MemberName">
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Verification Type <small style="color:red">*</small></label>
+                                <div>
+                                    <select class="form-control" name="VType" id="VType">
+                                        <option value=""> -- Select Verification Type --</option>
+
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3 hide">
+                                <label>Member No.</label>
+                                <div class="search_btn">
+                                    <div class="input_div">
+                                        <input type="number" class="form-control  " disabled
+                                               placeholder="" id="memberProfileId" />
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div id="detail">
+                    </div>
+                    <div id="Scores" style="margin-bottom:10px;">
+                        <h5>Scan Quality : <input type="text" id="qualityInputBox" size="20" style="background-color:#DCDCDC;text-align:center;"></h5>
+
+                    </div>
+
+                    <div id="status"></div>
+                    <div id="imagediv"></div>
+                    <div id="contentButtons">
+                        <table width=70% align="center">
+                            <tr>
+                                <td>
+                                    <input type="button" class="btn btn-primary" id="clearButton" value="Clear" onclick="Javascript:onClear()">
+                                </td>
+                                @*   <td data-toggle="tooltip" title="Will work with the .png format.">
+                                <input type="button" class="btn btn-primary" id="save" value="Save">
+                                </td> *@
+                                <td>
+                                    <input type="button" class="btn btn-primary" id="start" value="Start" onclick="Javascript:onStart()">
+                                </td>
+                                @*   <td>
+                                <input type="button" class="btn btn-primary" id="stop" value="Stop" onclick="Javascript:onStop()">
+                                </td> *@
+                                @*  <td>
+                                <input type="button" class="btn btn-primary" id="info" value="Info" onclick="Javascript:onGetInfo()">
+                                </td> *@
+                                @* <td>
+                                <input type="button" class="btn btn-primary" id="Submit" value="Submit" onclick="Javascript:SaveFingers()">
+                                </td> *@
+                        </table>
+                    </div>
+
+                    <div id="imageGallery">
+                    </div>
+                    <div id="deviceInfo">
+                    </div>
+
+                    <div id="saveAndFormats" class="hide">
+
+                        <form name="myForm" style="border : solid grey;padding:5px;">
+                            <b>Acquire Formats :</b><br>
+                            <table>
+                                <tr data-toggle="tooltip" title="Will save data to a .raw file.">
+                                    <td>
+                                        <input type="checkbox" name="Raw" value="1" onclick="checkOnly(this)"> RAW  <br>
+                                    </td>
+                                </tr>
+                                <tr data-toggle="tooltip" title="Will save data to a Intermediate file">
+                                    <td>
+                                        <input type="checkbox" name="Intermediate" value="2" onclick="checkOnly(this)"> Feature Set<br>
+                                    </td>
+                                </tr>
+                                <tr data-toggle="tooltip" title="Will save data to a .wsq file.">
+                                    <td>
+                                        <input type="checkbox" name="Compressed" value="3" onclick="checkOnly(this)"> WSQ<br>
+                                    </td>
+                                </tr>
+                                <tr data-toggle="tooltip" title="Will save data to a .png file.">
+                                    <td>
+                                        <input type="checkbox" name="PngImage" checked="true" value="4" onclick="checkOnly(this)"> PNG
+                                    </td>
+                                </tr>
+                            </table>
+                        </form>
+                        <br>
+                        @*  <input type="button" class="btn btn-primary" id="saveImagePng" value="Export" onclick="Javascript:onImageDownload()"> *@
+                    </div>
+
+
+                    <div id="SelectFinger">
+
+                        <form style="border : solid grey;padding:5px;">
+                            <b>Select Finger :</b><br>
+                            <table>
+
+                                <tr data-toggle="tooltip" title="Select Left Small Finger">
+                                    <td>
+                                        <input type="radio" checked name="FingerName" value="1">  Left Small Finger
+                                    </td>
+                                </tr>
+
+                                <tr data-toggle="tooltip" title="SelectLeft Ring Finger">
+                                    <td>
+                                        <input type="radio" name="FingerName" value="2"> Left Ring Finger
+                                    </td>
+                                </tr>
+
+                                <tr data-toggle="tooltip" title="Select Left Middle Finger">
+                                    <td>
+                                        <input type="radio" name="FingerName" value="3"> Left Middle Finger
+                                    </td>
+                                </tr>
+
+                                <tr data-toggle="tooltip" title="Select Left Index Finger">
+                                    <td>
+                                        <input type="radio" name="FingerName" value="4"> Left Index Finger
+                                    </td>
+                                </tr>
+
+                                <tr data-toggle="tooltip" title="Select Left Thumb">
+                                    <td>
+                                        <input type="radio" name="FingerName" value="5">  Left Thumb
+                                    </td>
+                                </tr>
+                                <tr data-toggle="tooltip" title="Select  Right Thumb">
+                                    <td>
+                                        <input type="radio" name="FingerName" value="6"> Right Thumb
+                                    </td>
+                                </tr>
+
+                                <tr data-toggle="tooltip" title="Select Right Index Finger">
+                                    <td>
+                                        <input type="radio" name="FingerName" value="7"> Right Index Finger
+                                    </td>
+                                </tr>
+
+                                <tr data-toggle="tooltip" title="Select Right Middle Finger">
+                                    <td>
+                                        <input type="radio" name="FingerName" value="8"> Right Middle Finger
+                                    </td>
+                                </tr>
+
+                                <tr data-toggle="tooltip" title="Select Right Ring Finger">
+                                    <td>
+                                        <input type="radio" name="FingerName" value="9"> Right Ring Finger
+                                    </td>
+                                </tr>
+
+                                <tr data-toggle="tooltip" title="Select Right Small Finger">
+                                    <td>
+                                        <input type="radio" name="FingerName" value="10"> Right Small Finger
+                                    </td>
+                                </tr>
+                            </table>
+
+
+                        </form>
+                        <br>
+                        @*  <input type="button" class="btn btn-primary" id="saveImagePng" value="Export" onclick="Javascript:onImageDownload()"> *@
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id="content-reader">
+                <h4>Select Reader :</h4>
+                <select class="form-control" id="readersDropDown" onchange="selectChangeEvent()">
+                </select>
+                <div id="readerDivButtons">
+                    <table width=70% align="center">
+                        <tr>
+                            <td>
+                                <input type="button" class="btn btn-primary" id="refreshList" value="Refresh List"
+                                       onclick="Javascript:readersDropDownPopulate(false)">
+                            </td>
+                            <td>
+                                <input type="button" class="btn btn-primary" id="capabilities" value="Capabilities"
+                                       data-toggle="modal" data-target="#myModal" onclick="Javascript:populatePopUpModal()">
+                            </td>
+                        </tr>
+                    </table>
+
+                    <!-- Modal - Pop Up window content-->
+                    <div class="modal fade" id="myModal" role="dialog">
+                        <div class="modal-dialog">
+
+                            <!-- Modal content -->
+                            <div class="modal-content" id="modalContent">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                    <h4 class="modal-title">Reader Information</h4>
+                                </div>
+                                <div class="modal-body" id="ReaderInformationFromDropDown">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+    <!-- .vd_content-section -->
+    <partial name="~/Views/PartialPage/SearchPropertyModal.cshtml" />
+    </div>
+
+    <input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+    <input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+    <script src="~/digital persona/lib/jquery.min.js"></script>
+    <script src="~/digital persona/lib/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="~/digital persona/scripts/es6-shim.js"></script>
+    <script src="~/digital persona/scripts/websdk.client.bundle.min.js"></script>
+    <script src="~/digital persona/scripts/fingerprint.sdk.min.js"></script>
+    <script src="~/digital persona/app2.js"></script>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+        $(document).ready(function () {
+            GetAllPropertyLists();
+            GetAllVerificationType();
+        });
+
+        function GetAllPropertyLists() {
+
+            $('#proplist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllProprtties",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "membershipNo", name: "MembershipNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return `<a class="btn btn-primary" onclick='SelectMember(${JSON.stringify(JSON.stringify(row))})'>Select</a>`;
+                        }
+                    }
+
+                ]
+            });
+
+        }
+
+        function GetAllVerificationType() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/VerificationType/GetAllVerificationTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#VType").empty();
+                        var row = ' <option value="">-- Select Verification Type --</option> ';
+
+                        $("#VType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#VType").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#VType').select2();
+                    }
+                }
+            });
+        }
+        function SelectMember(encodedRow) {
+            const row = JSON.parse(encodedRow); // Decode the string back to an object
+
+            $("#detail").html(`
+            <div class="card p-3 mt-2">
+                <h5 class="mb-3">Property Details</h5>
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <tbody>
+                            <tr>
+                                <th>Property No.</th>
+                                <td>${row.propertyNo}</td>
+                                <th>Registration No.</th>
+                                <td>${row.registrationNo}</td>
+                            </tr>
+                            <tr>
+                                 <th>Block</th>
+                                <td>${row.block}</td>
+                                <th>Category</th>
+                                <td>${row.category}</td>
+                            </tr>
+                            <tr>
+                                <th>Phase</th>
+                                <td>${row.phase}</td>
+                                <th>Property Type</th>
+                                <td colspan="3">${row.propertyType}</td>
+                            </tr>
+                            <tr>
+
+                            </tr>
+                            <tr>
+                                <th>Member Name</th>
+                                <td>${row.memberName}</td>
+                                <th>CNIC</th>
+                                <td>${row.cnic}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        `);
+
+
+
+            // Existing logic (optional)
+            getRegisterFingers(row.memberId);
+            $("#memberProfileId").val(row.memberId);
+            $("#MemberName").val(row.memberName);
+            $("#registrationModal").modal("hide");
+            disableEnableStartStop();
+            if (myVal != "") {
+                $("#status").text("Please Click Start Button");
+            }
+        }
+
+
+        function getRegisterFingers(id) {
+            var url = "/FingerPrint/GetRegisterFingers?id=" + id;
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+
+                    $("input[name='FingerName']").each(function () {
+                        $(this).siblings("span.registered-tick").remove();
+                    });
+
+                    if (response.code === 100) {
+                        var registeredFingers = response.data.map(function (f) {
+                            return f.fingerId;
+                        });
+
+
+                        $("input[name='FingerName']").each(function () {
+                            var fingerValue = parseInt($(this).val());
+                            if (registeredFingers.includes(fingerValue)) {
+                                $(this).parent().append(' <span class="registered-tick" style="color:green;">✔️</span>');
+                            }
+                        });
+                    } else {
+                        alert("Problem Finding Member");
+                    }
+                }
+            });
+        }
+
+
+    </script>
+</body>
+</html>

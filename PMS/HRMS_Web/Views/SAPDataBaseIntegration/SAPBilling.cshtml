@@ -1,0 +1,252 @@
+﻿<style>
+
+    .srchbtn:hover {
+        background: #005A7F;
+        color: white;
+    }
+</style>
+
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Billing</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>BILLING</h1>
+                        </div>
+                    </div>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" action="#" role="form" id="Operations">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Server</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Server" id="Server" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Database Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="DBname" id="DBname" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Database Username</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="DBUsername" id="DBUsername" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Database Password</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="DBPassword" id="DBPassword" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>SAP User</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="SAPUser" id="SAPUser" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>SAP Password</label>
+                                    <div>
+                                        <input type="password" class="form-control"
+                                               placeholder=" " name="SAPPassword" id="SAPPassword" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Database Type</label>
+                                    <select class="js-example-basic-single" name="DatabaseType" id="DatabaseType">
+                                        <option value="-1"> -- Select Option -- </option>
+                                        <option value="HANA"> HANA </option>
+                                        <option value="SQL"> SQL </option>
+                                    </select>
+                                </div>
+                                 <div class="col-sm-6">
+                                    <label>Series</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder=" " name="Series" id="Series" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                        </form>
+                        <div class="col-12" style="float: right;">
+                            <button type="submit" class="btn dha_theme_btn" href="javascript:void(0);" style="margin-right:4px;" onclick="PostRequest()">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+
+<input type="number" id="Id" class="hide" />
+
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+
+            GetOperation();
+        });
+
+        function GetOperation() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/SAPBilling/Get`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var data = response.data;
+
+                        $('#Id').val(data.id);
+                        $('#Server').val(data.server);
+                        $('#DBname').val(data.dbName);
+                        $('#DBUsername').val(data.dbUserName);
+                        $('#DBPassword').val(data.dbPassword);
+                        $('#SAPUser').val(data.sapUser);
+                        $('#SAPPassword').val(data.sapPassword);
+                        $('#DatabaseType').val(data.dbType);
+                        $('#Series').val(data.series);
+
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+
+        debugger;
+        function PostRequest() {
+
+            var methodType = 'POST';
+            var url = "/api/SAPBilling/AddNewSAPBilling";
+
+            var Operation = new Object();
+
+            Operation.Server = $('#Server').val();
+            Operation.DBName = $('#DBname').val();
+            Operation.DBUserName = $('#DBUsername').val();
+            Operation.DBPassword = $('#DBPassword').val();
+            Operation.SAPUser = $('#SAPUser').val();
+            Operation.SAPPassword = $('#SAPPassword').val();
+            Operation.DBType = $('#DatabaseType').val();
+            Operation.Series = $('#Series').val();
+            Operation.ModifiedBy = $("#User_Id").val();
+            Operation.CreatedBy = $("#User_Id").val();
+            Operation.LastModifiedUserName = $("#User_Name").val();
+
+            if ($("#Id").val()) {
+                Operation.Id = parseInt($("#Id").val());
+                methodType = 'POST';
+                url = "/api/SAPBilling/UpdateSAPBilling"
+            }
+
+            var model = JSON.stringify(Operation);
+            debugger;
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: model,
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                }
+            });
+        }
+    </script>
+
+
+    }

@@ -1,0 +1,184 @@
+﻿<style>
+    #lesscountmembersdiv, #messcountmembersdiv {
+        display: none;
+    }
+
+    ol {
+        list-style-type: none;
+        counter-reset: item;
+        padding: 0;
+        margin: 0;
+    }
+
+        ol li {
+            counter-increment: item;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+        }
+
+            ol li::marker {
+                content: counter(item) ".";
+                font-size: 24px;
+               
+                margin-right: 10px;
+            }
+
+            ol li p {
+                font-size: 21px;
+                margin: 0;
+                padding: 0;
+                line-height: 1;
+            }
+
+    table {
+        width: 100%;
+        border-collapse: collapse; /* Ensures table borders are merged */
+    }
+
+    tr {
+        border-bottom: 10px solid transparent; /* Adds space between rows */
+    }
+
+    td {
+        padding: 0px; /* Adds padding inside each cell */
+    }
+</style>
+
+
+<div class="container" style="padding-left:70px;padding-right:75px;margin-top:255px; font-family: 'Times New Roman';">
+    <div class="row">
+        <div class="col-sm-4">
+            @*<img class="img-fluid" src="~/img/urbanLogo.jpg" />*@
+        </div>
+        <div class="col-sm-4 text-center">
+            @* <div class="qrcode-container" style="text-align: center;">
+            <div class="qrcode" style="display:inline-block;margin-left: 30px; margin-bottom:1rem"></div>
+            </div> *@
+        </div>
+        <br />
+        <div class="col-sm-4">
+            <div style="margin-bottom: 0px;font-size: 22px;">
+                <span><b></b></span>
+                <span style="
+                 
+                    margin-left: 10px;
+                    min-width: 160px;
+                    float: right;
+                  ">241/15/Tfr/N-Stack</span>
+            </div>
+            <div style="font-size: 22px;">
+                <span><b></b></span>
+                <span style="
+       
+       margin-left: 10px;
+       min-width: 160px;
+       float: right;
+     " class="pppdate">@DateTime.Now.ToString("dd MMMM, yyyy")</span>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </div>
+
+    @*     <div class="row mt-3 pt-3">
+    <div class="col-sm-12">
+    <p style="font-weight:600; font-size: 24px">
+    UAN: 042-111-109-109
+    </p>
+    <p style="font-weight:400; font-size: 18px; margin-bottom: 0; ">
+    www.urbandevelopersgroup.com
+    </p>
+    </div>
+    </div> *@
+
+    <div class="row">
+        <div class="col-sm-9">
+            <p style="padding-left: 20px;font-size: 21px;  margin-bottom: 10px;">
+                <span class="ptitle"></span>
+            </p>
+            <div class="lesscountmembersdiv">
+                <p style="padding-left: 20px; font-size: 21px;  margin-bottom: 0;">
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <div class="messcountmembersdiv">
+                <p style="padding-left: 20px; font-size: 16px;  margin-bottom: 0;">
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <p class="ppermanentAddress" style="padding-left: 20px;font-size: 21px;  margin-bottom: 0; "></p>
+            <p class="pbuyerPhone" style="padding-left: 20px;font-size: 21px;  margin-bottom: 0; "></p>
+            <p class="pmembershipNo" style="padding-left: 20px;font-size: 21px;  margin-bottom: 0; "></p>
+
+        </div>
+        <div class="col-sm-3">
+            <div class="imgContainerForPrint" style="float: right; margin-right:0px; height: 160px;width:160px">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1 mt-2">
+            <p>
+                <b style="font-size: 22px">Subject:</b>
+            </p>
+        </div>
+        <div class="col-sm-11 mt-2 ms-2">
+            <span style=" margin-left: 10px;
+                    border-bottom: 1px solid black;
+                    font-size: 23px;
+                  font-weight: bold;
+                  ">Transfer Letter - <span class="ptype"></span> <span class="pllot"></span> – <span class="pcategory"></span> (Ref No <span class="pregistrationNo"></span>)</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 mt-2 mb-5" style="text-align:justify;">
+            <ol style="padding-left: 7px;">
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;" class="pStatement">
+                        The Management of N-Stack is pleased to inform that you have <span class="ptext"></span> a <span class="ptype"></span> <span class="pllot"></span> <span class="pcategory"></span> (<span class="psqryard"></span> Square Yards) in <span class="pphase"></span>, <span class="pPropertyNo"></span>, Sector-<span class="psector"></span>, N-Stack from <b><u><span class="pbuyerDetail"></span></u></b>.<span class="swapOverStatement"></span>
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        That transferee / allottee agrees to pay charges as and when demanded by the Authority on account of any additional development / up gradation of services or infrastructure.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        Any tax imposed by Federal / Provincial Government shall be payable by the current owner as and when enforced.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        We assure you of our best cooperation at all times.
+                    </p>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+        </div>
+
+        <div class="col-sm-6">
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryRank"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryDesignation"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;">(<span class="pSignatoryName"></span>)</p>
+        </div>
+    </div>
+
+    <div class="row" style="">
+        <div class="col-sm-9">
+        </div>
+
+        <div class="col-sm-3">
+            <p style="font-size: 14px; text-align: center; position: fixed; bottom: 22px;">
+                <b><span class="InternalNo"></span></b>
+            </p>
+        </div>
+    </div>
+
+</div>

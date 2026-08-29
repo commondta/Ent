@@ -1,0 +1,446 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Verification Type</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/></svg></span>
+                    <h1>VERIFICATION TYPE</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+
+
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="menu" style="float:right; margin-bottom:.5rem;">
+                            <a class="btn btn-primary btn-sm btn-theme" onclick="openmodalAdd()" data-toggle="modal" data-target="#myModal">Add New</a>
+                        </div>
+
+
+
+
+                        <table id="Block" class="table table-bordered table-hover mb-0">
+                            <thead class="bg-theme">
+                                <tr>
+                                    <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                    @*<th class="text-white">Code</th>*@
+                                    <th class="text-white" style="text-align: center;">Verification Type Name</th>
+                                    <th class="text-white" style="text-align: center;">Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="blocktbody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    <!-- .vd_content-section -->
+
+</div>
+<!-- .vd_content -->
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+<!-- /.modal -->
+
+
+
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="modaltitle">Add Verification Type</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <form id="BlockForm" action="#" role="form" class="form-horizontal">
+                <div class="modal-body">
+
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 hide">
+                                <label>Code</label>
+                                <input id="ID" class="form-control" disabled />
+                                @* <input  id="ID" class="form-control hide" />*@
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Verification Type Name <small style="color:red;">*</small></label>
+                                <input id="Description" name="Description" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                </div>
+                <div class="modal-footer background-login">
+                    <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                    <button id="SubmitButton" type="submit" class="btn btn-primary btn-theme">Save</button>
+                </div>
+            </form>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                <a class="close" data-dismiss="modal">&times;</a>
+
+            </div>
+            <div class="modal-body">
+                <p>Are You sure you want to permanently delete the Verification Type?</p>
+                <input class="hide" id="DeleteID" />
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button onclick="DeleteBlock()" type="button" class="btn btn-primary ">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<input type="text" id="userid" value="@Context.Session.GetString("ID")" class="hide" />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+
+
+            $("#BlockForm").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    Description: {
+                        required: true
+                    }
+
+                },
+
+                errorPlacement: function (error, element) {
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    SaveBlock();
+
+                }
+            });
+            GetAllBlocks();
+        });
+
+        function EditBlock(id) {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/VerificationType/GetSingleVerificationType`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 0) {
+                        var result_User = response.data;
+                        $("#ID").val(result_User.id);
+                        $("#Description").val(result_User.description);
+                        $("#SubmitButton").text("Update");
+                        $("#modaltitle").text("Edit Verification Type");
+                        $("#myModal").modal("show");
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+                    }
+                }
+            });
+        }
+
+        function openmodalAdd() {
+            $("#ID").val("");
+            $("#Description").val("");
+            $("#SubmitButton").text("Submit");
+            $("#modaltitle").text("Add Verification Type");
+
+        }
+
+
+        function SaveBlock() {
+            if ($("#Code").val() !== "" && $("#Description").val() !== "") {
+                debugger;
+                var id = $("#ID").val();
+                var newid;
+                if (id == "") {
+                    newid = 0;
+                }
+                else {
+                    newid = parseInt(id);
+                }
+                var block =
+                {
+                    ID: newid,
+                    Description: $("#Description").val(),
+                    Updated_By: $("#userid").val(),
+                    Created_By: $("#userid").val(),
+                };
+                var ModelData = JSON.stringify(block);
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: "POST",
+                    url: `/api/VerificationType/AddVerificationType`,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    processData: false,
+                    dataType: "json",
+                    async: false,
+                    data: ModelData,
+                    success: function (response) {
+
+                        $('#loader').fadeOut();
+                        console.log(response);
+                        if (response.code === 0) {
+
+                            $("#BlockForm").submit(function (e) {
+                                e.preventDefault();
+                            });
+                            $("#myModal").modal("hide");
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+                        else {
+                            $("#BlockForm").submit(function (e) {
+                                e.preventDefault();
+                            });
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                        }
+                    }
+                });
+            }
+            else {
+                debugger;
+
+                $("#BlockForm").submit(function (e) {
+                    e.preventDefault();
+                });
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Enter Valid Data',
+                })
+            }
+        }
+
+
+        function GetAllBlocks() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/VerificationType/GetAllVerificationTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 0) {
+                        var datatabl = $('#Block').DataTable();
+                        datatabl.destroy();
+                        $("#blocktbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.description + '</td>       ' +
+                                    '<td><a class="fa fa-edit fa-2x" style="margin-right:10px" onclick="EditBlock(' + list.id + ')"></a></td>' +
+                                    // <a class="fa fa-trash-o fa-2x text-danger" onclick = "ConfirmBlock(' + list.id + ')" > </a>
+                                    '</tr>';
+                                $("#blocktbody").append(row);
+
+                                sr++;
+                            }
+                        }
+
+                        $('#Block').dataTable();
+                    }
+                }
+            });
+        }
+
+        function ConfirmBlock(id) {
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'success',
+                        title: 'Deleted',
+                        text: 'Your data is deleted.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+
+                    DeleteBlock();
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+
+            $("#DeleteID").val(id);
+        }
+
+        function DeleteBlock() {
+
+            var id = $("#DeleteID").val();
+            debugger;
+            $.ajax({
+                type: "GET",
+                url: `/api/VerificationType/DeleteVerificationType/`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    console.log(response);
+                    if (response.code === 0) {
+
+                        $("#BlockForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+                        GetAllBlocks();
+                    }
+                    else {
+                        $("#BlockForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+                        notification("bottomleft", "Error", "fa fa-exclamation-circle vd_red", "Success", response.message);
+                    }
+                }
+            });
+        }
+
+    </script>
+  }

@@ -1,0 +1,65 @@
+﻿<style>
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 25px;   
+    }
+
+    .footer {
+        text-align: left;
+    }
+
+    .date {
+        text-align: right;
+    }
+</style>
+
+<div class="container mt-5 pt-5" style="padding-left:0px;padding-right:60px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="img-fluid" src="~/img/n-stack-logo.png" />
+        </div>
+        <div class="col-sm-6 text-center">
+            <div> <h1 style="font-size:30px; font-weight:400;"><u><b>Transfer Certificate</b></u></h1></div>
+            <br />
+            <h3 style="font-size:30px; font-weight:400;">(<u><b>Online OnBehalf</b></u>)</h3>
+            <br />
+            <h3 style="font-size:30px; font-weight:400;">(<u><b>Main Office Bahawalpur</b></u>)</h3>
+
+        </div>
+        <div class="col-sm-3">
+            <div class="qrcode-container3" style="margin-left:30px;">
+                <div id="qrcode3" style="margin-left:30px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:80px">
+        <div class="col-sm-12 m-5">
+            <p style="font-size:30px; font-weight:400; line-height:2; text-align:justify">
+                It is certified that Ref No. <b><u><span id="bRegno">reg no</span></u></b> Plot No. <b><u><span id="bPlot">plotNo</span></u></b> Sector <b><u><span id="bSector">sector</span></u></b>, Phase <b><u><span id="bPhase">phase</span></u></b>, measuring <b><u><span id="bSize">plotsize</span></u></b>,
+                type <b>(Residential/ Commercial)</b> has been purchased by <b><span class="buyerMembers"></span></b> from <b><span class="sellerMembers"></span></b> and Online On Behalf transfer has been conducted through <b>Mr/Miss/Mrs</b> <span id="bBuyerRepresentativeName"></span> <b>S/D/W/O Mr/Miss/Mrs</b> <span id="bBuyerRepresentativeRelationshipWith"></span> <b>CNIC NO</b> <span id="bBuyerRepresentativeCnic"></span> On <b><span id="bbslotDate"></span></b> at N-Stack Office.
+            </p>
+
+        </div>
+    </div>
+
+    <div class="row" style="margin-top:10px">
+        <div class="col-sm-12 m-5">
+            <p style="font-size:30px; font-weight:400; line-height:2; text-align:justify"><b><u>Note:</u></b> The Buyer must visit the same office (mentioned above) for completion of his/her process, where his/her representative (On Behalf person) currently appears.</p>
+        </div>
+    </div>
+
+    <div class="footer-container" style="margin-top:150px">
+        <div class="date">
+            Date: <span>@DateTime.Now.ToString("dd-MM-yyyy")</span>
+        </div>
+        <div class="footer">
+            Transfer & Record Officer
+            <br />
+                N-Stack
+        </div>
+    </div>
+</div>

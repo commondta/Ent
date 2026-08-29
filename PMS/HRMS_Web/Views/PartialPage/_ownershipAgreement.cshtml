@@ -1,0 +1,109 @@
+﻿<style>
+    ol {
+        list-style-type: none; /* Hide default numbering */
+        counter-reset: item; /* Reset the counter for each ol */
+    }
+
+        ol li {
+            counter-increment: item; /* Increment the counter for each li */
+            margin-bottom: 10px; /* Add spacing between items */
+            position: relative; /* Enable ::marker styling */
+        }
+
+            ol li::marker {
+                content: counter(item) "."; /* Use the counter value */
+                font-size: 18px; /* Adjust font size */
+                font-weight: bold; /* Make the number bold */
+                margin-right: 10px; /* Add spacing */
+            }
+
+    .container {
+ 
+    }
+
+    .title {
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .certificate-text {
+        line-height:1.5;
+        font-size: 22px;
+        text-align: justify;
+        margin-top: 40px; 
+    }
+
+    .signature {
+        font-size: 20px;
+        border-bottom: 1.5px solid black;
+        min-width: 200px;
+        margin-left: 12px;
+    }
+
+    .transfer-info {
+        font-size: 20px;
+        margin-top: 100px;
+    }
+</style>
+
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="img-fluid" src="~/img/n-stack-logo.png" alt="Logo" />
+        </div>
+        <div class="col-sm-6 text-center">
+            <h1 class="title"><u><b>TRANSFER CERTIFICATE</b></u></h1>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 certificate-text">
+            <p>
+                It is certified that <b>Ref No.</b> <u><span id="xRegno">reg no</span></u>, <b>Plot No.</b>
+                <u><span id="xPlot">plotNo</span></u>, <b>Sector</b> <u><span id="xSector">sector</span></u>,
+                <b>Phase</b> <u><span id="xPhase">phase</span></u>, <b>measuring</b>
+                <u><span id="xSize">plotsize</span></u>, type <b>(Residential/ Commercial)</b> has been sold by
+                <b>Mr/Mrs/Miss</b> <u><span id="xSellerName">SellerName</span></u>,
+                <b>S/W/D/O</b> <u><span id="xSellerSWD">SWD</span></u>,
+                <b>CNIC No.</b> <u><span id="xSellerCNIC">567657576576</span></u> through
+                <b>Registered Property Dealer</b>, <b>Mr/Mrs/Miss</b>
+                <u><span id="xDealerName">DealerName</span></u>,
+                <b>CNIC No.</b> <u><span id="xDealerCNIC">567657576576</span></u>,
+                <b>Registration No.</b> <u><span id="xDealerRegNo">Dealer DocNo</span></u>,
+                <b>Business Name</b> <u><span id="xDealerEsatateName">Estate Name</span></u>
+                at <b>N-Stack <span id="xApplyStation">Head Office</span></b> on <u><b><span id="xDate">Date</span></b></u>.
+                The transfer will be completed by <b>Mr/Mrs/Miss</b>_______________________________________
+                <u><span id="xBuyerName"></span></u>, <b>S/W/D/O</b>_______________________________________
+                <u><span id="xBuyerSWD"></span></u>, <b>CNICNo.</b>________________________________________
+                <u><span id="xBuyerCNIC"></span></u> (when decided) through the same Registered Property Dealer
+                mentioned above within 60 days from the clearance date of NDC at
+                <b>Head Office Bahawalpur</b> or any Sub Office in Lahore, Karachi, or Islamabad as per transfer procedure.
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <br />
+        <br />
+        <span class="signature"><b>Signature & Stamp of Registered Property Dealer:</b></span>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-sm-8">
+            <p class="transfer-info"><b>Date:</b> @DateTime.Now.ToString("dd-MM-yyyy")</p>
+        </div>
+        <div class="col-sm-4 text-right" style="font-size:22px;">
+            <p>
+                <b>Transfer & Records Officer</b><br />
+                <b>N-Stack</b>
+            </p>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <p class="transfer-info">
+            <b>Performed By: </b> <u><span id="LoginUser">@Context.Session.GetString("FullName")</span></u>
+        </p>
+    </div>
+</div>

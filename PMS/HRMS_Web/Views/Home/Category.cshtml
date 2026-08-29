@@ -1,0 +1,527 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Category Definition</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-sliders" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11.5 2a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M9.05 3a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0V3zM4.5 7a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M2.05 8a2.5 2.5 0 0 1 4.9 0H16v1H6.95a2.5 2.5 0 0 1-4.9 0H0V8zm9.45 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m-2.45 1a2.5 2.5 0 0 1 4.9 0H16v1h-2.05a2.5 2.5 0 0 1-4.9 0H0v-1z"/></svg></span>
+                    <h1>CATEGORY DEFINITION</h1>
+                    @*    <small class="subtitle">CATEGORY DEFINITION</small>*@
+                    <div class="vd_panel-menu  hidden-xs">
+
+
+
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="menu" style="float:right; ">
+                            <a onclick="openmodalAdd()" class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>
+                        </div>
+                        <br />
+
+                        <br />
+                        <div >
+                            <div class="">
+                                <table id="Block" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white"
+                                                style="width: 90px; text-align: center;">#</th>
+                                            @*<th class="text-white">Code</th>*@
+                                            <th class="text-white" style="text-align: center;">Real Estate</th>
+                                            <th class="text-white" style="text-align: center;">Category</th>
+                                            <th class="text-white" style="text-align: center;">Construction Grace Period (Months)</th>
+                                            <th class="text-white" style="text-align: center;">UOM</th>
+                                            <th class="text-white" style="text-align: center;">Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="blocktbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+<!-- /.modal -->
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modaltitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="modaltitle">Add Category</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <form id="BlockForm" class="form-horizontal">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 hide">
+                                <label>Code</label>
+                                <input id="ID" class="form-control" disabled />
+                                @* <input type="number"  id="ID" class="form-control hide" />*@
+                            </div>
+                            <div class="col-md-12">
+                                <label>Real Estate Type <small style="color:red;">*</small></label>
+                                <div>
+                                    <select class="js-example-basic-single" name="realstate" id="RealStateType" style="width:100%">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Category <small style="color:red;">*</small></label>
+                                <input id="Description" class="form-control" />
+                            </div>
+                            <div class="col-md-12">
+                                <label>Construction Grace Period  (Months) </label>
+                                <input type="text" onkeypress="validateNumberInput(event)" id="ConstructionGracePeriod" class="form-control" />
+
+                            </div>
+                            <div class="col-md-12">
+                                <label>UOM <small style="color:red;">*</small></label>
+                                <div>
+                                    <select class="js-example-basic-single" name="UOM" id="UOM" style="width:100%">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                <button onclick="SaveBlock()" id="SubmitButton" type="button" class="btn btn-primary btn-theme">Submit</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                <a class="close" data-dismiss="modal">&times;</a>
+
+            </div>
+            <div class="modal-body">
+                <p>Are You sure you want to permanently delete the Category?</p>
+                <input class="hide" id="DeleteID" />
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button onclick="DeleteBlock()" type="button" class="btn btn-primary ">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<input type="text" id="userid" value="@Context.Session.GetString("ID")" class="hide" />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+
+            //$('#Block').dataTable();
+            GetAllCategories();
+            GetAllRealEstate();
+            GetAllUOM();
+        });
+
+        function GetAllRealEstate() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/RealEstate/GetAllRealEstate`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#RealStateType").empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#RealStateType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + ' - ' + list.phaseName + '</option> ';
+
+                                $("#RealStateType").append(row);
+
+                                sr++;
+                            }
+                            $('#RealStateType').select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function GetAllUOM() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/UOM/GetAllSizes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+                        $("#UOM").empty();
+                        var row = ' <option value="">Select Option</option> ';
+                        $("#UOM").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#UOM").append(row);
+
+                                sr++;
+                            }
+                            $('#UOM').select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function EditBlock(id) {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Category/GetSingleCategory`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 0) {
+                        var result_User = response.data;
+                        $("#ID").val(result_User.id);
+                        //   $("#Code").val(result_User.code);
+                        $("#ConstructionGracePeriod").val(result_User.constructionGracePeriod);
+                        $("#RealStateType").val(result_User.realStateTypeId);
+                        $("#RealStateType").trigger("change");
+                        $("#Description").val(result_User.description);
+                        $("#UOM").val(result_User.uom);
+                        $("#UOM").trigger("change");
+                        $("#SubmitButton").text("Update");
+                        $("#modaltitle").text("Add Category");
+                        $("#myModal").modal("show");
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", response.message);
+                        // window.alert(response.message);
+                    }
+                }
+            });
+        }
+
+        function SaveBlock() {
+
+
+            if ($("#UOM").val() != "" && $("#Description").val() != "" && $("#RealStateType").val() != "-1") {
+                var id = $("#ID").val();
+                var newid;
+                if (id == "") {
+                    newid = 0;
+                }
+                else {
+                    newid = parseInt(id);
+                }
+
+                var category =
+                {
+
+                    ID: newid,
+                    //   Code: $("#Code").val(),
+                    Description: $("#Description").val(),
+                    RealStateTypeId: $("#RealStateType").val(),
+                    ConstructionGracePeriod: $("#ConstructionGracePeriod").val(),
+                    UOM: $("#UOM").val(),
+                    Updated_By: $("#userid").val(),
+                    Created_By: $("#userid").val(),
+
+
+                };
+
+                var ModelData = JSON.stringify(category);
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: "POST",
+                    url: `/api/Category/AddCategory`,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    processData: false,
+                    dataType: "json",
+                    async: false,
+                    data: ModelData,
+                    success: function (response) {
+                        debugger;
+
+                        $('#loader').fadeOut();
+                        console.log(response);
+                        if (response.code === 0) {
+
+                            $("#BlockForm").submit(function (e) {
+                                e.preventDefault();
+                            });
+
+                            $("#myModal").modal("hide");
+
+                            //Swal.fire('Saved', response.message, 'success')
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+                        else {
+                            $("#BlockForm").submit(function (e) {
+                                e.preventDefault();
+                            });
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                        }
+                    }
+                });
+            }
+            else {
+                debugger;
+
+                $("#BlockForm").submit(function (e) {
+                    e.preventDefault();
+                });
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Enter Valid Data',
+                })
+                //notification("bottomleft","error","fa fa-exclamation-circle vd_red","Error","Please enter complete data.");
+                //  alert("Please enter complete data.")
+            }
+        }
+
+
+        function GetAllCategories() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Category/GetAllCategories`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+                        debugger;
+                        var datatabl = $('#Block').DataTable();
+                        datatabl.destroy();
+                        $("#blocktbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    //' <td>' + list.id + '</td>           ' +
+                                    ' <td>' + list.realStateTypeName + '</td>           ' +
+                                    ' <td>' + list.description + '</td>       ' +
+                                    ' <td>' + list.constructionGracePeriod + '</td>       ' +
+                                    ' <td>' + list.uom + '</td>       ' +
+                                    '<td><a class="fa fa-edit fa-2x" style="margin-right:10px" onclick="EditBlock(' + list.id + ')"></a></td>' +
+                                    // <a class="fa fa-trash-o fa-2x text-danger" onclick = "ConfirmBlock(' + list.id + ')" > </a>
+                                    '</tr>';
+                                $("#blocktbody").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Block').dataTable();
+                    }
+                }
+            });
+
+
+        }
+        function ConfirmBlock(id) {
+            //$("#confirmationModal").modal("show");
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'success',
+                        title: 'Deleted',
+                        text: 'Your data is deleted.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+
+                    DeleteBlock();
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+            $("#DeleteID").val(id);
+
+        }
+
+        function DeleteBlock() {
+
+            var id = $("#DeleteID").val();
+            debugger;
+            $.ajax({
+                type: "GET",
+                url: `/api/Category/DeleteCategory/`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+
+                success: function (response) {
+                    debugger;
+                    console.log(response);
+                    if (response.code === 0) {
+
+                        $("#BlockForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+
+                        GetAllCategories();
+                    }
+                    else {
+                        $("#BlockForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+                        notification("bottomleft", "Error", "fa fa-exclamation-circle vd_red", "Success", response.message);
+                        //   alert(response.message);
+                    }
+                }
+            });
+        }
+        function openmodalAdd() {
+            $("#ID").val("");
+            $("#RealStateType").val("-1");
+            $("#RealStateType").trigger("change");
+            $("#Description").val("");
+            $("#ConstructionGracePeriod").val("");
+            $("#UOM").val("");
+            $("#UOM").trigger("change");
+            $("#SubmitButton").text("Submit");
+            $("#modaltitle").text("Add Category");
+        }
+    </script>
+           
+}

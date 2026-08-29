@@ -1,0 +1,260 @@
+﻿
+@{
+    ViewBag.Title = "EOBI Setup";
+    ViewBag.dashboard = "EOBI Setup";
+}
+
+
+<!-- Add Modal -->
+<div id="myModal" class="modal fade" role="dialog" style="float:none;margin:auto; ">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">EOBI Setup</h4>
+            </div>
+            <div class="modal-body">
+                <div class="content">
+
+                    <div class="row topMargin">
+                        <div class="form-group">
+                            <label for="effective-date" class="col-sm-4 control-label">Effective Date</label>
+                            <div class="col-sm-6">
+                                <input type="date" class="form-control" id="effective-date" autofocus>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row topMargin">
+                        <div class="form-group">
+                            <label for="employee-eobi" class="col-sm-4 control-label">Employee EOBI %</label>
+                            <div class="col-sm-6">
+                                <input type="number" value="0" class="form-control" id="employee-eobi">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row topMargin">
+                        <div class="form-group">
+                            <label for="employer-eobi" class="col-sm-4 control-label">Employer EOBI %</label>
+                            <div class="col-sm-6">
+                                <input type="number" value="0" class="form-control" id="employer-eobi">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row topMargin">
+                        <div class="form-group">
+                            <label for="eobi-salary-limit" class="col-sm-4 control-label">EOBI Salary Limit</label>
+                            <div class="col-sm-6">
+                                <input type="number" value="0" class="form-control" id="eobi-salary-limit">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row topMargin">
+                        <div class="form-group">
+                            <label for="remarks" class="col-sm-4 control-label">Remarks</label>
+                            <div class="col-sm-6">
+                                <textarea class="form-control" id="remarks" rows="3" placeholder="Enter..."></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" onclick="save()">Add</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+    
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>EOBI Setup</h1>
+        <ol class="breadcrumb">
+            <li><a href="~/Home/Index">Home</a></li>
+            <li>Compensation &amp; Payroll Setup</li>
+            <li class="active">EOBI Setup</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">EOBI Setup</h3>
+                <button type="button" class="btn" data-toggle="tooltip" title="Add Criteria" onclick="$('#myModal').modal('show');">
+                    <i class="fa fa-plus"></i>
+                    <div class="ripple-container">
+                    </div>
+                </button>
+            </div>
+            <div class="box-body">
+                <table id="eobi-table" class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Effective Date</th>
+                            <th>Employee Eobi %</th>
+                            <th>Employer Eobi %</th>
+                            <th>EOBI Salary Limit</th>
+                            <th>Remarks</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>
+
+@*Script part*@
+<script>
+    let Global_Array = new Array();
+    //show data
+    $(document).ready(function () {
+        view();
+    });
+
+    function view()
+    {
+        $.ajax({
+            type: "get",
+            url: "@Url.Action("list", "EOBI")",
+            success: function (result) {
+                if (result != "error")
+                {
+                    Global_Array = result;
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].effectiveDate + "</td>", "<td>" + result[i].EmployeeEobi + "</td>", "<td>" + result[i].EmployerEobi + "</td>", "<td>" + result[i].eobiSalaryLimit + "</td>", "<td>" + result[i].remarks + "</td>", "<td >" + "<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+
+
+    //add Data
+    function Add() {
+        $('#myModal').modal('show');
+    }
+    function save() {
+        let ED = $("#effectivedate").val();
+        let EE = $("#employeeeobi").val();
+        let ERE = $("#employeereobi").val();
+        let ESL = $("#eobisalarylimit").val();
+        let R = $("#remarks").val();
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("Add", "EOBI")",
+            data: {
+                ED: ED,
+                EE: EE,
+                ERE: ERE,
+                ESL: ESL,
+                R:R
+            },
+        success: function (result) {
+            $('#myModal').modal('hide');
+            if (result != "error")
+            {
+                $("td").remove();
+                for (let i = 0; i < result.length; i++) {
+                    var tab = $('<tr />');
+                    tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].effectiveDate + "</td>", "<td>" + result[i].EmployeeEobi + "</td>", "<td>" + result[i].EmployerEobi + "</td>", "<td>" + result[i].eobiSalaryLimit + "</td>", "<td>" + result[i].remarks + "</td>", "<td >" + "<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                    $('#myTable').append(tab);
+                }
+            }
+        }
+        });
+    }
+
+    //Edit data
+    function Edit(idRow) {
+        for (let i = 0; i < Global_Array.length; i++) {
+            if (Global_Array[i].id == idRow) {
+                $('#myModal2').modal('show');
+                $("#eid").val(idRow);
+                $('#eeffectivedate').val(Global_Array[i].effectiveDate);
+                $('#eemployeeeobi').val(Global_Array[i].EmployeeEobi);
+                $('#eemployeereobi').val(Global_Array[i].EmployerEobi);
+                $('#eeobisalarylimit').val(Global_Array[i].eobiSalaryLimit);
+                $('#eremarks').val(Global_Array[i].remarks);
+            }
+        }
+    }
+    function update() {
+        let id = $("#eid").val();
+        let ED = $("#eeffectivedate").val();
+        let EE = $("#eemployeeeobi").val();
+        let ERE = $("#eemployeereobi").val();
+        let ESL = $("#eeobisalarylimit").val();
+        let R = $("#eremarks").val();
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("Edit", "EOBI")",
+            data: {
+                id:id,
+                ED: ED,
+                EE: EE,
+                ERE: ERE,
+                ESL: ESL,
+                R: R
+            },
+            success: function (result) {
+                $('#myModal2').modal('hide');
+                if (result != "error") {
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].effectiveDate + "</td>", "<td>" + result[i].EmployeeEobi + "</td>", "<td>" + result[i].EmployerEobi + "</td>", "<td>" + result[i].eobiSalaryLimit + "</td>", "<td>" + result[i].remarks + "</td>", "<td >" + "<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+
+    // Delete data
+    function del(idrow) {
+        var id = idrow
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("Delete", "EOBI")",
+            data: {
+                id: id,
+            },
+            success: function (result) {
+                if (result != "error") {
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].effectiveDate + "</td>", "<td>" + result[i].EmployeeEobi + "</td>", "<td>" + result[i].EmployerEobi + "</td>", "<td>" + result[i].eobiSalaryLimit + "</td>", "<td>" + result[i].remarks + "</td>", "<td >" + "<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+</script>

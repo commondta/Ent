@@ -1,0 +1,404 @@
+﻿<!-- Middle Content Start -->
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <ul class="breadcrumb">
+                    <li><a href="/Home/index">Home</a></li>
+                    <li class="active">Dynamic Queries</li>
+                </ul>
+            </div>
+
+            <div class="vd_title-section clearfix">
+                <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-clipboard-data" viewBox="0 0 16 16"><path d="M4 11a1 1 0 1 1 2 0v1a1 1 0 1 1-2 0zm6-4a1 1 0 1 1 2 0v5a1 1 0 1 1-2 0zM7 9a1 1 0 0 1 2 0v3a1 1 0 1 1-2 0z"/><path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1z"/><path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0z"/></svg></span>
+                    <h1>DYNAMIC QUERIES</h1>
+            </div>
+
+            <div class="vd_content-section clearfix container-fluid">
+                <div class="text-right">
+                    <button class="btn btn-primary btn-sm float-right" onclick="openAddModal()">Add New Query</button>
+                </div>
+                <table id="QueryTable" class="table table-bordered table-hover">
+                    <thead class="bg-theme text-white">
+                        <tr>
+                            <th>#</th>
+                            <th>Title</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="queryTbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Add/Edit Query Modal -->
+<div class="modal fade" id="queryModal" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="modalTitle">Add Query</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="multi-select-dropdown">Select Access Users</label>
+                    <select id="my-select" multiple class="form-control w-100">
+                    </select>
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="other-dropdown">Query Type</label>
+                    <select id="queryType" name="queryType">
+                        <option value="SQL/PMS">SQL/PMS</option>
+                        <option value="SAP">SAP</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Print Layout</label>
+                    <textarea id="printTitle" class="form-control" rows="6"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>Title</label>
+                    <input type="text" id="queryTitle" class="form-control" />
+                </div>
+
+                <div class="form-group">
+                    <label>Query</label>
+                    <textarea id="queryText" class="form-control" rows="4"></textarea>
+                </div>
+
+                <h5>Parameters</h5>
+                <div id="paramList"></div>
+                <div class="text-right">
+                    <button id="addParamBtn" class="btn btn-sm btn-success">Add Parameter</button>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button id="saveQueryBtn" class="btn btn-success">Save</button>
+                <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<input type="hidden" id="queryId" />
+@section Scripts {
+    <script type="text/javascript">
+        // SECURITY (#5): the DynamicQuery API now requires authentication; attach the
+        // token to every call this page makes, including the $.get shorthands.
+        $.ajaxSetup({ headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+
+        $(function () {
+            // initialize select2
+            $('#my-select').select2({
+                placeholder: "Select Access Users",
+                allowClear: true
+            });
+
+            // load PMS Users for multi-select
+            loadReceivers();
+
+            // load queries
+            loadQueries();
+
+            // handlers
+            $('#addParamBtn').click(() => addParamCard());
+            $('#saveQueryBtn').click(saveQuery);
+        });
+
+        // -------------------------
+        // Load Receivers (PMS Users)
+        // -------------------------
+        function loadReceivers() {
+            $.get('/api/PMSUser/GetAllPMSUsers', function (response) {
+                var result = response.data || [];
+                var data = result.map(function (item) {
+                    return {
+                        id: item.id,
+                        text: item.emP_FULL_NAME + ' - ' + item.desiG_DESC
+                    };
+                });
+
+                $('#my-select').empty().select2({
+                    data: data,
+                    placeholder: "Select Access Users",
+                    allowClear: true
+                });
+            });
+        }
+
+        // -------------------------
+        // Load Queries
+        // -------------------------
+        function loadQueries() {
+            $.get('/api/DynamicQuery/GetAll', (resp) => {
+                const rows = resp.data.map((q, idx) => `
+                            <tr>
+                                <td>${idx + 1}</td>
+                                <td>${q.title}</td>
+                                <td>
+                                    <button class="btn btn-sm btn-warning" onclick="editQuery(${q.id})">Edit</button>
+                                </td>
+                            </tr>`).join('');
+                $('#queryTbody').html(rows);
+            });
+        }
+
+        // -------------------------
+        // Open Add Modal
+        // -------------------------
+        function openAddModal() {
+            $('#modalTitle').text('Add Query');
+            $('#queryId').val(0);
+            $('#queryTitle, #queryText, #printTitle').val('');
+            $('#queryType').val('SQL/PMS');
+            $('#my-select').val(null).trigger('change'); // clear selection
+            $('#paramList').empty();
+            $('#queryModal').modal('show');
+        }
+
+        // -------------------------
+        // Edit Query
+        // -------------------------
+        function editQuery(id) {
+            $.get(`/api/DynamicQuery/Get/${id}`, (resp) => {
+                const q = resp.data;
+                $('#modalTitle').text('Edit Query');
+                $('#queryId').val(q.id);
+                $('#queryTitle').val(q.title);
+                $('#queryText').val(q.sqlQuery);
+                $('#printTitle').val(q.printTitle || '');
+                $('#queryType').val(q.type || 'SQL/PMS');
+                $('#my-select').val(q.accessUsers ? q.accessUsers.split(',') : []).trigger('change');
+
+                // params
+                $('#paramList').empty();
+                q.params.forEach(p => addParamCard(p));
+                $('#queryModal').modal('show');
+            });
+        }
+
+        // -------------------------
+        // Add Param Card
+        // -------------------------
+        function addParamCard(param = {}) {
+            const isDropdown = param.type === 'dropdown';
+            const isDynamic = param.dataSourceQuery && param.dataSourceQuery.length > 0;
+
+            $('#paramList').append(`
+                        <div class="card p-3 mb-3 border param-card">
+                            <div class="form-row align-items-end">
+                                <div class="col">
+                                    <label>Name</label>
+                                    <input class="form-control param-name" placeholder="Name" value="${param.name || ''}"/>
+                                </div>
+                                <div class="col">
+                                    <label>Label</label>
+                                    <input class="form-control param-label" placeholder="Label" value="${param.label || ''}"/>
+                                </div>
+                                <div class="col">
+                                    <label>Type</label>
+                                    <select class="form-control param-type">
+                                        <option value="text" ${(param.type || 'text') === 'text' ? 'selected' : ''}>Text</option>
+                                        <option value="number" ${param.type === 'number' ? 'selected' : ''}>Number</option>
+                                        <option value="date" ${param.type === 'date' ? 'selected' : ''}>Date</option>
+                                        <option value="month" ${param.type === 'month' ? 'selected' : ''}>Month</option>
+                                        <option value="dropdown" ${param.type === 'dropdown' ? 'selected' : ''}>Dropdown</option>
+                                    </select>
+                                </div>
+                                <div class="col-auto text-right">
+                                    <button class="btn btn-sm btn-danger remove-param">Remove</button>
+                                </div>
+                            </div>
+
+                            <!-- Dropdown section (hidden unless dropdown is selected) -->
+                            <div class="dropdown-options mt-3 ${isDropdown ? '' : 'hide'}">
+                                <label class="mt-2">Dropdown Options</label>
+
+                                <!-- Mode selection -->
+                                <div class="form-check">
+                                    <input class="form-check-input dropdown-mode" type="radio" name="mode-${Date.now()}" value="static" ${!isDynamic ? 'checked' : ''}>
+                                    <label class="form-check-label">Static</label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input dropdown-mode" type="radio" name="mode-${Date.now()}" value="dynamic" ${isDynamic ? 'checked' : ''}>
+                                    <label class="form-check-label">Dynamic (SQL)</label>
+                                </div>
+
+                                <!-- Static options -->
+                                <div class="option-list mb-2 ${isDynamic ? 'hide' : ''}"></div>
+                                <div class="text-right ${isDynamic ? 'hide' : ''}">
+                                    <button class="btn btn-sm btn-outline-primary add-option">Add Option</button>
+                                </div>
+
+                                <!-- Dynamic query box -->
+                                <textarea class="form-control datasource-query mt-2 ${isDynamic ? '' : 'hide'}"
+                                    placeholder="Enter SQL that returns Name, Value">${param.dataSourceQuery || ''}</textarea>
+                            </div>
+                        </div>
+                    `);
+
+            const card = $('#paramList .param-card').last();
+            if (param.options && !isDynamic) {
+                param.options.forEach(o => {
+                    card.find('.option-list').append(`
+                                <div class="form-row mb-1 align-items-center option-row">
+                                    <div class="col">
+                                        <input class="form-control option-name" placeholder="Name" value="${o.name}" />
+                                    </div>
+                                    <div class="col">
+                                        <input class="form-control option-value" placeholder="Value" value="${o.value}" />
+                                    </div>
+                                    <div class="col-auto text-right">
+                                        <button class="btn btn-sm btn-danger remove-option">&times;</button>
+                                    </div>
+                                </div>
+                            `);
+                });
+            }
+        }
+
+
+        // Event bindings
+        $('#paramList')
+            .on('change', '.param-type', function () {
+                const $card = $(this).closest('.param-card');
+                const isDropdown = this.value === 'dropdown';
+
+                if (isDropdown) {
+                    // Show dropdown section
+                    $card.find('.dropdown-options').removeClass('hide');
+                    $card.find('.datasource-query').prop('disabled', false);
+                } else {
+                    // Hide + reset dropdown section
+                    $card.find('.dropdown-options').addClass('hide');
+
+                    // Clear all dropdown-related fields
+                    $card.find('.option-list').empty().addClass('hide');
+                    $card.find('.datasource-query').val('').prop('disabled', true).addClass('hide');
+                    $card.find('.add-option').removeClass('hide').prop('disabled', false);
+
+                    // Reset radios → default back to Static
+                    $card.find('.dropdown-mode').prop('checked', false);
+                    $card.find('.dropdown-mode[value="static"]').prop('checked', true);
+                }
+            })
+            .on('change', '.dropdown-mode', function () {
+                const $card = $(this).closest('.param-card');
+                const mode = $(this).val();
+
+                const $optionList = $card.find('.option-list');
+                const $addBtn = $card.find('.add-option');
+                const $queryBox = $card.find('.datasource-query');
+
+                if (mode === 'static') {
+                    $optionList.removeClass('hide').empty(); // reset static list
+                    $addBtn.removeClass('hide').prop('disabled', false);
+                    $queryBox.addClass('hide').prop('disabled', true).val('');
+                } else {
+                    $optionList.addClass('hide').empty();
+                    $addBtn.addClass('hide').prop('disabled', true);
+                    $queryBox.removeClass('hide').prop('disabled', false);
+                }
+            })
+            .on('click', '.add-option', function () {
+                $(this).closest('.dropdown-options').find('.option-list').append(`
+                            <div class="form-row mb-1 align-items-center option-row">
+                                <div class="col">
+                                    <input class="form-control option-name" placeholder="Name" />
+                                </div>
+                                <div class="col">
+                                    <input class="form-control option-value" placeholder="Value" />
+                                </div>
+                                <div class="col-auto text-right">
+                                    <button class="btn btn-sm btn-danger remove-option">&times;</button>
+                                </div>
+                            </div>
+                        `);
+            })
+            .on('click', '.remove-option', function () {
+                $(this).closest('.option-row').remove();
+            })
+            .on('click', '.remove-param', function () {
+                $(this).closest('.param-card').remove();
+            });
+
+
+        // -------------------------
+        // Save Query
+        // -------------------------
+        function saveQuery() {
+            const payload = {
+                id: parseInt($('#queryId').val()) || 0,
+                title: $('#queryTitle').val(),
+                sqlQuery: $('#queryText').val(),
+                printTitle: $('#printTitle').val(),
+                type: $('#queryType').val(),
+                accessUsers: ($('#my-select').val() || []).join(','),
+
+                params: $('.param-card').toArray().map(card => {
+                    const $c = $(card);
+                    const type = $c.find('.param-type').val();
+                    const param = {
+                        name: $c.find('.param-name').val(),
+                        label: $c.find('.param-label').val(),
+                        type: type,
+                        options: [],
+                        dataSourceQuery: null
+                    };
+
+                    if (type === 'dropdown') {
+                        const mode = $c.find('.dropdown-mode:checked').val();
+                        if (mode === 'static') {
+                            param.options = $c.find('.option-list .form-row').toArray().map(r => ({
+                                name: $(r).find('.option-name').val(),
+                                value: $(r).find('.option-value').val()
+                            }));
+                        } else {
+                            param.dataSourceQuery = $c.find('.datasource-query').val();
+                        }
+                    }
+
+                    return param;
+                })
+            };
+
+            const url = $('#modalTitle').text().startsWith('Edit') ?
+                `/api/DynamicQuery/Update` : `/api/DynamicQuery/Create`;
+
+            $.ajax({
+                url,
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(payload),
+                success: () => {
+                    $('#queryModal').modal('hide');
+                    loadQueries();
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success',
+                        text: 'Query Saved Successfully',
+                    });
+                    notification("bottomleft", "Success", "fa fa-exclamation-circle vd_red", "Success", "Query Saved Successfully");
+                },
+                error: (xhr) => {
+                    console.error('Validation failed:', xhr.responseJSON?.errors || xhr);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Something went wrong',
+                    });
+                }
+            });
+        }
+
+    </script>
+}
+

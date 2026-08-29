@@ -1,0 +1,239 @@
+﻿<style>
+    #lesscountmembersdiv, #messcountmembersdiv {
+        display: none;
+    }
+
+    ol {
+        list-style-type: none;
+        counter-reset: item;
+        padding: 10px;
+        margin: 0;
+    }
+
+        ol li {
+            counter-increment: item;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+            ol li::marker {
+                content: counter(item) ".";
+                font-size: 24px;
+                margin-right: 10px;
+            }
+
+            ol li p {
+                font-size: 21px;
+                margin: 0;
+                padding: 0;
+                line-height: 1.5;
+            }
+
+    table {
+        width: 100%;
+        border-collapse: collapse; /* Ensures table borders are merged */
+    }
+
+    tr {
+        border-bottom: 10px solid transparent; /* Adds space between rows */
+    }
+
+    td {
+        padding: 0px; /* Adds padding inside each cell */
+    }
+</style>
+
+
+<div class="container" style="padding-left:70px;padding-right:75px;margin-top:255px; font-family: 'Times New Roman';">
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4 text-center" style="font-size: 24px;">
+            <u><b><p>Allotment Letter</p></b></u>
+        </div>
+        <div class="col-sm-4">
+        </div>
+    </div>
+    <br />
+    <br />
+    <div class="row">
+        <div class="col-sm-4">
+        </div>
+        <div class="col-sm-4 text-center" style="font-size: 24px;">
+        </div>
+        <br />
+        <div class="col-sm-4">
+            <div style="font-size: 22px;">
+                <span><b></b></span>
+                <span style="
+             margin-left: 10px;
+            min-width: 160px;
+            float: right;
+          " class="pppdate">@DateTime.Now.ToString("dd MMMM, yyyy")</span>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </div>
+
+    @*     <div class="row mt-3 pt-3">
+    <div class="col-sm-12">
+    <p style="font-weight:600; font-size: 24px">
+    UAN: 042-111-109-109
+    </p>
+    <p style="font-weight:400; font-size: 18px; margin-bottom: 0; ">
+    www.urbandevelopersgroup.com
+    </p>
+    </div>
+    </div> *@
+
+    <div class="row">
+        <div class="col-sm-9">
+            <p style="font-size: 21px; font-weight: bold;">
+                To:
+            </p>
+            <div class="lesscountmembersdiv">
+                <p style="padding-left: 20px; font-size: 21px; margin-bottom: 0;">
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <div class="messcountmembersdiv">
+                <p style="padding-left: 20px; font-size: 16px; margin-bottom: 0;">
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <p class="ppermanentAddress" style="padding-left: 20px;font-size: 21px; margin-bottom: 0;"></p>
+            <p class="pbuyerPhone" style="padding-left: 20px;font-size: 21px; margin-bottom: 0;"></p>
+            @*  <p class="pmembershipNo" style="padding-left: 20px;font-size: 21px; font-weight: bold; margin-bottom: 0; "></p> *@
+
+        </div>
+        <div class="col-sm-3">
+            <div class="imgContainerForPrint" style="float: right; margin-right:0px; height: 160px;width:160px">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1 mt-2">
+            <p>
+                <b style="font-size: 22px">Subj:</b>
+            </p>
+        </div>
+        <div class="col-sm-11 mt-2 ms-2">
+            <span style=" margin-left: 10px;
+                border-bottom: 1px solid black;
+                font-size: 23px;
+              font-weight: bold;">
+                Allotment Letter of <span class="ptype"></span>
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 mt-2 mb-5" style="text-align:justify;">
+            <ol style="padding-left:7px;">
+
+                <!-- 1 -->
+                <li style="padding-left:0.5rem;">
+                    <p style="font-size:22px;">
+                        The Management is pleased to inform that you have been allotted under mentioned
+                        <span class="ptype"></span> Dated <span class="ppdate"></span> vide <u>
+                            <b>
+                                Ref No
+                                <span class="pregistrationNo"></span>
+                            </b>
+                        </u>
+                    </p>
+
+                    <div style="padding-left:25px; font-size:22px; margin-top:20px;">
+                        <p>a.&nbsp;&nbsp; <span class="proptype"></span> No:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="ppropertyNo"></span></p>
+                        <p>b.&nbsp;&nbsp; Sector:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="psector"></span></p>
+                        <p>c.&nbsp;&nbsp; Phase:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pphase"></span></p>
+                        <p>d.&nbsp;&nbsp; Size:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="pcategory"></span></p>
+                    </div>
+                </li>
+
+                <!-- 2 -->
+                <li style="padding-left:0.5rem; margin-top:20px;">
+                    <p style="font-size:22px;">
+                        N-Stack reserves the right to make adjustment and relocate the <span class="proptype"></span>, if need arises
+                        due to site constraints or change in town planning.
+                    </p>
+                </li>
+
+                <!-- 3 -->
+                <li style="padding-left:0.5rem; margin-top:20px;">
+                    <p style="font-size:22px;">
+                        That transferee/allottee agree to pay development charges as and when demanded
+                        by the Authority on account of any additional development / up gradation of
+                        services or infrastructure.
+                    </p>
+                </li>
+
+                <!-- ========================= -->
+                <!-- PLOT ONLY : 4,5,6 -->
+                <!-- ========================= -->
+                <!-- 4 -->
+                <li class="plotOnly" style="padding-left:0.5rem; margin-top:20px;">
+                    <p style="font-size:22px;">
+                        Possession fee will be paid by the <span class="proptype"></span> owner (if not paid) at the time of
+                        applying possession.
+                    </p>
+                </li>
+
+                <!-- 5 -->
+                <li class="plotOnly" style="padding-left:0.5rem; margin-top:20px;">
+                    <p style="font-size:22px;">
+                        <u><b>Security Charges.</b></u> Security charges as prescribed by N-Stack will be levied
+                        after the possession is opened till the commencement of construction.
+                    </p>
+                </li>
+
+                <!-- 6 -->
+                <li class="plotOnly" style="padding-left:0.5rem; margin-top:20px;">
+                    <p style="font-size:22px;">
+                        <u><b>Non-utilization Fee.</b></u> After the possession is opened and the owner is
+                        required to construct the building (Residential / Commercial), within three
+                        years and <u>
+                            after transfer transferee be required to construct the building
+                            (Residential/Commercial) within 24 months.
+                        </u> In case of failure to construct
+                        the building, non-utilization fee will be levied as per N-Stack bylaws / Policy
+                        till the commencement of construction.
+                    </p>
+                </li>
+
+                <!-- ========================= -->
+                <!-- VILLA ONLY : 4,5 -->
+                <!-- ========================= -->
+                <!-- 4 -->
+                <li class="villaOnly" value="4" style="padding-left:0.5rem; margin-top:20px; display:none;">
+                    <p style="font-size:22px;">
+                        Any Tax imposed by Federal/ Provincial Government shall be payable by the current
+                        owner as and when enforced.
+                    </p>
+                </li>
+
+                <!-- 5 -->
+                <li class="villaOnly" value="5" style="padding-left:0.5rem; margin-top:20px; display:none;">
+                    <p style="font-size:22px;">
+                        We assure you of our best cooperation at all times.
+                    </p>
+                </li>
+
+            </ol>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+        </div>
+
+        <div class="col-sm-6">
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryRank"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryDesignation"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;">(<span class="pSignatoryName"></span>)</p>
+        </div>
+    </div>
+
+</div>

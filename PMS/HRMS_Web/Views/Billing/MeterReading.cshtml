@@ -1,0 +1,830 @@
+﻿<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Meter Reading</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>METER READING</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="MeterReadingForm">
+                            <div class="row">
+                                <div class="col-sm-3" style="margin-top: 25px">
+                                    <label>Meter Reading No.</label>
+
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="number" class="form-control  " disabled
+                                                   placeholder="" id="Id" />
+                                        </div>
+                                        <div >
+                                            <button data-toggle="modal" data-target="#MeterReadingModal" type="button" class="btn dha_theme_btn"><i class="fa fa-search"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="margin-top: 25px">
+                                    <label>Month</label>
+                                    <div>
+                                        <input type="month" class="form-control" name="searchMonth" 
+                                               placeholder=" " id="searchMonth" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="margin-top: 25px">
+                                    <label>Meter No.</label>
+                                    <div>
+                                        <input type="text" class="form-control" name="filtermeterNo" id="filtermeterNo" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="margin-top: 53px">
+                                    <button type="button" onclick="filterByMeterNo()" class="btn dha_theme_btn">
+                                        <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Filter
+                                    </button>
+                                </div>
+                              </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>For the Month</label>
+                                    <div>
+                                        <input type="month" class="form-control" name="ForMonth" required
+                                               placeholder=" " id="ForMonth" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Reading For</label>
+                                    <div>
+                                        <select name="ReadingFor" class="js-example-basic-single" id="ReadingFor" required>
+                                            <option value=""> -- Select Option --</option>
+                                            <option value="Electricity">Electricity</option>
+                                            <option value="Water">Water</option>
+                                            <option value="Others">Others</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Meter Type (Filter)</label>
+                                    <div>
+                                        <select name="MeterType" class="js-example-basic-single" style="padding:5px 2px;" id="MeterType">     
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div >
+                                <div class="card p-3">
+
+                                    <div class="menu" style="float: right; margin-bottom:.5rem">
+                                            <a class="btn btn-primary btn-sm btn-theme" onclick="AddRow()" style="padding: 6px 20px; margin-right: -1px;">Add New</a>
+                                            <input type="text" id="rownumberM" value="0" class="hide" />
+                                        </div>
+                                        <div class="table-responsive">
+                                            <table id="Meter" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white" style="min-width: 90px;">#</th>
+                                                        <th class="text-white" style="min-width: 130px;">Meter No.</th>
+                                                        <th class="text-white" style="min-width: 130px;">Property No.</th>
+                                                        <th class="text-white" style="min-width: 130px;">Last Reading</th>
+                                                        <th class="text-white" style="min-width: 130px;">Current Reading</th>
+                                                        <th class="text-white" style="min-width: 130px;">Units Consumed</th>
+                                                        <th class="text-white" style="min-width: 130px;">Reading Officer</th>
+                                                        <th class="text-white" style="min-width: 130px;">Picture</th>
+                                                        <th class="text-white" style="min-width: 130px;">View Attachment</th>
+                                                        <th class="text-white">Action</th>
+                                                </thead>
+                                                <tbody id="MeterRtbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        
+                                   
+                                </div>
+                            </div>                           
+                            <br>
+
+                        <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn dha_theme_btn">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                                </button>
+                        </div>
+                         </form>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+@*MeterReading Model*@
+<div class="modal" id="MeterReadingModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Meter Installation Profile.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="Meterlist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Month</th>
+                                            <th class="text-white">Reading For</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Metertbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@*MeterReading Model*@
+
+<div class="modal" id="MeterModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Meter No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="MetermodalTable" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Meter No.</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="MeterReadtbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<input id="rownumberforid" class="hide" value="0" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+
+    <script>
+            $(document).ready(function () {
+            "use strict";
+               $("#MeterReadingForm").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+
+                    ForMonth: { 
+                        required: true
+                    },
+                    ReadingFor: { 
+                        required: true
+                    }
+                   
+                },
+                   messages: {
+                       required:"Required Field"
+                   },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { 
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    debugger;
+                     PostRequest();
+                }
+            });
+
+               jQuery.extend(jQuery.validator.messages, {
+              required: "Field required.",
+        });
+
+            GetMeterType();
+            GetAllFindMeterLists();
+
+            //var today = new Date();
+            //var currentMonth = today.toISOString().slice(0, 7);
+            //$('input[type="month"]').attr('min', currentMonth);
+        });
+
+        function GetMeterType() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/MeterType/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+
+                        $("#MeterType").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#MeterType").append(row);
+
+                                sr++;
+                            }
+                            $('#MeterType').select2();
+                        }
+                        
+                    }
+                }
+            });
+        }
+
+        // selection All MeterList
+        function GetAllFindMeterLists() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Filter/GetAllMetersReadingMonthwise`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        $("#Metertbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+
+                                var row = ' <tr> ' +
+                                    ' <td class="Id">' + sr + '</td> ' +
+                                    ' <td>' + list.month + '</td>           ' +
+                                    ' <td>' + list.readingFor + '</td>           ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectMeter(' + list.id + ')">Select</a></td> </tr>';
+                                $("#Metertbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Meterlist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectMeter(id) {
+
+            var url = "/api/MeterReading/Get?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+
+                        var result = response.data;
+
+                        $("#Id").val(result.id);
+                        $("#ForMonth").val(result.month);
+                        $("#ReadingFor").val(result.readingFor);
+
+                        $("#MeterRtbody").empty();
+
+                        $.each(result.readingDetail, function (i, item) {
+
+                            // set values
+                            let copyToTargetDocument = item.picture == "" ? "/img/placeholder-photo.svg" : item.picture;      
+                            
+                            var rownumber = parseInt($("#rownumberM").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumberM").val(rownumber);
+
+                            var row = '<tr id="M' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td style="width: 250px;"> <input disabled id="meterNo_' + rownumber + '" value="' + item.meterNo + '" class="MeterNo" style="height:30px; width: 200px; background-color: #E5E5E5; border:#E5E5E5; border-radius:5px;"/><a class="btn btn-primary btn-sm btn-theme" onclick="GetMeter(' + rownumber + ')" style="padding: 6px 7px; margin-left: 32px;"> Search </a> </td > ' +
+                                '<td> <input disabled id="propNo_' + rownumber + '" value="' + item.propertyNo + '" class="form-control PropertyNo" </td > ' +
+                                '<td> <input type="number"   name="LastReading" readonly id="LastReading_' + rownumber + '"  class="form-control  LastReading" value="' + item.lastReading + '"/></td>' +
+                                '<td> <input type="number" id="CurrentReading_' + rownumber + '"  required name="CurrentReading[' + rownumber + '].LastReading" value="' + item.currentReading + '" onkeyup="calculateNetUnits(event)" class="form-control  CurrentReading" /></td>' +
+                                '<td> <input disabled name="ConsumedUnit" class="form-control  UnitsConsumed" value="' + item.unitsConsumed + '" /></td>' +
+                                '<td> <select disabled class="form-control ReadingOfficer" id="ReadingOfficer' + rownumber + '"></select></td>' +
+                                '<td> <input disabled type="file" class="form-control targetPath" value="' + item.targetPath + '" /><input  class="form-control CopyToTargetDocument hide" value="' + copyToTargetDocument + '" /></td>' +
+                                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="' + copyToTargetDocument + '" class="clickme" ></a></img></td>' +
+
+
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+
+                            $("#MeterRtbody").append(row);
+
+                           GetReadingOfficer(rownumber, item.readingOfficerId)
+                       
+
+                        });
+
+                        $("#MeterReadingModal").modal("hide");
+
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Reading");
+                    }
+                }
+            });
+        }
+
+        function GetReadingOfficer(rowno, readingOfficerId) {
+          
+            $.ajax({
+                type: 'GET',
+                url: `/api/ReadingOfficer/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+
+                        $("#ReadingOfficer" + rowno).empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#ReadingOfficer" + rowno).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#ReadingOfficer" + rowno).append(row);
+
+                                sr++;
+                            }
+                            $('#ReadingOfficer' + rowno).select2();
+                        }
+                        if (readingOfficerId != null && readingOfficerId != undefined) {
+                            $('#ReadingOfficer' + rowno).select2("val", [readingOfficerId])
+                        }
+
+                    }
+                }
+            });
+        }
+        // selection All Meter END
+
+        // selection MeterNumber start
+        function GetAllMeterList() {
+            debugger;
+            let meterType = $("#MeterType").val();
+
+            $.ajax({
+                type: 'GET',
+                url: "/api/Filter/GetMeterNumbersForMeterReading?meterType=" + meterType + "",
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#MeterReadtbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td >' + sr + '</td> ' +
+                                    ' <td>' + list.meterNumber + '</td> ' +
+                                    ' <td>' + list.propertyNo + '</td> ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectRegistration(' + list.id + ')">Select</a></td> </tr>';
+                                $("#MeterReadtbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#MetermodalTable').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectRegistration(id) {
+
+            var url = "/api/Filter/GetMeterNumbersForMeterReadingById?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        var rownumber = $("#rownumberforid").val();
+                        $("#meterNo_" + rownumber).val(result_User.meterNumber)
+                        $("#propNo_" + rownumber).val(result_User.propertyNo)
+                        $("#LastReading_" + rownumber).val(result_User.unitsAtInstallation)
+                        $("#CurrentReading_" + rownumber).val(result_User.unitsAtInstallation);
+                        $("#CurrentReading_" + rownumber).attr('min', result_User.unitsAtInstallation);
+                        $("#MeterModal").modal("hide");
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+        // selection MeterNumber end
+        function GetMeter(id){
+            GetAllMeterList();
+            $("#rownumberforid").val(id);
+            $("#MeterModal").modal("show");
+        }
+
+        function AddRow() {
+
+            var rownumber = parseInt($("#rownumberM").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumberM").val(rownumber);
+
+            var row = '<tr id="M' + rownumber + '" DetailId="0"> ' +
+               '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+               '<td style="width: 250px;"> <input required name="MeterReading[' + rownumber + '].MeterNo" readonly id="meterNo_' + rownumber + '" class="MeterNo" style="height:30px; width: 200px; background-color: #E5E5E5; border:#E5E5E5; border-radius:5px;"/><a class="btn btn-primary btn-sm btn-theme" onclick="GetMeter(' + rownumber + ')" style="padding: 6px 7px; margin-left: 32px;"> Search </a> </td > ' +
+               '<td> <input type="text"  readonly id="propNo_' + rownumber + '"  class="form-control PropertyNo" /></td>' +
+               '<td> <input type="number"   name="LastReading" readonly id="LastReading_' + rownumber + '"  class="form-control  LastReading" /></td>' +
+               '<td> <input type="number" id="CurrentReading_' + rownumber + '"  required name="CurrentReading[' + rownumber + '].LastReading"  onkeyup="calculateNetUnits(event)" class="form-control  CurrentReading" /></td>' +
+               '<td> <input type="text"   name="ConsumedUnit" readonly class="form-control  UnitsConsumed" value="0.00" /></td>' +
+               '<td> <select required name="MeterReading[' + rownumber + '].ReadingOfficer"  class="form-control ReadingOfficer" id="ReadingOfficer' + rownumber + '"></select></td>' +
+               '<td> <input type="file" class="form-control targetPath" /><input  class="form-control CopyToTargetDocument hide" /></td>' +
+                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+
+            $("#MeterRtbody").append(row);
+
+            GetReadingOfficer(rownumber)
+        }
+
+        function DeleteItemRow(id) {
+            $('#M' + id).remove();
+            var rownumber = 1;
+            $("#MeterRtbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#rownumberM").val(rownumber - 1);
+        }
+
+        // image from body
+        $('body').on('change', '.targetPath', UploadImageOnServerforAttachmenttbody);
+
+        function UploadImageOnServerforAttachmenttbody() {
+
+            var row = $(this);
+            var extension = row.parents('tr').find('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                // alert();
+                // notification("topright", "error", "fa fa-exclamation-circle vd_red", "Eror", "Sorry, invalid extension.");
+                ResponseMessageModal("warning", "Sorry, invalid extension.");
+                var filepath = row.parents('tr').find('input[type=file]').val();
+                row.parents('tr').find('input[type=file]').val("");
+                // $("#PreviewUrl").attr("src", "/img/placeholder-photo.svg");
+                return false;
+            }
+            else {
+                debugger;
+                var file = row.parents('td').find('input[type=file]').get(0).files[0];
+                row.parents("tr").find(".fileName").val(file.name);
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        row.parents('td').find('.CopyToTargetDocument').val(reader.result);
+                        row.parents('tr').find('.viewAttachment img').attr("src", reader.result);
+                        row.parents('tr').find('input[type=file]').get(0).files[0];
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        function calculateNetUnits(event) {
+            debugger;
+            let tr = event.target.closest('tr');
+            let amount = tr.querySelector('input[name="LastReading"]').value;
+            let result =  parseFloat(event.target.value) - parseFloat(amount);
+            tr.querySelector('input[name="ConsumedUnit"]').value = result.toFixed(2);
+        }
+
+        function PostRequest() {
+
+          if ($("#ForMonth").val() != "" && $("#ReadingFor").val())
+          {
+            var methodType = 'POST';
+            var url = "/api/MeterReading/AddNewMeterReading";
+
+            var meterReading = new Object();
+
+            var meterReadingArr = new Array();
+
+            if ($("#Id").val()) {
+
+                meterReading.id = parseInt($("#Id").val());
+                methodType = 'PUT';
+                url = "/api/MeterReading/UpdateMeterReading"
+            }
+
+            meterReading.Month = $('#ForMonth').val();
+            meterReading.MeterReadingOfficer = $('#Officer').val();
+            meterReading.ReadingFor = $('#ReadingFor').val();
+                meterReading.CreatedBy = $("#User_Id").val();
+            meterReading.ModifiedBy = $("#User_Id").val();
+            meterReading.LastModifiedUserName = $("#User_Name").val();
+
+    
+
+            $('#MeterRtbody tr').each(function () {
+
+                var row = $(this);
+                var merterReading = new Object();
+
+                var readingOfficer = row.find('.ReadingOfficer').val() == "" ? null : row.find('.ReadingOfficer').val();
+
+                merterReading.MeterNo = row.find('.MeterNo').val();
+                merterReading.PropertyNo = row.find('.PropertyNo').val();
+                merterReading.LastReading = row.find('.LastReading').val();
+                merterReading.CurrentReading = row.find('.CurrentReading').val();
+                merterReading.UnitsConsumed = row.find('.UnitsConsumed').val();
+                merterReading.ReadingOfficerId = readingOfficer;
+                merterReading.Picture = row.find('.CopyToTargetDocument').val();
+
+
+                meterReadingArr.push(merterReading);
+            });
+
+
+            meterReading.ReadingDetail = meterReadingArr;
+            var model = JSON.stringify(meterReading);
+
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+
+                    if (response.code === 100) {
+                            NProgress.done();
+                            $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+          }
+          else
+          {
+
+            Swal.fire({
+               icon: 'warning',
+               title: 'Warning',
+               text: "Please Select Both Month & Reading For",
+               customClass: 'swal-wide',
+               allowOutsideClick: false,
+               allowEscapeKey: false
+            });
+
+          }
+        }
+
+        //filterByMeterNo
+
+        function filterByMeterNo() {
+
+            const searchMonth = $("#searchMonth").val();
+            const filterByMeter = $("#filtermeterNo").val();
+
+            if (!searchMonth || !filterByMeter) {
+                return;
+            }
+
+            var url = "/api/MeterReading/FilterByMeterNo?month=" + searchMonth + "&meterNo=" + filterByMeter;
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+
+                        var result = response.data;
+                        
+                        $("#ForMonth").val(searchMonth);
+                      
+                        $("#MeterRtbody").empty();
+
+                        $.each(result, function (i, item) {
+
+                            // set values
+                            let copyToTargetDocument = item.picture == "" ? "/img/placeholder-photo.svg" : item.picture;      
+                            
+                            var rownumber = parseInt($("#rownumberM").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumberM").val(rownumber);
+
+                            var row = '<tr id="M' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td style="width: 250px;"> <input disabled id="meterNo_' + rownumber + '" value="' + item.meterNo + '" class="MeterNo" style="height:30px; width: 200px; background-color: #E5E5E5; border:#E5E5E5; border-radius:5px;"/><a class="btn btn-primary btn-sm btn-theme" onclick="GetMeter(' + rownumber + ')" style="padding: 6px 7px; margin-left: 32px;"> Search </a> </td > ' +
+                                '<td> <input disabled id="propNo_' + rownumber + '" value="' + item.propertyNo + '" class="form-control PropertyNo" </td > ' +
+                                '<td> <input type="number"   name="LastReading" readonly id="LastReading_' + rownumber + '"  class="form-control  LastReading" value="' + item.lastReading + '"/></td>' +
+                                '<td> <input type="number" id="CurrentReading_' + rownumber + '"  required name="CurrentReading[' + rownumber + '].LastReading" value="' + item.currentReading + '" onkeyup="calculateNetUnits(event)" class="form-control  CurrentReading" /></td>' +
+                                '<td> <input disabled name="ConsumedUnit" class="form-control  UnitsConsumed" value="' + item.unitsConsumed + '" /></td>' +
+                                '<td> <select disabled class="form-control ReadingOfficer" id="ReadingOfficer' + rownumber + '"></select></td>' +
+                                '<td> <input disabled type="file" class="form-control targetPath" value="' + item.targetPath + '" /><input  class="form-control CopyToTargetDocument hide" value="' + copyToTargetDocument + '" /></td>' +
+                                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="' + copyToTargetDocument + '" class="clickme" ></a></img></td>' +
+
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+
+                            $("#MeterRtbody").append(row);
+
+                           GetReadingOfficer(rownumber, item.readingOfficerId)
+                       
+                        });
+
+                        $("#MeterReadingModal").modal("hide");
+
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Reading");
+                    }
+                }
+            });
+        }
+
+    </script>
+ }

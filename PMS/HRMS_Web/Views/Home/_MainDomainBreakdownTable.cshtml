@@ -1,0 +1,52 @@
+@model string
+@{
+    var prefix = Model;
+}
+<div class="ent-tabs" data-domain="@prefix">
+    <button type="button" class="ent-tab active" data-tab="block">By Block</button>
+    <button type="button" class="ent-tab" data-tab="type">By Type</button>
+    <button type="button" class="ent-tab" data-tab="category">By Category</button>
+</div>
+<div id="@(prefix)-blockTableWrap">
+    <table class="ent-table" id="@(prefix)-blockTable">
+        <thead><tr>
+            <th data-key="name">Block</th>
+            <th class="ent-num" data-key="residential">Residential</th>
+            <th class="ent-num" data-key="commercial">Commercial</th>
+            <th class="ent-num" data-key="villa">Villa</th>
+            <th class="ent-num" data-key="farmHouse">Farm House</th>
+            <th class="ent-num" data-key="largeCommercial">Large Comm.</th>
+            <th class="ent-num" data-key="total">Total</th>
+            <th>Share</th>
+        </tr></thead>
+        <tbody id="@(prefix)-blockTableBody"></tbody>
+        <tfoot id="@(prefix)-blockTableFoot"></tfoot>
+    </table>
+</div>
+<div id="@(prefix)-typeTableWrap" style="display:none;">
+    <table class="ent-table" id="@(prefix)-typeTable">
+        <thead><tr>
+            <th data-key="name">Type</th>
+            <th class="ent-num" data-key="residential">Residential</th>
+            <th class="ent-num" data-key="commercial">Commercial</th>
+            <th class="ent-num" data-key="villa">Villa</th>
+            <th class="ent-num" data-key="farmHouse">Farm House</th>
+            <th class="ent-num" data-key="largeCommercial">Large Comm.</th>
+            <th class="ent-num" data-key="total">Total</th>
+            <th>Share</th>
+        </tr></thead>
+        <tbody id="@(prefix)-typeTableBody"></tbody>
+        <tfoot id="@(prefix)-typeTableFoot"></tfoot>
+    </table>
+</div>
+<div id="@(prefix)-categoryTableWrap" style="display:none;">
+    <table class="ent-table" id="@(prefix)-categoryTable">
+        <thead><tr>
+            <th data-key="name">Category</th>
+            <th class="ent-num" data-key="count">Count</th>
+            <th>Share</th>
+        </tr></thead>
+        <tbody id="@(prefix)-categoryTableBody"></tbody>
+        <tfoot id="@(prefix)-categoryTableFoot"></tfoot>
+    </table>
+</div>

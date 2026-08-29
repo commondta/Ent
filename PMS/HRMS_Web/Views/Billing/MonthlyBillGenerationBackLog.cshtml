@@ -1,0 +1,352 @@
+﻿
+
+@section css{
+   <style>
+       .badge {
+ 
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 5px;
+}
+       .badge-success{
+           background-color: forestgreen;
+
+       }
+       .badge-error{
+           background-color: red;
+
+       }
+       .f-8{
+           font-size:9px
+       }
+       .pagebreak {
+        clear: both;
+        page-break-after: always;
+    }
+                         .container1{
+margin-bottom:0px;
+margin-top:0px;
+padding-bottom:0px;
+padding-top:0px;
+}
+  @@media print
+      {
+         @@page {
+         
+             padding-top: 72px;
+           padding-bottom: 72px ;
+         }
+
+      } 
+</style>
+}
+
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Monthly Invoices BackLog</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>MONTHLY INVOICES BACKLOG</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                     
+                            <div class="row">                              
+                               
+                                <div class="col-sm-2">
+                                    <label>For the Month</label>
+                                <div class="search_btn">
+                                    <div class="input_div">
+                                        <input type="month" class="form-control"
+                                               placeholder=" " id="FortheMonth" />
+                                    </div>
+                                    <div>
+
+                                        <button onclick="GetAllPostedUnpostedInvoices()" class="btn btn-primary form-control">Filter</button>
+                                    </div>
+                                    <div>
+                                        <button onclick="ClearFilter()" class="btn btn-warning form-control">Clear</button>
+                                    </div>
+                                   </div>
+
+                            </div>
+                                
+                               
+
+                              
+                            </div>
+                           
+                           
+                                <div class="card " style="margin-top:2rem;">
+                                    <div class="row">
+                                      
+                                       <div class="col-sm-12">
+                                    <div class="table-responsive">
+                                        <table id="MBillGenerate" class="table table-bordered table-hover mb-0">
+                                            <thead class="bg-theme">
+                                                <tr>
+                                                    <th class="text-white" style="min-width: 90px;">#</th>
+                                                    <th class="text-white" style="min-width: 160px;">Reference No.</th>
+                                                    <th class="text-white" style="min-width: 170px;">Member ID.</th>
+                                                    <th class="text-white text-center" style="min-width: 130px;">Status</th>
+                                                    <th class="text-white" style="min-width: 330px;">Comment</th>
+
+                                            </thead>
+                                            <tbody id="MBGeneratetbody">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                       </div>
+
+                                    </div>
+                                </div>
+
+
+                        @if (Html.UserHavePermission("Monthly Invoices Backlog") != null && Html.UserHavePermission("Monthly Invoices Backlog").CanDelete)
+                        {
+                            <br>
+                            <hr />
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Cancel Invoices</label>
+                                    <textarea id="cancelInvoices"
+                                              class="form-control"
+                                              rows="4"
+                                              placeholder="Paste the doc entry comma separated to cancel the invoices"></textarea>
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-md-12 text-end">
+                                    <button type="button" class="btn btn-danger" onclick="CancelCommaSepratedInvoices()">
+                                        Cancel
+                                    </button>
+                                </div>
+                            </div>
+                        }
+                       @* <div class="col-12 hide" style="text-align:center;">
+                            
+                           <button class="btn vd_btn vd_black" href="javascript:void(0);" onclick="PostSelected()">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check"></i></span>SAP Posting
+                            </button>
+                           
+                        </div>*@
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+@section Scripts {
+
+    <script>
+      function ClearFilter(){
+          location.reload();
+      }
+        
+       function GetAllPostedUnpostedInvoices() {
+
+            var methodType = 'GET';
+            var url = "/api/Filter/GetAllPostedUnpostedInvoices";
+
+
+
+            var BillFor=$('#FortheMonth').val();
+          
+             
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: {BillFor:BillFor},
+                success: function (response) {
+                     $('#loader').fadeOut();
+                    if (response.code === 100) {
+                    
+                       $("#MBGeneratetbody").empty();
+
+                        var model = response.data;
+
+                        var relist = model;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            
+                            for (let list of relist) {
+                              
+                                var badge = "<span class='badge badge-error'>Failed</span>";
+                                if (list.postSAP == true) {
+                                    badge="<span class='badge badge-success'>Success</span>"
+                                  
+                                }
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                     '<td> <input disabled class="form-control  registrationNo" value="' + list.registrationNo + '" /></td>' +
+                                    '<td> <input disabled class="form-control  propertyNo" value="' + list.memberId + '" /></td>' +
+                                    '<td class="text-center">'+badge+' </td>' +
+                                    '<td> '+list.comment+'</td>' +
+                                
+                                    '</tr>';
+                                $("#MBGeneratetbody").append(row);
+
+                                sr++;
+                            }
+                        }
+                       
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+
+        function CancelCommaSepratedInvoices() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            });
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Cancel it!',
+                cancelButtonText: 'No!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    ProcessCancelCommaSepratedInvoices();
+                } else {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe!',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            });
+        }
+
+        function ProcessCancelCommaSepratedInvoices() {
+            var methodType = 'GET';
+            var url = "/api/SapIntegration/CancelInovices";
+            var cancelInvoices = $("#cancelInvoices").val();
+
+            if (!cancelInvoices) {
+                alert("doc entry numbers are required!");
+                return;
+            }
+
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: {
+                    cancelInvoices: cancelInvoices
+                },
+                success: function (response) {
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                    } else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Please confirm from sap otherwise run service again',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+    
+      
+      
+function convertDate(date) {
+
+    if (typeof date == "string")
+        date = new Date(date);
+    var day = (date.getDate() <= 9 ? "0" + date.getDate() : date.getDate());
+    var month = (date.getMonth() + 1 <= 9 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1));
+    var dateString = day + "/" + month + "/" + date.getFullYear();
+
+    return dateString;
+
+}
+  </script>
+ }

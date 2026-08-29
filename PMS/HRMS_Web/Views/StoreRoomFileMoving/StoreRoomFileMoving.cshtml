@@ -1,0 +1,1115 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Record Room File Moving</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16"><path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/></svg></span>
+                    <h1>Record ROOM FILE MOVING</h1>
+                    @*    <small class="subtitle">CATEGORY DEFINITION</small>*@
+                    <div class="vd_panel-menu  hidden-xs">
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        @if (Html.UserHavePermission("Record Room") != null && Html.UserHavePermission("Record Room").CanAdd)
+                        {
+                            <div class="row">
+                                <div class="col-md-3">
+                                </div>
+                                 <div class="col-md-2">
+                                    <button type="button" data-toggle="modal" data-target="#fileTrackerModal" class="btn btn-primary btn-sm btn-theme" onclick="todayIssuedFilesTracker()" id="todayfile">
+                                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Today Issued Files Tracker
+                                      </button>
+                                </div>
+                                 <div class="col-md-2">
+                                    <button type="button" data-toggle="modal" data-target="#fileTrackerModal" class="btn btn-primary btn-sm btn-theme" onclick="allOpenedFilesTracker()" id="allOpenedFilesTracker">
+                                          <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>All Opened Files Tracker
+                                      </button>
+                                </div>
+                                 <div class="col-md-2">
+                                    <button type="button" data-toggle="modal" data-target="#fileTrackerModal" class="btn btn-primary btn-sm btn-theme" onclick="allIssuedFiles()" id="allIssuedFiles">
+                                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span> All Issued Files
+                                      </button>
+                                </div>
+                                <div class="col-md-3">
+                                </div>
+                            </div>
+                            <br />
+                            <br />
+                            <form class="custom-validation" action="#" role="form" id="Store">
+                                
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label>File No / Plot No</label>
+                                        <div class="search_btn ">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly name="RegNoA" placeholder="" id="RegNoA" />
+                                            </div>
+                                            <div >
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn dha_theme_btn">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+
+                                </div>
+                                <div class="row">
+                                    <div class="col-sm-3">
+                                        <label>Department <small style="color:red;">*</small></label>
+                                        <div>
+                                            <select class="js-example-basic-single" name="Department" id="Department" style="width:100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <label>PMS User <small style="color:red;">*</small></label>
+                                        <div>
+                                            <select class="js-example-basic-single" name="PMSUSER" id="PMSUSER" style="width:100%">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>Page Out <small style="color:red;">*</small></label>
+                                        <div>
+                                            <input type="number" class="js-example-basic-single" name="PageOutIn" id="PageOutIn" style="width:100%" />
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <label>Expected Receiving Date <small style="color:red;">*</small></label>
+                                        <div>
+                                            <input type="date" class="js-example-basic-single" name="ExpectedReceivingDate" id="ExpectedReceivingDate" style="width:100%" />
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-9">
+                                        <label>Remarks <small style="color:red;">*</small></label>
+                                        <div>
+                                            <textarea class="js-example-basic-single" name="StoreRemarks" id="StoreRemarks"  rows="4"></textarea>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2 float-right">
+                                        <div class="col-12" style="margin-left:5px;margin-top: 25px">
+                                            <button type="submit" class="btn dha_theme_btn" id="Submitp">
+                                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        }
+                        <br />
+                        <div >
+                            <div class="">
+                                <table id="Block" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                            <th class="text-white hide" style="text-align: center;">StockId</th>
+                                            <th class="text-white" style="text-align: center;">Reference No.</th>
+                                            <th class="text-white" style="text-align: center;">File No/Plot No.</th>
+                                            <th class="text-white" style="text-align: center;">Block</th>
+                                            <th class="text-white" style="text-align: center;">Remarks </th>
+                                            <th class="text-white" style="text-align: center;">Page Out/In </th>
+                                            <th class="text-white" style="text-align: center;"> Return Date </th>
+                                            <th class="text-white" style="text-align: center;" id="actionDate">DateTime</th>
+                                            <th class="text-white" style="text-align: center; width:150px">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="blocktbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+<!-- /.modal -->
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="modaltitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" onclick="openmodalAdd()" id="modaltitle">Add File</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="Store" class="custom-validation" action="#" role="form">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 hide">
+                                <label>Code</label>
+                                <input id="ID" class="form-control" disabled />
+                                @* <input type="number"  id="ID" class="form-control hide" />*@
+                            </div>
+                            <div class="col-md-12">
+                                <label>Department <small style="color:red;">*</small></label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Departmentpop" id="Departmentpop" style="width:100%">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>File Receiver <small style="color:red;">*</small></label>
+                                <div>
+                                    <select class="js-example-basic-single" name="PMSUSERpop" id="PMSUSERpop" style="width:100%">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Page Out <small style="color:red;">*</small></label>
+                                <div>
+                                    <input type="text" class="js-example-basic-single" name="PageOutInPop" id="PageOutInPop" style="width:100%" />
+
+                                </div>
+                            </div>
+                            <div class="col-sm-2 hide">
+                                <label>Expected Receiving Date <small style="color:red;">*</small></label>
+                                <div>
+                                    <input type="date" class="js-example-basic-single" name="ExpectedReceivingDatePop" id="ExpectedReceivingDatePop" style="width:100%" />
+
+                                </div>
+                            </div>
+                            <div class="col-md-12">
+                                <label>Reason<small style="color:red;">*</small></label>
+                                <div>
+                                    <textarea class="js-example-basic-single" name="UserRemarks" id="UserRemarks" style="width:100%;"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer background-login">
+                        <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                        <button id="SubmitButton" type="submit" class="btn btn-primary btn-theme">Submit</button>
+                    </div>
+                </form>
+            </div>
+           
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal" id="fileTrackerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Files Tracker. </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="fileTracker" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                            <th class="text-white" style="text-align: center;">Reference No.</th>
+                                            <th class="text-white" style="text-align: center;">FileNo/Plot No.</th>
+                                            <th class="text-white" style="text-align: center;">Block</th>
+                                            <th class="text-white" style="text-align: center;">User</th>
+                                            <th class="text-white" style="text-align: center;">Depart</th>
+                                            <th class="text-white" style="text-align: center;">Remarks </th>
+                                            <th class="text-white" style="text-align: center;">Assigned DateTime </th>
+                                            <th class="text-white" style="text-align: center;">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="fileTrackertbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/SearchPropertyModal.cshtml" />
+<input id="RegID" type="number" class="hide" />
+<input id="PageOut" type="number" class="hide" value="0" />
+<input type="text" id="userid" value="@Context.Session.GetString("ID")" class="hide" />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+
+            $("#Store").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    RegNoA: {
+
+                        required: true
+                    },
+                    StoreRemarks: {
+
+                        required: true
+                    },
+                    PMSUSER: {
+
+                        required: true
+                    },
+                    Department: {
+
+                        required: true
+                    },
+
+                    StoreRemarks: {
+
+                        required: true
+                    },
+                    ExpectedReceivingDate: {
+
+                        required: true
+                    },
+                    PageOutIn: {
+
+                        required: true
+                    },
+                    PMSUSERpop: {
+
+                        required: true
+                    },
+                    Departmentpop: {
+
+                        required: true
+                    },
+                    UserRemarks: {
+
+                        required: true
+                    },
+                    PageOutInPop:{
+                        required : true
+                    }
+
+                },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) {
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+            });
+            GetAllPropertyLists();
+            GetAllDepartments();
+            GetAllFiles();
+            $('#PMSUSER').select2();
+            $('#Department').select2();
+            $('#PMSUSERpop').select2();
+            $('#Departmentpop').select2();
+        });
+
+        $('#Department').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetPMSUserByDepartment(value);
+        });
+
+        function GetPMSUserByDepartment(id) {
+            $.ajax({
+
+                type: 'GET',
+                url: `/api/PMSUser/GetPMSUserByDepartment`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+
+                        $("#PMSUSER").empty();
+                        var row = ' <option value="-1">-- Select User type --</option> ';
+
+                        $("#PMSUSER").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.emP_FULL_NAME + '</option> ';
+                                $("#PMSUSER").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#PMSUSER').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllDepartments() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Department/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Department").empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#Department").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + ' </option> ';
+
+                                $("#Department").append(row);
+
+                                sr++;
+                            }
+
+                        }
+
+                    }
+                }
+            });
+        }
+
+        // popup
+
+        $('#Departmentpop').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetPMSUserByDepartmentpop(value);
+        });
+
+        function GetPMSUserByDepartmentpop(id) {
+            debugger;
+            $.ajax({
+
+                type: 'GET',
+                url: `/api/PMSUser/GetPMSUserByDepartment`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+
+                        $("#PMSUSERpop").empty();
+                        var row = ' <option value="-1">-- Select User type --</option> ';
+
+                        $("#PMSUSERpop").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.emP_FULL_NAME + '</option> ';
+
+                                $("#PMSUSERpop").append(row);
+
+
+                                sr++;
+
+                            }
+
+                        }
+                        $('#PMSUSERpop').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllDepartmentspop() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Department/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Departmentpop").empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#Departmentpop").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + ' </option> ';
+
+                                $("#Departmentpop").append(row);
+
+                                sr++;
+                            }
+
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function GetAllPropertyLists() {
+
+            $('#proplist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllProprtties",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<a class="btn btn-primary" onclick="SelectRegistration(' + data.id + ')">Select</a>';
+                        }
+                    }
+                ]
+            });
+        }
+
+        function SelectRegistration(id) {
+           
+            var url = "/api/LDAPlotNo/GetFilterProperty?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                  
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        // set values
+                        $("#RegNoA").val(result_User.registrationNo);
+                        $("#RegID").val(result_User.id);
+                        $("#registrationModal").modal("hide");
+                        ShowAlert(result_User.id);
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        function EditBlock(id) {
+          
+            $.ajax({
+                type: 'GET',
+                url: `/api/StoreRoomFileMoving/Get`,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: { id: id },
+                async: false,
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+                    if (response.code === 100) {
+                      
+                        GetAllDepartmentspop();
+                        var result_User = response.data;
+                        let expectedReceivingDate = (result_User.expectedReceivingDate).split('T')[0] ?? "";
+                        $("#ID").val(result_User.id);
+                        $("#RegID").val(result_User.stockCreationId);
+                        $("#ExpectedReceivingDatePop").val(expectedReceivingDate);
+                        var pageOutInValue = result_User.pageOutIn.split('/')[0];
+                        $("#PageOutInPop").val(pageOutInValue);
+                        $("#PageOut").val(pageOutInValue);
+                        $("#SubmitButton").text("Update");
+                        $("#modaltitle").text("Move File ");
+                        $("#myModal").modal("show");
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", response.message);
+                        // window.alert(response.message);
+                    }
+                }
+            });
+        }
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Submit() {
+
+          
+       var isRecordRoom = false;
+       var modifiedBy = $("#User_Id").val();
+       var createdBy = $("#User_Id").val();
+       var lastModifiedUserName = $("#User_Name").val();
+
+            var RegId = $("#RegID").val();
+
+            if (RegId == "") {
+                RegId = $("#RegNo").val();
+            }
+            else {
+                RegId = $("#RegID").val();
+            }
+
+            var DeptId = $("#Department").val();
+
+            if (DeptId == undefined) {
+                DeptId = $("#Departmentpop").val();
+            }
+            else {
+                DeptId = $("#Department").val();
+            }
+
+            var pageOutIn = $("#PageOutIn").val();
+
+            if (pageOutIn == undefined) {
+                pageOutIn = $("#PageOutInPop").val();
+            }
+            else {
+                pageOutIn = $("#PageOutIn").val();
+            }
+
+            var expectedReceivingDate = $("#ExpectedReceivingDate").val();
+
+            if (expectedReceivingDate == undefined) {
+                expectedReceivingDate = $("#ExpectedReceivingDatePop").val();
+            }
+            else {
+                expectedReceivingDate = $("#ExpectedReceivingDate").val();
+            }
+
+            var userId = $("#PMSUSER").val();
+
+            if (userId == null) {
+                userId = $("#PMSUSERpop").val();
+                pageOut = $("#PageOut").val();
+            }
+            else {
+                isRecordRoom = true;
+                userId = $("#PMSUSER").val();
+                pageOut = $("#PageOutIn").val();
+            }
+
+            var remarks = $("#StoreRemarks").val() == undefined ? 'N/A' : $("#StoreRemarks").val().trim();
+
+            if (remarks == 'N/A') {
+                remarks = $("#UserRemarks").val().trim();
+            }
+            else {
+                remarks = $("#StoreRemarks").val().trim();
+            }
+
+            var category =
+            {
+                StockCreationId: RegId,
+                DepartmentId: DeptId,
+                PMSUserId: userId,
+                IsFileClosed: false,
+                IsRecordRoom: isRecordRoom,
+                Remarks: remarks,
+                ExpectedReceivingDate: expectedReceivingDate,
+                PageOutIn: pageOutIn,
+                PageOut : pageOut,
+                ModifiedBy : modifiedBy,
+                CreatedBy : createdBy,
+                LastModifiedUserName : lastModifiedUserName,
+            };
+
+            var ModelData = JSON.stringify(category);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: "POST",
+                url: `/api/StoreRoomFileMoving/AddNewFile`,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                processData: false,
+                dataType: "json",
+                async: false,
+                data: ModelData,
+                success: function (response) {
+                 
+
+                    $('#loader').fadeOut();
+                  
+                    if (response.code === 100) {
+
+                        $("#BlockForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+
+                        $("#myModal").modal("hide");
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        $("#BlockForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        function GetAllFiles() {
+
+            var id = $("#userid").val();
+            $.ajax({
+                type: 'GET',
+                url: "/api/StoreRoomFileMoving/GetAll?id=" + id + "",
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        var datatabl = $('#Block').DataTable();
+                        datatabl.destroy();
+                        $("#blocktbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                const assignedDateTime = moment(list.createdOn).format('DD-MM-YYYY, h:mmA');
+                                const expectedrecievedDateTime = moment(list.expectedReceivingDate).format('DD-MM-YYYY');
+                                var haspermission = $("#RegNoA").val() == undefined ? false : true;
+                                var btnstring = '';
+                                if (haspermission == true) {
+                                    btnstring = '<button  class="btn-warning " onclick = "CloseFile(' + list.id + ')">Received</button>';
+                                    $("#actionDate").text("Actual Return Date");
+                                }
+                                else {
+                                    btnstring = '<button  class="btn-primary"  onclick="EditBlock(' + list.id + ')" >Move</button>';
+                                    $("#actionDate").text("Issed Date");
+                                }
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td class="hide">' + list.stockCreationId + '</td>' +
+                                    ' <td Style = "text-align: center">' + list.registrationNo + '</td>' +
+                                    ' <td Style = "text-align: center">' + list.propertyNo + '</td>' +
+                                    ' <td Style = "text-align: center">' + list.block + '</td>' +
+                                    ' <td Style = "text-align: center">' + list.remarks + '</td>' +
+                                    ' <td Style = "text-align: center">' + list.pageOutIn + '</td>' +
+                                    ' <td Style = "text-align: center">' + expectedrecievedDateTime + '</td>' +
+                                    ' <td Style = "text-align: center">' + assignedDateTime + '</td>' +
+                                    '<td Style = "text-align: center">' + btnstring + '</td>' +
+                                    '</tr>';
+                                $("#blocktbody").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#Block').dataTable();
+                    }
+                }
+            });
+        }
+
+        function CloseFile(id) {
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Close it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'success',
+                        title: 'Closed',
+                        text: 'Your file is Close.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+
+                    Closed(id);
+                } else if (               
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Closed(id) {
+       
+            $.ajax({
+                type: "Post",
+                url: "/api/StoreRoomFileMoving/CloseFile?id=" + id + "",
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 100) {
+                        $("#BlockForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+                        GetAllFiles();
+                    }
+                    else {
+                        $("#BlockForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+                        notification("bottomleft", "Error", "fa fa-exclamation-circle vd_red", "Success", response.message);
+                    }
+                }
+            });
+        }
+
+        // file tracker
+
+        function todayIssuedFilesTracker() {
+            debugger;
+
+            $.ajax({
+                type: 'GET',
+                url: "/api/StoreRoomFileMoving/GetTodayAllFiles",
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        var datatabl = $('#fileTracker').DataTable();
+                        datatabl.destroy();
+                        $("#fileTrackertbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                const assignedDateTime = moment(list.createdOn).format('DD-MM-YYYY, h:mmA');
+                                if (list.isFileClosed == true) {
+                                    btnstring = '<button  class="btn-success">closed</button>';
+                                }
+                                else {
+                                    btnstring = '<button  class="btn-danger">open</button>';
+                                }
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.registrationNo + '</td>' +
+                                    ' <td>' + list.propertyNo + '</td>' +
+                                    ' <td>' + list.block + '</td>' +
+                                    ' <td>' + list.username + '</td>' +
+                                    ' <td>' + list.description + '</td>' +
+                                    ' <td>' + list.remarks + '</td>' +
+                                    ' <td>' + assignedDateTime + '</td>' +
+                                    '<td Style = "text-align: center">' + btnstring + '</td>' +
+                                    '</tr>';
+                                $("#fileTrackertbody").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#fileTracker').dataTable();
+                    }
+                }
+            });
+        }
+
+
+        function allOpenedFilesTracker() {
+            debugger;
+
+            $.ajax({
+                type: 'GET',
+                url: "/api/StoreRoomFileMoving/GetAllOpenedFiles",
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        var datatabl = $('#fileTracker').DataTable();
+                        datatabl.destroy();
+
+                        $("#fileTrackertbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                const assignedDateTime = moment(list.createdOn).format('DD-MM-YYYY, h:mmA');
+                                if (list.isFileClosed == true) {
+                                    btnstring = '<button  class="btn-success">closed</button>';
+                                }
+                                else {
+                                    btnstring = '<button  class="btn-danger">open</button>';
+                                }
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.registrationNo + '</td>' +
+                                    ' <td>' + list.propertyNo + '</td>' +
+                                    ' <td>' + list.block + '</td>' +
+                                    ' <td>' + list.username + '</td>' +
+                                    ' <td>' + list.description + '</td>' +
+                                    ' <td>' + list.remarks + '</td>' +
+                                    ' <td>' + assignedDateTime + '</td>' +
+                                    '<td Style = "text-align: center">' + btnstring + '</td>' +
+                                    '</tr>';
+                                $("#fileTrackertbody").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#fileTracker').dataTable();
+                    }
+                }
+            });
+        }
+
+        function allIssuedFiles() {
+            debugger;
+
+            $.ajax({
+                type: 'GET',
+                url: "/api/StoreRoomFileMoving/GetAllIssuedFiles",
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        var datatabl = $('#fileTracker').DataTable();
+                        datatabl.destroy();
+
+                        $("#fileTrackertbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                const assignedDateTime = moment(list.createdOn).format('DD-MM-YYYY, h:mmA');
+                                if (list.isFileClosed == true) {
+                                    btnstring = '<button  class="btn-success">closed</button>';
+                                }
+                                else {
+                                    btnstring = '<button  class="btn-danger">open</button>';
+                                }
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.registrationNo + '</td>' +
+                                    ' <td>' + list.propertyNo + '</td>' +
+                                    ' <td>' + list.block + '</td>' +
+                                    ' <td>' + list.username + '</td>' +
+                                    ' <td>' + list.description + '</td>' +
+                                    ' <td>' + list.remarks + '</td>' +
+                                    ' <td>' + assignedDateTime + '</td>' +
+                                    '<td Style = "text-align: center">' + btnstring + '</td>' +
+                                    '</tr>';
+                                $("#fileTrackertbody").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#fileTracker').dataTable();
+                    }
+                }
+            });
+        }
+
+        function openmodalAdd() {
+            $("#ID").val("");
+            $("#Department").val("-1");
+            $("#Department").trigger("change");
+            $("#RegNo").val("-1");
+            $("#RegNo").trigger("change");
+            $("#PMSUSER").val("-1");
+            $("#PMSUSER").trigger("change");
+            $("#SubmitButton").text("Submit");
+            $("#modaltitle").text("Add File");
+        }
+    </script>
+
+}

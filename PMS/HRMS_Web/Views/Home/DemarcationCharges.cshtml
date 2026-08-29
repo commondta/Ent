@@ -1,0 +1,266 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Demarcation Charges Form</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-rulers" viewBox="0 0 16 16"><path d="M1 0a1 1 0 0 0-1 1v14a1 1 0 0 0 1 1h5v-1H2v-1h4v-1H4v-1h2v-1H2v-1h4V9H4V8h2V7H2V6h4V2h1v4h1V4h1v2h1V2h1v4h1V4h1v2h1V2h1v4h1V1a1 1 0 0 0-1-1z"/></svg></span>
+                    <h1>DEMARCATION CHARGES FORM</h1>
+                    <small class="subtitle">DEMARCATION CHARGES FORM</small>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="DemarcationCh">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Document No.</label>
+                                    <div>
+                                        <input type="text" class="form-control" disabled
+                                               placeholder="" id="ID" />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" disabled
+                                               placeholder="" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Effective Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder="" id="EffectiveDate" />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Closing Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder="" id="ClosingDate" />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Document Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="DocumentStatus" id="DocumentStatus">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="Active"> Active </option>
+                                            <option value="Inactive"> Inactive </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Approval Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="ApprovalStatus" id="ApprovalStatus">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="Approved"> Approved </option>
+                                            <option value="Pending for Approval"> Pending for Approval</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Category</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Category" id="Category">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="5 Marla"> 5 Marla </option>
+                                            <option value="5 Marla"> 10 Marla</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="container-fluid">
+                                <div class="card p-3">
+                                    <div class="col-md-12">
+                                        <div class="menu">
+                                            <a onclick="AddRow()" class="btn btn-primary btn-sm btn-theme" >Add New</a>
+                                        </div>
+                                        <br>
+                                        <br>
+                                        <div class="">
+                                            <table id="demarcharges" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white">#</th>
+                                                        <th class="text-white">Charges Name</th>
+                                                        <th class="text-white">Amount</th>
+                                               
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="tbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Remarks</label>
+                                <div>
+                                    <input type="text" class="form-control"
+                                           placeholder="" id="Remarks" />
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+
+                        <div class="col-12">
+                            <input type="button" class="btn btn-primary btn-sm btn-theme" style="margin:5px;" value="Cancel">
+                            <input onclick="SubmitRequest()" type="button" class="btn btn-primary btn-sm btn-theme" style="margin:5px;" value="Add " />
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<input type="text" id="rownumber" value="0" />
+@section Scripts {
+
+
+
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //"use strict";
+
+            //$('#finishdef').dataTable();
+        });
+
+         function AddRow() {
+
+
+                     var rownumber = parseInt($("#rownumber").val());
+                     var LineId = rownumber;
+                     rownumber = rownumber + 1;
+                     $("#rownumber").val(rownumber);
+
+
+                         var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                             '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                             '<td> <input  class="form-control chargeName" /></td>' +
+                             '<td> <input  class="form-control ammount" /></td>' +
+                             '</tr>';
+
+
+                     $("#tbody").append(row);
+
+
+         }
+
+         function SubmitRequest()
+    {
+        var DemarcationChargearr = new Array();
+        var DemarcationCharge = new Object();
+            DemarcationCharge.ID = 0;
+            DemarcationCharge.EffectiveDate=$("#EffectiveDate").val();
+            DemarcationCharge.ClosingDate=$("#ClosingDate").val();
+            DemarcationCharge.DocumentStatus=$("#MemberCode").val();
+            DemarcationCharge.MemberName=$("#MemberName").val();
+            DemarcationCharge.ApprovalStatus=$("#ApprovalStatus").val();
+            DemarcationCharge.Category=$("#Category").val();
+            DemarcationCharge.Remarks=$("#Remarks").val();
+          
+
+
+        $("#tbodyCharge tr").each(function () {
+                 var row = $(this);
+                 var    DemarcationChargesDetail= new Object();
+
+                     DemarcationChargesDetail.ID= 0,
+                     DemarcationChargesDetail.ChargeName=  row.find(".chargeName").val(),
+                     DemarcationChargesDetail.Account= row.find(".account").val(),
+                     DemarcationChargesDetail.DemarcationChargeId= 0,
+
+
+                 DemarcationChargearr.push(DemarcationChargesDetail);
+             });
+             DemarcationCharge.DemarcationChargesDetails=DemarcationChargearr;
+        var ModelData = JSON.stringify(DemarcationCharge);
+        debugger;
+        $.ajax({
+            type:"POST",
+            url:`/api/Demarcation/AddDemarcationCharge`,
+            contentType: 'application/json; charset=utf-8',
+            headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+            processData: false,
+            dataType: "json",
+            async: false,
+            data: ModelData,
+            success: function(response)
+            {
+                if (response.code === 0)
+                {
+                        Swal.fire('Saved', response.message, 'success').then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                }
+            }
+
+        });
+    }
+
+
+
+
+
+    </script>
+
+    
+                }

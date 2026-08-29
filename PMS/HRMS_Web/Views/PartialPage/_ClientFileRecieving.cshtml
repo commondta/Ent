@@ -1,0 +1,193 @@
+﻿
+
+<div class="container">
+    <div class="row">
+        <div class="col-12 text-center">
+            <div class="row col-12" style="float: left;">
+                <div class="col-6" style="float: left;">
+                    <img src="~/img/n-stack-logo.png" style="width:50%;float: left;">
+                </div>
+
+                <div class="col-6" style="float: right;">
+                    <img src="~/img/n-stack-logo.png" style="width:50%; float: right;">
+                </div>
+            </div>
+
+        </div>
+            <div class="col-12" style="align-items: center;">
+            <h1 style="font-weight:800;font-size:35px;text-align:center;">File Receiving</h1>
+            </div>
+        <div class="col-12 mt-5" style="align-items: center;">
+            <img id="PreviewUrl1" style="width: 100%;height: 400px;">
+
+        </div>
+
+        <div class="row col-12" style="margin-top: 50px; ">
+            <span style=" font-weight: 700; font-size: 14px; margin-left: 15px;margin-top: 15px;min-width: 300px;
+        	background-color: lightgray !important"> Property Detail</span>
+        </div>
+        <div class="col-12">
+            <div class="row" style="margin-top: 5px">
+                <div class="col-4">
+                    <span style=" font-weight: 700; font-size: 14px"> Registration No. &nbsp;&nbsp;:</span> &nbsp;&nbsp;
+                    <span style="font-size: 14px" class="CustCode" id="RegNo"></span>
+                    <br>
+                    <span style=" font-weight: 700; font-size: 14px">
+                        Property Size &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+                    </span>&nbsp;&nbsp;
+                    <span style="font-size: 14px" id="PropSize"></span>
+                    <br>
+                    <span style=" font-weight: 700; font-size: 14px">
+                        Property Nature &nbsp;&nbsp;:
+                    </span> &nbsp;&nbsp;
+                    <span id="PNature" style="font-size: 14px"></span>
+                    <br>
+
+                </div>
+                <div class="col-4">
+                    <span style=" font-weight: 700;font-size: 14px">Property No. &nbsp;:&nbsp;&nbsp;&nbsp;  </span> &nbsp;&nbsp;
+                    <span style="font-size: 14px" class="CustCode" id="PropNo"></span>
+                    <br>
+                    <span style=" font-weight: 700;font-size: 14px">Floor&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:  </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="pFloor" style="font-size: 14px">   </span>
+                    <br>
+
+                </div>
+
+                <div class="col-4">
+                    <span style=" font-weight: 700;font-size: 14px">Block &nbsp;:&nbsp;&nbsp;&nbsp;  </span> &nbsp;&nbsp;
+                    <span style="font-size: 14px" class="CustCode" id="pBlock"></span>
+                    <br>
+                    <span style=" font-weight: 700;font-size: 14px">Type&nbsp;&nbsp;&nbsp;:  </span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span id="pType" style="font-size: 14px">   </span>
+                    <br>
+
+                </div>
+            </div>
+        </div>
+        <div class="row col-12">
+            <span style=" font-weight: 700; font-size: 14px; margin-left: 15px;margin-top: 15px;background: lightgray !important;min-width: 300px"> Member Detail</span>
+        </div>
+        <div class="col-12">
+            <div class="row" style="margin-top: 5px">
+                <div class="col-4">
+                    <span style=" font-weight: 700; font-size: 14px"> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> &nbsp;&nbsp;
+                    <span style="font-size: 14px" class="CustCode" id="MemName"></span>
+                    <br>
+                </div>
+
+                <div class="col-4">
+                    <span style=" font-weight: 700;font-size: 14px">S/D/W/Guardian&nbsp;:</span> &nbsp;
+                    <span style="font-size: 14px" class="CustCode" id="sdw"></span>
+                    <br>
+                </div>
+
+                <div class="col-4">
+                    <span style=" font-weight: 700;font-size: 14px">CNIC &nbsp;:&nbsp;&nbsp;&nbsp;  </span>
+                    <span style="font-size: 14px" class="CustCode" id="MCnic"></span> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <br>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-12">
+            <span style=" font-weight: 700; font-size: 14px; margin-left: 15px;margin-top: 15px;background: lightgray !important;min-width: 300px"> Joint Members</span>
+        </div>
+        <div class="col-12">
+        <div style="border:1px solid #000 ;margin-top:2px ; ">
+            <div class="col-xs-12" style="padding:0px">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr style="font-size: 14px">
+                            <th class="text-center">Sr No.</th>
+                            <th class="text-center">Name</th>
+                            <th class="text-center">CNIC</th>
+                            <th class="text-center">Mobile No.</th>
+                            <th class="text-center">Signature</th>
+                        </tr>
+                    </thead>
+                    <tbody class="tbodyinvoice">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        </div>
+
+        @*         <div class="col-12">
+        <div class="row" style="margin-top: 5px">
+        <div class="col-4">
+        <span style=" font-weight: 700; font-size: 14px"> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> &nbsp;&nbsp;
+        <span style="font-size: 14px" class="CustCode" id="JMName"></span>
+        <br>
+
+
+        </div>
+        <div class="col-4">
+        <span style=" font-weight: 700;font-size: 14px">Address&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;  </span> &nbsp;&nbsp;
+        <span style="font-size: 14px" class="CustCode" id="JMAddress"></span>
+        <br>
+
+
+        </div>
+
+        <div class="col-4">
+        <span style=" font-weight: 700;font-size: 14px">CNIC &nbsp;:&nbsp;&nbsp;&nbsp;  </span>
+        <span style="font-size: 14px" class="CustCode" id="JMCnic"></span> &nbsp;&nbsp;
+        <br>
+
+
+        </div>
+
+        </div>
+        </div>
+        *@
+        <div class="row col-12">
+            <span style=" font-weight: 700; font-size: 14px; margin-left: 15px;margin-top: 15px;background: lightgray !important;min-width: 300px"> Receiver Detail</span>
+        </div>
+        <div class="col-12">
+            <div class="row" style="margin-top: 5px">
+                <div class="col-4">
+                    <span style=" font-weight: 700; font-size: 14px"> Name &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> &nbsp;&nbsp;
+                    <span style="font-size: 14px" class="CustCode" id="RecName"></span>
+                    <br>
+                    <span style=" font-weight: 700; font-size: 14px"> Mobile No. &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> &nbsp;&nbsp;
+                    <span style="font-size: 14px" class="CustCode" id="RecMob"></span>
+                    <br>
+
+                </div>
+                <div class="col-4">
+                    <span style=" font-weight: 700;font-size: 14px">S/D/W&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;  </span> &nbsp;&nbsp;
+                    <span style="font-size: 14px" class="CustCode" id="RecSDW"></span>
+                    <br>
+                    <span style=" font-weight: 700; font-size: 14px"> Date&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="font-size: 14px" class="CustCode" id="RecDate"></span>
+                    <br>
+
+                </div>
+
+                <div class="col-4">
+                    <span style=" font-weight: 700;font-size: 14px">CNIC &nbsp;:&nbsp;&nbsp;&nbsp;  </span>
+                    <span style="font-size: 14px" class="CustCode" id="RecCnic"></span> &nbsp;&nbsp;
+                    <br>
+
+                </div>
+            </div>
+        </div>
+        <div class="row col-12 mt-5 pt-5">
+            <div class="col-6">
+                <span class="col-3" style=" font-weight: 700; font-size: 14px">Signature :</span>
+                <span style="
+                border: 1.5px solid black;
+                margin-right: 130px;
+                min-width: 170px;
+                margin-top: 15px;float: right;
+              "></span>
+
+            </div>
+            <div class="col-6">
+                <span class="col-6" style=" font-weight: 700; font-size: 14px">Thumb Impression :</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,385 @@
+﻿@section CSS {
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <!--datatable responsive css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+
+    <!-- Summary Styling -->
+    <style>
+        .summary-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .summary-card {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 140px;
+            flex: 1 1 150px;
+            transition: transform 0.2s ease;
+        }
+
+            .summary-card:hover {
+                transform: translateY(-4px);
+            }
+
+        .summary-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .summary-count {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 5px;
+        }
+
+        .tab-pane .error {
+            color: red;
+            font-weight: bold;
+            padding: 1rem;
+        }
+    </style>
+}
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Dealer Report</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/></svg></span>
+                    <h1>Dealer Report</h1>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                            @*
+                            <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>
+                            *@
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="col-md-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-2">
+                                                <label for="startDate">Start Date:</label>
+                                                <input type="date" id="startDate" class="form-control">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label for="endDate">End Date:</label>
+                                                <input type="date" id="endDate" class="form-control">
+                                            </div>                                       
+                                            <div class="col-sm-3">
+                                                <label>Dealer Name :</label>
+                                                <div>
+                                                    <input type="text" class="form-control"
+                                                           placeholder=" " id="dealerName" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>City :</label>
+                                                <div>
+                                                    <select class="form-control" name="city" id="city">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <label>Status</label>
+                                                <div>
+                                                    <select class="js-example-basic-single" name="DealerStatus" id="DealerStatus">
+                                                        <option value=""> Select Option </option>
+                                                        <option value="Active"> Active </option>
+                                                        <option value="InActive"> InActive </option>
+                                                        <option value="Blacklist"> Blacklist </option>
+                                                        <option value="Suspended"> Suspended </option>
+                                                        <option value="Cancelled"> Cancelled </option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 mt-2 text-right">
+                                                <button id="searchButton" class="btn btn-primary">Filter</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item active"><a class="nav-link active tab_clr" href="#ndcTabContent" data-toggle="tab">Report</a></li>
+                                            <li class="nav-item"><a class="nav-link tab_clr" href="#summary" data-toggle="tab">Summary</a></li>
+                                        </ul>
+                                        <br />
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="ndcTabContent">
+                                                <table id="proplist" class="table table-bordered table-hover mb-0" style="width:100%">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">Sr #</th>
+                                                            <th class="text-white">DateTime</th>
+                                                            <th class="text-white">Estate Name</th>
+                                                            <th class="text-white">Dealer Name</th>
+                                                            <th class="text-white">Registration No</th>                                                           
+                                                            <th class="text-white">Status</th>                                                           
+                                                            <th class="text-white">Contact No.</th>                                                           
+                                                            <th class="text-white">Cnic</th>                                                           
+                                                            <th class="text-white">City</th>                                                           
+                                                        </tr>
+                                                    </thead>
+                                                </table>
+                                            </div>
+                                            <div class="tab-pane" id="summary">
+                                                <div id="summary-tab"></div>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+@section Scripts {
+    <script src="~/code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="~/cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="~/cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="~/cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="~/cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    <script src="~/cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+            GetAllPropertyLists();
+            GetAllSector();
+            GetAllCities();
+            $('#searchButton').on('click', function () {
+                $('#proplist').DataTable().ajax.reload();
+                loadSummaryData();
+            });
+
+            loadSummaryData();
+        });
+
+        function loadSummaryData() {
+
+            const filters = {
+                startDate: $('#startDate').val() || "",
+                endDate: $('#endDate').val() || "",
+                refrenceNo: $('#refrenceNo').val() || "",
+                plotNo: $('#plotNo').val() || "",
+                sector: $('#sector').val() || "",
+                city: $('#city').val() || "",
+                plotSize: $('#plotSize').val() || "",
+                dealerName: $('#dealerName').val() || "",
+                propertyStatus: $('#PropertyStatus').val() || "",
+                DealerStatus: $('#DealerStatus').val() || ""
+            };
+
+            $.ajax({
+                url: "/api/SP/DealerSummaryReport",
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                },
+                data: filters,
+                success: function (response) {
+                    renderSummary(response);
+                },
+                error: function () {
+                    $('#summary-tab').html('<div class="error">Failed to load summary data.</div>');
+                }
+            });
+
+        }
+
+        function renderSummary(data) {
+            if (!Array.isArray(data) || data.length === 0) {
+                $('#summary-tab').html('<div class="error">No summary data found.</div>');
+                return;
+            }
+
+            let html = '<div class="summary-container">';
+            data.forEach(item => {
+                html += `
+                          <div class="summary-card">
+                              <div class="summary-name">${item.name}</div>
+                              <div class="summary-count">${item.count}</div>
+                          </div>
+                      `;
+            });
+            html += '</div>';
+
+            $('#summary-tab').html(html);
+        }
+
+
+        function GetAllPropertyLists() {
+
+            $('#proplist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetDealerReport",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                    data: function (d) {
+                        d.startDate = $('#startDate').val() || "";
+                        d.endDate = $('#endDate').val() || "";
+                        d.city = $('#city').val() || "";
+                        d.dealerName = $('#dealerName').val() || "";
+                        d.DealerStatus = $('#DealerStatus').val() || "";
+                    }
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                lengthMenu: [[10, 25, 50, 10000000], [10, 25, 50, "All"]],
+                filter: true,
+                dom: '<"top"lfB>rt<"bottom"ip><"clear">',
+                buttons: ["copy", "csv", "excel", "print", "pdf"],
+                columns: [
+                    {
+                        data: null,
+                        render: (data, type, row, meta) => meta.row + 1,
+                        title: '#'
+                    },
+                    {
+                        data: "formattedDateTime",
+                        name: "DateTime",
+                        title: "Date",
+                        render: function (data, type, row) {
+                            if (!data) return "";
+
+                            // Split by comma and take only the first part (before the time)
+                            return data.split(',')[0].trim();
+                        }
+                    },
+                    { data: 'estateName', name: 'EstateName' },
+                    { data: 'dealerName', name: 'DealerName' },
+                    { data: 'registrationNo', name: 'RegistrationNo' },
+                    { data: 'status', name: 'Status' },
+                    { data: 'mobile', name: 'ContactNo.' },
+                    { data: 'cnic', name: 'Cnic' },
+                    { data: 'city', name: 'City' },
+                ]
+            });
+        }
+
+        function GetAllSector() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/Sector/GetAllSectors`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#sector").empty();
+                        var row = ' <option value="">-- Select Sector --</option> ';
+
+                        $("#sector").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#sector").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#sector').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllCities() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/Dealer/GetAllCities`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#city").empty();
+                        var row = ' <option value="">-- Select city --</option> ';
+
+                        $("#city").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.name + '" >' + list.name + '</option> ';
+
+                                $("#city").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#city').select2();
+                    }
+                }
+            });
+        }
+    </script>
+}

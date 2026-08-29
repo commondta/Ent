@@ -1,0 +1,36 @@
+# Visual Studio
+.vs/
+*.user
+*.suo
+
+# .NET build files
+**/bin/
+**/obj/
+
+# ASP.NET
+appsettings.*.json
+!appsettings.json
+
+# Laravel
+**/vendor/
+**/node_modules/
+**/.env
+
+# Laravel cache / generated files
+**/storage/framework/cache/*
+**/storage/framework/sessions/*
+**/storage/framework/views/*
+**/storage/logs/*
+
+# Logs
+*.log
+
+# Database files / backups
+*.bak
+*.mdf
+*.ldf
+*.sql
+
+# OS
+Thumbs.db
+.DS_Store

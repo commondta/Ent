@@ -1,0 +1,367 @@
+﻿<style>
+    /* ================= PRINT SETTINGS ================= */
+    @@media print {
+        @@page {
+            size: A4 landscape;
+            margin: 0mm;
+        }
+
+        body {
+            margin: 0;
+        }
+    }
+
+    /* ================= LAYOUT ================= */
+   
+
+    /* Sr No column */
+    .sr-col {
+        width: 1.8ch;        /* single digit */
+        max-width: 1.8ch;
+        white-space: nowrap;
+        text-align: center;
+    }
+
+    .officer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+    }
+
+    .officer {
+        flex: 1;
+        margin: 5px;
+        text-align: center;
+    }
+
+    /* Titles */
+    .title,
+    .title1 {
+        font-size: 13px;
+        border-bottom: 1px solid #000;
+        padding-bottom: 5px;
+        width: 70px;
+        margin: 0 auto; /* centers under text */
+    }
+
+    .title1 {
+        font-size: 12px;
+    }
+
+    .line {
+        height: 1px;
+        margin-bottom: 5px;
+    }
+
+
+    .details {
+        font-size: 12px;
+        margin-left: 33px;
+        text-align: left;
+        margin-top: 0;
+    }
+
+    .owner-details {
+        display: block; /* default visible */
+    }
+</style>
+
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row">
+
+                <div class="col-sm-3" style="width:25%;float:left; border-right: 1px dotted black;">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div calss="col-sm-3" style="width:20%; float:left"><img style="height:38px;width:42px; border:1px solid black; margin-top:15px" src="~/img/n-stack-logo.png" /></div> <div calss="col-sm-6" style="width:60%; float:left ;text-align: center; font-size:12px"> <br><b>N-Stack</b> <br></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Receipt No.:</b><span class="challanNo"></span> </p>                      
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Payment Mode.:</b><span class="paymentMode"></span> </p>
+                        <p class="bank-dd hide" style="font-size: 12px; margin: 0; padding: 0; line-height: 1.2;"><b>Bank/DD.:</b> <span class="dd"></span></p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Receipt Due Date.:</b><span class="dueDate"></span> </p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;">
+                            <b> Receipt Date:</b> <span class="docDate"></span>
+                            <span style="float: right;"><b>Member Copy</b></span>
+                        </p>
+                    </div>
+                    <div style="border:1px solid #000 ;margin-top:2px;padding:0px ">
+                        <p style="padding:0px;font-size: 12px;margin: 0px;line-height: 1.2;"><b> Description:</b> <span class="buyerName"></span>  </p>
+                        <div class="owner-details">
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Reg No.:</b> <span class="registrationNo"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Plot No./Block:</b> <span class="blockName"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Plot Type:</b> <span class="plotType"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Category:</b> <span class="plotSize"></span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div style="border:1px solid #000 ;margin-top:2px ;min-height: 350px; ">
+                        <div class="col-xs-12" style="padding:0px">
+                            <table border="2" style="width:100%;">
+                                <thead>
+                                    <tr style="font-size:11px">
+                                        <th class="text-center sr-col">Sr</th>
+                                        <th class="text-center">Payment Type</th>
+                                        <th class="text-center">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbodyinvoice">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 0px;line-height: 1.2;"><b> Total </b><b><span class="invoicetotal" style="float:right"></span></b></p>
+                    <p style="font-size: 12px; margin-top: 0px;line-height: 1.2;text-transform:capitalize" class="amountinwords"></p>
+                    <p style="font-size: 12px;display:inline;line-height: 1.2;text-align:justify"><span style="font-weight:600;font-size:10px">Remarks:-</span><span style="display: block;margin-bottom: 0em;"></span><span class="remarks" style="text-align:justify;font-weight:600;font-size: 11px;line-height: 1.2;"> </span></p>
+
+                    <div class="officer-container">
+                        <div class="officer">
+                            <p class="title">Account</p>
+                            <div class="line"></div>
+                        </div>
+
+                        <div class="officer">
+                            <p class="title1">Bank</p>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+
+
+                    <div style="margin-top:10px">
+                        <img style="width:80%; height:3%; margin-left:22px" src="~/img/barcode pms.png" />
+                    </div>
+                </div>
+
+                <div class="col-sm-3" style="width:25%;float:left; border-right: 1px dotted black;">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div calss="col-sm-3" style="width:20%; float:left"><img style="height:38px;width:42px; border:1px solid black; margin-top:15px" src="~/img/n-stack-logo.png" /></div> <div calss="col-sm-6" style="width:60%; float:left ;text-align: center; font-size:12px"> <br><b>N-Stack</b> <br></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Receipt No.:</b><span class="challanNo"></span> </p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Payment Mode.:</b><span class="paymentMode"></span> </p>
+                        <p class="bank-dd hide" style="font-size: 12px; margin: 0; padding: 0; line-height: 1.2;"><b>Bank/DD.:</b> <span class="dd"></span></p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Receipt Due Date.:</b><span class="dueDate"></span> </p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;">
+                            <b> Receipt Date:</b> <span class="docDate"></span>
+                            <span style="float: right;"><b>Office Copy</b></span>
+                        </p>
+                    </div>
+                    <div style="border:1px solid #000 ;margin-top:2px;padding:0px ">
+                        <p style="padding:0px;font-size: 12px;margin: 0px;line-height: 1.2;"><b> Description:</b> <span class="buyerName"></span>  </p>
+                        <div class="owner-details">
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Reg No.:</b> <span class="registrationNo"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Plot No./Block:</b> <span class="blockName"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Plot Type:</b> <span class="plotType"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Category:</b> <span class="plotSize"></span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div style="border:1px solid #000 ;margin-top:2px ;min-height: 350px; ">
+                        <div class="col-xs-12" style="padding:0px">
+                            <table border="2" style="width:100%;">
+                                <thead>
+                                    <tr style="font-size:11px">
+                                        <th class="text-center sr-col">Sr</th>
+                                        <th class="text-center">Payment Type</th>
+                                        <th class="text-center">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbodyinvoice">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 0px;line-height: 1.2;"><b> Total </b><b><span class="invoicetotal" style="float:right"></span></b></p>
+                    <p style="font-size: 12px; margin-top: 0px;line-height: 1.2;text-transform:capitalize" class="amountinwords"></p>
+                    <p style="font-size: 12px;display:inline;line-height: 1.2;text-align:justify"><span style="font-weight:600;font-size:10px">Remarks:-</span><span class="remarks" style="  display: block;margin-bottom: 0em;"></span><p style="text-align:justify;font-weight:600;font-size: 11px;line-height: 1.2;"> </p></p>
+
+                    <div class="officer-container">
+                        <div class="officer">
+                            <p class="title">Account</p>
+                            <div class="line"></div>
+                        </div>
+
+                        <div class="officer">
+                            <p class="title1">Bank</p>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+
+
+                    <div style="margin-top:10px">
+                        <img style="width:80%; height:3%; margin-left:22px" src="~/img/barcode pms.png" />
+                    </div>
+                </div>
+
+                <div class="col-sm-3" style="width:25%;float:left; border-right: 1px dotted black;">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div calss="col-sm-3" style="width:20%; float:left"><img style="height:38px;width:42px; border:1px solid black; margin-top:15px" src="~/img/n-stack-logo.png" /></div> <div calss="col-sm-6" style="width:60%; float:left ;text-align: center; font-size:12px"> <br><b>N-Stack</b> <br></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Receipt No.:</b><span class="challanNo"></span> </p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Payment Mode.:</b><span class="paymentMode"></span> </p>
+                        <p class="bank-dd hide" style="font-size: 12px; margin: 0; padding: 0; line-height: 1.2;"><b>Bank/DD.:</b> <span class="dd"></span></p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Receipt Due Date.:</b><span class="dueDate"></span> </p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;">
+                            <b> Receipt Date:</b> <span class="docDate"></span>
+                            <span style="float: right;"><b>Account Copy</b></span>
+                        </p>
+                    </div>
+                    <div style="border:1px solid #000 ;margin-top:2px;padding:0px ">
+                        <p style="padding:0px;font-size: 12px;margin: 0px;line-height: 1.2;"><b> Description:</b> <span class="buyerName"></span>  </p>
+                        <div class="owner-details">
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Reg No.:</b> <span class="registrationNo"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Plot No./Block:</b> <span class="blockName"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Plot Type:</b> <span class="plotType"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Category:</b> <span class="plotSize"></span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div style="border:1px solid #000 ;margin-top:2px ;min-height: 350px; ">
+                        <div class="col-xs-12" style="padding:0px">
+                            <table border="2" style="width:100%;">
+                                <thead>
+                                    <tr style="font-size:11px">
+                                        <th class="text-center sr-col">Sr</th>
+                                        <th class="text-center">Payment Type</th>
+                                        <th class="text-center">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbodyinvoice">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 0px;line-height: 1.2;"><b> Total </b><b><span class="invoicetotal" style="float:right"></span></b></p>
+                    <p style="font-size: 12px; margin-top: 0px;line-height: 1.2;text-transform:capitalize" class="amountinwords"></p>
+                    <p style="font-size: 12px;display:inline;line-height: 1.2;text-align:justify"><span style="font-weight:600;font-size:10px">Remarks:-</span><span class="remarks" style="  display: block;margin-bottom: 0em;"></span><p style="text-align:justify;font-weight:600;font-size: 11px;line-height: 1.2;"> </p></p>
+
+                    <div class="officer-container">
+                        <div class="officer">
+                            <p class="title">Account</p>
+                            <div class="line"></div>
+                        </div>
+
+                        <div class="officer">
+                            <p class="title1">Bank</p>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+
+
+                    <div style="margin-top:10px">
+                        <img style="width:80%; height:3%; margin-left:22px" src="~/img/barcode pms.png" />
+                    </div>
+                </div>
+
+                <div class="col-sm-3" style="width:25%;float:left; border-right: 1px dotted black;">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div calss="col-sm-3" style="width:20%; float:left"><img style="height:38px;width:42px; border:1px solid black; margin-top:15px" src="~/img/n-stack-logo.png" /></div> <div calss="col-sm-6" style="width:60%; float:left ;text-align: center; font-size:12px"> <br><b>N-Stack</b> <br></div>
+                        </div>
+                    </div>
+                    <div>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Receipt No.:</b><span class="challanNo"></span> </p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Payment Mode.:</b><span class="paymentMode"></span> </p>
+                        <p class="bank-dd hide" style="font-size: 12px; margin: 0; padding: 0; line-height: 1.2;"><b>Bank/DD.:</b> <span class="dd"></span></p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;"> <b>Receipt Due Date.:</b><span class="dueDate"></span> </p>
+                        <p style="font-size: 12px;margin: 0px;padding: 0px;line-height: 1.2;">
+                            <b> Receipt Date:</b> <span class="docDate"></span>
+                            <span style="float: right;"><b>Bank Copy</b></span>
+                        </p> 
+                    </div>
+                    <div style="border:1px solid #000 ;margin-top:2px;padding:0px ">
+                        <p style="padding:0px;font-size: 12px;margin: 0px;line-height: 1.2;"><b> Description:</b> <span class="buyerName"></span>  </p>
+                        <div class="owner-details">
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Reg No.:</b> <span class="registrationNo"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Plot No./Block:</b> <span class="blockName"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Plot Type:</b> <span class="plotType"></span>
+                            </p>
+                            <p style="font-size:12px;margin:0;line-height: 1.2;">
+                                <b>Category:</b> <span class="plotSize"></span>
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <div style="border:1px solid #000 ;margin-top:2px ;min-height: 350px; ">
+                        <div class="col-xs-12" style="padding:0px">
+                            <table border="2" style="width:100%;">
+                                <thead>
+                                    <tr style="font-size:11px">
+                                        <th class="text-center sr-col">Sr</th>
+                                        <th class="text-center">Payment Type</th>
+                                        <th class="text-center">Amount</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="tbodyinvoice">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; margin-top: 0px;line-height: 1.2;"><b> Total </b><b><span class="invoicetotal" style="float:right"></span></b></p>
+                    <p style="font-size: 12px; margin-top: 0px;line-height: 1.2;text-transform:capitalize" class="amountinwords"></p>
+                    <p style="font-size: 12px;display:inline;line-height: 1.2;text-align:justify"><span style="font-weight:600;font-size:10px">Remarks:-</span><span class="remarks" style="  display: block;margin-bottom: 0em;"></span><p style="text-align:justify;font-weight:600;font-size: 11px;line-height: 1.2;"> </p></p>
+
+                    <div class="officer-container">
+                        <div class="officer">
+                            <p class="title">Account</p>
+                            <div class="line"></div>
+                        </div>
+
+                        <div class="officer">
+                            <p class="title1">Bank</p>
+                            <div class="line"></div>
+                        </div>
+                    </div>
+
+
+                    <div style="margin-top:10px">
+                        <img style="width:80%; height:3%; margin-left:22px" src="~/img/barcode pms.png" />
+                    </div>
+                </div>
+                    
+            </div>
+        </div>
+    </div>
+</div>

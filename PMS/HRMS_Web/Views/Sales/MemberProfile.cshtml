@@ -1,0 +1,2339 @@
+﻿<!-- Middle Content Start -->
+
+<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+
+                    <ul class="breadcrumb">
+
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Member Profile</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6m2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0m4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4m-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10s-3.516.68-4.168 1.332c-.678.678-.83 1.418-.832 1.664z"/></svg></span>
+                    <h1>MEMBER PROFILE</h1>
+                    <div class="menu">
+                        <a href="https://nacta.gov.pk" class="btn dha_theme_btn" target="_blank">Nacta</a>
+                        <a href="https://www.un.org/securitycouncil/content/un-sc-consolidated-list" class="btn dha_theme_btn" target="_blank">UN BlackList</a>
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="Memberprofile">
+                            <div class="row">
+                                <div class="col-sm-3" style="margin-top: 25px">
+                                    <label>Member No.</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="number" class="form-control  " disabled
+                                                   placeholder="" id="Id" />
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#MemberModal" type="button" id="searchbtn" class="btn dha_theme_btn">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="margin-top: 25px">
+                                    <label>Membership No <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="" id="membershipno" name="membershipno">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="margin-top: 25px">
+                                    <label>Lead No.</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="number" class="form-control" disabled
+                                                   placeholder="" id="LeadId" />
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" id="lid" data-target="#LeadGenerationModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="margin-top: 25px">
+                                    <label>Date Of Registration</label>
+                                    <div>
+                                        <input type="date" class="form-control" id="DateTime" name="DateTime" value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                               placeholder="" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row" style="margin: 1rem 0rem">
+
+                                <div class="col-sm-3" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                    <label style="align-self:flex-start;">Member Image</label>
+                                    <img id="PreviewUrl" src="/img/placeholder-photo.svg" />
+                                    <input type="file" id="fileUpload" class="fileUpload" onchange="uploadImageons('fileUpload', 'PreviewUrl', 'ImageURL')">
+                                    <input type="text" id="ImageURL" class="hidden" />
+                                </div>
+                                <div class="col-sm-3" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                    <label style="align-self:flex-start;">CNIC Front</label>
+                                    <img id="CNICFrontUrl" src="/img/placeholder-photo.svg" />
+                                    <input type="file" id="fileUploadF" class="fileUploadF" onchange="uploadImageons('fileUploadF', 'CNICFrontUrl', 'ImageURLFront')">
+                                    <input type="text" id="ImageURLFront" class="hidden" />
+                                </div>
+                                <div class="col-sm-3" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                    <label style="align-self:flex-start;">CNIC Back</label>
+                                    <img id="CNICBackUrl" src="/img/placeholder-photo.svg" />
+                                    <input type="file" id="fileUploadB" class="fileUploadB" onchange="uploadImageons('fileUploadB', 'CNICBackUrl', 'ImageURLBack')">
+                                    <input type="text" id="ImageURLBack" class="hidden" />
+                                </div>
+
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Honorific <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="HonorificsName" id="HonorificsName">
+                                            <option value=""> Select Option </option>
+                                            <option value="Mr"> Mr </option>
+                                            <option value="Mrs"> Mrs</option>
+                                            <option value="Ms"> Ms</option>
+                                            <option value="Miss"> Miss</option>
+                                            <option value="MX"> MX</option>
+                                            <option value="M/s">M/s</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder="" id="MemberName" name="MemberName">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>S/O,D/O,W/O <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Relationship" id="Relationship">
+                                            <option value=""> Select Option </option>
+                                            <option value="S/O"> S/O </option>
+                                            <option value="D/O"> D/O</option>
+                                            <option value="F/O"> F/O</option>
+                                            <option value="M/O"> M/O</option>
+                                            <option value="W/O"> W/O</option>
+                                            <option value="FatherName">Father Name</option>
+                                            <option value="Other"> Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Relationship With<small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="RelationshipWith" name="RelationshipWith">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+
+
+                                <div class="col-sm-3">
+                                    <label>CNIC <small style="color:red">*</small></label>
+                                    <div>
+                                        <input class="form-control"
+                                               placeholder="" id="Cnic" name="Cnic" type="number" maxlength="13" onkeypress="validateNumberInput(event)" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>CNIC Expiry Date <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder="" id="CnicExpiryDate" name="CnicExpiryDate" />
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Passport No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="" id="PassportNo" name="PassportNo" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Passport Expiry Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder="" id="PassportExpiryDate" name="PassportExpiryDate" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Nationality <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Nationality" id="Nationality">
+                                            <option value="Pakistani"> Paksitani </option>
+                                            <option value="Other"> Other </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Country <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="CountryOfResidence" name="Country" value="Pakistan" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>City <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="CityOfResidence" name="City" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Overseas</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="OverSeas" id="OverSeas">
+                                            <option value=""> Select Option </option>
+                                            <option value="1"> Yes </option>
+                                            <option value="0"> No</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>DOB <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               id="DOB" name="DOB" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Gender <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Gender" id="Gender">
+                                            <option value=""> Select Option </option>
+                                            <option value="Male"> Male </option>
+                                            <option value="Female"> Female</option>
+                                            <option value="Other"> Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>NICOP No.</label>
+                                    <div>
+                                        <input type="text" onkeypress="validateNumberInput(event)" class="form-control"
+                                               id="NICOPNo" name="NICOPNo" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>POC No.</label>
+                                    <div>
+                                        <input type="text" onkeypress="validateNumberInput(event)" class="form-control"
+                                               placeholder=" " id="POCNO" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Source Of Info.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="SourceOfInfo" name="SourceOfInfo" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Outstanding Balance</label>
+                                    <div>
+                                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+                                               placeholder=" " id="OutstandingBalance" name="OutstandingBalance" value="0.00" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Status <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="MemberStatus" id="MemberStatus">
+                                            <option value=""> Select Option </option>
+                                            <option value="Active"> Active </option>
+                                            <option value="InActive"> InActive</option>
+                                            <option value="Block"> Block</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Biometric Verification <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="BiomVerification" id="BiomVerification">
+                                            <option value=""> Select Option </option>
+                                            <option value="Yes"> Yes </option>
+                                            <option value="Mo"> No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Member Category</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="MemberCategory" name="MemberCategory">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Rank</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Rank" name="Rank">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Force</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Force" name="Force">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>PANO</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PANO" name="PANO" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Shaheed</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Shaheed" name="Shaheed" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Quota</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Quota" id="Quota">
+                                            <option value=""> -- Select Quota --</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <ul class="nav nav-tabs">
+
+                                <li class="nav-item active"><a class="nav-link tab_clr active" href="#PersonalInfo" data-toggle="tab">Personal Info</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#LoginDetails" data-toggle="tab">Login Details</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Nominees" data-toggle="tab">Nominees</a></li>
+                               @*  <li class="nav-item"><a class="nav-link tab_clr" href="#SocialStatus" data-toggle="tab">Social Status</a></li> *@
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Attachments" data-toggle="tab">Attachments</a></li>
+                                @* <li class="nav-item"><a class="nav-link tab_clr" href="#RelationshipHistory" data-toggle="tab">Relationship History</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Interest" data-toggle="tab">Interest</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Properties" data-toggle="tab">Properties</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Financials" data-toggle="tab">Financials</a></li> *@
+                            </ul>
+                            <br />
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane" id="LoginDetails">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <label>User Name <small style="color:red">*</small></label>
+                                                        <div>
+                                                            <input id="UserName" name="UserName" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Password </label>
+                                                        <div>
+                                                            <input id="Password" name="Password" type="password" class="form-control" />
+                                                            <span class="toggle-password" id="show-password">Show</span>
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane active" id="PersonalInfo">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+
+                                            <div class="">
+                                                <div class="row">
+
+                                                    <div class="col-sm-3">
+                                                        <label>Residence Status</label>
+                                                        <div>
+                                                            <select class="form-control" id="ResidenenceStatus" name="ResidenenceStatus">
+                                                                <option value="">Select Option</option>
+                                                                <option value="Owned">Owned</option>
+                                                                <option value="Rental">Rental</option>
+                                                                <option value="Company">Company</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+
+
+                                                    <div class="col-sm-3">
+                                                        <label>Vehicle</label>
+                                                        <div>
+                                                            <select class="js-example-basic-single" name="Vehicle" id="Vehicle">
+                                                                <option value=""> Select Option </option>
+                                                                <option value="Owned"> Owned </option>
+                                                                <option value="Company"> Company </option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <label>Mother’s Maiden Name</label>
+                                                        <div>
+                                                            <input class="form-control" id="MothersMaidenName" name="MothersMaidenName" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Mobile No <small style="color:red">*</small></label>
+                                                        <div>
+                                                            <input type="text" onkeypress="validateNumberInput(event)" class="form-control" id="Mobile" name="Mobile" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-3">
+                                                        <label>Contact No - Home</label>
+                                                        <div>
+                                                            <input type="text" onkeypress="validateNumberInput(event)" class="form-control" id="HomeNo" name="HomeNo" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Contact No - WhatsApp <small style="color:red">*</small></label>
+                                                        <div>
+                                                            <input type="text" onkeypress="validateNumberInput(event)" class="form-control" id="WhatsAppNo" name="WhatsAppNo" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <label>Contact No - Office</label>
+                                                        <div>
+                                                            <input type="text" onkeypress="validateNumberInput(event)" class="form-control" id="OfficeNo" name="OfficeNo" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Contact No - Imo</label>
+                                                        <div>
+                                                            <input class="form-control" id="ImoNo" name="ImoNo" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-3">
+                                                        <label>Email Id</label>
+                                                        <div>
+                                                            <input class="form-control" id="EmailId" name="EmailId" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Instagram Id</label>
+                                                        <div>
+                                                            <input class="form-control" id="InstagramId" name="InstagramId" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <label>LinkedIn Id</label>
+                                                        <div>
+                                                            <input class="form-control" id="LinkedId" name="LinkedId" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Facebook Id</label>
+                                                        <div>
+                                                            <input class="form-control" id="FacebookId" name="FacebookId" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-3">
+                                                        <label>Twitter Id</label>
+                                                        <div>
+                                                            <input class="form-control" id="TwitterId" name="TwitterId" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Profession</label>
+                                                        <div>
+                                                            <input class="form-control" id="Profession" name="Profession" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <label>Business Address</label>
+                                                        <div>
+                                                            <input class="form-control" id="BussinessAddress" name="BussinessAddress" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Business Tenure</label>
+                                                        <div>
+                                                            <input class="form-control" id="BussinessTenoure" name="BussinessTenoure" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-3">
+                                                        <label>Salary</label>
+                                                        <div>
+                                                            <input type="text" onkeypress="validateNumberInput(event)" min="0" oninput="validity.valid||(value='');" value="0" class="form-control" id="Salary" name="Salary" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Tax Status</label>
+                                                        <div>
+                                                            <select class="form-control" id="TaxStatus" name="TaxStatus" required>
+                                                                <option value="Non-Filer">Non-Filer</option>
+                                                                <option value="Filer">Filer</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <label>No. Of Departments</label>
+                                                        <div>
+                                                            <input type="text" class="form-control" id="NoOfDepartments" name="NoOfDepartments" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Relationship Manager</label>
+                                                        <div>
+                                                            <input class="form-control" id="RelationshipManager" name="RelationshipManager" />
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-3">
+                                                        <label>NTN No.</label>
+                                                        <div>
+                                                            <input type="text" onkeypress="validateNumberInput(event)" class="form-control" id="NTNNo" name="NTNNo" disabled />
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        <label>Current Address <small style="color:red">*</small></label>
+                                                        <div>
+                                                            <textarea type="text" class="form-control"
+                                                                      placeholder=" " id="CurrentAddress" name="CurrentAddress"></textarea>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        <label>Permanent Address <small style="color:red">*</small></label>
+                                                        <div>
+                                                            <textarea type="text" class="form-control"
+                                                                      placeholder=" " id="PermanentAddress" name="PermanentAddress"></textarea>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="RelationshipHistory">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                                <a onclick="AddToRelationshipHistorytbody()" class="btn btn-primary btn-sm btn-theme" style="padding: 6px 20px;">Add New</a>
+                                            </div>
+
+                                            <div class="">
+                                                <table id="RelationshipHistorytable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Alert Date</th>
+                                                            <th class="text-white">Alert Narration</th>
+                                                            <th class="text-white">Alert Type</th>
+                                                            <th class="text-white">Resolution Date</th>
+                                                            <th class="text-white">Resolution Description</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="RelationshipHistorytbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Properties">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            @* <div class="menu" style="float: right;">
+                                            <a onclick="AddToPropertiestbody()" class="btn btn-primary btn-sm btn-theme">Add New</a>
+                                            </div>
+                                            <br>*@
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="PropertiesTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Reference No.</th>
+                                                            <th class="text-white">Property No.</th>
+                                                            <th class="text-white">Block</th>
+                                                            <th class="text-white">Phase</th>
+                                                            <th class="text-white">Property Type</th>
+                                                            <th class="text-white">Nature</th>
+                                                            <th class="text-white">Booking Form No.</th>
+                                                            <th class="text-white">Joining Fee</th>
+                                                            <th class="text-white">Construction Status</th>
+                                                            <th class="text-white">Nominee</th>
+                                                            <th class="text-white">Outstanding Land Cost</th>
+                                                            <th class="text-white">Outstanding Charges</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="PropertiesTbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Interest">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                                <a onclick="AddToMemberInteresttbody()" class="btn btn-primary btn-sm btn-theme" style="padding: 6px 20px;">Add New</a>
+                                            </div>
+
+                                            <div class="">
+                                                <table id="MemberInterest" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Property Nature</th>
+                                                            <th class="text-white">Property type</th>
+                                                            <th class="text-white">Category</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="MemberInteresttbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Nominees">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                                <a onclick="AddToNomineestbody()" class="btn btn-primary btn-sm btn-theme" style="padding: 6px 20px">Add New</a>
+                                            </div>
+
+                                            <div class="">
+                                                <table id="NomineesTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Name</th>
+                                                            <th class="text-white">CNIC</th>
+                                                            <th class="text-white">Relationship</th>
+                                                            <th class="text-white">Mobile No.</th>
+                                                            <th class="text-white">Address</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="NomineesTbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Financials">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table id="Clear" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Reference No</th>
+                                                            <th style="min-width:190px" class="text-white">Charges Type</th>
+                                                            @* <th class="text-white">Department</th>*@
+                                                            <th class="text-white">Invoice No.</th>
+                                                            <th class="text-white">DueDate.</th>
+                                                            <th class="text-white">Invoice Category</th>
+                                                            <th class="text-white">Receipt No.</th>
+                                                            <th class="text-white">Amount</th>
+                                                            <th class="text-white">Recieved Amount</th>
+                                                            <th class="text-white">Balance Due</th>
+                                                            <th class="text-white">Remarks</th>
+                                                        </tr>
+                                                    </thead>
+
+                                                    <tbody id="Cleartbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Attachments">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                                <a onclick="AddToAttachmenttbody()" class="btn btn-primary btn-sm btn-theme" style="padding: 6px 20px;">Add New</a>
+                                            </div>
+
+                                            <div class="">
+                                                <table id="AttachmentTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Target Path</th>
+                                                            <th class="text-white">File Name</th>
+                                                            <th class="text-white">Attachment Date</th>
+                                                            <th class="text-white">Description</th>
+                                                            <th class="text-white">View</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="AttachmentTbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="SocialStatus">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            @* <div class="menu">
+                                            <a onclick="AddToAttachmenttbody()" class="btn btn-primary btn-sm btn-theme">Add New</a>
+                                            </div>*@
+                                            @* <br>
+                                            <br>*@
+                                            <div class="">
+                                                <table id="SocialStatusTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="text-align:center;">#</th>
+                                                            <th class="text-white" style="text-align:center;">Status</th>
+                                                            <th class="text-white" style="text-align:center;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="appendSocialStatus">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn dha_theme_btn" href="javascript:void(0);" id="sbt">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </button>
+                            </div>
+                        </form>
+                       @* <button id="openModal" class="btn btn-warning">Show Approval History</button>*@
+
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+
+</div>
+
+@*LeadGenerationModel*@
+
+<div class="modal" id="LeadGenerationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Lead.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="LeadGenerationTable" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Name</th>
+                                            <th class="text-white">MobileNo</th>
+                                            <th class="text-white">CNIC</th>
+                                            <th class="text-white">Remarks</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="LeadGenerationTbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<partial name="~/Views/PartialPage/_History.cshtml" />
+<partial name="~/Views/PartialPage/SearchMemberModal.cshtml" />
+<input type="text" class="hide" id="rownumberInterest" value="0" />
+<input type="text" class="hide" id="rownumberRH" value="0" />
+<input type="text" class="hide" id="rownumberN" value="0" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+<input type="text" class="hide" id="rownumberA" value="0" />
+<input type="number" class="hide" id="MemeberId" value="@ViewBag.Id" />
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+
+            $("#Memberprofile").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    membershipno: {
+                        required: true
+                    },
+
+                //     HonorificsName: {
+                //         required: true
+                //     },
+                //     MemberName: {
+                //         required: true
+                //     },
+                //     Relationship: {
+                //         required: true
+                //     },
+                //     RelationshipWith: {
+                //         required: true
+                //     },
+                //     DOB: {
+                //         required: true
+                //     }
+                //     , Gender: {
+                //         required: true
+                //     }
+                //     ,
+                    Cnic: {
+
+                        minlength: 13,
+                        maxlength: 13,
+                        required: true
+                    },
+                //     , CnicExpiryDate: {
+                //         required: true
+                //     }
+                //     , PassportNo: {
+                //         required: false,
+                //     }
+                //     , PassportExpiryDate: {
+                //         required: false,
+                //     }
+                //     , Nationality: {
+                //         required: true
+                //     }
+                //     , OverSeas: {
+                //         required: false
+                //     },
+                //     CountryOfResidence: {
+                //         required: true
+                //     },
+                //     CityOfResidence: {
+                //         required: true
+                //     },
+                //     OutstandingBalance: {
+                //         required: false
+                //     },
+
+                //     SourceOfInfo: {
+                //         required: false
+                //     },
+                //     Country: {
+                //         required: true
+                //     },
+                //     City: {
+                //         required: true
+                //     },
+                //     NICOPNo: {
+                //         required: false
+                //     },
+                //     POCNO: {
+                //         required: false
+                //     },
+                //     CurrentAddress: {
+                //         required: true
+                //     }
+                //     ,
+                //     PermanentAddress: {
+                //         required: true
+                //     },
+
+                //     Mobile: {
+                //         required: true,
+                //         number: true,
+                //     },
+                //     WhatsAppNo: {
+                //         required: true,
+
+                //     },
+                //     OfficeNo: {
+                //         required: false
+                //     },
+
+                //     EmailId: {
+                //         required: false,
+                //         email: true
+                //     },
+                //     InstagramId: {
+                //         required: false,
+
+                //     },
+                //     LinkedId: {
+                //         required: false,
+
+                //     },
+                //     FacebookId: {
+                //         required: false,
+
+                //     },
+                //     TwitterId: {
+                //         required: false,
+
+                //     },
+                //     Profession: {
+                //         required: false,
+
+                //     },
+                //     BussinessAddress: {
+                //         required: false,
+
+                //     },
+                //     BussinessTenoure: {
+                //         required: false,
+
+                //     },
+                //     Salary: {
+                //         required: false,
+
+                //     },
+                //     Quota: {
+                //         required: false,
+
+                //     },
+                //     TaxStatus: {
+                //         required: true,
+
+                //     },
+                //     RelationshipManager: {
+                //         required: false,
+
+                //     },
+
+                //     UserName: {
+                //         required: true,
+                //     },
+                // },
+                // messages: {
+                //     MemberStatus: {
+                //         required: "Select Member Status"
+                //     },
+
+                //     HonorificsName: {
+                //         required: "Select Honorifics Name"
+                //     },
+                //     MemberName: {
+                //         required: "Enter New Member Name"
+                //     },
+                //     Relationship: {
+                //         required: "Select S/O,D/O,W/O"
+                //     },
+                //     RelationshipWith: {
+                //         required: "Enter Relationship With"
+                //     },
+                //     DOB: {
+                //         required: "Select Your Date of Birth"
+                //     }
+                //     , Gender: {
+                //         required: "Select Gender"
+                //     }
+                //     ,
+                    // Cnic: {
+                    //     required: "Enter your CNIC"
+                    // },
+                //     , CnicExpiryDate: {
+                //         required: "Select CNIC Expiry Date"
+                //     }
+                //     , PassportExpiryDate: {
+                //         required: "Select Passport Expiry Date",
+                //     }
+                //     , Nationality: {
+                //         required: "Select Your Nationality"
+                //     },
+                //     CountryOfResidence: {
+                //         required: "Enter Your Country Of Residence"
+                //     },
+                //     CityOfResidence: {
+                //         required: "Enter Your City Of Residence"
+                //     },
+                //     Country: {
+                //         required: " Enter Your Country"
+                //     },
+                //     City: {
+                //         required: " Enter Your City"
+                //     },
+                //     CurrentAddress: {
+                //         required: "Enter Your Current Address"
+                //     }
+                //     ,
+                //     PermanentAddress: {
+                //         required: "Enter Your Permanent Address"
+                //     },
+
+                //     Mobile: {
+                //         required: "Enter Your Mobile Number"
+                //     },
+                //     WhatsAppNo: {
+                //         required: "Enter Your WhatsApp Number"
+
+                //     },
+                //     TaxStatus: {
+                //         required: "Select your Tax status"
+
+                //     },
+                //     UserName: {
+                //         required: "Enter User Name"
+                //     },
+                  
+                },
+
+                errorPlacement: function (error, element) {
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    //alert("validation Successfully");
+                    PostRequest();
+                }
+
+            });
+
+            $("#show-password").on("click", function () {
+                var passwordInput = $("#Password");
+                if (passwordInput.attr("type") === "password") {
+                    passwordInput.attr("type", "text");
+                    $("#show-password").text("Hide");
+                } else {
+                    passwordInput.attr("type", "password");
+                    $("#show-password").text("Show");
+                }
+            });
+
+            $('#TaxStatus').change(function () {
+                if ($(this).val() == 'Filer') {
+                    $('#NTNNo').prop('disabled', false);
+                    $('#NTNNo').prop('required', true);
+                }
+                else {
+                    $('#NTNNo').prop('disabled', true);
+                    $('#NTNNo').prop('required', false);
+                }
+            });
+
+            var today = new Date().toISOString().split('T')[0];
+            $("#DOB").attr("max", today);
+
+            GetAllQuota();
+            SocialStuses();
+            GetAllMemberLists();
+            GetPreviousRecords();
+            GetAllMemberCategories();
+            GetAllForces();
+            GetAllRanks();
+            var id = $("#MemeberId").val();
+            debugger;
+            if (id > 0) {
+                SelectMember(id);
+                if ($("#MemeberId").val() != null) {
+                    $("#openModal").prop("disabled", true);
+                    $("#Memberprofile :input").prop("disabled", true);
+
+                }
+            }
+        });
+
+        $('#Quota').select2();
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function GetAllMemberCategories() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/MemberCategory/GetAllMemberCategorys`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#MemberCategory").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#MemberCategory").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#MemberCategory").append(row);
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#MemberCategory').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllRanks() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Rank/GetAllRanks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Rank").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Rank").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#Rank").append(row);
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Rank').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllForces() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Force/GetAllForces`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Force").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Force").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#Force").append(row);
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Force').select2();
+                    }
+                }
+            });
+        }
+
+        function GetPreviousRecords() {
+            var url = "/api/LeadGenration/GetAllLead";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        debugger;
+                        $("#LeadGenerationTbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.name + '</td>           ' +
+                                    ' <td>' + list.mobileNo + '</td>           ' +
+                                    ' <td>' + list.cnic + '</td>           ' +
+                                    ' <td>' + list.remarks + '</td>           ' +
+                                    '<td><a class="fa fa-edit fa-2x" onclick="SelectSinglePPS(' + list.id + ')"></a>' +
+                                    '<a class="fa fa-trash-o fa-2x text-danger hide" onclick="DeleteSingleChargeSetup(' + list.id + ')"></a></td> </tr>';
+
+                                $("#LeadGenerationTbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#LeadGenerationTable').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectSinglePPS(id) {
+
+            var url = "/api/LeadGenration/Get?id=" + id + "";
+
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        let result_User = response.data;
+
+                        let CnicExp = (result_User.cnicExpirtyDate).split('T')[0] ?? "N/A";
+
+                        $("#LeadId").val(result_User.id);
+                        $("#HonorificsName").val(result_User.honorificsName);
+                        $("#HonorificsName").trigger('change');
+                        $("#MemberName").val(result_User.name);
+                        $("#Gender").val(result_User.gender);
+                        $("#Gender").trigger('change');
+                        $("#Relationship").val(result_User.relationship);
+                        $("#Relationship").trigger('change');
+                        $("#RelationshipWith").val(result_User.relationshipWith);
+                        $("#SourceOfInfo").val(result_User.sourceOfInfo);
+                        $("#Cnic").val(result_User.cnic);
+                        $("#CnicExpiryDate").val(CnicExp);
+                        $("#Mobile").val(result_User.mobileNo);
+                        $("#Nationality").val(result_User.nationality);
+                        $("#CountryOfResidence").val(result_User.countryOfResidence);
+                        $("#CityOfResidence").val(result_User.cityOfResidence);
+                        $("#Remarks").val(result_User.remarks);
+
+                        $("#MemberInteresttbody").empty();
+
+                        $.each(response.data.lgInterests, function (i, item) {
+
+                            var rownumber = parseInt($("#rownumberInterest").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumberInterest").val(rownumber);
+
+                            var row = '<tr id="I' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td><select id="PropertyNature' + rownumber + '" class="form-control propertyNature" style="width:100%" /></td>' +
+                                '<td><select id="PropertyType' + rownumber + '" class="form-control propertyType" style="width:100%" /></td>' +
+                                '<td><select id="Category' + rownumber + '" class="form-control category" style="width:100%" /></td>' +
+
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteInterestRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+
+                            $("#MemberInteresttbody").append(row);
+
+                            GetAllTypes(rownumber, item.propertyType);
+                            GetAllCategories(rownumber, item.category);
+                            GetAllNatures(rownumber, item.propertyNature);
+                        });
+
+                        $("#LeadGenerationModal").modal("hide");
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+                    }
+                }
+            });
+        }
+
+        function GetAllMemberLists() {
+            $('#memberlist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllMemberProfiles",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "membershipNo", name: "membershipNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "mobile", name: "Mobile" },
+                    { data: "dateTime", name: "DateTime" }, 
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<a class="btn btn-primary" onclick="SelectMember(' + data.id + ')">Select</a>';
+                        }
+                    }
+                ]
+            });
+        }
+
+        function GetAllQuota() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Quota/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#Quota").empty();
+                        var row = ' <option value="">-- Select Quota --</option> ';
+
+                        $("#Quota").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.name + '" >' + list.name + '</option> ';
+
+                                $("#Quota").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Quota').select2();
+                    }
+                }
+            });
+        }
+
+        function SelectMember(id, el) {
+            debugger;
+            var regNum = $(el).closest("tr").find("td:eq(2)").text();
+            var url = "/api/MemberProfile/Get?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+
+                        var Member_User = response.data;
+                        // set values
+
+                        let memberImage = Member_User.imageURL == "" ? "/img/placeholder-photo.svg" : Member_User.imageURL;
+                        let memberCnicFront = Member_User.cnicFront == "" ? "/img/placeholder-photo.svg" : Member_User.cnicFront;
+                        let memberCnicBack = Member_User.cnicBack == "" ? "/img/placeholder-photo.svg" : Member_User.cnicBack;
+                        let memberdob = (Member_User.dob).split('T')[0] ?? "";
+                        let memberCnicExp = (Member_User.cnicExpiryDate).split('T')[0] ?? "";
+                        let memberpassExp = Member_User.passportExpiryDate != "" ? (Member_User.passportExpiryDate).split('T')[0] : "";
+                        let overseas = Member_User.overSeas == false ? "0" : "1";
+                        let DateTime = (Member_User.createdOn).split('T')[0] ?? "";
+
+                        $("#Id").val(Member_User.id);
+                        $("#membershipno").val(Member_User.membershipno);
+                        $("#ImageURL").val(memberImage);
+                        $("#ImageURLFront").val(memberCnicFront);
+                        $("#MemberCategory").val(Member_User.memberCategory);
+                        $("#MemberCategory").trigger('change');
+                        $("#Rank").val(Member_User.rank);
+                        $("#Rank").trigger('change');
+                        $("#Force").val(Member_User.force);
+                        $("#Force").trigger('change');
+                        $("#Shaheed").val(Member_User.shaheed);
+                        $("#PANO").val(Member_User.pano);
+                        $("#ImageURLBack").val(memberCnicBack);
+                        $("#PreviewUrl").attr("src", memberImage);
+                        $("#CNICFrontUrl").attr("src", memberCnicFront);
+                        $("#CNICBackUrl").attr("src", memberCnicBack);
+                        $("#HonorificsName").val(Member_User.honorificsName);
+                        $("#MemberName").val(Member_User.memberName);
+                        $("#Relationship").val(Member_User.relationship);
+                        $("#RelationshipWith").val(Member_User.relationshipWith);
+                        $("#MemberStatus").val(Member_User.memberStatus);
+                        $("#DOB").val(memberdob);
+                        $("#Quota").val(Member_User.quota);
+                        $("#Quota").trigger('change');
+                        $("#Gender").val(Member_User.gender);
+                        $("#Cnic").val(Member_User.cnic);
+                        $("#CnicExpiryDate").val(memberCnicExp);
+                        $("#PassportNo").val(Member_User.passportNo);
+                        $("#PassportExpiryDate").val(memberpassExp);
+                        $("#OverSeas").val(overseas);
+                        $("#Nationality").val(Member_User.nationality);
+                        $("#CountryOfResidence").val(Member_User.countryOfResidence);
+                        $("#CityOfResidence").val(Member_User.cityOfResidence);
+                        $("#SourceOfInfo").val(Member_User.sourceOfInfo);
+                        $("#OutstandingBalance").val(Member_User.outstandingBalance);
+                        $("#NICOPNo").val(Member_User.nicopNo);
+                        $("#POCNO").val(Member_User.pocno);
+                        $("#BioMetircInfo").val(Member_User.bioMetircInfo);
+                        $("#CurrentAddress").val(Member_User.currentAddress);
+                        $("#PermanentAddress").val(Member_User.permanentAddress);
+                        $("#Vehicle").val(Member_User.vehicle);
+                        $("#Mobile").val(Member_User.mobile);
+                        $("#MothersMaidenName").val(Member_User.mothersMaidenName);
+                        $("#HomeNo").val(Member_User.homeNo);
+                        $("#ResidenenceStatus").val(Member_User.residenenceStatus);
+                        $("#WhatsAppNo").val(Member_User.whatsAppNo);
+                        $("#OfficeNo").val(Member_User.officeNo);
+                        $("#ImoNo").val(Member_User.imoNo);
+                        $("#EmailId").val(Member_User.emailId);
+                        $("#InstagramId").val(Member_User.instagramId);
+                        $("#LinkedId").val(Member_User.linkedInId);
+                        $("#FacebookId").val(Member_User.facebookId);
+                        $("#TwitterId").val(Member_User.twitterId);
+                        $("#Profession").val(Member_User.profession);
+                        $("#BussinessAddress").val(Member_User.bussinessAddress);
+                        $("#BussinessTenoure").val(Member_User.bussinessTenoure);
+                        $("#Salary").val(Member_User.salary);
+                        $("#TaxStatus").val(Member_User.taxStatus);
+                        $("#NoOfDepartments").val(Member_User.noOfDepartments);
+                        $("#RelationshipManager").val(Member_User.relationshipManager);
+                        $("#NTNNo").val(Member_User.ntnNo);
+                        $("#UserName").val(Member_User.userName);
+                        //$("#Password").val(Member_User.password);
+                        $("#DateTime").val(DateTime);
+
+                        LoadApprovalHistory(Member_User.id);
+                        $("#AttachmentTbody").empty();
+                        $("#RelationshipHistorytbody").empty();
+                        $("#NomineesTbody").empty();
+                        $("#MemberInteresttbody").empty();
+                        $("#appendSocialStatus").empty();
+
+                        $("#MemberModal").modal("hide");
+
+                        $.each(Member_User.memberSocialStatus, function (i, item) {
+                            var sr = 1;
+                            var isEnabled = item.isEnabled == true ? "checked" : "";
+                            var row = '<tr>' +
+                                '<td>' + sr + '</td>' +
+                                '<td class="hide"> <input   type="text"  class="form-control id" value="' + item.matchId + '" /></td>' +
+                                '<td> <input disabled  type="text"  class="form-control description" value="' + item.description + '" /></td>' +
+                                '<td> <input ' + isEnabled + ' class="checkboxfield isEnabled"  type = "checkbox"   /> </td>' +
+                                '</tr>';
+                            $("#appendSocialStatus").append(row);
+                            sr++;
+                        });
+
+                        $.each(Member_User.memberNominees, function (i, item) {
+
+                            var rownumber = parseInt($("#rownumberN").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumberN").val(rownumber);
+
+
+                            var row = '<tr id="N' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td> <input  class="form-control name" id="name' + rownumber + '" value="' + item.name + '" /></td>' +
+                                '<td> <input type="text" onkeypress="validateNumberInput(event)" class="form-control  cNIC" id="cNIC' + rownumber + '"  value="' + item.cnic + '"/></td>' +
+                                '<td> <input  class="form-control relationship" id="relationship' + rownumber + '" value="' + item.relationship + '" /></td>' +
+                                '<td> <input type="text" onkeypress="validateNumberInput(event)" class="form-control  mobileNo" id="mobileNo' + rownumber + '" value="' + item.mobileNo + '" /></td>' +
+                                '<td> <textarea  class="form-control address" id="address' + rownumber + '">' + item.address + '</textarea></td>' +
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteNomineeRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+                            $("#NomineesTbody").append(row);
+                        });
+
+                        $.each(Member_User.memberRelationshipHistory, function (i, item) {
+
+                            // set values
+                            let alertDate = item.alertDate != "" ? (item.alertDate).split('T')[0] : "";
+                            let resolationDate = item.resolationDate.split('T')[0] != "0001-01-01" ? (item.resolationDate).split('T')[0] : "";
+
+                            var rownumber = parseInt($("#rownumberRH").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumberRH").val(rownumber);
+
+
+                            var row = '<tr id="RH' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td> <input <input type="date" class="form-control alertDate" id="AlertDate' + rownumber + '" value="' + alertDate + '"/></td>' +
+                                '<td> <textarea  class="form-control alertNarration" id="AlertNarration' + rownumber + '" >' + item.alertNarration + ' </textarea></td>' +
+                                '<td> <input  class="form-control alertType" id="AlertType' + rownumber + '" value="' + item.alertType + '" /></td>' +
+                                '<td> <input type="date"  class="form-control resolationDate" id="ResolationDate' + rownumber + '" value="' + resolationDate + '" /></td>' +
+                                '<td> <textarea  class="form-control resolationDescription" id="ResolationDescription' + rownumber + '" >' + item.resolationDescription + '</textarea></td>' +
+
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteRelationHistoryRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+
+
+                            $("#RelationshipHistorytbody").append(row);
+                        });
+
+                        $.each(Member_User.memberAttachments, function (i, item) {
+
+                            // set values
+                            let copyToTargetDocument = item.copyToTargetDocument == "" ? "/img/placeholder-photo.svg" : item.copyToTargetDocument;
+                            let attachmentDate = item.attachmentDate != "" ? (item.attachmentDate).split('T')[0] : "";
+
+                            var rownumber = parseInt($("#rownumberA").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumberA").val(rownumber);
+
+
+                            var row = '<tr id="A' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td> <input type="file" class="form-control targetPath" value="' + item.targetPath + '" /><input  class="form-control CopyToTargetDocument hide" value="' + copyToTargetDocument + '" /></td>' +
+                                '<td> <input  class="form-control fileName" value="' + item.fileName + '" /></td>' +
+                                '<td> <input type="date" class="form-control attachmentDate" value="' + attachmentDate + '" /></td>' +
+                                '<td> <textarea  class="form-control description">' + item.description + ' </textarea></td>' +
+                                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="' + copyToTargetDocument + '" class="clickme" ></a></img></td>' +
+
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmenttbodyRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+
+
+                            $("#AttachmentTbody").append(row);
+                        });
+
+                        $.each(Member_User.memberInterest, function (i, item) {
+
+                            var rownumber = parseInt($("#rownumberInterest").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumberInterest").val(rownumber);
+
+
+                            var row = '<tr id="I' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td><select id="PropertyNature' + rownumber + '" class="form-control propertyNature" style="width:100%" /></td>' +
+                                '<td><select id="PropertyType' + rownumber + '" class="form-control propertyType" style="width:100%" /></td>' +
+                                '<td><select id="Category' + rownumber + '" class="form-control category" style="width:100%" /></td>' +
+
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteInterestRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                                '</tr>';
+
+
+                            $("#MemberInteresttbody").append(row);
+
+                            GetAllTypes(rownumber, item.propertyType);
+                            GetAllCategories(rownumber, item.category);
+                            GetAllNatures(rownumber, item.propertyNature);
+                        });
+                        //GetDataFromSap(Member_User.id);
+                       
+
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Lead");
+                    }
+                }
+            });
+        }
+
+        function AddToAttachmenttbody() {
+
+            var rownumber = parseInt($("#rownumberA").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumberA").val(rownumber);
+
+
+            var row = '<tr id="A' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input type="file" required name="LGActivities[' + rownumber + '].targetPath" class="form-control targetPath" /><input  class="form-control CopyToTargetDocument hide" /></td>' +
+                '<td> <input  class="form-control fileName" /></td>' +
+                '<td> <input type="date" class="form-control attachmentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/></td>' +
+                '<td> <textarea  class="form-control description" ></textarea></td>' +
+                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmenttbodyRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+
+
+            $("#AttachmentTbody").append(row);
+
+        }
+
+        function AddToRelationshipHistorytbody() {
+
+            var rownumber = parseInt($("#rownumberRH").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumberRH").val(rownumber);
+
+
+            var row = '<tr id="RH' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input <input type="date" class="form-control alertDate" id="AlertDate' + rownumber + '" value="' + rownumber + '"/></td>' +
+                '<td> <textarea  class="form-control alertNarration" id="AlertNarration' + rownumber + '"></textarea></td>' +
+                '<td> <input  class="form-control alertType" id="AlertType' + rownumber + '" /></td>' +
+                '<td> <input type="date"  name="resolationDate[' + rownumber + ']"  class="form-control resolationDate" id="ResolationDate' + rownumber + '" /></td>' +
+                '<td> <textarea  class="form-control resolationDescription" id="ResolationDescription' + rownumber + '" ></textarea></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteRelationHistoryRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+
+
+            $("#RelationshipHistorytbody").append(row);
+
+        }
+
+        function AddToNomineestbody() {
+
+            var rownumber = parseInt($("#rownumberN").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumberN").val(rownumber);
+
+            var row = '<tr id="N' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input required name="LGActivities[' + rownumber + '].name" class="form-control name" id="name' + rownumber + '" /></td>' +
+                '<td> <input required minlength="13" maxlength="13" name="LGActivities[' + rownumber + '].cNIC"  class="form-control cNIC"onkeypress="validateNumberInput(event)" id="cNIC' + rownumber + '" /></td>' +
+                '<td> <input class="form-control relationship" id="relationship' + rownumber + '" /></td>' +
+                '<td> <input required name="LGActivities[' + rownumber + '].mobileNo" class="form-control mobileNo"onkeypress="validateNumberInput(event)" id="mobileNo' + rownumber + '" /></td>' +
+                '<td> <textarea  class="form-control address" id="address' + rownumber + '" ></textarea></td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteNomineeRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+            $("#NomineesTbody").append(row);
+        }
+
+        function AddToMemberInteresttbody() {
+
+            var rownumber = parseInt($("#rownumberInterest").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumberInterest").val(rownumber);
+
+
+            var row = '<tr id="I' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td><select id="PropertyNature' + rownumber + '" class="form-control propertyNature" style="width:100%" /></td>' +
+                '<td><select id="PropertyType' + rownumber + '" class="form-control propertyType" style="width:100%" /></td>' +
+                '<td><select id="Category' + rownumber + '" class="form-control category" style="width:100%" /></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteInterestRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+            $("#MemberInteresttbody").append(row);
+
+            GetAllTypes(rownumber);
+            GetAllCategories(rownumber);
+            GetAllNatures(rownumber);
+        }
+
+        function DeleteInterestRow(id) {
+            $('#I' + id).remove();
+        }
+
+        function DeleteAttachmenttbodyRow(id) {
+            $('#A' + id).remove();
+        }
+
+        function DeleteRelationHistoryRow(id) {
+            $('#RH' + id).remove();
+        }
+
+        function DeleteNomineeRow(id) {
+            $('#N' + id).remove();
+        }
+
+        function GetAllTypes(rownumber, propType) {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PropertyType/GetAllPropertyTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#PropertyType" + rownumber).empty();
+                        var row = ' <option value="-1">Select Type</option> ';
+
+                        $("#PropertyType" + rownumber).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#PropertyType" + rownumber).append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $("#PropertyType" + rownumber).select2();
+
+                        if (propType != null && propType != undefined) {
+                            $('#PropertyType' + rownumber).select2("val", [propType])
+                        }
+                    }
+                }
+            });
+        }
+
+        function GetAllCategories(rownumber, propcat) {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Category/GetAllCategories`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Category" + rownumber).empty();
+                        var row = ' <option value="-1">Select Category</option> ';
+
+                        $("#Category" + rownumber).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#Category" + rownumber).append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $("#Category" + rownumber).select2();
+
+                        if (propcat != null && propcat != undefined) {
+                            $('#Category' + rownumber).select2("val", [propcat])
+                        }
+                    }
+                }
+            });
+        }
+
+        function GetAllNatures(rownumber, propnat) {
+            $.ajax({
+                type: 'GET',
+                url: `/api/Nature/GetAllNatures`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#PropertyNature" + rownumber).empty();
+                        var row = ' <option value="-1">Select Nature</option> ';
+
+                        $("#PropertyNature" + rownumber).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+                                $("#PropertyNature" + rownumber).append(row);
+                                sr++;
+                            }
+                        }
+
+                        $("#PropertyNature" + rownumber).select2();
+                        if (propnat != null && propnat != undefined) {
+                            $('#PropertyNature' + rownumber).select2("val", [propnat])
+                        }
+                    }
+                }
+            });
+        }
+
+        function SocialStuses() {
+           
+            var url = "/api/SocialStatus/GetAll";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 0) {
+
+                        $("#appendSocialStatus").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+
+                            for (let list of relist) {
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td class="hide"> <input   type="text"  class="form-control id" value="' + list.id + '" /></td>' +
+                                    '<td> <input disabled  type="text"  class="form-control description" value="' + list.description + '" /></td>' +
+                                    '<td> <input  class="checkboxfield isEnabled"  type = "checkbox"   /> </td>' +
+                                    '</tr>';
+                                $("#appendSocialStatus").append(row);
+                                sr++;
+
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function uploadImageons(inputId, previewId, imageUrlId) {
+            var extension = $('#' + inputId).val().split('.').pop().toLowerCase();
+            debugger;
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                ResponseMessageModal("error", "Sorry, invalid extension.");
+                $('#' + inputId).val("");
+                $("#" + previewId).attr("src", "default_image.jpg");
+                return false;
+            } else {
+                var file = $("#" + inputId).get(0).files[0];
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        $("#" + previewId).attr("src", reader.result);
+                        $("#" + imageUrlId).val(reader.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        $('body').on('change', '.targetPath', UploadImageOnServerforAttachmenttbody);
+
+        function UploadImageOnServerforAttachmenttbody() {
+
+            var row = $(this);
+            var extension = row.parents('tr').find('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                // alert();
+                // notification("topright", "error", "fa fa-exclamation-circle vd_red", "Eror", "Sorry, invalid extension.");
+                ResponseMessageModal("warning", "Sorry, invalid extension.");
+                var filepath = row.parents('tr').find('input[type=file]').val();
+                row.parents('tr').find('input[type=file]').val("");
+                // $("#PreviewUrl").attr("src", "/img/placeholder-photo.svg");
+                return false;
+            }
+            else {
+                debugger;
+                var file = row.parents('td').find('input[type=file]').get(0).files[0];
+                row.parents("tr").find(".fileName").val(file.name);
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        row.parents('td').find('.CopyToTargetDocument').val(reader.result);
+                        row.parents('tr').find('.viewAttachment img').attr("src", reader.result);
+                        row.parents('tr').find('input[type=file]').get(0).files[0];
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Submit() {
+
+            var methodType = 'POST';
+            var url = "/api/MemberProfile/AddNewMemberProfile";
+
+            let overseas = $("#OverSeas").val() == 1 ? true : false;
+            let passportexpDate = $("#PassportExpiryDate").val() == "" ? "0001-01-01" : $("#PassportExpiryDate").val();
+            let cnicExpiryDate = $("#CnicExpiryDate").val() == "" ? "0001-01-01" : $("#CnicExpiryDate").val();
+            let dob = $("#DOB").val() == "" ? "0001-01-01" : $("#DOB").val();
+            let salary = $("#Salary").val() == "" ? 0.00 : $("#Salary").val();
+            let outstandingBalance = $("#Salary").val() == "" ? 0.00 : $("#Salary").val();
+
+            var MemberSocialStatusArr = new Array();
+            var MemberAttachmentsArr = new Array();
+            var MemberInterestArr = new Array();
+            var RelationshipHistoryArr = new Array();
+            var MemberNomineeArr = new Array();
+            var MP = new Object();
+
+            if ($("#Id").val()) {
+
+                MP.id = parseInt($("#Id").val());
+                methodType = 'POST';
+                url = "/api/MemberProfile/UpdateMemberProfile"
+            }
+
+            MP.MemberCategory = $("#MemberCategory").val();
+            MP.MEMBERSHIPNO = $("#membershipno").val();
+            MP.Rank = $("#Rank").val();
+            MP.Force = $("#Force").val();
+            MP.PANO = $("#PANO").val();
+            MP.Shaheed = $("#Shaheed").val();
+            MP.ImageURL = $("#ImageURL").val();
+            MP.CNICFront = $("#ImageURLFront").val();
+            MP.CNICBack = $("#ImageURLBack").val();
+            MP.HonorificsName = $("#HonorificsName").val();
+            MP.MemberName = $("#MemberName").val();
+            MP.Relationship = $("#Relationship").val();
+            MP.RelationshipWith = $("#RelationshipWith").val();
+            MP.MemberStatus = $("#MemberStatus").val();
+            MP.DOB = dob;
+            MP.Gender = $("#Gender").val();
+            MP.Quota = $("#Quota").val();
+            MP.Cnic = $("#Cnic").val();
+            MP.CreatedBy = $("#User_Id").val();
+            MP.ModifiedBy = $("#User_Id").val();
+            MP.LastModifiedUserName = $("#User_Name").val();
+            MP.ResidenenceStatus = $("#ResidenenceStatus").val();
+            MP.CnicExpiryDate = cnicExpiryDate;
+            MP.PassportNo = $("#PassportNo").val();
+            MP.PassportExpiryDate = passportexpDate;
+            MP.Nationality = $("#Nationality").val();
+            MP.OverSeas = overseas;
+            MP.CountryOfResidence = $("#CountryOfResidence").val();
+            MP.CityOfResidence = $("#CityOfResidence").val();
+            MP.SourceOfInfo = $("#SourceOfInfo").val();
+            MP.OutstandingBalance = outstandingBalance;
+            MP.NICOPNo = $("#NICOPNo").val();
+            MP.POCNO = $("#POCNO").val();
+            MP.BioMetircInfo = $("#BioMetircInfo").val();
+            MP.CurrentAddress = $("#CurrentAddress").val();
+            MP.PermanentAddress = $("#PermanentAddress").val();
+            MP.Vehicle = $("#Vehicle").val();
+            MP.Mobile = $("#Mobile").val();
+            MP.MothersMaidenName = $("#MothersMaidenName").val();
+            MP.HomeNo = $("#HomeNo").val();
+            MP.WhatsAppNo = $("#WhatsAppNo").val();
+            MP.OfficeNo = $("#OfficeNo").val();
+            MP.ImoNo = $("#ImoNo").val();
+            MP.EmailId = $("#EmailId").val();
+            MP.InstagramId = $("#InstagramId").val();
+            MP.LinkedId = $("#LinkedId").val();
+            MP.FacebookId = $("#FacebookId").val();
+            MP.TwitterId = $("#TwitterId").val();
+            MP.Profession = $("#Profession").val();
+            MP.BussinessAddress = $("#BussinessAddress").val();
+            MP.BussinessTenoure = $("#BussinessTenoure").val();
+            MP.Salary = salary;
+            MP.TaxStatus = $("#TaxStatus").val();
+            MP.NoOfDepartments = $("#NoOfDepartments").val();
+            MP.RelationshipManager = $("#RelationshipManager").val();
+            MP.NTNNo = $("#NTNNo").val();
+            MP.UserName = $("#UserName").val();
+            MP.Password = $("#Password").val();
+
+            $("#appendSocialStatus tr").each(function () {
+                var row = $(this);
+                var SocialStatus = new Object();
+
+                var isEnabled = row.find('.isEnabled').is(":checked");
+
+                SocialStatus.MatchId = row.find('.id').val();
+                SocialStatus.Description = row.find('.description').val();
+                SocialStatus.IsEnabled = isEnabled;
+
+                MemberSocialStatusArr.push(SocialStatus);
+            });
+
+            $("#AttachmentTbody tr").each(function () {
+                var row = $(this);
+                var MemberAttachments = new Object();
+
+
+                MemberAttachments.TargetPath = row.find(".targetPath").val(),
+                    MemberAttachments.FileName = row.find(".fileName").val(),
+                    MemberAttachments.AttachmentDate = row.find(".attachmentDate").val(),
+                    MemberAttachments.Description = row.find(".description").val(),
+                    MemberAttachments.CopyToTargetDocument = row.find(".CopyToTargetDocument").val(),
+
+                    MemberAttachmentsArr.push(MemberAttachments);
+            });
+
+            $("#MemberInteresttbody tr").each(function () {
+                var row = $(this);
+                var MemberInterest = new Object();
+
+
+                MemberInterest.PropertyNature = row.find(".propertyNature").val(),
+                    MemberInterest.PropertyType = row.find(".propertyType").val(),
+                    MemberInterest.Category = row.find(".category").val(),
+
+                    MemberInterestArr.push(MemberInterest);
+            });
+
+            $("#NomineesTbody tr").each(function () {
+                var row = $(this);
+                var MemberNominee = new Object();
+
+
+                MemberNominee.Name = row.find(".name").val(),
+                    MemberNominee.CNIC = row.find(".cNIC").val(),
+                    MemberNominee.Relationship = row.find(".relationship").val(),
+                    MemberNominee.MobileNo = row.find(".mobileNo").val(),
+                    MemberNominee.Address = row.find(".address").val(),
+
+                    MemberNomineeArr.push(MemberNominee);
+            });
+
+            $("#RelationshipHistorytbody tr").each(function () {
+                var row = $(this);
+                var MemberRelationshipHistory = new Object();
+
+                let resolationDate = row.find(".resolationDate").val() == "" ? "0001-01-01" : row.find(".resolationDate").val();
+
+                MemberRelationshipHistory.AlertDate = row.find(".alertDate").val(),
+                    MemberRelationshipHistory.AlertNarration = row.find(".alertNarration").val(),
+                    MemberRelationshipHistory.AlertType = row.find(".alertType").val(),
+                    MemberRelationshipHistory.ResolationDate = resolationDate,
+                    MemberRelationshipHistory.ResolationDescription = row.find(".resolationDescription").val(),
+
+                    RelationshipHistoryArr.push(MemberRelationshipHistory);
+            });
+
+            MP.MemberSocialStatus = MemberSocialStatusArr;
+            MP.MemberInterest = MemberInterestArr;
+            MP.MemberRelationshipHistory = RelationshipHistoryArr;
+            MP.MemberNominees = MemberNomineeArr;
+            MP.MemberAttachments = MemberAttachmentsArr;
+
+            var ModelData = JSON.stringify(MP);
+            $('#sbt').prop('disabled', true); //disble
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                processData: false,
+                dataType: "json",
+                //async: false,
+                data: ModelData,
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                //location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'error')
+                            }
+                        })
+
+                    }
+                    else if (response.code === 4) {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        $('#sbt').prop('disabled', false); //enable
+                        // notification("bottomleft", "warning", "fa fa-warning", "Warning", response.message);
+                        ResponseMessageModal("warning", response.message);
+
+                    }
+                    else if (response.code === 102) {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        $('#sbt').prop('disabled', false); //enable
+                        // notification("bottomleft", "warning", "fa fa-warning", "Warning", response.message);
+                        ResponseMessageModal("warning", response.message);
+
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        $('#sbt').prop('disabled', false); //enable
+                        // notification("bottomleft", "error", "fa fa-error", "Error", response.message);
+                        ResponseMessageModal("error", response.message);
+                    }
+                }
+
+            });
+
+
+        }
+
+        function ResponseMessageModal(iconValue, responseMessage) {
+            Swal.fire({
+                position: 'center',
+                icon: iconValue,
+                title: responseMessage,
+                showConfirmButton: true,
+                //timer: 4000
+            })
+        }
+
+        function GetDataFromSap(memberProfileId) {
+            $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetFinanacialsData`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { memberProfileId: memberProfileId },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    $("#Cleartbody").empty();
+                    if (response.code === 100) {
+                        //$("#Cleartbody").empty();
+                        $.each(response.data, function (index, clearence) {
+                            var rownumber = index + 1;
+                            var duedate = clearence.docDueDate.split("T")[0];
+
+                            var row = '<tr id="L' + rownumber + '" DetailId="0"> ' +
+                                '<td>' + rownumber + '</td>' +
+                                '<td>' + clearence.project + '</td>' +
+                                '<td>' + clearence.acctName + '</td>' +
+                                '<td>' + clearence.docNum + '</td>' +
+                                '<td>' + duedate + '</td>' +
+                                '<td>' + clearence.accntntCod + '</td>' +
+                                '<td>' + clearence.receiptNum + '</td>' +
+                                '<td>' + clearence.docTotal + '</td>' +
+                                '<td>' + clearence.totalRecieved + '</td>' +
+                                '<td>' + clearence.balanceDue + '</td>' +
+                                '<td> </td>' +
+                                '</tr>';
+                            $("#Cleartbody").append(row);
+                        });
+                    }
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Lead");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+    </script>
+
+    }

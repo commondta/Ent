@@ -1,0 +1,1124 @@
+﻿@section css{
+    <link media="print" rel="stylesheet" href="~/bootstrap/bootstrapcss.css">
+    <style>
+        .vd_panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #propertyModal {
+            margin-left: auto;
+        }
+
+        .tab_clr {
+            color: #111111 !important;
+        }
+
+        .dha_table {
+            background-color: #111111 !important;
+        }
+    </style>
+
+}
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Client File Receiving</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-archive" viewBox="0 0 16 16"><path d="M0 2a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1v7.5a2.5 2.5 0 0 1-2.5 2.5h-9A2.5 2.5 0 0 1 1 12.5V5a1 1 0 0 1-1-1zm2 3v7.5A1.5 1.5 0 0 0 3.5 14h9a1.5 1.5 0 0 0 1.5-1.5V5zm13-3H1v2h14zM5 7.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5"/></svg></span>
+                    <h1>CLIENT FILE RECEIVING</h1>
+                        <div class="menu">
+                        <button class="btn dha_theme_btn" onclick="redirectToAnotherPage()">Verify FingerPrint</button>
+
+                        <button id="propertyModal" class="btn dha_theme_btn">Property Detail</button>
+
+                        </div>
+                        <!-- menu -->
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" action="#" role="form" id="MemberNDC">
+                            <div class="row" style="display:flex; flex-wrap:wrap;">
+                                <div class="col-sm-3">
+                                    <label>Find Request</label>
+                                    <div class="search_btn">
+                                       
+                                           
+                                            <div class="input_div">
+                                                <select class="js-example-basic-single" id="SearchRequestType" name="SearchRequestType">
+                                                    <option value="Authority Letter">Authority Letter</option>
+                                                    <option value="File Recieving">File Receiving</option>
+                                                    <option value="Documentation">Documentation</option>
+                                                    <option value="Duplication">Duplication</option>
+                                                    <option value="LDA Letter">LDA Letter</option>
+                                                    <option value="FBR Receipt">FBR Receipt</option>
+                                                    <option value="Stamp Paper 23-A">Stamp Paper 23-A</option>
+                                                    <option value="Stamp Paper 63-A">Stamp Paper 63-A</option>
+                                                    <option value="Legal Opinion Copy">Legal Opinion Copy</option>
+                                                </select>
+                                           
+                                        </div>
+                                        <div >
+                                            <button type="button" class="btn dha_theme_btn" onclick="searchRecord()">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="documentDate">Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" id="documentDate" name="documentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Received By</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="ReceivedBy" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Request Type</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="RequestType" name="RequestType">
+                                            <option value="Authority Letter">Authority Letter</option>
+                                            <option value="File Recieving">File Receiving</option>
+                                            <option value="Documentation">Documentation</option>
+                                            <option value="Duplication">Duplication</option>
+                                            <option value="LDA Letter">LDA Letter</option>
+                                            <option value="FBR Receipt">FBR Receipt</option>
+                                            <option value="Stamp Paper 23-A">Stamp Paper 23-A</option>
+                                            <option value="Stamp Paper 63-A">Stamp Paper 63-A</option>
+                                            <option value="Legal Opinion Copy">Legal Opinion Copy</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" id="recieverImagdiv" style="display:none; margin-left:auto;">
+                                    <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                        <label style="align-self:flex-start;">Receiver Photo</label>
+                                        <img id="PreviewUrl" src="/img/placeholder-photo.svg" />
+                                        <input type="file" id="fileUpload" class="fileUpload" onchange="UploadImageOnServer()">
+                                        <input type="text" id="ImageURL" class="hidden" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Receiver Father Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="RecieverFatherName" id="RecieverFatherName" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Receiver CNIC</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               onkeypress="validateNumberInput(event)" name="RecieverCNIC" id="RecieverCNIC" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Receiver Mobile</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               onkeypress="validateNumberInput(event)" name="RecieverMobile" id="RecieverMobile" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Biometeric Approval</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="SendForApproval" name="SendForApproval" disabled>
+                                            <option value="0">No</option>
+                                            <option value="1"> Yes </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Member Code</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="MembCode" name="MemberCode" readonly />
+                                            </div>
+                                            <button type="button" class="btn btn-sm dha_theme_btn" onclick="searchRecord()">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder="" id="MembName" name="MemberName" />
+                                            </div>
+                                            <button type="button" class="btn btn-sm dha_theme_btn" onclick="searchRecord()">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Reference No.</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder="" id="RegistrationNo" name="RegistrationNo" />
+                                            </div>
+                                            <button type="button" class="btn btn-sm dha_theme_btn" onclick="searchRecord()">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="PropertyNo" name="PropertyNo" readonly />
+                                            </div>
+                                            <button type="button" class="btn btn-sm dha_theme_btn" onclick="searchRecord()">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Block" id="Block" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Category" id="Category" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Size" id="Size" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PossessionStatus" id="PossessionStatus" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Construcation Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="ConstrucationStatus" id="ConstrucationStatus" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>CNIC</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CNIC" id="CNIC" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item active"><a class="nav-link active tab_clr" href="#Attachments" data-toggle="tab">Attachments</a></li>
+                                <li class="nav-item "><a class="nav-link  tab_clr" href="#JointMember" data-toggle="tab">Joint Members</a></li>
+                            </ul>
+
+                            <br />
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane active" id="Attachments">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin: 10px 0;">
+                                                <a class="btn btn-sm dha_theme_btn" onclick="AddAtachmentRow()">Add New</a>
+                                                <input type="text" id="Arownumber" value="0" class="hide" />
+                                            </div>
+                                          
+                                            <div class="table-responsive">
+                                                <table id="AttachmentTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Attachment Path</th>
+                                                            <th class="text-white" style="text-align: center;">Attachment Name</th>
+                                                            <th class="text-white" style="text-align: center;">Attachment Date</th>
+                                                            <th class="text-white" style="text-align: center;">Remarks</th>
+                                                            <th class="text-white" style="text-align: center;">View Attachment</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Atachmenttbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="JointMember">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="">
+                                                <table id="JointMemberTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Member Name</th>
+                                                            <th class="text-white" style="text-align: center;">Mobile</th>
+                                                            <th class="text-white" style="text-align: center;">CNIC</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="JointMembertbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12" style="float: right; ">
+                                <button class="btn dha_theme_btn  " id="btnsubmit" type="submit">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </button>
+                            </div>
+                        </form>                    
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+</div>
+<!-- .vd_container -->
+
+<div class="modal" id="requestModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Request.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="requestTable" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Request Type</th>
+                                            <th class="text-white">Receiver Name</th>
+                                            <th class="text-white">Receiver CNIC</th>
+                                            <th class="text-white">Print Status</th>
+                                            <th class="text-white">DateTime</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="requestTbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="hide">
+    <div id="printdiv" class="container">
+        <partial name="~/Views/PartialPage/_authorityLetter.cshtml" />
+    </div>
+</div>
+<div class="hide">
+    <div id="printdivfilerecieving" class="container">
+        <partial name="~/Views/PartialPage/_ClientFileRecieving.cshtml" />
+    </div>
+</div>
+
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/SearchPropertyModal.cshtml" />
+<input class="hide" type="number" id="MemberProfileId" />
+<input class="hide" type="number" id="StockCreationId" />
+
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+<input class="hide" type="number" id="Id" />
+<input type="number" class="hide" id="ClientFileReceivingAId" value="@ViewBag.Id" />
+
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            $("#MemberNDC").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    MemberName: {
+
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+            });
+            GetAllPropertyLists();
+            $('#btnsubmit').prop('disabled', false);
+
+            var id = $("#ClientFileReceivingAId").val();
+            debugger;
+            if (id > 0) {
+                SelectSinglePPS(id);
+                if ($("#ClientFileReceivingAId").val() != null) {
+                    $("#openModal").prop("disabled", true);
+                    $("#MemberNDC :input").prop("disabled", true);
+
+                }
+            }
+        });
+
+
+        function redirectToAnotherPage() {
+            window.location.href = '/FingerPrint/VerifyFingerPrint';
+
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        $('#RequestType').change(function () {
+            var selectedValue = $(this).val();
+            var sendForApproval = $('#SendForApproval');
+
+            if (selectedValue === "File Recieving") {
+                sendForApproval.val("1").prop("disabled", false);
+                $('#recieverImagdiv').show();
+            } else {
+                sendForApproval.val("0").prop("disabled", true);
+                $('#recieverImagdiv').hide();
+            }
+        });
+
+        $('#SearchRequestType').change(function () {
+            var selectedValue = $(this).val();
+            GetPreviousRecords(selectedValue);
+            $("#requestModal").modal("show");
+        });
+
+        function searchRecord() {
+            const selectedValue = $('#SearchRequestType').val();
+            GetPreviousRecords(selectedValue);
+            $("#requestModal").modal("show");
+        }
+
+        function GetPreviousRecords(selectedValue) {
+            var url = "/api/FileVerification/GetFilterRequestType?requestType=" + selectedValue + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        $("#requestTbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var printbtn="";
+                                debugger;
+                                if (selectedValue == "File Recieving" && list.isPrintEnabled == true) {
+                                    printbtn = '<a class="fa fa-print fa-2x " onclick="PrintFileRecieving(' + list.id + ')"></a>';
+                                }
+                                else if (selectedValue == "File Recieving") {
+                                    printbtn = '';
+                                }
+                                else{
+                                    printbtn = '<a class="fa fa-print fa-2x " onclick="Print(' + list.id + ')"></a>';
+                                }
+                                const requestDateTime = moment(list.createdOn).format('DD-MM-YYYY');
+                                const filePrint = list.isFilePrint == true ? "Yes" : "No";
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.propertyNo + '</td>           ' +
+                                    ' <td>' + list.registrationNo + '</td>           ' +
+                                    ' <td>' + list.requestType + '</td>           ' +
+                                    ' <td>' + list.receivedBy + '</td>           ' +
+                                    ' <td>' + list.recieverCNIC + '</td>           ' +
+                                    ' <td>' + filePrint + '</td>           ' +
+                                    ' <td>' + requestDateTime + '</td>           ' +
+                                    '<td><a class="fa fa-edit fa-2x" onclick="SelectSinglePPS(' + list.id + ')"></a>' +
+                                    printbtn + '</td>'+
+                                    ' </tr>';
+
+                                $("#requestTbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#requestTable').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectSinglePPS(id) {
+
+            var url = "/api/FileVerification/GetClientFileVerificationRequest?id=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        debugger;
+                        var result_User = response.data;
+                        let memberImage = result_User.imageURL == "" ? "/img/placeholder-photo.svg" : result_User.imageURL;
+                        let possessionstatus = result_User.stockCreation.possessionStatus == true ? "Yes" : "No";
+                        let sendForApproval = "1";
+                        let requestType = "File Recieving";
+
+                        $("#Id").val(result_User.id);
+                        $("#ImageURL").val(memberImage);
+                        $("#PreviewUrl").attr("src", memberImage);
+                        $("#RegistrationNo").val(result_User.stockCreation.registrationNo);
+                        $("#PropertyNo").val(result_User.stockCreation.propertyNo);
+                        $("#MembCode").val(result_User.memberProfileId);
+                        $("#MembName").val(result_User.memberProfile.memberName);
+                        $("#ConstrucationStatus").val(result_User.stockCreation.constructionStatus);
+                        $("#PossessionStatus").val(possessionstatus);
+                        $("#Size").val(result_User.stockCreation.actualSize);
+                        $("#Category").val(result_User.categoryName);
+                        $("#Block").val(result_User.blockName);
+                        $("#CNIC").val(result_User.memberProfile.cnic);
+                        $("#RecieverMobile").val(result_User.recieverMobile);
+                        $("#RecieverCNIC").val(result_User.recieverCNIC);
+                        $("#RecieverFatherName").val(result_User.recieverFatherName);
+                        $("#ReceivedBy").val(result_User.receivedBy);
+                        $("#RequestType").val(requestType).prop("disabled", true);
+                        $("#RequestType").trigger('change');
+                        $("#SendForApproval").val(sendForApproval).prop("disabled", true);
+                        $("#SendForApproval").trigger('change');
+
+                        $("#StockCreationId").val(result_User.stockCreation.id);
+                        PropertyDetail(result_User.stockCreation.id);
+                        ShowAlert(result_User.stockCreation.id);
+                        $("#MemberProfileId").val(result_User.memberProfileId);
+                        const selectedsearch = $('#SearchRequestType').val();
+
+                        if (selectedsearch === "File Recieving") {
+                            $('#btnsubmit').prop('disabled', true);
+                        }
+
+                        if (result_User.isPrintEnabled) {
+                            $('#btnprint').prop('disabled', false);
+                        }
+                        getjointmembers(result_User.stockCreationId.id);
+                        $("#Atachmenttbody").empty();
+                        $.each(response.data.clientFileVerificationAttachments, function (i, item) {
+
+                            // set values
+                            //let copyToTargetDocument = item.copyToTargetDocument == "" ? "/img/placeholder-photo.svg" : item.copyToTargetDocument;
+                            //let attachmentDate = item.attachmentDate != "" ? (item.attachmentDate).split('T')[0] : "";
+                            let copyToTargetDocument = item.copyToTargetDocument == "" ? "/img/placeholder-photo.svg" : item.document;
+
+                            var rownumber = parseInt($("#Arownumber").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#Arownumber").val(rownumber);
+
+                            var row = '<tr id="A' + rownumber + '">' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td> <input required  type="file" class="form-control attachmentPath"  /><input  class="form-control CopyToTargetDocument hide"  value="' + copyToTargetDocument + '" /></td>' +
+                                '<td> <input readonly required name="attachmentName[' + rownumber + '].attachmentName" class="form-control attachmentName" value="' + item.doucmentName + '" /></td>' +
+                                '<td> <input type="date" class="form-control attachmentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/></td>' +
+                                '<td> <textarea class="form-control remarks" >' + item.remarks + ' </textarea></td>' +
+                                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="' + copyToTargetDocument + '" class="clickme" ></a></img></td>' +
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmentItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+
+                            $("#Atachmenttbody").append(row);
+
+                        });
+                        $("#requestModal").modal("hide");
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+                    }
+                }
+            });
+        }
+
+        function GetAllPropertyLists() {
+
+
+            $('#proplist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllProprtties",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<a class="btn btn-primary" onclick="SelectRegistration(' + data.id + ')">Select</a>';
+                        }
+                    }
+                ]
+            });
+        }
+
+        function SelectRegistration(id) {
+
+            var url = "/api/Filter/GetFilterPropertyResultForNDCById?stockId=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        let possessionstatus = result_User.possessionStatus == true ? "Yes" : "No";
+                        $("#RegistrationNo").val(result_User.registrationNo);
+                        $("#PropertyNo").val(result_User.propertyNo);
+                        $("#MembCode").val(result_User.memberProfileId);
+                        $("#MembName").val(result_User.memberName);
+                        $("#ConstrucationStatus").val(result_User.constructionStatus);
+                        $("#PossessionStatus").val(possessionstatus);
+                        $("#Size").val(result_User.actualSize);
+                        $("#Category").val(result_User.categoryName);
+                        $("#Block").val(result_User.blockName);
+                        $("#CNIC").val(result_User.cnic);
+
+                        $("#StockCreationId").val(result_User.id);
+                        $("#MemberProfileId").val(result_User.memberProfileId);
+
+                        PropertyDetail(result_User.id);
+                        ShowAlert(result_User.id);
+                        getjointmembers(result_User.id);
+
+                        $("#registrationModal").modal("hide");
+                    }
+                }
+            });
+        }
+
+        function getjointmembers(id) {
+            $('#JointMembertbody').empty();
+            var url = "/api/Filter/GetJointMembersByStockId?stockId=" + id + "";
+            $.ajax({
+                type: "GET",
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                processData: false,
+                dataType: "json",
+                async: false,
+                data: { id: id },
+                success: function (response) {
+                    if (response.code == 100) {
+                        if (response.data != null) {
+                            var rownumber = 1;
+                            $.each(response.data, function (i, item) {
+                                var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                                    '<td> <input disabled class="form-control line" disabled value="' + rownumber + '"/></td>' +
+                                    '<td> <input  class="form-control JName" disabled  value="' + item.name + '" /></td>' +
+                                    '<td> <input  class="form-control Jcnic" disabled value="' + item.cnic + '" /></td>' +
+                                    '<td> <input  class="form-control Jmobile" disabled  value="' + item.mobile + '" /></td>' +
+                                    '</tr>';
+                                $("#JointMembertbody").append(row);
+                                rownumber++;
+                            });
+                        }
+                    }
+                }
+
+            });
+        }
+
+        function AddAtachmentRow() {
+
+            var rownumber = parseInt($("#Arownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#Arownumber").val(rownumber);
+
+
+            var row = '<tr id="A' + rownumber + '">' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input required type="file" class="form-control attachmentPath" name="attachmentPath[' + rownumber + ']" /><input  class="form-control CopyToTargetDocument hide" /></td>' +
+                '<td> <input readonly class="form-control attachmentName" /></td>' +
+                '<td> <input type="date" class="form-control attachmentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/></td>' +
+                '<td> <textarea  class="form-control remarks" ></textarea></td>' +
+                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmentItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+            $("#Atachmenttbody").append(row);
+        }
+
+        function DeleteAttachmentItemRow(id) {
+            $('#A' + id).remove();
+            var rownumber = 1;
+            $("#Atachmenttbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#Arownumber").val(rownumber - 1);
+        }
+
+        // image from header
+        function UploadImageOnServer() 
+        {
+            var extension = $('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                // alert("");
+                // notification("topright", "error", "fa fa-exclamation-circle vd_red", "Eror", "Sorry, invalid extension.");
+                ResponseMessageModal("error", "Sorry, invalid extension.");
+
+
+                $('input[type=file]').val();
+                $("#PreviewUrl").attr("src", "/img/placeholder-photo.svg");
+                return false;
+            }
+            else {
+
+                var file = $("input[type=file]").get(0).files[0];
+                if (file) {
+                    var reader = new FileReader();
+
+                    reader.onload = function () {
+                        $("#PreviewUrl").attr("src", reader.result);
+                        $("#PreviewUrl").attr("href", reader.result);
+                        $("#PreviewUrl").attr("target", "_blank");
+                        $("#ImageURL").val(reader.result);
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        // image from body
+        $('body').on('change', '.attachmentPath', UploadImageOnServerforAttachmenttbody);
+        function UploadImageOnServerforAttachmenttbody() {
+
+            var row = $(this);
+            var extension = row.parents('tr').find('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                ResponseMessageModal("warning", "Sorry, invalid extension.");
+                var filepath = row.parents('tr').find('input[type=file]').val();
+                row.parents('tr').find('input[type=file]').val("");
+
+                return false;
+            }
+            else {
+                var file = row.parents('td').find('input[type=file]').get(0).files[0];
+                row.parents("tr").find(".attachmentName").val(file.name);
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        row.parents('td').find('.CopyToTargetDocument').val(reader.result);
+                        row.parents('tr').find('.viewAttachment img').attr("src", reader.result);
+                        row.parents('tr').find('input[type=file]').get(0).files[0];
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Submit() 
+        {
+            var file = new Object();
+
+            var fileAttachmentArray = new Array();
+
+            if ($("#Id").val()) {
+
+                file.PreviousRecordId = parseInt($("#Id").val());
+            }
+
+            var SendForApproval = $('#SendForApproval').val() == 0 ? false : true;
+
+            file.StockCreationId = $('#StockCreationId').val();
+            file.MemberProfileId = $('#MemberProfileId').val();
+            file.RecieverMobile = $('#RecieverMobile').val();
+            file.RecieverCNIC = $('#RecieverCNIC').val();
+            file.RecieverFatherName = $('#RecieverFatherName').val();
+            file.RequestType = $('#RequestType').val();
+            file.ImageURL = $('#ImageURL').val();
+            file.ReceivedBy = $('#ReceivedBy').val();
+            file.CreatedBy = $("#User_Id").val();
+            file.ModifiedBy = $("#User_Id").val();
+            file.LastModifiedUserName = $("#User_Name").val();
+            file.SendForApproval = SendForApproval;
+            file.IsPrintEnabled = false;
+            file.IsFilePrint = false;
+            file.CreatedOn = $("#documentDate").val();
+
+            $('#Atachmenttbody tr').each(function () {
+                var row = $(this);
+                var attachment = new Object();
+                attachment.DoucmentName = row.find('.attachmentName').val();
+                attachment.Document = row.find('.CopyToTargetDocument').val();
+                attachment.Remarks = row.find('.remarks').val();
+
+                fileAttachmentArray.push(attachment);
+            });
+
+            file.ClientFileVerificationAttachments = fileAttachmentArray;
+
+            var model = JSON.stringify(file);
+            $('#loader').fadeIn();
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#btnsubmit').prop('disabled', true); //disble
+            $.ajax({
+                type: 'POST',
+                url: `/api/FileVerification/SaveClientFileVerification`,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+                    NProgress.done();
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", response.message);
+                        $('#SubmitMR').prop('disabled', false);
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                        // window.alert(response.message);
+                    }
+                }
+
+            });
+        }
+
+        function Print(id) {
+            debugger;
+            var methodType = 'GET';
+            var url = "/api/FileVerification/GetAuthorityLetterReceipt?Id=" + id + "";
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+
+                    var printdata = response;
+                    console.log(printdata);
+                    $("#plotP").text(printdata.propertyNo);
+                    $("#regP").text(printdata.registrationNo);
+                    $("#fullNameP").text(printdata.memberName + " " + printdata.relationship + " " + printdata.relationshipWith);
+                    $("#signfullName").text(printdata.memberName + " " + printdata.relationship + " " + printdata.relationshipWith);
+                    $("#cnicP").text(printdata.cnic);
+                    $("#signCnic").text(printdata.cnic);
+                    $("#blockp").text(printdata.block);
+                    printInvoice();
+                }
+            });
+        }
+
+        function PrintFileRecieving(id) {
+
+            var methodType = 'GET';
+            var url = "/api/FileVerification/GetClientFilebyId?Id=" + id + "";
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                // headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+                    debugger;
+                    var printdata = response;
+                    console.log(printdata);
+
+                    let memberImage = printdata.image == null ? "/img/placeholder-photo.svg" : printdata.image;
+
+                     $("#PreviewUrl1").attr("src", memberImage);
+                    $("#PropNo").text(printdata.propertyNo);
+                    $("#RegNo").text(printdata.registrationNo);
+                    $("#PropSize").text(printdata.area);
+                    $("#PNature").text(printdata.nature);
+                    $("#pFloor").text(printdata.floor);
+                    $("#pBlock").text(printdata.block);
+                    $("#pType").text(printdata.type);
+                    $("#MemName").text(printdata.memberName);
+                    $("#sdw").text(printdata.relationshipWith);
+                    $("#MCnic").text(printdata.cnic);
+                    $("#RecName").text(printdata.receivedBy);
+                    $("#RecMob").text(printdata.recieverMobile);
+                    $("#RecSDW").text(printdata.recieverFatherName);
+                    // $("#RecDate").text(printdata.docDate);
+                    $("#RecDate").text(printdata.docDate.split("T")[0]);
+                    $("#RecCnic").text(printdata.recieverCNIC);
+                    $(".tbodyinvoice").empty();
+
+                    $.each(response.jointMembers, function (i, item) {
+
+                        var rownumber = 1;
+
+                        var row = '<tr style="font-size: 7px" id="' + rownumber + '" DetailId="0"> ' +
+                            '<td style="text-align:center">' + rownumber + '</td>' +
+                            '<td style="text-align:center">' + item.name + '</td>' +
+                            '<td style="text-align:center">' + item.cnic + '</td>' +
+                            '<td style="text-align:center">' + item.mobile + '</td>' +
+
+                            '</tr>';
+
+                        rownumber++;
+                        $(".tbodyinvoice").append(row);
+                        rownumber++;
+                    });
+                    printInvoicefilerecieving();
+                }
+            });
+        }
+        function printInvoice() {
+            var printContents = document.getElementById('printdiv').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('printdiv');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+        function printInvoicefilerecieving() {
+            debugger;
+            var printContents = document.getElementById('printdivfilerecieving').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('printdivfilerecieving');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+    </script>
+    }
+

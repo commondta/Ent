@@ -1,0 +1,668 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Assets/Media</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16"><path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 75 75 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0m-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233q.27.015.537.036c2.568.189 5.093.744 7.463 1.993zm-9 6.215v-4.13a95 95 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A61 61 0 0 1 4 10.065m-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68 68 0 0 0-1.722-.082z"/></svg></span>
+                    <h1>ASSETS/MEDIA</h1>
+                    <div class="vd_panel-menu  hidden-xs">
+
+
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="menu" style="float:right; ">
+                            <button class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal" style="padding: 6px 20px;">
+                                <span class="menu-icon"><i class="fa fa-fw fa-plus-circle"></i></span> Add New
+                            </button>
+                        </div>
+                        <br />
+
+                        <br />
+
+                        <table id="Banner" class="table table-bordered table-hover mb-0">
+                            <thead class="bg-theme">
+                                <tr>
+                                    <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                    <th class="text-white" style="text-align: center;">Image</th>
+                                    <th class="text-white" style="text-align: center;">Thumbnail</th>
+                                    <th class="text-white" style="text-align: center;">Title</th>
+                                    <th class="text-white" style="text-align: center;">Block</th>
+                                    <th class="text-white" style="text-align: center;">Type</th>
+                                    <th class="text-white" style="text-align: center;">Banner Type</th>
+                                    <th class="text-white" style="text-align: center;">Created On</th>
+                                    <th class="text-white" style="text-align: center;">Status</th>
+                                    <th class="text-white" style="text-align: center;">Action</th>
+
+                                </tr>
+                            </thead>
+                            <tbody id="bannerstbody">
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+<!-- /.modal -->
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" style="margin-top: 12%" ;>
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="myModalLabel">Add New Assets/Media</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <form id="BannersForm" class="form-horizontal">
+
+                    <div class="container">
+                        <div class="row">
+                            <!-- Left Column -->
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <label for="fileUpload">Image</label>
+                                    <input type="file" id="fileUpload" class="fileUpload  mb-3" onchange="UploadImageOnServer()" />
+                                    <input type="text" id="ImageURL" class="hidden" />
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="ThumbnailfileUpload">Thumbnail</label>
+                                    <input type="file" id="ThumbnailfileUpload" class="ThumbnailfileUpload  mb-3" onchange="ThumbnailUploadImageOnServer()" />
+                                    <input type="text" id="ThumbnailImageURL" class="hidden" />
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="Title">Title</label>
+                                    <input type="text" id="Title" name="Title" />
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="Block">Block</label>
+                                    <select class="js-example-basic-single" style="width:100% !important" name="Block" id="Block">
+                                        <option value="">-- Select Block --</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="Type">Type</label>
+                                    <select class="js-example-basic-single" style="width:100% !important" name="Type" id="Type">
+                                        <option value="">-- Select Type --</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="BannerType">Assets/Media Type</label>
+                                    <select class="js-example-basic-single" name="BannerType" id="BannerType">
+                                        <option value="Banner">Banner</option>
+                                        <option value="Gallery">Gallery</option>
+                                        <option value="Map">Map</option>
+                                        <option value="Payment Plan">Payment Plan</option>
+                                        <option value="Featured">Featured</option>
+                                        <option value="NewsEvent">News & Event</option>
+                                        <option value="Education">Education</option>
+                                        <option value="Food">Food</option>
+                                        <option value="Medical">Medical</option>
+                                        <option value="Bank">Bank</option>
+                                        <option value="Shopping">Shopping</option>
+                                        <option value="Entertainment">Entertainment</option>
+                                        <option value="Green Initiative">Green Initiative</option>
+                                        <option value="Login Detail">Login Detail</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="Status">Status</label>
+                                    <select class="js-example-basic-single" name="Status" id="Status">
+                                        <option value="-1">Select Option</option>
+                                        <option value="1">Active</option>
+                                        <option value="0">Inactive</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-12">
+                                    <label for="date">Date</label>
+                                    <input type="date" id="date" name="date" />
+                                </div>
+                            </div>
+
+                            <!-- Right Column -->
+                            <div class="col-md-6 text-center">
+                                <div class="col-md-12">
+                                    <label>Preview</label>
+                                    <p>
+                                        <img id="PreviewUrl" style="width: 140px; height: 120px;"
+                                             src="/img/placeholder-photo.svg" />
+                                    </p>
+                                </div>
+                                <div class="col-md-12">
+                                    <label>Thumbnail Preview</label>
+                                    <p>
+                                        <img id="ThumbnailPreviewUrl" style="width: 140px; height: 120px;"
+                                             src="/img/placeholder-photo.svg" />
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12 ms-2">
+                                <label for="Description">Description</label>
+                                <textarea rows="6" id="Description" name="Description" class="form-control"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                <button onclick="SubmitRequest()" type="button" class="btn btn-primary btn-theme">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<input type="text" id="idd" class="d-none" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $('#Banner').dataTable();
+            GetBannersList();
+            GetAllBlocks();
+            GetAllTypes();
+        });
+
+        // Image Upload
+        function UploadImageOnServer() {
+            var fileInput = $("#fileUpload")[0]; // Select the correct file input
+            var file = fileInput.files[0];
+
+            if (!file) return;
+
+            var extension = file.name.split('.').pop().toLowerCase();
+            var validExtensions = ['png', 'pdf', 'jpg', 'jpeg', 'gif', 'bmp', 'mp4', 'webm', 'avi', 'mov'];
+
+            if ($.inArray(extension, validExtensions) === -1) {
+                ResponseMessageModal("error", "Sorry, invalid file extension.");
+                $("#fileUpload").val(''); // Reset input
+                $("#PreviewUrl").attr("src", "https://via.placeholder.com/150");
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function () {
+                if ($.inArray(extension, ['mp4', 'webm', 'avi', 'mov']) !== -1) {
+                    $("#PreviewUrl").replaceWith('<video id="PreviewUrl" controls style="max-width: 100%;"></video>');
+                    $("#PreviewUrl").attr("src", reader.result);
+                } else {
+                    $("#PreviewUrl").replaceWith('<img id="PreviewUrl" style="max-width: 100%;">');
+                    $("#PreviewUrl").attr("src", reader.result);
+                }
+                $("#ImageURL").val(reader.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+        // Thumbnail Upload
+        function ThumbnailUploadImageOnServer() {
+            var fileInput = $("#ThumbnailfileUpload")[0]; // Select the correct file input
+            var file = fileInput.files[0];
+
+            if (!file) return;
+
+            var extension = file.name.split('.').pop().toLowerCase();
+            var validExtensions = ['png', 'jpg', 'pdf', 'jpeg', 'gif', 'bmp', 'mp4', 'webm', 'avi', 'mov'];
+
+            if ($.inArray(extension, validExtensions) === -1) {
+                ResponseMessageModal("error", "Sorry, invalid file extension.");
+                $("#ThumbnailfileUpload").val(''); // Reset input
+                $("#ThumbnailPreviewUrl").attr("src", "https://via.placeholder.com/150");
+                return;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function () {
+                if ($.inArray(extension, ['mp4', 'webm', 'avi', 'mov']) !== -1) {
+                    $("#ThumbnailPreviewUrl").replaceWith('<video id="ThumbnailPreviewUrl" controls style="max-width: 100%;"></video>');
+                    $("#ThumbnailPreviewUrl").attr("src", reader.result);
+                } else {
+                    $("#ThumbnailPreviewUrl").replaceWith('<img id="ThumbnailPreviewUrl" style="max-width: 100%;">');
+                    $("#ThumbnailPreviewUrl").attr("src", reader.result);
+                }
+                $("#ThumbnailImageURL").val(reader.result);
+            };
+
+            reader.readAsDataURL(file);
+        }
+
+
+        //Get List
+
+        function GetBannersList() {
+            var url = "/api/Banner/GetAll";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        var datatabl = $('#Banner').DataTable();
+                        datatabl.destroy();
+                        $("#bannerstbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                let createdOn = moment(list.createdOn).format('DD-MM-YYYY');
+                                let lastModified = moment(list.lastModified).format('DD-MM-YYYY');
+                                let status = list.isActive ? "Active" : "Inactive";
+
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td><img class="previewImageUrl" src="' + list.image + '" style="width:100px;height:40px"/></td>' +
+                                    '<td><img class="previewImageUrl" src="' + list.thumbnail + '" style="width:100px;height:40px"/></td>' +
+                                    '<td>' + list.title + '</td>' +
+                                    '<td>' + list.block + '</td>' +
+                                    '<td>' + list.type + '</td>' +
+                                    '<td>' + list.bannerType + '</td>' +
+                                    '<td>' + createdOn + '</td>' +
+                                    '<td>' + status + '</td>' +
+                                    '<td>' +
+                                    '<a class="fa fa-edit fa-2x" onclick="SelectEachBanner(' + list.id + ')"></a> ' +
+                                    '<a class="fa fa-trash fa-2x text-danger" onclick="DeleteBanner(' + list.id + ')"></a>' +
+                                    '</td>' +
+                                    '</tr>';
+
+                                $("#bannerstbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Banner').dataTable();
+                    }
+                }
+            });
+        }
+
+
+        function DeleteBanner(id) {
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+
+                    Discard(id);
+
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+
+
+            // $("#DeleteID").val(id);
+
+        }
+        function Discard(id) {
+
+            var methodType = 'Delete';
+            var url = "/api/Banner/Discard?id=" + id;
+            $('#btn_discard').prop('disabled', true); //disble
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $('#loader').fadeOut();
+                        NProgress.done();
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+
+
+        function GetAllBlocks() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Block/GetAllBlocks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Block").empty();
+                        var row = ' <option value="">-- Select Block --</option> ';
+
+                        $("#Block").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Block").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Block').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PropertyType/GetAllPropertyTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Type").empty();
+                        var row = ' <option value="">-- Select Type --</option> ';
+
+                        $("#Type").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Type").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#Type').select2();
+                    }
+                }
+            });
+        }
+
+
+        //editeachbaner
+
+        function SelectEachBanner(id) {
+
+            var url = "/api/Banner/Get?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 100) {
+                        var banner = response.data;
+                        let status = banner.isActive == true ? "1" : "0";
+                        let imgg = document.getElementById("PreviewUrl").src = banner.image;
+                        let thumbnail = document.getElementById("ThumbnailPreviewUrl").src = banner.thumbnail;
+                        let date = (banner.createdOn).split('T')[0];
+                        $("#myModal").modal("show");
+
+
+                        $("#idd").val(banner.id);
+                        $("#PreviewUrl").val(imgg);
+                        $("#ImageURL").val(imgg);
+                        $("#ThumbnailPreviewUrl").val(thumbnail);
+                        $("#ThumbnailImageURL").val(thumbnail);
+                        $("#Status").val(status);
+                        $("#Title").val(banner.title);
+                        $("#Description").val(banner.description);
+                        $("#Block").val(banner.blockId);
+                        $("#Block").trigger("change");
+                        $("#Type").val(banner.propertyTypeId);
+                        $("#Type").trigger("change");
+                        $("#BannerType").val(banner.bannerType);
+                        $("#date").val(date);
+                    }
+
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Lead',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        //editeachbaner
+
+
+        // data post
+        function SubmitRequest() {
+
+            let status = $("#Status").val() == 1 ? true : false;
+
+            var methodType = 'POST';
+            var url = "/api/Banner/AddNewBanner";
+            var banner = new Object();
+
+            if ($("#idd").val()) {
+
+                banner.id = parseInt($("#idd").val());
+                methodType = 'PUT';
+                url = "/api/Banner/UpdateBanner"
+            }
+
+            let blockValue = $("#Block").val();
+            let typeValue = $("#Type").val();
+
+            banner.Image = $("#ImageURL").val();
+            banner.Thumbnail = $("#ThumbnailImageURL").val();
+            banner.BlockId = blockValue ? parseInt(blockValue) : null;
+            banner.PropertyTypeId = typeValue ? parseInt(typeValue) : null;
+            banner.BannerType = $("#BannerType").val();
+            banner.Title = $("#Title").val();
+            banner.Description = $("#Description").val();
+            banner.CreatedOn = $("#date").val();
+            banner.CreatedBy = $("#User_Id").val();
+            banner.ModifiedBy = $("#User_Id").val();
+            banner.LastModifiedUserName = $("#User_Name").val();
+            banner.IsActive = status;
+
+
+            var ModelData = JSON.stringify(banner);
+
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: ModelData,
+                success: function (response) {
+
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                        $("#myModal").modal("hide");
+
+                        GetBannersList();
+                        clear();
+                    }
+                    else if (response.code === 102) {
+                        // notification("bottomleft", "warning", "fa fa-warning", "Warning", response.message);
+                        //ResponseMessageModal("warning", response.message);
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                    }
+                    else {
+                        // notification("bottomleft", "error", "fa fa-error", "Error", response.message);
+                        //ResponseMessageModal("error", response.message);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+
+            });
+        }
+
+        function clear() {
+            $("#ThumbnailImageURL").val("");
+            $("#ImageURL").val("");
+            $("#fileUpload").val("");
+            $("#ThumbnailfileUpload").val("");
+            $("#ThumbnailPreviewUrl").attr("src", "/img/placeholder-photo.svg");
+            $("#PreviewUrl").attr("src", "/img/placeholder-photo.svg");
+            $("#status").val("-1");
+            $("#status").trigger("change");
+        }
+    </script>
+}

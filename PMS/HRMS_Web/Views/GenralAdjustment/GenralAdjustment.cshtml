@@ -1,0 +1,744 @@
+﻿
+<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Genral Adjustment</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/></svg></span>
+                    <h1>GENERAL ADJUSTMENT</h1>
+
+                    <button id="propertyModal" class="btn btn-warning">Property Detail</button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                            </div>
+                        </div>
+                        <form class="custom-validation" action="#" role="form" id="MemberNDC">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Reference No.</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="text" class="form-control" readonly
+                                                   placeholder="" id="RegistrationNo" name="RegistrationNo" />
+
+                                        </div>
+                                            <div>
+                                            <button data-toggle="modal" data-target="#requestmodal" type="button" class="btn btn-outline-primary srchbtn">Search</button>
+                                            </div>
+                                            </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="" id="PropertyNo" name="PropertyNo" readonly />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Invoice No.</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="number" class="form-control" disabled
+                                                   placeholder="" id="invoiceNo" />
+                                        </div>
+                                            <div>
+                                            <button type="button" onclick="GetInvoicesAgainstRegistrationNo()" class="btn btn-outline-primary srchbtn">Search</button>
+                                            </div>
+                                            </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Document Date.</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder=" " id="DocumentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Member Code</label>
+                                    <div>
+
+                                        <input type="text" class="form-control"
+                                               placeholder="" id="MembCode" name="MemberCode" readonly />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name</label>
+                                    <div>
+                                        <input type="text" class="form-control" readonly
+                                               placeholder="" id="MembName" name="MemberName" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Block" id="Block" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Category" id="Category" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Size" id="Size" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PossessionStatus" id="PossessionStatus" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="ConstrucationStatus" id="ConstrucationStatus" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Type</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="TypeName" id="TypeName" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>CNIC</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CNIC" id="CNIC" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>CNIC Expiry Date</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CNICExp" id="CNICExp" readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+                            <ul class="nav nav-pills widget">
+                                <li class="active"><a href="#Charges" data-toggle="tab">Charges</a></li>
+                            </ul>
+                            <br />
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane active" id="Charges">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="ChargesTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Charge Name</th>
+                                                            <th class="text-white" style="text-align: center;">Amount</th>
+                                                            <th class="text-white" style="text-align: center;">Applied Amount</th>
+                                                            <th class="text-white" style="text-align: center;">Credit Note</th>
+                                                            <th class="text-white hide" style="text-align: center;">Net Amount</th>
+                                                            <th class="text-white hide" style="text-align: center;">SAP Account</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Chargestbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Remarks</label>
+                                    <div>
+                                        <textarea type="text" class="form-control" id="Remarks" name="Remarks"
+                                                  placeholder=" "></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12" style="float: right; margin-top: 9px">
+                                <button class="btn btn-primary btn-sm btn-theme" type="submit" id="SubmitMR">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <a class="btn vd_btn vd_black" href="javascript:void(0);">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                                </a>
+                                <a class="btn vd_btn vd_black" onclick="printInvoice()">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Print
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+</div>
+@*<partial name="~/Views/PartialPage/SearchPropertyModal.cshtml" />
+*@
+
+@*Requestmodel*@
+<div class="modal" id="requestmodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Request.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="requestlist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Member Profile Name</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="requesttbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="invoicemodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Invoice.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="invoicelist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">DocEntry</th>
+                                            <th class="text-white">DocNum</th>
+                                            <th class="text-white">MemberName</th>
+                                            <th class="text-white">DocDate</th>
+                                            <th class="text-white">DocTotal</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="invoicetbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@*MemberRequestNDCupdatemodel*@
+
+
+
+
+<partial name="~/Views/PartialPage/_History.cshtml" />
+<input class="hide" id="rownumber" value="0" />
+<input class="hide" type="number" id="MemberProfileId" />
+<input class="hide" type="number" id="StockCreationId" />
+<input type="text" id="User_Id" value="@Context.Session.GetString("ID")" class="hide" />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<div class="hide">
+    <div id="printdiv">
+        <partial name="~/Views/PartialPage/_RecieptForPrint.cshtml" />
+    </div>
+</div>
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            "use strict";
+
+            $("#MemberNDC").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    MemberName: {
+
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) {
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+            });
+            GetPreviousRecords();
+            $('#SubmitMR').prop('disabled', false);
+        });
+
+        function GetInvoicesAgainstRegistrationNo() {
+            debugger;
+            var registrationNo = $("#RegistrationNo").val();
+            // var registrationNo = "F-0455";
+            var url = "/api/SapIntegration/GetAllInvoicesAgainstRegistration"
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                data: { registrationNo: registrationNo },
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        $("#invoicemodal").modal("show");
+                        var datatabl = $('#invoicelist').DataTable();
+                        datatabl.destroy();
+                        $("#invoicetbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.docEntry + '</td> ' +
+                                    ' <td>' + list.docNum + '</td> ' +
+                                    ' <td>' + list.cardName + '</td> ' +
+                                    ' <td>' + list.docDate + '</td> ' +
+                                    ' <td>' + list.docTotal + '</td> ' +
+                                    '<td><a onclick="SelectSingleInvoice(' + list.docEntry + ')" class="btn btn-primary btn-sm">Select</a></td>' +
+                                    '</tr>';
+                                $("#invoicetbody").append(row);
+                                sr++;
+                            }
+                            $('#invoicelist').dataTable();
+                        }
+
+                    }
+                    else if (response.code == 2) {
+                        Swal.fire(response.message, '', 'info')
+                    }
+                }
+            });
+        }
+        function SelectSingleInvoice(DocEntry) {
+            $("#invoiceNo").val(DocEntry);
+            $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetSingleInvoiceDetails`,
+                data: { DocEntry: DocEntry },
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        $("#Chargestbody").empty();
+                        $("#invoicemodal").modal("hide");
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = '<tr>' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td class="lineNum hide">' + list.lineNum + '</td> ' +
+                                    ' <td class="acctName">' + list.acctName + '</td> ' +
+                                    ' <td class="price" style="text-align: right;">' + formatPKR(list.price) + '</td> ' +
+                                    ' <td class="creditMemo">' + list.creditMemo + '</td> ' +
+                                    ' <td><input type="number" class="adjustment form-control" value="0" /></td> ' +
+                                    ' <td class="hide"><input class="nettotal form-control" readonly value="' + list.price + '" /></td> ' +
+                                    ' <td class="acctCode hide" >' + list.acctCode + '</td> ' +
+                                    ' </tr>';
+                                $("#Chargestbody").append(row);
+                                sr++;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+        function GetPreviousRecords() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetAllInvoicesProjects`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        $("#requesttbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.member + '</td>           ' +
+                                    ' <td class="registrationNo">' + list.registration + '</td>           ' +
+                                    ' <td class="propertyNo">' + list.property + '</td>           ' +
+                                    '<td><a class="fa fa-edit fa-2x" onclick=SelectSinglePPS("' + list.registration + '","' + list.property + '")></a>' +
+                                    '<a class="fa fa-trash-o fa-2x text-danger hide" onclick="DeleteSingleChargeSetup(' + list.property + ')"></a></td> </tr>';
+                                //</tr>';
+                                $("#requesttbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#requestlist').dataTable();
+                    }
+                }
+            });
+
+        }
+        $('body').on('keydown', '.adjustment', calculteLineTotal);
+        function calculteLineTotal() {
+
+            var adjus = $(this).val() == "" ? 0 : parseFloat($(this).val());
+            var price = $(this).closest("tr").find(".price").text() == "" ? 0 : parseFloat($(this).closest("tr").find(".price").text());
+            //$(this).closest("tr").find(".nettotal").val(price + adjus)
+
+        }
+
+
+        function SelectSinglePPS(registrationNo, propertyNo) {
+
+            $("#requestmodal").modal("hide");
+            $("#RegistrationNo").val(registrationNo);
+            $("#PropertyNo").val(propertyNo);
+            SelectRegistration(registrationNo);
+        }
+
+        function SelectRegistration(id) {
+
+            var url = "/api/GenralAdjustment/GetFilterPropertyByRegistraionNo?reg=" + id + "";
+
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        let possessionstatus = result_User.possessionStatus == true ? "Yes" : "No";
+                        $("#RegistrationNo").val(result_User.registrationNo);
+                        $("#PropertyNo").val(result_User.propertyNo);
+                        $("#MembCode").val(result_User.memberProfileId);
+                        $("#MembName").val(result_User.memberName);
+                        $("#ConstrucationStatus").val(result_User.constructionStatus);
+                        $("#PossessionStatus").val(possessionstatus);
+                        $("#Size").val(result_User.actualSize);
+                        $("#Category").val(result_User.categoryName);
+                        $("#Block").val(result_User.blockName);
+                        $("#TypeName").val(result_User.typeName);
+                        $("#CNIC").val(result_User.cnic);
+                        var cnicExpDate = result_User.cnicExpiryDate.split("T");
+                        cnicExpDate = cnicExpDate[0].split("-");
+                        cnicExpDate = cnicExpDate[2] + "-" + cnicExpDate[1] + "-" + cnicExpDate[0];
+                        $("#CNICExp").val(cnicExpDate);
+
+                        $("#StockCreationId").val(result_User.id);
+                        $("#MemberProfileId").val(result_User.memberProfileId);
+
+                        PropertyDetail(result_User.id);
+                        ShowAlert(result_User.id);
+                    }
+                }
+            });
+        }
+
+        function PostRequest() {
+
+            var methodType = 'POST';
+            var url = "/api/GenralAdjustment/SaveGenralAdjustment";
+
+            var file = new Object();
+            var genralAdjustmentChargesArray = new Array();
+            debugger;
+            file.InvoiceNo = $('#invoiceNo').val();
+            file.DocumentDate = $('#DocumentDate').val();
+            file.StockCreationId = parseInt($('#StockCreationId').val());
+            file.MemberProfileId = parseInt($('#MemberProfileId').val());
+            file.ConstrucationStatus = $("#ConstrucationStatus").val();
+            file.PossessionStatus = $("#PossessionStatus").val();
+            file.RegistrationNo = $("#RegistrationNo").val();
+            file.Size = $("#Size").val();
+            file.Category = $("#Category").val();
+            file.Block = $("#Block").val();
+            file.Remarks = $("#Remarks").val();
+            file.CreatedBy = $("#User_Id").val();
+            file.ModifiedBy = $("#User_Id").val();
+            file.LastModifiedUserName = $("#User_Name").val();
+
+            $('#Chargestbody tr').each(function () {
+                debugger;
+                var row = $(this);
+                var charge = new Object();
+                charge.LineNum = row.find('.lineNum').text();
+                charge.ChargeName = row.find('.acctName').text();
+                // charge.Amount = parseFloat(row.find('.price').text());
+                charge.Amount = parseFloat(row.find('.price').val().replace(/,/g, ''));
+                charge.Adjustment = parseFloat(row.find('.adjustment').val());
+                charge.NetAmount = parseFloat(row.find('.nettotal').val());
+                charge.SapAccount = row.find('.acctCode').text();
+
+                genralAdjustmentChargesArray.push(charge);
+            });
+
+            file.GenralAdjustmentCharges = genralAdjustmentChargesArray;
+
+            var model = JSON.stringify(file);
+            $('#SubmitMR').prop('disabled', true); //disble
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+                    NProgress.done();
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            $('#SubmitMR').prop('disabled', true);
+                            printInvoice();
+                        })
+                    }
+                    else {
+                        $('#SubmitMR').prop('disabled', false);
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'warning',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                }
+            });
+        }
+        function numberToWords(number) {
+            var digit = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine'];
+            var elevenSeries = ['ten', 'eleven', 'twelve', 'thirteen', 'fourteen', 'fifteen', 'sixteen', 'seventeen', 'eighteen', 'nineteen'];
+            var countingByTens = ['twenty', 'thirty', 'forty', 'fifty', 'sixty', 'seventy', 'eighty', 'ninety'];
+            var shortScale = ['', 'thousand', 'million', 'billion', 'trillion'];
+
+            number = number.toString(); number = number.replace(/[\, ]/g, ''); if (number != parseFloat(number)) return 'not a number'; var x = number.indexOf('.'); if (x == -1) x = number.length; if (x > 15) return 'too big'; var n = number.split(''); var str = ''; var sk = 0; for (var i = 0; i < x; i++) { if ((x - i) % 3 == 2) { if (n[i] == '1') { str += elevenSeries[Number(n[i + 1])] + ' '; i++; sk = 1; } else if (n[i] != 0) { str += countingByTens[n[i] - 2] + ' '; sk = 1; } } else if (n[i] != 0) { str += digit[n[i]] + ' '; if ((x - i) % 3 == 0) str += 'hundred '; sk = 1; } if ((x - i) % 3 == 1) { if (sk) str += shortScale[(x - i - 1) / 3] + ' '; sk = 0; } } if (x != number.length) { var y = number.length; str += 'point '; for (var i = x + 1; i < y; i++) str += digit[n[i]] + ' '; } str = str.replace(/\number+/g, ' '); return str.trim() + " Only.";
+        }
+
+        function printInvoice() {
+            
+            // $(".id").text(result_User.id);
+            $(".registrationNo").text($("#RegistrationNo").val());
+            $(".buyerName").text($("#MembName").val());
+            $(".blockName").text($("#PropertyNo").val() + " / " + $("#Block").val());
+            $(".plotType").text($("#TypeName").val());
+            $(".plotSize").text($("#Category").val());
+            $(".CollectionOfficer").text("@Context.Session.GetString("FullName")");
+            var genralAdjustmentChargesArray = new Array();
+            $(".tbodyinvoice").empty();
+            $('#Chargestbody tr').each(function () {
+              
+                var row = $(this);
+                var charge = new Object();
+                charge.LineNum = row.find('.lineNum').text();
+                charge.ChargeName = row.find('.acctName').text();
+                // charge.Amount = parseFloat(row.find('.price').text());
+                charge.Amount = parseFloat(row.find('.price').val().replace(/,/g, ''));
+                charge.Adjustment = parseFloat(row.find('.adjustment').val());
+                charge.NetAmount = parseFloat(row.find('.nettotal').val());
+                charge.SapAccount = row.find('.acctCode').text();
+
+                genralAdjustmentChargesArray.push(charge);
+            });
+
+            console.log(genralAdjustmentChargesArray);
+            var amounttotal = 0;
+            $.each(genralAdjustmentChargesArray, function (i, item) {
+
+                var rownumber = 1 + i;
+
+                var row = '<tr style="font-size: 11px" id="' + rownumber + '" DetailId="0"> ' +
+                    '<td style="text-align:center">' + rownumber + '</td>' +
+                    '<td style="padding-left:8px">' + item.ChargeName + '</td>' +
+                    '<td style="text-align:right;padding-right:4px">' + formatPKR(item.NetAmount - item.Adjustment) + '</td>' +
+                    '</tr>';
+
+                amounttotal = amounttotal + parseInt(item.NetAmount - item.Adjustment);
+                rownumber++;
+                $(".tbodyinvoice").append(row);
+                rownumber++;
+            });
+            $(".invoicetotal").text(formatPKR(amounttotal));
+            var amountinwords = numberToWords(amounttotal);
+            $(".amountinwords").text(amountinwords);
+
+            var printContents = document.getElementById('printdiv').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('printdiv');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+    </script>
+}

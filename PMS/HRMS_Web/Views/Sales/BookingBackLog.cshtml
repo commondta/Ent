@@ -1,0 +1,269 @@
+﻿
+
+@section css{
+   <style>
+       .badge {
+ 
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  border-radius: 5px;
+}
+       .badge-success{
+           background-color: forestgreen;
+
+       }
+       .badge-error{
+           background-color: red;
+
+       }
+       .f-8{
+           font-size:9px
+       }
+       .pagebreak {
+        clear: both;
+        page-break-after: always;
+    }
+                         .container1{
+margin-bottom:0px;
+margin-top:0px;
+padding-bottom:0px;
+padding-top:0px;
+}
+  @@media print
+      {
+         @@page {
+         
+             padding-top: 72px;
+           padding-bottom: 72px ;
+         }
+
+      } 
+</style>
+}
+
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Booking BackLog</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16"><path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/><path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2z"/></svg></span>
+                    <h1>BOOKING BACKLOG</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                     
+                          
+                            <div class="container-fluid">
+                                <div class="card p-3">
+                                    <div class="col-md-12">
+                                        <br>
+                                        <br>
+                                        <div class="table-responsive">
+                                            <table id="BookingBackLOg" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white" style="">#</th>
+                                                        <th class="text-white" style="">Registration No.</th>
+                                                        <th class="text-white" style="">Property No</th>
+                                                        <th class="text-white" style="">Member Name.</th>
+                                                        <th class="text-white" style="">Booking Price</th>
+                                                        <th class="text-white" style="min-width: 300px;">Error Message</th>
+                                                        <th class="text-white" style="min-width: 300px;">Error In</th>
+                                                        <th class="text-white" style="">Action</th>
+                                                      
+                                                </thead>
+                                                <tbody id="BookingBackLOgtbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                           
+                    
+                        <br>
+                     
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function() {
+            GetAllBacklogBooking();
+        });
+   
+       function GetAllBacklogBooking() {
+
+            var methodType = 'GET';
+            var url = "/api/Filter/GetAllNotPostedInvoicesForBooking";
+
+             
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                success: function (response) {
+                     $('#loader').fadeOut();
+                    if (response.code === 100) {
+                    
+                       $("#BookingBackLOgtbody").empty();
+
+                        var model = response.data;
+
+                        var relist = model;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            
+                            for (let list of relist) {
+
+                                var errorin = list.bookingType == 1 ? "Booking Processing Charges" : "Booking Payment Schedule Charges";
+                              
+                                debugger;
+                                var row = '<tr>' +
+                                     '<td>' + list.id + '</td>' +
+                                     '<td>' + list.registrationNo + '</td>' +
+                                     '<td>' + list.propertyNo + '</td>' +
+                                     '<td>' + list.memberName + '</td>' +
+                                     '<td>' + list.bookingPrice + '</td>' +
+                                    '<td>' + list.errorMessage + '</td>' +
+                                    '<td>' + errorin + '</td>' +
+                                    '<td> <a onclick="PostingBooking(' + list.id + ',' + list.bookingType + ')" class="btn btn-primary btn-sm"> POST</a></td>' +
+            '</tr>';
+                                if (list.bookingChargePosted == false) {
+                                    $("#BookingBackLOgtbody").append(row);
+                                    sr++;
+                                    }
+                                    
+
+
+                            }
+                            $("#BookingBackLOg").DataTable();
+
+                        }
+                       
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        } 
+
+  
+    
+      
+      
+function convertDate(date) {
+
+    if (typeof date == "string")
+        date = new Date(date);
+    var day = (date.getDate() <= 9 ? "0" + date.getDate() : date.getDate());
+    var month = (date.getMonth() + 1 <= 9 ? "0" + (date.getMonth() + 1) : (date.getMonth() + 1));
+    var dateString = day + "/" + month + "/" + date.getFullYear();
+
+    return dateString;
+
+}
+
+
+function PostingBooking(id,bookingtype) {
+    var url = "/api/SapIntegration/PostingBackLogBooking";
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id, bookingtype: bookingtype },
+               // async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    console.log(response);
+                    NProgress.done();
+                    $('#loader').fadeOut();
+                    if (response.code === 0) {
+                     
+                        Swal.fire({
+                                icon: 'Information',
+                                title: 'Information',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                    }
+
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+}
+  </script>
+ }

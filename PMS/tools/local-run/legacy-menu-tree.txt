@@ -1,0 +1,251 @@
+﻿+ Dashboard
+  - Inventory Dashboard   [Dashboard/InventoryDashboard]
+  - Alloted Inventory Dashboard   [Dashboard/AllotedInventoryDashboard]
+  - Available Inventory Dashboard   [Dashboard/AvailableInventoryDashboard]
+  - Allocation & Sales Dashboard   [Dashboard/SalesDashboard]
+  - NDC Dashboard   [Dashboard/NDCDashboard]
+  - Transfer Dashboard   [Dashboard/TransferDashboard]
+  - Member Dashboard   [Dashboard/MemberDashboard]
++ Finger Print
+  - Enroll Fingerprint   [FingerPrint/FingerPrint]
+  - Verify Fingerprint   [FingerPrint/VerifyFingerPrint]
+  - Verification Type   [Home/VerificationType]
++ Transfer & Records
+  + Operation Forms
+    - Stock Creation   [Home/StockCreation]
+    - Member Profile   [Sales/MemberProfile]
+    - Property Binding   [Home/PropertyBinding]
+    - Payment Plan Setup   [Sales/PaymentPlanSetup]
+    - Pre Booking   [Sales/PreSaleApproval]
+    - Booking Confirmation   [Sales/BookingForm]
+    - Payment Plan Binding   [Sales/PaymentPlanBinding]
+    - Dealer Renewal Form   [Sales/RenewalForm]
+    - Member Request For NDC   [Operations/MemberNDC]
+    - Dealer Request For NDC   [Operations/DealerNDC]
+    - NDC-1   [Operations/NDC1]
+    - Transfer Set Receiving   [Home/SitePlan]
+    - Transfer Set Receiving   [Operations/TransferSetReceiving]
+    - Transfer Receipt Form   [GovtTaxes/TransferReceiptProcessing]
+    - Transfer Form   [Operations/Transfer]
+    - Amalgamation   [Operations/Amalgamation]
+    - Dealer Profile   [Sales/DealerProfile]
+    - Advance Applictaion On Plot   [Sales/AdvanceApp]
+    - File Doc/Dup Request   [Operations/FileRequest]
+    - File Verification Request   [Operations/FileVerificationRequest]
+    - File Verification NDC1   [Operations/FileVerificationNDC1]
+    - Client File Receiving   [Operations/ClientFileReceiving]
+    - Change Of Plot   [Operations/COP]
+    - Renumber   [Operations/ReNumber]
+    - Deallocation   [Operations/DeAllocation]
+    - Repurchase/Refund/Cancellation   [Operations/RePurchase]
+    - Surrender Form   [Operations/Surrender]
+    - Re-Surrender Form   [Operations/ReSurrender]
+    - Surcharge Setup   [Home/SurchargeSetup]
+    - LDA Plot No.   [Home/LDAPlotNo]
+  + Transfer & Record
+    - Phase Definition   [Home/PhaseDef]
+    - Finger Print   [Home/FingurePrint]
+    - Real Estate Type Definition   [Home/RealEstate]
+    - Project Definition   [Home/Project]
+    - Block Definition   [Home/Block]
+    - Force Definition   [Home/Force]
+    - Rank Definition   [Home/Rank]
+    - Member Category Definition   [Home/MemberCategory]
+    - Category Definition   [Home/Category]
+    - UOM Definition   [Home/UOMDef]
+    - Payment Plan Type   [Sales/PaymentPlanType]
+    - Property Type Definition   [Home/PropertyType]
+    - Property Nature Definition   [Home/Nature]
+    - Prefix Definition   [Home/Prefix]
+    - Postfix Definition   [Home/Postfix]
+    - Quota Definition   [Home/Quota]
+    - Almt Definition   [Home/Almt]
+    - Transfer Type   [Operations/TransferType]
+    - Tax Type   [Operations/TaxType]
+  + Global Forms
+    - Property List   [Home/propertyList]
+    - Registration No. Profile   [Home/RegistrationNoProfile]
+    - Property Profile   [Home/PropertyProfile]
+    - Dealer Designation   [Sales/DealerDesignation]
+  + Charge Setup
+    - Charges Group   [Globalsetup/ChargesGroup]
+    - Charges Type   [Globalsetup/ChargesType]
+    - Charges Setup   [Globalsetup/ChargesSetup]
+    - Charges Incorporation Setup   [Globalsetup/ChargesGroupFormTest]
+  + Billings Setup
+    - Property Billing Setup   [Billing/FixedBillGenerationPropertyWise]
+    - Grace Period Setup   [Billing/GracePeriodSetup]
+    - Sales Tax Setup   [Billing/SaleTax]
+    - W.Holding Tax Setup   [Billing/WithHoldingTax]
++ Building Control
+  - Possession Application   [Home/PossessionAnnouncement]
+  - Drawing Scrutiny Charges   [Home/DemarcationRequest]
+  - Clearance Form   [Home/ClearanceForm]
+  - Map Approval   [Home/MapApproval]
+  - Demarcation Form   [Home/Demarcation]
+  - Construction Security Form   [Home/ConstructionSecurity]
+  - Construction Monitoring Form   [Home/ConstructionM]
+  - Meterial Testing Form   [Home/MeterialTesting]
++ Adjustments
+  - General Adjustment   [GenralAdjustment/GenralAdjustment]
+  - Stand Alone Invoice    [GenralAdjustment/StandAlone]
++ Sales
+  - Lead Generation Form   [Sales/LeadGeneration]
+  - Payment Plan Setup   [Sales/PaymentPlanSetup]
+  - Pre-Sale Approval Form   [Sales/PreSaleApproval]
+  - Booking Form   [Sales/BookingForm]
++ Transfer Tax Estimation
+  - Transfer Tax Estimations   [Operations/TransferTaxEstimation]
++ Operations
+  - Dealer Registration   [Sales/DealerRegistration]
++ Promotions
+  - Promotions   [Promotion/Promotions]
+  - Assets/Media   [Promotion/Banners]
++ Documents
+  - Ownership Agreement   [Document/OwnershipAgreement]
+  - Allotment Letter   [Document/AllotmentLetter]
+  - Allocation Letter   [Document/AllocationLetter]
+  + Intimation Letter
+    - Defense Gardenia   [Document/DefenseGardenia]
+    - Direct Sale   [Document/DirectSale]
+    - Svc Benefit 13   [Document/SvcBenefit13]
+    - Svc Benefit 14   [Document/SvcBenefit14]
+    - Orchard Enclave   [Document/OrchardEnclave]
+    - Privilidge Allotment   [Document/PrivilidgeAllotment]
+    - Additional Allotment   [Document/AdditionalAllotment]
+    - First Intimation Letter   [Document/FirstIntimationLetter]
+  + Plot No Letter
+    - General Letter   [Document/IntimationLetter]
+    - Svc Benefit   [Document/SvcBenefitPlotNo]
+    - Orchard Enclave   [Document/OrchardEnclavePlotNo]
+  - Sales Agreement   [Document/SalesAgreement]
++ Clearance Setup
+  - Clearance    [Home/Clearance]
++ Alerts
+  - Generate Alert   [Notification/Create]
+  - Form Alert   [Notification/FormAlerts]
+  - SoftLock Name   [Notification/SoftLockName]
+  - Alert Name   [Notification/AlertName]
++ Deals
+  - Deal   [Deal/Deals]
+  - Bulk Deal   [Deal/BulkDeal]
++ Receipt
+  - Receipt   [Receipt/Receipt]
++ Billings
+  - Meter Type   [Billing/MeterType]
+  - Meter Phase   [Billing/MeterPhase]
+  - Meter Phase Wise Rates   [Billing/MeterPhaseWiseRate]
+  - Meter Status   [Billing/MeterStatus]
+  - Reading Officer   [Billing/ReadingOfficer]
+  - Meter Installation   [Billing/MeterInstallation]
+  - Meter Reading   [Billing/MeterReading]
+  - Meter Bill Generation   [Billing/MeterBillGeneration]
+  - Meter Bill Generation One Go   [Billing/MeterBillGenerationOneGo]
+  - Fixed Charges Bill Generation   [Billing/FixedChargeGeneration]
+  - Fixed Bill Generation PropertyWise   [Billing/FixedBillGenerationPropertyWise]
+  - Individual Bill Generation   [Billing/IndividualBill]
+  - Monthly Bill Generation   [Billing/MonthlyBillGeneration]
+  - Monthly Invoices Backlog   [Billing/MonthlyBillGenerationBackLog]
++ Litigation Setup
+  - Case Category   [Litigation/CaseCategory]
+  - Case Type   [Litigation/CaseType]
+  - Lawyer Data   [Litigation/LawyerData]
+  - Case Profile   [Litigation/CaseProfile]
++ Demand Note
+  - Demand Note   [DemandNote/DemandNoteForm]
+  - Demand Note HOD Action   [DemandNote/DNHOD]
+  - Demand Note Custodian Action   [DemandNote/DNCustodian]
++ Permission Setup
+  - Permission Form   [PermissionSetup/PermissionForm]
+  - Approval UI Setup   [PermissionSetup/ApprovalUISetup]
++ Record Room
+  - Record Room File Moving    [StoreRoomFileMoving/StoreRoomFileMoving]
+  - File Location   [StoreRoomFileMoving/FileLocationAssignment]
++ Dynamic Reports
+  - Dynamic Query   [DynamicQuery/Index]
+  - Dynamic Report   [DynamicQuery/DynamicReport]
++ Reports
+  + Transfer Reports
+    - NDC State Report   [Reports/NdcStateReport]
+    - Transfer Set Receiving Report   [Reports/TransferSetReceivingReport]
+    - Tax Report   [Reports/TaxReport]
+    - Transfer Report   [Reports/TransferReport]
+    - Transfer Revenue Report   [Reports/TransferRevenueReport]
+  + Record Room Reports
+    - Record Room Files Report   [Reports/RecordRoomReport]
+    - Files IN/OUT Report   [Reports/FileInOutReport]
+    - Cancel/ReStoration Report   [Reports/CancelReStrotionReport]
+    - Allocation Report   [Reports/AllocationReport]
+    - Caution Report   [Reports/CautionReport]
+  + Demographic Reports
+    - Member Report   [Reports/MemberReport]
+    - Dealer Report   [Reports/DealerReport]
++ Administration
+  + Setup Forms
+    + Town Planning
+      - Finger Print   [Home/FingurePrint]
+      - Floor Definition   [Home/Floor]
+      - Features Definition   [Home/FeaturesDef]
+      - Finishes Definition   [Home/Finishes]
+      - Construction Stage Definition   [Home/ConstructionStage]
+      - Sector Definition   [Home/Sector]
+      - Stock Creation Setup   [Home/StockCreationSetup]
+      - Property Setup   [Home/PropertySetup]
+    + Sales
+      - Social Status Definition   [Home/SocialStatus]
+      - Lead Generation Form   [sales/LeadGeneration]
+      - Member Registration   [Sales/MemberRegistration]
+      - Deal Setup   [Sales/DealSetup]
+      - Dealer Category   [Sales/DealerCategory]
+    + Operations
+      - NDC Request Type   [Operations/NDCRequestType]
+      - Transfer Type   [Operations/TransferType]
+    + Billing
+    + Litigation
+      - Forum   [Litigation/ForumSetup]
+  + Reports
+    + MemberReports
+      - Finger Print   [Home/FingurePrint]
+      - Floor Definition   [Home/Floor]
+      - Features Definition   [Home/FeaturesDef]
+      - Finishes Definition   [Home/Finishes]
+      - Construction Stage Definition   [Home/ConstructionStage]
+      - Sector Definition   [Home/Sector]
+      - Stock Creation Setup   [Home/StockCreationSetup]
+      - Property Setup   [Home/PropertySetup]
+    + NDC Reports
+      - Social Status Definition   [Home/SocialStatus]
+      - Lead Generation Form   [sales/LeadGeneration]
+      - Dealer Category   [Sales/DealerCategory]
+    + Transfer Reports
+      - Forum   [Litigation/ForumSetup]
+  + Global Setup Forms
+    - Violation Group   [Globalsetup/ViolationGroup]
+    - Violation Type   [Globalsetup/ViolationType]
+  + Global Master Data Forms
+  + SAP DataBase Integration
+    - Operations   [SAPDataBaseIntegration/SAPOperations]
+    - Billing   [SAPDataBaseIntegration/SAPBilling]
+    - GL Determination   [SAPDataBaseIntegration/GLDetermination]
+  + Credentials
+    - Credentials Config   [CredentialConfig/index]
+    - Finger Uploader   [Uploader/FingerUploader]
+  + Uploader
+    - Table Uploader   [Uploader/index]
+    - Finger Uploader   [Uploader/FingerUploader]
+  + Calendar Setup
+    - Week Schedule Regular Transfer   [Calendar/WeekSchedule]
+    - Week Schedule Executive Transfer   [Calendar/WeekScheduleExective]
+    - Billing   [SAPDataBaseIntegration/SAPBilling]
+    - GL Determination   [SAPDataBaseIntegration/GLDetermination]
+  + Approvals
+    - Role Permisison   [Approval/Permission]
+    - User Permisison   [UserPermissionMapping/index]
+    - Approval Tree   [Approval/index]
+    - Approval Setup   [Approval/ApprovalSetup]
+  + PMS Users
+    - Departments   [PMSUser/Department]
+    - Users   [PMSUser/PMSUser]
+  + Govt Taxes
+    - Booking Receipt Processing   [GovtTaxes/BookingReceiptProcessing]
+  - Commission   [Commission/index]

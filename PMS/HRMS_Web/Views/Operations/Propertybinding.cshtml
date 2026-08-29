@@ -1,0 +1,336 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Property Binding</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/></svg></span>
+                    <h1>PROPERTY BINDING</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" action="#" role="form" id="MemberNDC">
+                            <div class="row">
+                                
+                                <div class="col-sm-6">
+                                    <label>Property</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="propertybinding" name="Outstation">
+                                            <option>Choose Propert Status</option>
+                                            <option value="registraionno">Registration No </option>
+                                            <option value="propertyno">Property No</option>
+                
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6"></div>
+                            </div>
+                            
+                           
+                            
+
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane registraionno box" id="">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <h3>Property</h3>
+                                                <table id="attachmenttable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Registration No</ th>
+                                                            <th class="text-white">Property No</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="atachmenttbody">
+                                                         <tr>
+                                                             <td></td>
+                                                            <td><input type='text' name='no[]' value='property' style="background-color:#e5e5e5" disabled readonly></td>
+                                                            <td><input type='text' name='no[]' value='' style="background-color:#e5e5e5"></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane propertyno box" id="">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <h3>Property</h3>
+                                                <table id="attachmenttable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Registration No</th>
+                                                            <th class="text-white">Property No</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="atachmenttbody">
+                                                         <tr>
+                                                             <td></td>
+                                                            <td><input type='text' name='no[]' value='' style="background-color:#e5e5e5"></td>
+                                                            <td><input type='text' name='no[]' value='registration' style="background-color:#e5e5e5"  disabled readonly></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12" style="float: right; margin-top: 9px">
+                                <button class="btn btn-primary btn-sm btn-theme" type="submit" onclick="PostRequest()" id="SubmitDR">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn vd_btn vd_black" href="javascript:void(0);">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+</div>
+<!-- .vd_container -->
+<partial name="~/Views/PartialPage/SearchPropertyModal.cshtml" />
+<input class="hide" id="rownumber" value="0" />
+<input class="hide" type="number" id="MemberProfileId" />
+<input class="hide" type="number" id="StockCreationId" />
+@section Scripts {
+        <script type="text/javascript">
+            
+                    $('#loader').fadeOut();
+
+            $(document).ready(function () {
+                "use strict";
+
+                GetAllNDCRequestTypes();
+                GetAllNDCTransferTypes();
+                GetAllPropertyLists();
+            });
+
+
+            
+            
+            function GetAllPropertyLists() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/DemarcationRequest/GetAllDemarcationFilterList`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        debugger;
+                        $("#Propertytbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + list.id + '</td> ' +
+                                    ' <td class="propertyNo">' + list.propertyNo + '</td>           ' +
+                                    ' <td class="registrationNo">' + list.registrationNo + '</td>           ' +
+                                    ' <td>' + list.type + '</td>       ' +
+                                    ' <td>' + list.realStateType + '</td>       ' +
+                                    ' <td>' + list.status + '</td> ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectRegistration(' + list.id + ')">Select</a></td> </tr>';
+                                //</tr>';
+                                $("#Propertytbody").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#proplist').dataTable();
+                    }
+                }
+            });
+        }
+            function SelectRegistration(id) {
+
+            //       var realEstateId = id;
+            var url = "/api/Filter/GetFilterPropertyResult?stock=" + id + "";
+
+            debugger;
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        $("#RegistrationNo").val(result_User.registrationNo);
+                        $("#PropertyNo").val(result_User.propertyNo);
+                        $("#MembCode").val(result_User.memberProfile.id);
+                        $("#MembName").val(result_User.memberProfile.memberName);
+                        $("#CNIC").val(result_User.memberProfile.cnic);
+                        $("#CNICExp").val(result_User.memberProfile.cnicExpiryDate);
+
+                        $("#StockCreationId").val(result_User.id);
+                        $("#MemberProfileId").val(result_User.memberProfile.id);
+  
+                        $("#registrationModal").modal("hide");
+                    }
+
+                    else {
+
+
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+
+                        //window.alert(response.message);
+                    }
+                }
+            });
+
+        }
+            function AddAtachmentRow() {
+
+                    var rownumber = parseInt($("#Arownumber").val());
+                    var LineId = rownumber;
+                    rownumber = rownumber + 1;
+                    $("#Arownumber").val(rownumber);
+
+
+                    var row = '<tr id="A' + rownumber + '">' +
+                        '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                        '<td> <input type="file" class="form-control attachmentPath" /><input  class="form-control imagefile hide" /></td>' +
+                        '<td> <input  class="form-control attachmentName" /></td>' +
+                        '<td> <input type="date" class="form-control attachmentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/></td>' +
+                        '<td> <input  class="form-control remarks" /></td>' +
+                        '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+
+                        '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmentItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                        '</tr>';
+
+
+                    $("#Atachmenttbody").append(row);
+
+
+                }
+            
+
+        function PostRequest() {
+            debugger;
+            
+            $('#SubmitDR').prop('disabled', true); //disble
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'POST',
+                url: `/api/NDCRequestForMember/AddNewNDCRequestForMember`,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+                    debugger;
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+
+                        //notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                        $("#Chargestbody").empty();
+                        $("#Atachmenttbody").empty();
+                        $("#rownumber").val(0);
+                        window.location.reload(true);
+                    }
+                }
+            });
+            
+            $('#SubmitDR').prop('disabled', true); //disble
+        }
+        </script>
+
+         <script>
+            $(document).ready(function(){
+                $("#propertybinding").change(function(){
+                    $(this).find("option:selected").each(function(){
+                        var optionValue = $(this).attr("value");
+                        if(optionValue){
+                            $(".box").not("." + optionValue).hide();
+                            $("." + optionValue).show();
+                        } else{
+                            $(".box").hide();
+                        }
+                    });
+                }).change();
+            });
+          </script>
+    }

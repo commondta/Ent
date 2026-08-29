@@ -1,0 +1,1319 @@
+﻿<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Property Setup</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/></svg></span>
+                    <h1>PROPERTY SETUP</h1>
+                    <button id="propertyModal" class="btn btn-warning">Property Detail</button>
+                    <div class="vd_panel-menu  hidden-xs">
+                        <div class="menu">
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="PaymentPlanSetup">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Reference No.</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder="" id="RegistrationNo" name="RegistrationNo" />
+                                            </div>
+                                            <div >
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn dha_theme_btn">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="PropertyNo" name="PropertyNo" />
+                                            </div>
+                                            <div >
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn" 
+                                                >Search</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Phase</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Phase" name="Phase">
+                                            <option value=""> Select Option </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Real Estate Type</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="RealStateType" name="RealStateType">
+                                            <option value=""> Select Option </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                               
+                                <div class="col-sm-3">
+                                    <label>Project</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Project" name="Project">
+                                            <option value=""> Select Option </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Category" name="Category">
+                                            <option value=""> Select Option </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Block" name="Block">
+                                            <option value=""> Select Option </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Sector</label>
+                                    <div>
+                                        <select class="form-control" name="Prefix" id="prefixPropertyNo">
+                                        </select>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Type</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Type" id="Type">
+                                            <option value=""> Select Option </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Nature</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Nature" name="Nature">
+                                            <option value=""> Select Option </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Features</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Feature" id="Feature">
+                                            <option value=""> -- Select Features --</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Actual Size</label>
+                                    <div>
+                                        <input type="number" class="js-example-basic-single" id="actualSize" name="actualSize" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Wavie Off Amount</label>
+                                    <div>
+                                        <input type="number" class="js-example-basic-single" id="discountPercent" name="discountPercent" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Grace Period End Date</label>
+                                    <div>
+                                        <input type="date" class="js-example-basic-single" id="gracePeriodDate" name="gracePeriodDate" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Announced</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="PossessionStatus" id="PossessionStatus">
+                                            <option value="false">No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="PropertyStatus" id="PropertyStatus">
+                                            <option value=""> -- Select Status --</option>
+                                            <option value="Active">Active</option>
+                                            <option value="Inactive">Inactive</option>
+                                            <option value="Restored">Restored</option>
+                                            <option value="Refunded">Refunded</option>
+                                            <option value="Dormant">Dormant</option>
+                                            <option value="Cancelled">Cancelled</option>
+                                            <option value="Buy Back">Buy Back</option>
+                                            <option value="Swap Over Pending">Swap Over Pending</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Latitude</label>
+                                    <div>
+                                        <input type="text" class="js-example-basic-single" id="Latitude" name="Latitude" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Longitude</label>
+                                    <div>
+                                        <input type="text" class="js-example-basic-single" id="Longitude" name="Longitude" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="CStatus" id="ConstructionStatus">
+                                            <option value="Non-Constructed">Non-Constructed</option>
+                                            <option value="Under-Constructed">Under-Constructed</option>
+                                            <option value="Constructed">Constructed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Code</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="CaseCode" />
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Affidavit Code</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="AffidavitCode" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Allocation No</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="AllocationNo" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Sale Deed No</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="SaleDeedNo" />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Sale Deed Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" placeholder=" " id="SaleDeedDate" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Mouza</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="Mouza" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Membership Fee</label>
+                                    <div>
+                                        <input type="number" class="form-control" placeholder=" " id="MembershipFee" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Misc Charges</label>
+                                    <div>
+                                        <input type="number" class="form-control" placeholder=" " id="MiscCharges" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Covered Area</label>
+                                    <div>
+                                        <input type="number" class="js-example-basic-single" id="coveredArea" name="coveredArea" />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+
+                            <h3 class="mt-3">PART I - TRANSFER & RECORD BRANCH</h3>
+                            <div class="row">
+                                <div class="col-sm-9">                         
+                            </div>
+                                <div class="col-sm-3">
+                                    <button type="button" id="openModal" class="btn dha_theme_btn">
+                                        Show Approval History
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Transfer Record Officer Name</label>
+                                    <input type="text" class="form-control" id="TransferRecordOfficerName" />
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Transfer Record Director Name</label>
+                                    <input type="text" class="form-control" id="TransferRecordDirectorName" />
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <h3 class="mt-3">PART II - BUILDING CONTROL SECTION</h3>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Front Side</label>
+                                    <input type="text" class="form-control" id="FrontSide" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Rear Side</label>
+                                    <input type="text" class="form-control" id="RearSide" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Left Side</label>
+                                    <input type="text" class="form-control" id="LeftSide" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Right Side</label>
+                                    <input type="text" class="form-control" id="RightSide" />
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-3">
+                                    <label>Front Boundary</label>
+                                    <input type="text" class="form-control" id="FrontBoundary" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Rear Boundary</label>
+                                    <input type="text" class="form-control" id="RearBoundary" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Left Boundary</label>
+                                    <input type="text" class="form-control" id="LeftBoundary" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Right Boundary</label>
+                                    <input type="text" class="form-control" id="RightBoundary" />
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-3">
+                                    <label>Standard Area Of Plot</label>
+                                    <input type="number" class="form-control" value="0" id="StandardAreaOfPlot" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Area Of Plot</label>
+                                    <input type="number" class="form-control" value="0" id="AreaOfPlot" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Excess Area</label>
+                                    <input type="number" class="form-control" value="0" id="ExcessArea" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Less Area</label>
+                                    <input type="number" class="form-control" value="0" id="LessArea" />
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-6">
+                                    <label>Approved Min Sheet Reference No</label>
+                                    <input type="text" class="form-control" id="ApprovedMinSheetReferenceNo" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Surveyor Name</label>
+                                    <input type="text" class="form-control" id="SurveyorName" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Building Control Director Name</label>
+                                    <input type="text" class="form-control" id="BuildingControlDirectorName" />
+                                </div>
+                            </div>
+
+                            <div class="row mt-2">
+                                <div class="col-sm-4">
+                                    <label>
+                                        <input type="checkbox" id="IsCornerPlot" />
+                                        Corner Plot
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label>
+                                        <input type="checkbox" id="IsParkFacing" />
+                                        Park Facing
+                                    </label>
+                                </div>
+
+                                <div class="col-sm-4">
+                                    <label>
+                                        <input type="checkbox" id="IsMainBoulevard" />
+                                        Main Boulevard
+                                    </label>
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <h3 class="mt-3">PART III - FINANCE BRANCH</h3>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Dues Cleared Till Date</label>
+                                    <input type="date" class="form-control" id="DuesClearedTillDate" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>NDC No</label>
+                                    <input type="text" class="form-control" id="NdcNo" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>NDC Type</label>
+                                    <select class="form-control" id="NdcType">
+                                        <option value="Normal NDC">Normal NDC</option>
+                                        <option value="Provisional NDC">Provisional NDC</option>
+                                    </select>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Director Finance Name</label>
+                                    <input type="text" class="form-control" id="FinanceOfficerName" value="Qamar Hussain Ashtar" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Finance Director</label>
+                                    <input type="text" class="form-control" id="FinanceDirectorName" value="Approved" />
+                                </div>
+                            </div>
+
+                            <hr />
+
+                            <h3 class="mt-3">PART IV - POSSESSION / HANDOVER</h3>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Possession No</label>
+                                    <input type="text" class="form-control" id="PossessionNo" />
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Handed Over On</label>
+                                    <input type="date" class="form-control" id="PossessionHandedOverOn" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Possession Surveyor Name</label>
+                                    <input type="text" class="form-control" id="PossessionSurveyorName" />
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Owner Name</label>
+                                    <input type="text" class="form-control" id="OwnerName" />
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn dha_theme_btn" href="javascript:void(0);" id="sbt">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <a class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<partial name="~/Views/PartialPage/_PaymentPlanSetup.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+<partial name="~/Views/PartialPage/SearchPropertyModal.cshtml" />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/_History.cshtml" />
+<input class="hide" type="number" id="StockCreationId" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            "use strict";
+
+
+            $("#PaymentPlanSetup").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: true, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    RegistrationNo: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    // PropertyNo: {
+                    //     //minlength: 3,
+                    //     required: true
+                    // },
+                },
+
+                errorPlacement: function (error, element) {
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                  //  notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Form Data");
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    //   label
+                    //       .addClass('valid').addClass('help-inline fa fa-check vd_green mgl-10') // mark the current input as valid and display OK icon
+                    //       .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+
+            });
+            GetAllPhases();
+            GetAllBlocks();
+            GetAllTypes();
+            GetAllFeatures();
+            GetAllSectors();
+            GetAllPropertyLists();
+        });
+
+    </script>
+
+    <script>
+        function refreshPage() {
+            location.reload();
+        }
+
+        function GetAllPropertyLists() {
+
+            $('#proplist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllProprtties",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "membershipNo", name: "MembershipNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<a class="btn btn-primary" onclick="SelectRegistration(' + data.id + ')">Select</a>';
+                        }
+                    }
+                ]
+            });
+
+        }
+
+        function SelectRegistration(id) {
+            var url = "/api/Filter/GetProprtySetupById?stockId=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    
+                    if (response.code === 100) {
+                        var result_User = response.data;
+
+                        let gracePeriodDate = result_User.gracePeriodDate
+                            ? result_User.gracePeriodDate.split('T')[0]
+                            : "";
+
+                        let saleDeedDate = result_User.saleDeedDate
+                            ? result_User.saleDeedDate.split('T')[0]
+                            : "";
+
+                        let pos = result_User.possessionStatus == true ? "true" : "false";
+
+
+                        $("#Phase").val(result_User.phase);
+                        $("#Phase").trigger('change');
+                        GetAllRealEstate(result_User.phase, result_User.realStateType);
+                        $("#Block").val(result_User.block);
+                        $("#Block").trigger('change');
+                        $("#prefixPropertyNo").val(result_User.sector);
+                        $("#prefixPropertyNo").trigger('change');
+                        $("#Project").val(result_User.project);
+                        $("#Project").trigger('change');
+                        $("#Type").val(result_User.type);
+                        $("#Type").trigger('change');
+                        $("#Category").val(result_User.category);
+                        $("#Category").trigger('change');
+                        $("#Nature").val(result_User.nature);
+                        $("#Nature").trigger('change');
+                        $("#Feature").val(result_User.feature);
+                        $("#Feature").trigger('change');
+                        $("#PossessionStatus").val(pos);
+                        $("#PossessionStatus").trigger("change");
+                        $("#ConstructionStatus").val(result_User.constructionStatus);
+                        $("#ConstructionStatus").trigger("change");
+                        $("#PropertyStatus").val(result_User.propertyStatus);
+                        $("#actualSize").val(result_User.actualSize);
+                        $("#coveredArea").val(result_User.coveredArea ?? 0);
+                        $("#Latitude").val(result_User.latitude);
+                        $("#Longitude").val(result_User.longitude);
+                        $("#CaseCode").val(result_User.caseCode);
+                        $("#AffidavitCode").val(result_User.affidavitCode);
+                        $("#SaleDeedNo").val(result_User.saleDeedNo);
+                        $("#SaleDeedDate").val(saleDeedDate);
+                        $("#Mouza").val(result_User.mouza);
+                        $("#MembershipFee").val(result_User.membershipFee);
+                        $("#MiscCharges").val(result_User.miscCharges);
+                        $("#AllocationNo").val(result_User.allocationNo);
+                        $("#discountPercent").val(result_User.discountPercent);
+                        $("#gracePeriodDate").val(gracePeriodDate);
+                        $("#RegistrationNo").val(result_User.registrationNo);
+                        $("#PropertyNo").val(result_User.propertyNo);
+
+                        LoadApprovalHistory(id, 12);
+
+                        let duesClearedTillDate = result_User.duesClearedTillDate
+                            ? result_User.duesClearedTillDate.split('T')[0]
+                            : "";
+
+                        let possessionHandedOverOn = result_User.possessionHandedOverOn
+                            ? result_User.possessionHandedOverOn.split('T')[0]
+                            : "";
+
+                        $("#TransferRecordOfficerName").val(result_User.transferRecordOfficerName);
+                        $("#TransferRecordDirectorName").val(result_User.transferRecordDirectorName);
+
+                        $("#FrontSide").val(result_User.frontSide);
+                        $("#RearSide").val(result_User.rearSide);
+                        $("#LeftSide").val(result_User.leftSide);
+                        $("#RightSide").val(result_User.rightSide);
+
+                        $("#FrontBoundary").val(result_User.frontBoundary);
+                        $("#RearBoundary").val(result_User.rearBoundary);
+                        $("#LeftBoundary").val(result_User.leftBoundary);
+                        $("#RightBoundary").val(result_User.rightBoundary);
+
+                        $("#StandardAreaOfPlot").val(result_User.standardAreaOfPlot ?? 0);
+                        $("#AreaOfPlot").val(result_User.areaOfPlot ?? 0);
+                        $("#ExcessArea").val(result_User.excessArea ?? 0);
+                        $("#LessArea").val(result_User.lessArea ?? 0);
+
+                        $("#ApprovedMinSheetReferenceNo").val(result_User.approvedMinSheetReferenceNo);
+
+                        $("#IsCornerPlot").prop("checked", result_User.isCornerPlot);
+                        $("#IsParkFacing").prop("checked", result_User.isParkFacing);
+                        $("#IsMainBoulevard").prop("checked", result_User.isMainBoulevard);
+
+                        $("#SurveyorName").val(result_User.surveyorName);
+                        $("#BuildingControlDirectorName").val(result_User.buildingControlDirectorName);
+
+                        $("#DuesClearedTillDate").val(duesClearedTillDate);
+                        $("#NdcNo").val(result_User.id);
+                        $("#NdcType").val(result_User.ndcType?.trim() || "Normal NDC");
+
+                        $("#FinanceOfficerName").val(
+                            result_User.financeOfficerName?.trim() || "Qamar Hussain Ashtar"
+                        );
+
+                        $("#FinanceDirectorName").val(
+                            result_User.financeDirectorName?.trim() || "Approved"
+                        );
+
+                        $("#PossessionHandedOverOn").val(possessionHandedOverOn);
+                        $("#PossessionNo").val(result_User.possessionNo);
+
+                        $("#PossessionSurveyorName").val(result_User.possessionSurveyorName);
+                        $("#OwnerName").val(result_User.ownerName);
+
+                        $("#StockCreationId").val(result_User.id);
+                        ShowAlert(result_User.id);
+                        PropertyDetail(result_User.id);
+
+                        $("#registrationModal").modal("hide");
+
+                    }
+
+                    else {
+
+
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+
+
+                        //window.alert(response.message);
+                    }
+                }
+            });
+        }
+
+        function GetAllSectors() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Sector/GetAllSectors`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#prefixPropertyNo").empty();
+                        var row = ' <option value="">-- Select Sector --</option> ';
+
+                        $("#prefixPropertyNo").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#prefixPropertyNo").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#prefixPropertyNo').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllPhases() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/Phase/GetAllPhases`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Phase").empty();
+                        var row = ' <option value="">Select Phase</option> ';
+
+                        $("#Phase").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+                                $("#Phase").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#Phase').select2();
+                    }
+                }
+            });
+        }
+        $('#Phase').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetAllRealEstate(value);
+        });
+        $('#RealStateType').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetAllCategories(value);
+            GetAllNatures(value);
+            GetAllProjects(value);
+            // GetAllSizes(value);
+
+        });
+
+        function GetAllBlocks() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Block/GetAllBlocks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Block").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Block").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Block").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Block').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PropertyType/GetAllPropertyTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Type").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Type").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Type").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Type').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllCategories(id) {
+            var url = "/api/StockCreation/GetCategoryDropdownByRealEstateId?realEstateId=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                data: id,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Category").empty();
+                        var row = ' <option value="">Select Category</option> ';
+
+                        $("#Category").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Category").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Category').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllProjects(id) {
+            var realEstateId = id;
+            var url = "/api/StockCreation/GetProjectDropdownByRealEstateId?realEstateId=" + id + "";
+
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+
+                        $("#Project").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Project").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Project").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Project').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllNatures(id) {
+            var url = "/api/StockCreation/GetNatureDropdownByRealEstateId?realEstateId=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: id,
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Nature").empty();
+                        var row = ' <option value="">Select Nature</option> ';
+
+                        $("#Nature").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Nature").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Nature').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllRealEstate(id, real) {
+
+            $.ajax({
+
+                type: 'GET',
+                url: `/api/RealEstate/GetRealEstatesByPhaseId`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#RealStateType").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#RealStateType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#RealStateType").append(row);
+
+
+                                sr++;
+
+                            }
+                            $('#RealStateType').select2();
+
+                            if (real != undefined && real != null) {
+                                debugger;
+                                $('#RealStateType').select2('val', [real]);
+                                GetAllCategories(real);
+                                GetAllNatures(real);
+                                GetAllProjects(real);
+                            }
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function GetAllFeatures() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Feature/GetAllFeatures`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Feature").empty();
+                        var row = ' <option value="">-- Select Feature --</option> ';
+
+                        $("#Feature").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+                                $("#Feature").append(row);
+
+                                sr++;
+                            }
+                        }
+                        $('#Feature').select2();
+                    }
+                }
+            });
+        }
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+
+        function Submit() {
+
+                var methodType = 'POST';
+                var url = "/api/Property/UpdatePropertySetup";
+                var propertySetup = new Object();
+
+                 //set values
+                let phaseId = $("#Phase").val() == "" ? null : $("#Phase").val();
+                let RealStateTypeId = $("#RealStateType").val() == "" ? null : $("#RealStateType").val();
+                let ProjectId = $("#Project").val() == "" ? null : $("#Project").val();
+                let BlockId = $("#Block").val() == "" ? null : $("#Block").val();
+                let NatureId = $("#Nature").val() == "" ? null : $("#Nature").val();
+                let CategoryId = $("#Category").val() == "" ? null : $("#Category").val();
+                let TypeId = $("#Type").val() == "" ? null : $("#Type").val();
+                let FeatureId = $("#Feature").val() == "" ? null : $("#Feature").val();
+                let sector = $("#prefixPropertyNo").val() == "" ? null : $("#prefixPropertyNo").val();
+                let possessionStatus = $("#PossessionStatus").val() == "true" ? true : false;
+
+
+                propertySetup.StockCreationId = $("#StockCreationId").val();
+                propertySetup.PhaseId = phaseId;
+                propertySetup.RealEsateId = RealStateTypeId;
+                propertySetup.ProjectId = ProjectId;
+                propertySetup.BlockId = BlockId;
+                propertySetup.NatureId = NatureId;
+                propertySetup.CategoryId = CategoryId;
+                propertySetup.TypeId = TypeId;
+                propertySetup.PossessionStatus = possessionStatus;
+                propertySetup.Feature = FeatureId;
+                propertySetup.PrefixProperty= sector;
+                propertySetup.PropertyNo = $("#PropertyNo").val();
+                propertySetup.PropertyStatus = $("#PropertyStatus").val();
+                propertySetup.DiscountPercent = $("#discountPercent").val() || 0;
+                propertySetup.ActualSize = $("#actualSize").val();
+                propertySetup.coveredArea = $("#coveredArea").val();
+                propertySetup.Latitude = $("#Latitude").val();
+                propertySetup.Longitude = $("#Longitude").val();
+                propertySetup.CaseCode = $("#CaseCode").val();
+                propertySetup.AffidavitCode= $("#AffidavitCode").val();
+                propertySetup.SaleDeedNo= $("#SaleDeedNo").val();
+                propertySetup.SaleDeedDate = $("#SaleDeedDate").val() || null;
+                propertySetup.Mouza= $("#Mouza").val();
+                propertySetup.MembershipFee = $("#MembershipFee").val();
+                propertySetup.MiscCharges = $("#MiscCharges").val();
+                propertySetup.AllocationNo=$("#AllocationNo").val();
+                propertySetup.ConstructionStatus = $("#ConstructionStatus").val();
+                propertySetup.GracePeriodDate = $("#gracePeriodDate").val();
+            propertySetup.TransferRecordOfficerName = $("#TransferRecordOfficerName").val();
+            propertySetup.TransferRecordDirectorName = $("#TransferRecordDirectorName").val();
+
+            propertySetup.FrontSide = $("#FrontSide").val();
+            propertySetup.RearSide = $("#RearSide").val();
+            propertySetup.LeftSide = $("#LeftSide").val();
+            propertySetup.RightSide = $("#RightSide").val();
+
+            propertySetup.FrontBoundary = $("#FrontBoundary").val();
+            propertySetup.RearBoundary = $("#RearBoundary").val();
+            propertySetup.LeftBoundary = $("#LeftBoundary").val();
+            propertySetup.RightBoundary = $("#RightBoundary").val();
+
+            propertySetup.StandardAreaOfPlot = $("#StandardAreaOfPlot").val();
+            propertySetup.AreaOfPlot = $("#AreaOfPlot").val();
+            propertySetup.ExcessArea = $("#ExcessArea").val();
+            propertySetup.LessArea = $("#LessArea").val();
+
+            propertySetup.ApprovedMinSheetReferenceNo = $("#ApprovedMinSheetReferenceNo").val();
+
+            propertySetup.IsCornerPlot = $("#IsCornerPlot").is(":checked");
+            propertySetup.IsParkFacing = $("#IsParkFacing").is(":checked");
+            propertySetup.IsMainBoulevard = $("#IsMainBoulevard").is(":checked");
+
+            propertySetup.SurveyorName = $("#SurveyorName").val();
+            propertySetup.BuildingControlDirectorName = $("#BuildingControlDirectorName").val();
+
+            propertySetup.DuesClearedTillDate = $("#DuesClearedTillDate").val() || null;
+            propertySetup.NdcNo = $("#NdcNo").val();
+            propertySetup.NdcType = $("#NdcType").val() || "Normal NDC";
+
+            propertySetup.FinanceOfficerName = $("#FinanceOfficerName").val();
+            propertySetup.FinanceDirectorName = $("#FinanceDirectorName").val();
+
+            propertySetup.PossessionHandedOverOn = $("#PossessionHandedOverOn").val() || null;
+
+            propertySetup.PossessionSurveyorName = $("#PossessionSurveyorName").val();
+            propertySetup.PossessionNo = $("#PossessionNo").val();
+            propertySetup.OwnerName = $("#OwnerName").val();
+                propertySetup.ModifiedBy = $("#User_Id").val();
+                propertySetup.CreatedBy = $("#User_Id").val();
+                propertySetup.LastModifiedUserName = $("#User_Name").val();
+
+                var ModelData = JSON.stringify(propertySetup);
+
+                $('#sbt').prop('disabled', true); //disble
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: methodType,
+                    url: url,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    async: false,
+                    data: ModelData,
+                    contentType: 'application/json',
+                    success: function (response) {
+
+                        $('#loader').fadeOut();
+                        if (response.code == 100) {
+
+                            //Swal.fire('Saved', response.message, 'success')
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                   // location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+
+                        else {
+                            //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Something went wrong");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Something went wrong',
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                            // window.alert(response.message);
+                        }
+                    }
+                });
+
+               // $('#sbt').prop('disabled', false); //enable
+        }
+    </script>
+ }
+

@@ -1,0 +1,410 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Almt Definition</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/></svg></span>
+                    <h1>ALMT DEFINITION</h1>
+                    <div class="vd_panel-menu  hidden-xs">
+
+
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="menu" style="float:right; margin-right: 15px;">
+                            <a onclick="openmodalAdd()" class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>
+                        </div>
+                        <br />
+
+                        <br />
+                        <div>
+                            <div class="">
+                                <table id="AlmtC" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                            <th class="text-white" style="text-align: center;">Almt Name</th>
+                                            <th class="text-white" style="text-align: center;">Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="AlmtCtbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+<!-- /.modal -->
+
+
+
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="myModalLabel">Add Almt</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <form id="AlmtForm" class="form-horizontal">
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-6 hide">
+                                <label>Code</label>
+                                <input id="ID" class="form-control" disabled />
+                            </div>
+                            <div class="col-sm-12">
+                                <label>Almt Name</label>
+                                <input id="Name" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                <button onclick="SaveAlmt()" type="button" class="btn btn-primary btn-theme">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                <a class="close" data-dismiss="modal">&times;</a>
+
+            </div>
+            <div class="modal-body">
+                <p>Are You sure you want to permanently delete the Almt Def?</p>
+                <input class="hide" id="DeleteID" />
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button onclick="DeleteAlmt()" type="button" class="btn btn-primary ">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+
+            $('#AlmtC').dataTable();
+            GetAllAlmts();
+        });
+
+
+        function EditAlmt(id) {
+
+            var url = "/api/Almt/Get?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 100) {
+                        var result_User = response.data;
+
+                        $("#ID").val(result_User.id);
+                        $("#Name").val(result_User.name);
+
+                        $("#myModal").modal("show");
+                    }
+
+                    else {
+
+
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+                    }
+                }
+            });
+
+        }
+
+        function openmodalAdd() {
+            $("#ID").val("");
+            $("#Name").val("");
+        }
+
+
+
+
+        function SaveAlmt() {
+
+            if ($("#Code").val() !== "" && $("#Name").val() !== "") {
+
+                var methodType = 'POST';
+                var url = "/api/Almt/AddAlmt";
+
+                let newid = 0;
+
+                if ($("#ID").val()) {
+                    newid = parseInt($("#ID").val());
+                    methodType = 'PUT';
+                    url = "/api/Almt/UpdateAlmt"
+                }
+
+                var block =
+                {
+
+                    Id: newid,
+                    Name: $("#Name").val(),
+                    Description: " There is detail Description",
+                    CategoryCode: "Not required",
+                    ModifiedBy: $("#User_Id").val(),
+                    CreatedBy: $("#User_Id").val(),
+                    LastModifiedUserName: $("#User_Name").val()
+                };
+
+                var ModelData = JSON.stringify(block);
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: methodType,
+                    url: url,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    processData: false,
+                    dataType: "json",
+                    async: false,
+                    data: ModelData,
+                    success: function (response) {
+
+                        $('#loader').fadeOut();
+                        if (response.code === 100) {
+
+                            $("#AlmtForm").submit(function (e) {
+                                e.preventDefault();
+                            });
+                            GetAllAlmts();
+                            $("#myModal").modal("hide");
+                            Swal.fire('Saved', response.message, 'success').then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+                        else {
+                            $("#AlmtForm").submit(function (e) {
+                                e.preventDefault();
+                            });
+                            //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", response.message);
+                            Swal.fire('Error', response.message, 'error')
+                        }
+                    }
+                    //});
+                });
+
+            }
+            else {
+                debugger;
+
+                $("#AlmtForm").submit(function (e) {
+                    e.preventDefault();
+                })
+                //notification("bottomleft","error","fa fa-exclamation-circle vd_red","Error","Please enter complete data.");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Enter Valid Data',
+                })
+
+                // alert("Please enter complete data.")
+            }
+        }
+
+
+        function GetAllAlmts() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Almt/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        debugger;
+                        var datatabl = $('#AlmtC').DataTable();
+                        datatabl.destroy();
+                        $("#AlmtCtbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    //' <td>' + list.id + '</td>           ' +
+                                    ' <td>' + list.name + '</td>       ' +
+                                    '<td><a class="fa fa-edit fa-2x" style="margin-right:10px" onclick="EditAlmt(' + list.id + ')"></a></td>' +
+                                    // <a class="fa fa-trash-o fa-2x text-danger" onclick = "ConfirmBlock(' + list.id + ')" > </a>
+                                    '</tr>';
+                                $("#AlmtCtbody").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#AlmtC').dataTable();
+                    }
+                }
+            });
+
+
+        }
+        function ConfirmBlock(id) {
+
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire(
+                        'Deleted!',
+                        'Your data is deleted.',
+                        'success'
+                    )
+
+                    DeleteAlmt();
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire(
+                        'Cancelled',
+                        'Your data is safe !',
+                        'error'
+                    )
+                }
+            })
+
+
+
+
+            $("#DeleteID").val(id);
+
+
+
+        }
+        function DeleteAlmt() {
+
+            var id = $("#DeleteID").val();
+
+            var url = "/api/Almt/DeleteAlmt?id=" + id + "";
+
+            $.ajax({
+                type: 'Delete',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { Id: id },
+                async: false,
+                contentType: 'application/json',
+
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#AlmtForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+
+                        GetAllAlmts();
+                    }
+                    else {
+                        $("#AlmtForm").submit(function (e) {
+                            e.preventDefault();
+                        });
+                        notification("bottomleft", "Error", "fa fa-exclamation-circle vd_red", "Success", response.message);
+
+                    }
+                }
+            });
+        }
+
+    </script>
+}

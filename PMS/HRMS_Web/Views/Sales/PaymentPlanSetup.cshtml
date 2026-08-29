@@ -1,0 +1,1130 @@
+﻿<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Payment Plan Setup</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>PAYMENT PLAN SETUP</h1>
+
+                    <button id="propertyModal" class="btn dha_theme_btn">Property Detail</button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="PaymentPlanSetup">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Document No.</label>
+
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="number" class="form-control" disabled
+                                                   placeholder="" id="Id" />
+                                        </div>
+                                        <button data-toggle="modal" data-target="#PPSModal" type="button" class="btn dha_theme_btn">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+
+
+                                    @*<div class="vd_input-wrapper">
+                                    <span data-toggle="modal" data-target="#PPSModal" class="menu-icon">
+                                    <i class="fa fa-search"></i>
+                                    </span>
+                                    <input style="padding-left:38px" type="number" class="form-control" disabled
+                                    placeholder="" id="Id" />
+                                    </div>*@
+
+
+
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Plan Type</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="PlanType" name="PlanType">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Plan Description</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PlanDesc" name="PlanDesc" />
+                                    </div>
+
+                                    <div class="col-sm-3">
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Phase</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Phase" name="Phase">
+                                            <option value=""> Select Option </option>
+                                            @*<option value="1"> Approved </option>
+                                            <option value="2"> Draft </option>*@
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Real Estate Type</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="RealStateType" name="RealStateType">
+                                            <option value=""> Select Option </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Project</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Project" name="Project">
+                                            <option value=""> Select Option </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Category" name="Category">
+                                            <option value=""> Select Option </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Block" name="Block">
+                                            <option value=""> Select Option </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Nature</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="Nature" name="Nature">
+                                            <option value=""> Select Option </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Type</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Type" id="Type">
+                                            <option value=""> Select Option </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>No. of Installments</label>
+                                    <div>
+                                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+                                               placeholder=" " id="NUmberOfInstallment" name="NUmberOfInstallment" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Installment Days</label>
+                                    <div>
+                                        <input type="number" onkeypress="validateNumberInput(event)" class="form-control"
+                                               placeholder=" " id="InstallmentDays" name="InstallmentDays" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Grace Period (Days)</label>
+                                    <div>
+                                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+                                               placeholder=" " id="GrancePeriodFine" name="GrancePeriodFine" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-sm-3">
+                                    <label>Sur Charge Per Day</label>
+                                    <div>
+                                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+                                               placeholder=" " id="SurChargePerDay" name="SurChargePerDay" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Land Cost</label>
+                                    <div>
+                                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+                                               onkeypress="validateNumberInput(event)" placeholder=" " id="LandCost" name="LandCost" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div >
+                               
+                                   
+                                        <div class="menu" style="float: right; margin-bottom: .5rem">
+
+                                            <a class="btn btn-sm dha_theme_btn" onclick="AddRow()" style="padding: 6px 20px;">Add New</a>
+                                            <input type="text" id="rownumber" value="0" class="hide" />
+                                        </div>
+                                       
+                                        <div class="table-responsive">
+                                            <table id="PlanInformation" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white">#</th>
+                                                        <th class="text-white">Payment Type</th>
+                                                        <th class="text-white hide">Charge TypeId</th>
+                                                        <th class="text-white hide">Percentage</th>
+                                                        <th class="text-white">Amount</th>
+                                                        <th class="text-white">Due Days</th>
+                                                        <th class="text-white">Payment For</th>
+                                                        <th class="text-white">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody id="PlanInformationtbody">
+                                                </tbody>
+                                            </table>
+                                       
+                                    
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4">
+                                </div>
+                                <div class="col-md-1 float-left">
+                                    <input type="button" class="btn btn-primary btn-sm text-left" style="background-color:#9C9999;border:#9C9999; padding: 10px 30px" value="Total" />
+                                </div>
+                                <div class="col-md-2">
+                                    <input type="number" disabled class="form-control"
+                                           placeholder=" " style="margin-left:50px" id="Total" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Remarks</label>
+                                    <div>
+                                        <textarea type="text" class="form-control"
+                                                  placeholder=" " id="Remarks"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn dha_theme_btn" href="javascript:void(0);" id="sbt">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<partial name="~/Views/PartialPage/_PaymentPlanSetup.cshtml" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            "use strict";
+
+
+            $("#PaymentPlanSetup").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    PlanType: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    PlanDesc: {
+                        // minlength: 3,
+                        required: true
+                    },
+                    Phase: {
+                        //minlength: 3,
+                        required: false
+                    },
+                    RealStateType: {
+                        //minlength: 3,
+                        required: false
+                    },
+                    Project: {
+                        //minlength: 3,
+                        required: false
+                    },
+                    Category: {
+                        //minlength: 3,
+                        required: false
+                    },
+                    Block: {
+                        //minlength: 3,
+                        required: false
+                    },
+                    Nature: {
+                        //minlength: 3,
+                        required: false
+                    },
+                    Type: {
+                        //minlength: 3,
+                        required: false
+                    },
+                    NUmberOfInstallment: {
+                        //minlength: 3,
+                        required: true
+                    },
+
+                    InstallmentDays: {
+                        //minlength: 3,
+                        required: true
+                    },
+
+                    SurChargePerDay: {
+                        //minlength: 3,
+                        required: true
+                    },
+
+                    LandCost: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    GrancePeriodFine: {
+                        //minlength: 3,
+                        required: true
+                    },
+
+
+                },
+
+                errorPlacement: function (error, element) {
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Form Data");
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    //   label
+                    //       .addClass('valid').addClass('help-inline fa fa-check vd_green mgl-10') // mark the current input as valid and display OK icon
+                    //       .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    SubmitRequest();
+                }
+
+            });
+            GetAllPaymentPlanTypes();
+            GetAllPhases();
+            GetAllBlocks();
+            GetAllTypes();
+            GetPreviousRecords();
+        });
+
+    </script>
+
+    <script>
+        function refreshPage() {
+            location.reload();
+        }
+
+        function GetPreviousRecords() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/PaymentPlanSetup/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        debugger;
+                        $("#PPStbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + list.id + '</td> ' +
+                                    ' <td>' + list.planType + '</td>           ' +
+                                    ' <td>' + list.description + '</td>           ' +
+
+                                    '<td><a class="fa fa-edit fa-2x" onclick="SelectSinglePPS(' + list.id + ')"></a>' +
+                                    '<a class="fa fa-trash-o fa-2x text-danger" onclick="DeleteSinglePPS(' + list.id + ')"></a></td> </tr>';
+                                //</tr>';
+                                $("#PPStbody").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#PPSTable').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectSinglePPS(id) {
+            var url = "/api/PaymentPlanSetup/Get?id=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        $("#Id").val(result_User.id);
+                        $("#PlanType").val(result_User.planType);
+                        $("#PlanType").trigger('change');
+                        $("#PlanDesc").val(result_User.description);
+                        $("#Phase").val(result_User.phaseId);
+                        $("#Phase").trigger('change');
+                        GetAllRealEstate(result_User.phaseId, result_User.realEsateId);
+                        $("#Block").val(result_User.blockId);
+                        $("#Block").trigger('change');
+                        $("#Project").val(result_User.projectId);
+                        $("#Project").trigger('change');
+                        $("#Type").val(result_User.typeId);
+                        $("#Type").trigger('change');
+                        $("#Category").val(result_User.categoryId);
+                        $("#Category").trigger('change');
+                        $("#Nature").val(result_User.natureId);
+                        $("#Nature").trigger('change');
+                        $("#LandCost").val(result_User.landCost);
+                        $("#NUmberOfInstallment").val(result_User.nUmberOfInstallment);
+
+                        $("#InstallmentDays").val(result_User.installmentDays);
+                        $("#SurChargePerDay").val(result_User.surChargePerDay);
+                        $("#GrancePeriodFine").val(result_User.grancePeriodFine);
+                        $("#Total").val(result_User.total);
+                        PropertyDetail(result_User.id);
+                        ShowAlert(result_User.id);
+
+                        $("#PlanInformationtbody").empty();
+
+                        $.each(result_User.planInformation, function (i, item) {
+                            var rownumber = parseInt($("#rownumber").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumber").val(rownumber);
+                            var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td> <select class="form-control PaymentType" id="PaymentType' + rownumber + '"></select></td>' +
+                                '<td class="hide"> <input disabled  class="form-control chargeTypeId" value="' + item.chargeTypeId + '" /></td>' +
+                                '<td class="hide"> <input disabled  class="form-control Percentage" value="' + item.percentage + '" /></td>' +
+                                '<td> <input  class="form-control Amount" style="text-align: right;" value="' + formatPKR(item.amount) + '" /></td>' +
+                                '<td> <input  class="form-control DueDays" value="' + item.dueDays + '"/></td>' +
+                                '<td> <input  class="form-control PaymentFor" value="' + item.paymentFor + '" /></td>' +
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+                            $("#PlanInformationtbody").append(row);
+
+                            ChargeGroupType(rownumber, item.paymentType)
+
+                        });
+
+
+                        $("#PPSModal").modal("hide");
+
+                    }
+
+                    else {
+
+
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+
+
+                        //window.alert(response.message);
+                    }
+                }
+            });
+        }
+
+        function GetAllPhases() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/Phase/GetAllPhases`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Phase").empty();
+                        var row = ' <option value="">Select Phase</option> ';
+
+                        $("#Phase").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+                                $("#Phase").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#Phase').select2();
+                    }
+                }
+            });
+        }
+        $('#Phase').on('select2:selecting', function (e) {
+
+
+            debugger;
+            var value = e.params.args.data.id;
+            GetAllRealEstate(value);
+        });
+        $('#RealStateType').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetAllCategories(value);
+            GetAllNatures(value);
+            GetAllProjects(value);
+            // GetAllSizes(value);
+
+        });
+
+        function GetAllBlocks() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Block/GetAllBlocks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Block").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Block").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Block").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Block').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllPaymentPlanTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PaymentPlanType/GetAllPaymentPlanTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#PlanType").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#PlanType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#PlanType").append(row);
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#PlanType').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PropertyType/GetAllPropertyTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Type").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Type").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Type").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Type').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllCategories(id) {
+            var url = "/api/StockCreation/GetCategoryDropdownByRealEstateId?realEstateId=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                data: id,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Category").empty();
+                        var row = ' <option value="">Select Category</option> ';
+
+                        $("#Category").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Category").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Category').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllProjects(id) {
+            var realEstateId = id;
+            var url = "/api/StockCreation/GetProjectDropdownByRealEstateId?realEstateId=" + id + "";
+
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+
+                        $("#Project").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Project").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Project").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Project').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllNatures(id) {
+            var url = "/api/StockCreation/GetNatureDropdownByRealEstateId?realEstateId=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: id,
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Nature").empty();
+                        var row = ' <option value="">Select Nature</option> ';
+
+                        $("#Nature").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Nature").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Nature').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllRealEstate(id, real) {
+
+            $.ajax({
+
+                type: 'GET',
+                url: `/api/RealEstate/GetRealEstatesByPhaseId`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#RealStateType").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#RealStateType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#RealStateType").append(row);
+
+
+                                sr++;
+
+                            }
+                            $('#RealStateType').select2();
+
+                            if (real != undefined && real != null) {
+                                debugger;
+                                $('#RealStateType').select2('val', [real]);
+                                GetAllCategories(real);
+                                GetAllNatures(real);
+                                GetAllProjects(real);
+                            }
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function AddRow() {
+
+            var rownumber = parseInt($("#rownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumber").val(rownumber);
+            var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <select class="form-control PaymentType" style="width:100%" id="PaymentType' + rownumber + '"></select></td>' +
+                '<td class="hide"> <input  class="form-control chargeTypeId" /></td>' +
+                '<td class="hide"> <input disabled onkeypress="validateNumberInput(event)" class="form-control Percentage" value="0"/></td>' +
+                '<td> <input onkeypress="validateNumberInput(event)" class="form-control Amount" /></td>' +
+                '<td> <input onkeypress="validateNumberInput(event)" class="form-control DueDays" /></td>' +
+                '<td> <input  class="form-control PaymentFor" /></td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+            $("#PlanInformationtbody").append(row);
+
+            ChargeGroupType(rownumber)
+        }
+
+        function DeleteItemRow(id) {
+            $('#' + id).remove();
+        }
+
+        function ChargeGroupType(rowno, chargetype) {
+
+            let type = 'GET';
+            let url = "/api/PaymentPlanSetup/GetGlobalChargeDetail/?formId=6";
+
+            $.ajax({
+                type: type,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+
+                        $("#PaymentType" + rowno).empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#PaymentType" + rowno).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option data-id="' + list.id + '" value="' + list.chargeTypeName + '" >' + list.chargeTypeName + '</option> ';
+
+                                $("#PaymentType" + rowno).append(row);
+
+                                sr++;
+                            }
+                            $('#PaymentType' + rowno).select2();
+                        }
+                        if (chargetype != null && chargetype != undefined) {
+                            $('#PaymentType' + rowno).select2("val", [chargetype])
+                        }
+                    }
+                }
+            });
+        }
+
+        $('body').on('select2:select', '.PaymentType', Setcode);
+
+        function Setcode() {
+            debugger;
+            var data_arr = $(this).parents('tr').find('.PaymentType').select2('data');
+
+            var id = data_arr[0].element.attributes['data-id'].value;
+            $(this).parents('tr').find('.chargeTypeId').val(id);
+        }
+
+        $('body').on('change', '.Amount', calc_total);
+        function calc_total() {
+            var sum = 0;
+            $("#PlanInformationtbody tr").each(function () {
+                sum += parseFloat($(this).find(".Amount").val().replace(/,/g, ''));
+            });
+            $('#Total').val(sum);
+        }
+
+        function SubmitRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+
+        function Submit() {
+
+            if ($("#LandCost").val() == $("#Total").val()) {
+                var methodType = 'POST';
+                var url = "/api/PaymentPlanSetup/AddNewPaymentPlanSetup";
+                var PaymemtPlan = new Object();
+                var PaymemtPlanDetailArr = new Array();
+
+                //set values
+                let phaseId = $("#Phase").val() == "" ? null : $("#Phase").val();
+                let RealStateTypeId = $("#RealStateType").val() == "" ? null : $("#RealStateType").val();
+                let ProjectId = $("#Project").val() == "" ? null : $("#Project").val();
+                let BlockId = $("#Block").val() == "" ? null : $("#Block").val();
+                let NatureId = $("#Nature").val() == "" ? null : $("#Nature").val();
+                let CategoryId = $("#Category").val() == "" ? null : $("#Category").val();
+                let TypeId = $("#Type").val() == "" ? null : $("#Type").val();
+
+                if ($("#Id").val()) {
+                    PaymemtPlan.Id = parseInt($("#Id").val());
+                    methodType = 'POST';
+                    url = "/api/PaymentPlanSetup/UpdatePaymentPlanSetup"
+                }
+
+                PaymemtPlan.PlanType = $("#PlanType").val();
+                PaymemtPlan.Description = $("#PlanDesc").val();
+                PaymemtPlan.PhaseId = phaseId;
+                PaymemtPlan.RealEsateId = RealStateTypeId;
+                PaymemtPlan.ProjectId = ProjectId;
+                PaymemtPlan.BlockId = BlockId;
+                PaymemtPlan.NatureId = NatureId;
+                PaymemtPlan.CategoryId = CategoryId;
+                PaymemtPlan.TypeId = TypeId;
+                PaymemtPlan.LandCost = $("#LandCost").val();
+                PaymemtPlan.NUmberOfInstallment = $("#NUmberOfInstallment").val();
+                PaymemtPlan.InstallmentDays = $("#InstallmentDays").val();
+                PaymemtPlan.SurChargePerDay = $("#SurChargePerDay").val();
+                PaymemtPlan.GrancePeriodFine = $("#GrancePeriodFine").val();
+                PaymemtPlan.Total = $("#Total").val();
+                PaymemtPlan.CreatedBy = $("#User_Id").val();
+                PaymemtPlan.ModifiedBy = $("#User_Id").val();
+                PaymemtPlan.LastModifiedUserName = $("#User_Name").val();
+
+                $("#PlanInformationtbody tr").each(function () {
+                    var row = $(this);
+                    var PaymemtPlanDetail = new Object();
+
+                    PaymemtPlanDetail.PaymentType = $(row).find(".PaymentType").val(),
+                        PaymemtPlanDetail.ChargeTypeId = $(row).find(".chargeTypeId").val(),
+                        PaymemtPlanDetail.Percentage = $(row).find(".Percentage").val(),
+                        // PaymemtPlanDetail.Amount = $(row).find(".Amount").val(),
+                        PaymemtPlanDetail.Amount = parseFloat(row.find('.Amount').val().replace(/,/g, ''));
+                    PaymemtPlanDetail.DueDays = $(row).find(".DueDays").val(),
+                        PaymemtPlanDetail.PaymentFor = $(row).find(".PaymentFor").val(),
+
+                        PaymemtPlanDetailArr.push(PaymemtPlanDetail);
+                });
+
+                PaymemtPlan.PlanInformation = PaymemtPlanDetailArr;
+                var ModelData = JSON.stringify(PaymemtPlan);
+
+                $('#sbt').prop('disabled', true); //disble
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: methodType,
+                    url: url,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    async: false,
+                    data: ModelData,
+                    contentType: 'application/json',
+                    success: function (response) {
+
+                        $('#loader').fadeOut();
+                        if (response.code == 100) {
+
+                            //Swal.fire('Saved', response.message, 'success')
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    // location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+
+                        else {
+                            //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Something went wrong");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Something went wrong',
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                            // window.alert(response.message);
+                        }
+                    }
+                });
+            }
+            else {
+                //notification("bottomleft", "warning", "fa fa-exclamation-circle vd_red", "Warning", "Land Cost and Payment Plan should be equal");
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Land Cost and Payment Plan should be equal',
+                    customClass: 'swal-wide',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                });
+            }
+        }
+
+        function DeleteSinglePPS(id) {
+
+            var url = "/api/PaymentPlanSetup/DeletePaymentPlanSetup?id=" + id + "";
+            debugger;
+            $.ajax({
+                type: 'Delete',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+
+                        notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+                        $("#PPSModal").modal("hide");
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Something went wrong");
+                        // window.alert(response.message);
+                    }
+                }
+            });
+        }
+    </script>
+ }

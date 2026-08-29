@@ -1,0 +1,364 @@
+﻿@using DataLayer
+@{
+    ViewBag.Title = "Payroll Payments & Deductions";
+}
+
+<!-- Import File Modal -->
+<div id="myModal" class="modal fade" role="dialog" style="float:none;margin:auto; ">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Payments And Deductions</h4>
+            </div>
+            <div class="modal-body">
+                <div class="content">
+                    <input type="file" class="btn btn-primary" value="Import Excel File" id="file" accept=".xls,.xlsx,.csv" style="margin: auto;" />
+                    
+                    <h4>Columns</h4>
+                    <ol>
+                        <li>PayrollName</li>
+                        <li>EmployeeName</li>
+                        <li>EmployeeID</li>
+                        <li>PayrollPayElement</li>
+                        <li>TransactionType</li>
+                        <li>EffectiveDate</li>
+                        <li>EndDate</li>
+                        <li>Recurrence</li>
+                        <li>Amount</li>
+                        <li>Currency</li>
+                        <li>Comments</li>
+                    </ol>
+
+                    <p>Notice: Excel file should strictly be in the arrangement stated above. There should be no empty row in the file.</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" onclick="UploadfilePayAndDed()">Import</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- cfl Modal -->
+<div id="cflModal" class="modal fade" role="dialog" style="float:none;margin:auto; ">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pay Elements</h4>
+            </div>
+            <div class="modal-body">
+                <table id="cfl-pay-period-table" class="table table-responsive" style="margin-top:2%;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Pay Period Code Month</th>
+                            <th>Name</th>
+                            <th>From Date</th>
+                            <th>To Date</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var payPeriodObj in ViewData["PayPeriod"] as IList<PayPeriodModel>)
+                        {
+                            <tr>
+                                <td>@payPeriodObj.id</td>
+                                <td>@payPeriodObj.PayPeriodCodeMonth</td>
+                                <td>@payPeriodObj.Name</td>
+                                <td>@payPeriodObj.FromDate.ToString("yyyy-MM-dd")</td>
+                                <td>@payPeriodObj.ToDate.ToString("yyyy-MM-dd")</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="PaymentsAndDeductionsSelect()">Select</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>Payments And Deductions</h1>
+        <ol class="breadcrumb">
+            <li><a href="~/Home/Index">Home</a></li>
+            <li>Payroll Transactions</li>
+            <li class="active">Payments And Deductions</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Payments And Deductions</h3>
+                <div class="doc-nav">
+                    <button class="btn btn-default" title="First"><i class="fa fa-angle-double-left"></i></button>
+                    <button class="btn btn-default" title="Previous"><i class="fa fa-arrow-left"></i></button>
+                    <button class="btn btn-default" title="Next"><i class="fa fa-arrow-right"></i></button>
+                    <button class="btn btn-default" title="Last"><i class="fa fa-angle-double-right"></i></button>
+                </div>
+
+                <button class="btn" id="new-btn" data-toggle="tooltip" title="New" onclick="InsertMode('payments-and-deductions-parent-form', 'payments-and-deductions-child-form', 'payments-and-deductions-table')">
+                    <i class="fa fa-plus"></i>
+                    <div class="ripple-container"></div>
+                </button>
+                <button class="btn btn-danger hidden" id="cancel-btn">Cancel</button>
+                @*<button class="btn btn-primary hidden" id="add-btn" onclick="Create('payments-and-deductions-parent-form', 'payments-and-deductions-child-form', 'payments-and-deductions-table', 'PaymentsAndDeductionsCreate', 'Comments')">Add</button>*@
+                <button class="btn btn-primary hidden" id="update-btn" onclick="FormulaMasterUpdate()">Update</button>
+                <button type="button" class="btn hidden" id="import-btn" data-toggle="tooltip" title="Import from Excel" onclick="$('#myModal').modal('show');">
+                    <i class="fa fa-file-excel-o"></i>
+                    <div class="ripple-container">
+                    </div>
+                </button>
+            </div>
+            <div class="box-body" style="padding-top: 0;">
+
+                <div class="row" style="padding: 0 20px 50px 20px;">
+                    <form id="payments-and-deductions-parent-form">
+                        <div class="col-sm-4">
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="pay-period" class="col-sm-4 control-label">Pay Period</label>
+                                    <div class="col-sm-8">
+                                        <div class="cfl-container">
+                                            <input type="text" class="form-control" id="pay-period" name="PayPeriod">
+                                            <span><i class="fa fa-reorder cfl-parent"></i></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="document-date" class="col-sm-4 control-label">Document Date</label>
+                                    <div class="col-sm-8">
+                                        <input type="date" class="form-control" id="document-date" name="DocumentDate">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="col-sm-4 col-sm-offset-1">
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="document-no" class="col-sm-4 control-label">Document #</label>
+                                    <div class="col-sm-8">
+                                        <input type="text" class="form-control" id="document-no" name="DocumentNo" readonly>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="form-group">
+                                    <label for="status" class="col-sm-4 control-label">Status</label>
+                                    <div class="col-sm-8">
+                                        <select id="status" class="form-control" name="Status">
+                                            <option selected="selected" disabled>Select</option>
+                                            <option value="open">Open</option>
+                                            <option value="close">Close</option>
+                                            <option value="cancel">Cancel</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+
+                <div class="row" style="padding: 0 20px;">
+                    <button type="submit" id="addRow-payments-and-deductions" class="btn btn-default">Add Row</button>
+                    <form id="payments-and-deductions-child-form">
+                        <table id="payments-and-deductions-table" class="table table-responsive table-bordered" style="width: 100%;">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Payroll Name</th>
+                                    <th>Employee Name</th>
+                                    <th>Employee ID</th>
+                                    <th>Payroll Pay Element</th>
+                                    <th>Transaction Type</th>
+                                    <th>Effective Date</th>
+                                    <th>End Date</th>
+                                    <th>Recurrence</th>
+                                    <th>Amount</th>
+                                    <th>Currency</th>
+                                    <th>Comments</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div id="snackbar"></div>
+</div>
+
+<script src="~/Content/dist/js/moment.js"></script>
+
+<script>
+    var formParent = document.forms['payments-and-deductions-parent-form'];
+
+    function create_td(name, value) {
+        var td = document.createElement('td');
+        var input = td.appendChild(document.createElement('input'));
+        input.type = 'text';
+        input.name = name;
+        input.value = value;
+        return td;
+    }
+
+    function CreateRow(id, PayrollName, EmployeeName, EmployeeID, PayrollPayElement, TransactionType, EffectiveDate, EndDate, Recurrence, Amount, Currency, Comments) {
+        var trDOM = document.querySelector("#payments-and-deductions-table>tbody").appendChild(document.createElement('tr'));
+        var id_td = create_td('id', id);
+        id_td.firstChild.readOnly = true;
+
+        var tdList = [
+            id_td,
+            create_td('PayrollName', PayrollName),
+            create_td('EmployeeName', EmployeeName),
+            create_td('EmployeeID', EmployeeID),
+            create_td('PayrollPayElement', PayrollPayElement),
+            create_td('TransactionType', TransactionType),
+            create_td('EffectiveDate', EffectiveDate),
+            create_td('EndDate', EndDate),
+            create_td('Recurrence', Recurrence),
+            create_td('Amount', Amount),
+            create_td('Currency', Currency),
+            create_td('Comments', Comments)
+        ];
+
+        tdList.forEach(function (td) {
+            trDOM.appendChild(td);
+        });
+    }
+
+    function Populate(parentObj) {
+        document.querySelector('#payments-and-deductions-table>tbody').id = parentObj.DocumentNo;
+        document.querySelector('#payments-and-deductions-table>tbody').innerHTML = '';
+        formParent.elements['PayPeriod'].value = parentObj.PayPeriod;
+        formParent.elements['DocumentDate'].value = moment(parentObj.DocumentDate).format("YYYY-MM-DD");
+        formParent.elements['DocumentNo'].value = parentObj.DocumentNo;
+        formParent.elements['Status'].value = parentObj.Status;
+
+        // Creating child data (rows) in tbody against document's parent
+        for (var p = 0; p < paymentsAndDedChild.length; p++) {
+            if (parentObj.DocumentNo == paymentsAndDedChild[p].ParentID) {
+                CreateRow(paymentsAndDedChild[p].id,
+                          paymentsAndDedChild[p].PayrollName,
+                          paymentsAndDedChild[p].EmployeeName,
+                          paymentsAndDedChild[p].EmployeeID,
+                          paymentsAndDedChild[p].PayrollPayElement,
+                          paymentsAndDedChild[p].TransactionType,
+                          (new Date(parseInt(paymentsAndDedChild[p].EffectiveDate.substr(6)))).toLocaleDateString(),
+                          (new Date(parseInt(paymentsAndDedChild[p].EndDate.substr(6)))).toLocaleDateString(),
+                          paymentsAndDedChild[p].Recurrence,
+                          paymentsAndDedChild[p].Amount,
+                          paymentsAndDedChild[p].Currency,
+                          paymentsAndDedChild[p].Comments);
+            }
+        }
+    }
+
+    function ViewMode() {
+        var newBtnClassList = document.querySelector('#new-btn').classList;
+        if (newBtnClassList.contains('hidden') || !document.querySelector('#update-btn').classList.contains('hidden')) {
+            newBtnClassList.remove('hidden');
+            document.querySelector('#cancel-btn').classList.add('hidden');
+        }
+    }
+
+    function ViewModePopulate(paymentsAndDedIndex) {
+        ViewMode();
+        Populate(paymentsAndDedParent[paymentsAndDedIndex]);
+    }
+    
+    var paymentsAndDedParent = @Html.Raw(Json.Encode(ViewBag.paymentsAndDeductionsParent));
+    var paymentsAndDedChild = @Html.Raw(Json.Encode(ViewBag.paymentsAndDeductionsChild));
+    Populate(paymentsAndDedParent[0]);
+
+    var i = 0;
+    document.querySelector('button[title="First"]').addEventListener("click", function () {
+        i = 0;
+        Populate(paymentsAndDedParent[i]);
+        ViewMode();
+    });
+    document.querySelector('button[title="Previous"]').addEventListener("click", function () {
+        if(i > 0) {
+            Populate(paymentsAndDedParent[--i]);
+        }
+        ViewMode();
+    });
+    document.querySelector('button[title="Next"]').addEventListener("click", function () {
+        if(i < paymentsAndDedParent.length - 1) {
+            Populate(paymentsAndDedParent[++i]);
+        }
+        ViewMode();
+    });
+    document.querySelector('button[title="Last"]').addEventListener("click", function () {
+        i = paymentsAndDedParent.length - 1;
+        Populate(paymentsAndDedParent[i]);
+        ViewMode();
+    });
+    document.querySelector('#cancel-btn').addEventListener("click", function () {
+        ViewModePopulate(i);
+        document.querySelector('#import-btn').classList.add("hidden");
+    });
+    document.querySelector('#new-btn').addEventListener("click", function () {
+        document.querySelector('#import-btn').classList.remove("hidden");
+    });
+
+    function setData(childData, parentData) {
+        formulaMasterParent.push(parentData);
+        for (var i = 0; i < childData.length; i++) {
+            formulaMasterChild.push(childData[i]);
+        }
+        hideSavedEmpCatgr();
+        i = formulaMasterParent.length - 1;
+        Populate(formulaMasterParent[i]);
+        ViewMode();
+    }
+
+    function updateData(childData, parentData) {
+        // Update Parent Data
+        for (var k = 0; i < formulaMasterParent.length; k++) {
+            if (formulaMasterParent[k].id == parentData.id) {
+                formulaMasterParent[k].EmployeeCategory = parentData.EmployeeCategory;
+                formulaMasterParent[k].Name = parentData.Name;
+                break;
+            }
+        }
+        // Update Child Data
+        for (var l = 0; l < childData.length; l++) {
+            for (var m = 0; m < formulaMasterChild.length; m++) {
+                if(childData[l].id == formulaMasterChild[m].id) {
+                    formulaMasterChild[m].PayCode = childData[l].PayCode;
+                    formulaMasterChild[m].AmtHigherLimit = childData[l].AmtHigherLimit;
+                    formulaMasterChild[m].AmtLowerLimit = childData[l].AmtLowerLimit;
+                    formulaMasterChild[m].Percentages = childData[l].Percentages;
+                    formulaMasterChild[m].Remarks = childData[l].Remarks;
+                }
+            }
+        }
+        ViewMode();
+    }
+</script>

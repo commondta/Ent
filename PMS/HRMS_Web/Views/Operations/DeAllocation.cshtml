@@ -1,0 +1,447 @@
+﻿<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+<style>
+    .vd_red {
+        display: none;
+    }
+
+    .dClr_icon i {
+        color: #111111 !important;
+    }
+
+    .dha_table {
+        background-color: #111111 !important;
+    }
+
+</style>
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Deallocation</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/></svg></span>
+                    <h1>DEALLOCATION</h1>
+                    <button id="propertyModal" class="btn dha_theme_btn">Property Detail</button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form id="propertyBindingForm" class="custom-validation">
+                            @* <div class="col-sm-6">
+                            <label>Select Type <small style="color:red">*</small></label>
+                            <div>
+                            <select class="js-example-basic-single" name="binding" id="binding">
+                            <option value=""> Select Option </option>
+                            <option value="1"> Property No List </option>
+                            <option value="2">Registeration No List</option>
+                            </select>
+                            </div>
+                            </div>*@
+
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <div class="menu" style="float: right; margin-bottom: .5rem">
+                                        <a class="btn btn-sm dha_theme_btn" onclick="AddRowRenumRow()" style="padding: 6px 20px;">Add New</a>
+                                        <input type="text" id="rownumberJ" value="0" class="hide" />
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="RenumberTable" class="table table-bordered table-hover mb-0">
+                                            <thead class="bg-theme">
+                                                <tr>
+                                                    <th class="text-white" style="min-width:70px;">#</th>
+                                                    <th class="text-white" style="min-width:120px; text-align: center;">Select Reference No.</th>
+                                                    <th class="text-white" style="min-width:120px; text-align: center;">Reference No.</th>
+                                                    <th class="text-white" style="min-width:120px; text-align: center;">Property No.</th>
+                                                    <th class="text-white hide" style="min-width:120px; text-align: center;">RegStockId</th>
+                                                    <th class="text-white" style="min-width:120px; text-align: center;">Member Name</th>
+                                                    <th class="text-white" style="min-width:120px; text-align: center;">CNIC</th>
+                                                    <th class="text-white" style="min-width:120px; text-align: center;">Block</th>
+                                                    <th class="text-white" style="min-width:120px; text-align: center;">Category</th>
+                                                    <th class="text-white" style="min-width:120px; text-align: center;">Size</th>
+                                                    <th class="text-white" style="text-align: center;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="renumtbody">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn dha_theme_btn" href="javascript:void(0);" id="sbbtn">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+</div>
+<div class="modal" id="registrationModalReg" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Reference No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="registrationListReg" class="table table-bordered table-hover mb-0" style="width:100%";>
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">CNIC</th>
+                                            <th class="text-white">MemberName</th>
+                                            <th class="text-white">Category</th>
+                                            <th class="text-white">Block</th>
+                                            <th class="text-white">Size</th>
+                                            <th class="text-white hide">Id</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="registrationtbodyReg">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<input type="text" id="userid" value="@Context.Session.GetString("ID")" class="hide" />
+<input id="rownumberforid" class="hide" value="0" />
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            "use strict";
+            GetRegStockBlocks();
+            $("#propertyBindingForm").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    //PropertyNo: {
+                    //    required: true
+                    //},
+                    //RegistrationNo: {
+                    //    required: true
+                    //}
+
+                },
+
+                errorPlacement: function (error, element) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Warning',
+                        text: "Please Fill Data Properly",
+                    });
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+
+                }
+            });
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function GetRegStock(id) {
+
+            GetRegStockBlocks();
+            $("#rownumberforid").val(id);
+            $("#registrationModalReg").modal("show");
+        }
+
+        function GetRegStockBlocks() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Filter/GetRenumberRegistration`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        var datatabl = $('#registrationListReg').DataTable();
+                        datatabl.destroy();
+                        $("#registrationtbodyReg").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+
+                                var row = ' <tr> ' +
+                                    ' <td >' + sr + '</td> ' +
+                                    ' <td class="propertyNo">' + list.propertyNo + '</td>           ' +
+                                    ' <td class="registrationNo">' + list.registrationNo + '</td>           ' +
+                                    ' <td class="cnic">' + list.cnic + '</td>       ' +
+                                    ' <td class="memberName">' + list.memberName + '</td> ' +
+                                    ' <td class="categoryName">' + list.categoryName + '</td> ' +
+                                    ' <td class="blockName">' + list.blockName + '</td> ' +
+                                    ' <td class="size">' + list.actualSize + '</td> ' +
+                                    ' <td class="regStockId hide">' + list.id + '</td> ' +
+                                    '<td class="id"><a class="btn btn-primary" onclick="SelectRegistration(this)">Select</a></td> </tr>';
+                                $("#registrationtbodyReg").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#registrationListReg').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectRegistration(el) {
+            var property = $(el).parents('tr').find(".propertyNo").text();
+            var cnic = $(el).parents('tr').find(".cnic").text();
+            var Registration = $(el).parents('tr').find(".registrationNo").text();
+            var regStockId = $(el).parents('tr').find(".regStockId").text();
+            var memberName = $(el).parents('tr').find(".memberName").text();
+            var categoryName = $(el).parents('tr').find(".categoryName").text();
+            var blockName = $(el).parents('tr').find(".blockName").text();
+            var size = $(el).parents('tr').find(".size").text();
+            var id = $(el).parents('tr').find(".id").text();
+            var rownumber = $("#rownumberforid").val();
+
+            $("#regNo_" + rownumber).val(Registration);
+            $("#propNo_" + rownumber).val(property);
+            $("#regStockId_" + rownumber).val(regStockId);
+            $("#regsize_" + rownumber).val(size);
+            $("#regcategory_" + rownumber).val(categoryName);
+            $("#regblock_" + rownumber).val(blockName);
+            $("#cnic_" + rownumber).val(cnic);
+            $("#memberName_" + rownumber).val(memberName);
+            PropertyDetail(regStockId);
+            ShowAlert(regStockId);
+            $("#registrationModalReg").modal("hide");
+        }
+
+        function AddRowRenumRow() {
+
+            var rownumber = parseInt($("#rownumberJ").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumberJ").val(rownumber);
+            var row = '<tr id="J' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td style="width: 250px;"><a class="btn btn-primary btn-sm btn-theme" onclick="GetRegStock(' + rownumber + ')" style="padding: 6px 7px; margin-left: 32px;"> Search </a> </td > ' +
+                '<td> <input readonly required id="regNo_' + rownumber + '" name="regNo_[' + rownumber + '].regNo_" class="form-control regNo_" /></td>' +
+                '<td> <input readonly required id="propNo_' + rownumber + '" name="propNo_[' + rownumber + '].propNo_" class="form-control propNo_" /></td>' +
+                '<td class="hide"> <input  id="regStockId_' + rownumber + '"  class="form-control regStockId" /></td>' +
+                '<td> <input readonly  id="memberName_' + rownumber + '"  class="form-control memberName" /></td>' +
+                '<td> <input readonly  id="cnic_' + rownumber + '"  class="form-control cnic" /></td>' +
+                '<td> <input readonly  id="regblock_' + rownumber + '"  class="form-control regblock" /></td>' +
+                '<td> <input readonly  id="regcategory_' + rownumber + '"  class="form-control regcategory" /></td>' +
+                '<td> <input readonly  id="regsize_' + rownumber + '"  class="form-control regsize" /></td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteRenumRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+            $("#renumtbody").append(row);
+
+        }
+
+        function DeleteRenumRow(id) {
+            $('#J' + id).remove();
+            var rownumber = 1;
+            $("#renumtbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#rownumberJ").val(rownumber - 1);
+        }
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Submit() {
+
+            var bindingArray = new Array();
+
+            $('#renumtbody tr').each(function () {
+
+                var row = $(this);
+                var bind = new Object();
+
+                bind.RegStockId = row.find('.regStockId').val();
+
+                bindingArray.push(bind);
+            });
+            var model = JSON.stringify(bindingArray);
+            $('#sbbtn').prop('disabled', true); //disble
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'POST',
+                url: `/api/DeAllocation/SaveDeAllocation`,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: model,
+
+                success: function (response) {
+
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        $('#sbbtn').prop('disabled', false);
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+            // $('#sbbtn').prop('disabled', false); //enable
+        }
+
+    </script>
+}

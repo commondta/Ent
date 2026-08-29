@@ -1,0 +1,861 @@
+﻿<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #propertyModal {
+        margin-left: auto;
+    }
+
+    .dClr_icon i {
+        color: #111111 !important;
+    }
+
+    .dha_table {
+        background-color: #111111 !important;
+    }
+</style>
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Surrender Form</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-return-left" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M14.5 1.5a.5.5 0 0 1 .5.5v4.8a2.5 2.5 0 0 1-2.5 2.5H2.707l3.347 3.346a.5.5 0 0 1-.708.708l-4.2-4.2a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 8.3H12.5A1.5 1.5 0 0 0 14 6.8V2a.5.5 0 0 1 .5-.5"/></svg></span>
+                    <h1>SURRENDER FORM</h1>
+
+                    <div class="menu">
+                        <button id="propertyModal" class="btn dha_theme_btn">Property Detail</button>
+                        <button id="openModal" class="btn dha_theme_btn">Show Approval History</button>
+                    </div>
+                    <!-- menu -->
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" action="#" role="form" id="Surrender">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Document No.</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder="" id="DocNo" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="documentDate">Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" id="documentDate" name="documentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div class="row">
+                                <div style="position: relative; display: flex; align-items: center;">
+                                    <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;" />
+                                    <span style="margin-left: 10px; padding: .7rem .5rem;  width: 100px; text-align:center; background-color: #111111; color: #fff; border-radius: 4px; cursor: pointer;"> Property</span>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Reference No.</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input style="" type="text" class="form-control" readonly name="RegistrationNo"
+                                                   placeholder="" id="RegistrationNo" />
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#propModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PropertyNo" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Code</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberCode" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberName" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Block" id="Block" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Category" id="Category" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Size" id="Size" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PossessionStatus" id="PossessionStatus" readonly />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="ConstrucationStatus" id="ConstrucationStatus" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <hr />
+                            <div class="row">
+                                <div style="position: relative; display: flex; align-items: center;">
+                                    <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;" />
+                                    <span style="margin-left: 10px; padding: .7rem .5rem;  width: 100px; text-align:center; background-color: #111111; color: #fff; border-radius: 4px; cursor: pointer;">Dealor</span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Estate</label>
+
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input style="" type="text" class="form-control"  name="EstateCode" readonly
+                                                   placeholder="" id="EstateCode" />
+
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#propModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                search
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Dealer Name</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="text" class="form-control"
+                                                   placeholder=" " id="DealerName" name="DealerName" readonly />
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#propModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 hide">
+                                    <label>Estate Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="EstateName" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Expiry Days</label>
+                                    <div>
+                                        <input onkeypress="validateNumberInput(event)" class="form-control" value="0" id="ExpDays" name="ExpDays" readonly>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                    <label style="align-self:flex-start;">Photo</label>
+                                    <img id="PreviewUrl" src="/img/placeholder-photo.svg" />
+                                    <input type="file" id="fileUpload" class="fileUpload" onchange="UploadImageOnServer()">
+                                    <input type="text" id="ImageURL" class="hidden" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Re-Surrender Date</label>
+                                    <div>
+
+                                        <input type="date" id="start_date" name="dateinput" style="display: none;">
+                                        <input type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                               placeholder=" " id="ReSurDate" onchange="getDays()" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " value="Draft" id="Status" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Remarks</label>
+                                    <div>
+                                        <textarea type="text" class="form-control" id="Remarks" name="Remarks"
+                                                  placeholder=" "></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn dha_theme_btn" id="sbbtn">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </button>
+                            </div>
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<div class="modal" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Reference No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="registrationList" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Member Name</th>
+                                            <th class="text-white">Mobile</th>
+                                            <th class="text-white">Request DateTime</th>
+                                            <th class="text-white">Status</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="registrationtbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="dealerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Dealer</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="dealerlist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Dealer Name</th>
+                                            <th class="text-white">Estate Name</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Dealertbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="modal" id="dealerEstateMemberModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Member</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="dealerEstateMemberlist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Name</th>
+                                            <th class="text-white">Designation</th>
+                                            <th class="text-white">IsPrimary</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="DealerEstateMembertbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+<partial name="~/Views/PartialPage/_History.cshtml" />
+<input type="number" id="stockCreationId" value="" class="hide" />
+<input type="number" id="dealerId" value="" class="hide" />
+<input type="number" id="DealerCode" value="" class="hide" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+
+            $("#Surrender").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    RegistrationNo: {
+
+                        required: true
+                    },
+                    DealerName: {
+
+                        required: true
+                    },
+                    DealerName: {
+
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+            });
+
+            $('#registrationList').dataTable();
+            $('#DealerCodemodal').dataTable();
+
+            GetAllPropertyLists();
+            GetAllDealerProfiles();
+
+        });
+    </script>
+
+    <script>
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        // selection stockcreationId start
+        function GetAllPropertyLists() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Filter/GetAllPropertiesAvailableSurrender`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#registrationtbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                const requestDateTime = moment(list.createdOn).format('DD-MM-YYYY, h:mmA');
+                                var row = ' <tr> ' +
+                                    ' <td >' + sr + '</td> ' +
+                                    ' <td >' + list.propertyNo + '</td>           ' +
+                                    ' <td >' + list.registrationNo + '</td>           ' +
+                                    ' <td>' + list.memberName + '</td>       ' +
+                                    ' <td>' + list.mobile + '</td>       ' +
+                                    ' <td>' + requestDateTime + '</td>           ' +
+                                    ' <td>' + list.status + '</td> ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectRegistration(' + list.id + ')">Select</a></td> </tr>';
+                                $("#registrationtbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#registrationList').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectRegistration(id) {
+
+            var url = "/api/Filter/GetAllPropertiesAvailableSurrenderById?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        let possessionstatus = result_User.possessionStatus == true ? "Yes" : "No";
+
+                        $("#DocNo").val(result_User.id);
+                        $("#RegistrationNo").val(result_User.registrationNo);
+                        $("#PropertyNo").val(result_User.propertyNo);
+                        $("#MemberCode").val(result_User.memberCode);
+                        $("#MemberName").val(result_User.memberName);
+                        $("#dealerId").val(result_User.dealerId);
+                        $("#EstateCode").val(result_User.dealerCode);
+                        $("#DealerCode").val(result_User.dealerCode);
+                        $("#DealerName").val(result_User.dealerName);
+                        $("#EstateName").val(result_User.estateName);
+                        $("#stockCreationId").val(result_User.id);
+                        $("#ConstrucationStatus").val(result_User.constracutionStatus);
+                        $("#PossessionStatus").val(possessionstatus);
+                        $("#Size").val(result_User.actualSize);
+                        $("#Category").val(result_User.categoryName);
+                        $("#Block").val(result_User.blockName);
+                        ShowAlert(result_User.id);
+                        PropertyDetail(result_User.id);
+
+                        $("#registrationModal").modal("hide");                    
+                        LoadApprovalHistory(result_User.id);
+
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+        // selection stockcreationId end
+
+        // selection dealerId start
+        function GetAllDealerProfiles() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Dealer/GetFilterListForPreSale`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        $("#Dealertbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td class="Id">' + sr + '</td> ' +
+                                    ' <td>' + list.principalOwner + '</td>' +
+                                    ' <td>' + list.estateName + '</td>' +
+                                    '<td><a class="btn btn-primary" onclick="SelectDealer(' + list.id + ')">Select</a></td> </tr>';
+                                $("#Dealertbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#dealerlist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectDealer(id) {
+
+            var url = "/api/Dealer/GetDealerNDC?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var result_User = response.data;
+
+                        $("#DealerCode").val(result_User.id);
+                        $("#dealerId").val(result_User.id);
+                        $("#EstateCode").val(result_User.estateName);
+                        $("#EstateName").val(result_User.estateName);
+                        $("#DealerName").prop("readonly", false);
+                        $("#DealerName").val("");
+                        $("#DealerName").prop("readonly", true);
+                        GetAllEstateMember(result_User.id);
+                        $("#dealerModal").modal("hide");
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Dealer");
+                    }
+                }
+            });
+        }
+
+        function GetAllEstateMember(id) {
+
+            $.ajax({
+                type: 'GET',
+                url: "/api/Dealer/GetAllEstateMembers?id=" + id + "",
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        $("#DealerEstateMembertbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                const isPrimary = list.isPrimary == true ? 'Yes' : 'No';
+                                var row = ' <tr> ' +
+                                    ' <td class="Id">' + sr + '</td> ' +
+                                    ' <td class="name">' + list.name + '</td>' +
+                                    ' <td class="description">' + list.description + '</td>' +
+                                    ' <td class="isPrimary">' + isPrimary + '</td>' +
+                                    '<td><a class="btn btn-primary" onclick="SelectEstate(this)">Select</a></td> </tr>';
+                                $("#DealerEstateMembertbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#dealerEstateMemberlist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectEstate(el) {
+
+            var name = $(el).parents('tr').find(".name").text();
+            $("#DealerName").val(name);
+            $("#dealerEstateMemberModal").modal("hide");
+        }
+        // selection dealerId end
+
+
+        function UploadImageOnServer() {
+
+            debugger;
+            var extension = $('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                // alert("");
+                // notification("topright", "error", "fa fa-exclamation-circle vd_red", "Eror", "Sorry, invalid extension.");
+                ResponseMessageModal("error", "Sorry, invalid extension.");
+
+
+                $('input[type=file]').val();
+                $("#PreviewUrl").attr("src", "/img/placeholder-photo.svg");
+                return false;
+            }
+            else {
+
+                var file = $("input[type=file]").get(0).files[0];
+                if (file) {
+                    var reader = new FileReader();
+
+                    reader.onload = function () {
+                        $("#PreviewUrl").attr("src", reader.result);
+                        $("#PreviewUrl").attr("href", reader.result);
+                        $("#PreviewUrl").attr("target", "_blank");
+                        $("#ImageURL").val(reader.result);
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Submit() {
+
+            var methodType = 'POST';
+            var url = "/api/Surrender/AddNewSurrender";
+            var surrender = new Object();
+
+            //if ($("#Id").val()) {
+            //    PaymemtPlan.Id = parseInt($("#Id").val());
+            //    methodType = 'PUT';
+            //url = "/api/AdvanceApplication/UpdateAdvanceApplication"
+            //}
+
+            surrender.DealerId = $("#dealerId").val();
+            surrender.StockCreationId = $("#stockCreationId").val();
+            surrender.ResurrenderDate = $("#ReSurDate").val();
+            surrender.ImageURL = $("#ImageURL").val();
+            surrender.ExpiryDays = $("#ExpDays").val();
+            surrender.DealerName = $("#DealerName").val();
+            surrender.EstateName = $("#EstateName").val();
+            surrender.Status = $("#Status").val();
+            surrender.Remarks = $("#Remarks").val();
+            surrender.CreatedOn = $("#Docdate").val();
+            surrender.CreatedBy = $("#User_Id").val();
+            surrender.ModifiedBy = $("#User_Id").val();
+            surrender.LastModifiedUserName = $("#User_Name").val();
+            surrender.CreatedOn = $("#documentDate").val();
+
+            var ModelData = JSON.stringify(surrender);
+            debugger;
+            $('#sbbtn').prop('disabled', true); //disble
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                data: ModelData,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    debugger;
+
+                    $('#loader').fadeOut();
+                    if (response.code == 100) {
+
+                        Swal.fire('Saved', response.message, 'success').then((result) => {
+                            if (result.isConfirmed) {
+                               // location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+
+                    else {
+                        $('#sbbtn').prop('disabled', false);
+                        // notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Something went wrong");
+                        // window.alert(response.message);
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'warning',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+    </script>
+
+    @*datecounter*@
+    <script>
+
+        document.querySelector('[ name="dateinput"]').valueAsDate = new Date();
+        function getDays() {
+
+            var start_date = new Date(document.getElementById('start_date').value);
+            var end_date = new Date(document.getElementById('ReSurDate').value);
+            var time_difference = end_date.getTime() - start_date.getTime();
+            var days_difference = time_difference / (1000 * 3600 * 24);
+            document.getElementById('ExpDays').value = days_difference;
+
+        }
+        //disable dat
+        $(function () {
+            var today = new Date();
+            var month = ('0' + (today.getMonth() + 1)).slice(-2);
+            var day = ('0' + today.getDate()).slice(-2);
+            var year = today.getFullYear();
+            var date = year + '-' + month + '-' + day;
+
+            $('#ReSurDate').attr('min', date);
+        });
+                           //disable dat
+
+    </script>
+    @*datecounter*@
+
+ }

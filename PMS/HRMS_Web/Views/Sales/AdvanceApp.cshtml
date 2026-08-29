@@ -1,0 +1,692 @@
+﻿<style>
+    .dClr_icon i {
+        color: #111111 !important;
+    }
+
+    .dha_table {
+        background-color: #111111 !important;
+    }
+</style>
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Advance Application On Plot</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16"><path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/><path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2z"/></svg></span>
+                    <h1>ADVANCE APPLICATION ON PLOT</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="AdvApp">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Document No.</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder="" id="ID" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                               placeholder=" " id="docdate" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Dealer Code</label>
+
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input style="" type="text" class="form-control" disabled name="DealerCode"
+                                                   placeholder="" id="DealerCode" />
+
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#dealerModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                search
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="hide" placeholder="" id="DCode" />
+
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Dealer Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="dealername" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Deal Code</label>
+
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input style="" type="text" class="form-control" disabled name="DealCode"
+                                                   placeholder="" id="DealCode" />
+
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#dealModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                search
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <input type="text" class="hide" placeholder="" id="DlCode" />
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Deal Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Dealname" readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+
+                            <ul class="nav nav-tabs" style="margin: 2rem 0rem">
+                                <li class="nav-item active"><a lass="nav-link active tab_clr" href="#Reciept" data-toggle="tab">Reciept</a></li>
+                                <li class="nav-item"><a lass="nav-link tab_clr" href="#ApplyOn" data-toggle="tab">Apply On</a></li>
+                                
+                            </ul>
+                           
+                          
+                            <div class="tab-content">
+                                <div class="tab-pane active" id="Reciept">
+
+                                    <div class="col-md-12">
+                                        <div class="menu" style="float: right; margin-bottom: .5rem">
+
+                                            <a class="btn dha_theme_btn btn-sm " onclick="AddRow()" style="padding: 6px 20px; margin-right: -1px;">Add New</a>
+                                            <input type="text" id="rownumber" value="0" class="hide" />
+                                        </div>
+
+                                        <div class="table-responsive">
+                                            <table id="Receipt" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white" style="width: 90px;">#</th>
+                                                        <th class="text-white">Receipt No.</th>
+                                                        <th class="text-white">Amount</th>
+                                                        <th class="text-white">Action</th>
+                                                </thead>
+                                                <tbody id="Receipttbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="row" style="margin-left:-200px;">
+                                            <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-1 float-left">
+                                                <input type="button" class="btn btn-primary btn-sm text-left" style="background-color:#9C9999;border:#9C9999; padding: 10px 30px; margin-left:450px" value="Total" />
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="number" disabled class="form-control"
+                                                       placeholder=" " style="margin-left:450px" value="0.00" id="Total" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+
+
+
+
+                                <div class="tab-pane " id="ApplyOn">
+                            
+                               
+                                    <div class="col-md-12">
+                                        @* <div class="menu" style="float: right;">
+
+                                        <a class="btn btn-primary btn-sm btn-theme" onclick="AddApplyRow()" style="padding: 6px 20px;  margin-right: -1px;">Add New</a>
+
+                                        </div>*@
+                                        <input type="number" id="rownumber1" value="0" class="hide" />
+                                      
+                                        <div class="table-responsive">
+                                            <table id="ApplyOn" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white" style="width: 90px;">#</th>
+                                                        <th class="text-white">Reference No.</th>
+                                                        <th class="text-white">Property No.</th>
+                                                        <th class="text-white">Outstanding Balance</th>
+                                                        <th class="text-white">Amount Applied</th>
+                                                </thead>
+                                                <tbody id="ApplyOntbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                        <div class="row" style="margin-left:-200px;">
+                                            <div class="col-md-4">
+                                            </div>
+                                            <div class="col-md-1 float-left">
+                                                <input type="button" class="btn btn-primary btn-sm text-left" style="background-color:#9C9999;border:#9C9999; padding: 10px 30px;margin-left:500px" value="Total" />
+                                            </div>
+                                            <div class="col-md-2">
+                                                <input type="number" disabled class="form-control"
+                                                       placeholder=" " style="margin-left:500px" value="0.00" id="TotalAmount" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+                        <div class="col-12" style="float: right;">
+                            <button type="submit" onclick="SubmitRequest();" class="btn dha_theme_btn" id="SubmitMR">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                            </button>
+                            <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Receipts</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="receipts" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Receipt No.</th>
+                                            <th class="text-white">Receipt Date</th>
+                                            <th class="text-white">Receipt For</th>
+                                            <th class="text-white">Amount</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="receiptstbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="dealModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Deal Code</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="deallist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Deal Name</th>
+                                            <th class="text-white">Deal Nature</th>
+                                            <th class="text-white">Deal Type</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Dealtbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="dealerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Dealer.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="dealerlist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">DealerName</th>
+                                            @*<th class="text-white">Registration No.</th>
+                                            <th class="text-white">Type</th>
+                                            <th class="text-white">Real Estate</th>
+                                            <th class="text-white">Status</th>*@
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Dealertbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<input type="number" id="dealId" value="" class="hide" />
+<input type="number" id="dealerId" value="" class="hide" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+            // GetAllPropertyLists();
+            // GetAllDeal();
+            GetAllDealerProfiles();
+
+            $('#receipts').dataTable();
+            $('#dealerlist').dataTable();
+            $('#deallist').dataTable();
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        // selection dealerId start
+        function GetAllDealerProfiles() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Dealer/GetFilterListForPreSale`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        $("#Dealertbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td class="Id">' + list.id + '</td> ' +
+                                    ' <td class="principalOwner">' + list.principalOwner + '</td>' +
+                                    '<td><a class="btn btn-primary" onclick="SelectDealer(' + list.id + ')">Select</a></td> </tr>';
+                                $("#Dealertbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#dealerlist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectDealer(id) {
+
+            var url = "/api/Dealer/Get?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var result_User = response.data;
+
+                        $("#DealerCode").val(result_User.id);
+                        $("#dealername").val(result_User.principalOwner);
+                        $("#dealerId").val(result_User.id);
+                        $("#dealerModal").modal("hide");
+                        GetAllDeal(result_User.id);
+
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Dealer");
+                    }
+                }
+            });
+        }
+        // selection dealerId end
+
+        // selection dealId start
+        function GetAllDeal(id) {
+
+            var id = $("#dealerId").val();
+            var url = "/api/Filter/GetFilterDealByDealerId?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        $("#Dealtbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td class="Id">' + list.id + '</td> ' +
+                                    ' <td >' + list.dealName + '</td>' +
+                                    ' <td >' + list.dealNature + '</td>' +
+                                    ' <td >' + list.dealType + '</td>' +
+                                    '<td><a class="btn btn-primary" onclick="SelectDeal(' + list.id + ')">Select</a></td> </tr>';
+                                $("#Dealtbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#deallist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectDeal(id) {
+
+            var url = "/api/Filter/GetFilterDealById?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var deal = response.data;
+
+                        $("#DealCode").val(deal.id);
+                        $("#Dealname").val(deal.dealName);
+                        $("#dealId").val(deal.id);
+
+                        $("#ApplyOntbody").empty();
+
+                        $.each(deal.dealProperty, function (i, item) {
+
+                            var rownumber2 = parseInt($("#rownumber1").val());
+                            var LineId = rownumber2;
+                            rownumber2 = rownumber2 + 1;
+
+                            $("#rownumber1").val(rownumber2);
+
+                            var row = '<tr id="PP' + rownumber2 + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber2 + '"/></td>' +
+                                '<td> <input disabled class="form-control registrationNo"  value="' + item.registrationNo + '" /></td>' +
+                                '<td> <input disabled class="form-control propertyNo" value="' + item.propertyNo + '"/></td>' +
+                                '<td> <input disabled class="form-control outstandingBalance" value="' + item.outstandingBalance + '"/></td>' +
+                                '<td> <input onkeypress="validateNumberInput(event)" class="form-control amountApplied" value="0" /></td>' +
+
+                                '</tr>';
+
+                            $("#ApplyOntbody").append(row);
+
+                        });
+                        $("#dealModal").modal("hide");
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Dealer");
+                    }
+                }
+            });
+        }
+        // selection dealId end
+
+        function AddRow() {
+
+            var rownumber = parseInt($("#rownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumber").val(rownumber);
+
+
+            var row = '<tr id="R' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <a><input  class="form-control ReceiptNo" readonly /></a><a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal" style="padding: 6px 7px;"> Search </a> </td > ' +
+                '<td> <input class="form-control Amount" readonly/></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+
+            $("#Receipttbody").append(row);
+        }
+
+        function DeleteItemRow(id) {
+            $('#R' + id).remove();
+            var rownumber = 1;
+            $("#Receipttbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#rownumber").val(rownumber - 1);
+        }
+
+        function SubmitRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+
+        function Submit() {
+
+            var methodType = 'POST';
+            var url = "/api/AdvanceApplication/AddNewAdvanceApplication";
+            var advanceApp = new Object();
+            var advanceAppReciptsArr = new Array();
+            var advanceAppPaymentApplyArr = new Array();
+
+            //if ($("#Id").val()) {
+            //    PaymemtPlan.Id = parseInt($("#Id").val());
+            //    methodType = 'PUT';
+            //url = "/api/AdvanceApplication/UpdateAdvanceApplication"
+            //}
+
+            advanceApp.DealerId = $("#dealerId").val();
+            advanceApp.DealId = $("#dealId").val();
+            advanceApp.ModifiedBy = $("#User_Id").val();
+            advanceApp.CreatedBy = $("#User_Id").val();
+            advanceApp.LastModifiedUserName = $("#User_Name").val();
+
+            $("#ApplyOntbody tr").each(function () {
+                var row = $(this);
+
+                //set values
+                let amountApplied = $(row).find(".amountApplied").val() == "" ? "0" : $(row).find(".amountApplied").val();
+
+                var paymentApply = new Object();
+
+                paymentApply.RegistrationNo = $(row).find(".registrationNo").val(),
+                    paymentApply.PropertyNo = $(row).find(".propertyNo").val(),
+                    paymentApply.OutstandingBalance = $(row).find(".outstandingBalance").val(),
+                   
+                    paymentApply.AmountApplied = amountApplied,
+
+                    advanceAppPaymentApplyArr.push(paymentApply);
+            });
+
+            $("#Receipttbody tr").each(function () {
+                var row = $(this);
+                var recipt = new Object();
+
+                recipt.ReciptNo = $(row).find(".ReceiptNo").val(),
+                    recipt.Amount = $(row).find(".Amount").val(),
+
+                    advanceAppReciptsArr.push(recipt);
+            });
+
+            advanceApp.DealAdvanceApplicationHistory = advanceAppPaymentApplyArr;
+            advanceApp.DealAdvanceApplicationRecipt = advanceAppReciptsArr;
+
+            var ModelData = JSON.stringify(advanceApp);
+            $('#SubmitMR').prop('disabled', true);
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                data: ModelData,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+
+                        Swal.fire('Saved', response.message, 'success').then((result) => {
+                            if (result.isConfirmed) {
+                                // location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Something went wrong");
+                        // window.alert(response.message);
+                    }
+                }
+            });
+        }
+    </script>
+ }

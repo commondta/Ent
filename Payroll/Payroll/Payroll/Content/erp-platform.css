@@ -1,0 +1,84 @@
+/* ERP platform: application switcher in the PMS header (monochrome theme).
+   Selectors carry the #erpAppSwitch id + !important on layout props because the legacy theme
+   styles every <a> inside the header (inline-block, fixed widths, line-heights). */
+#erpAppSwitch.erp-appswitch { position: relative; display: inline-flex !important; align-items: center; height: 100%; }
+#erpAppSwitch .erp-appswitch-toggle {
+    display: inline-flex !important; align-items: center; gap: 12px;
+    height: 42px; width: auto !important; max-width: none !important; padding: 0 12px 0 8px !important; margin: 0 !important;
+    border-radius: 8px; cursor: pointer; line-height: 1 !important; text-decoration: none !important;
+    transition: background-color .15s ease;
+}
+#erpAppSwitch .erp-appswitch-toggle:hover,
+#erpAppSwitch .erp-appswitch-toggle[aria-expanded="true"] { background: rgba(255,255,255,.10) !important; }
+#erpAppSwitch .erp-appswitch-toggle .brand-svg { display: block; flex: 0 0 auto; }
+/* switcher chevron (same as LIMS): a 24px chip — quiet when closed, lifts on hover, presses on click,
+   flips to a filled white chip with an ink chevron pointing up while the menu is open */
+#erpAppSwitch .erp-appswitch-caret {
+    width: 24px; height: 24px; flex: 0 0 auto; display: inline-flex !important; align-items: center; justify-content: center;
+    border-radius: 7px; border: 1px solid rgba(255,255,255,.18); background: rgba(255,255,255,.06); color: #C9CDD1;
+    transition: background-color .16s ease, border-color .16s ease, color .16s ease, transform .16s ease, box-shadow .16s ease;
+}
+#erpAppSwitch .erp-appswitch-caret svg { width: 14px; height: 14px; display: block; stroke: currentColor; fill: none; transition: transform .22s cubic-bezier(.2,.7,.2,1); }
+#erpAppSwitch .erp-appswitch-toggle:hover .erp-appswitch-caret { background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.32); color: #FFFFFF; transform: translateY(-1px); box-shadow: 0 2px 6px rgba(0,0,0,.25); }
+#erpAppSwitch .erp-appswitch-toggle:active .erp-appswitch-caret { transform: translateY(0) scale(.94); box-shadow: none; }
+#erpAppSwitch .erp-appswitch-toggle[aria-expanded="true"] .erp-appswitch-caret { background: #FFFFFF; border-color: #FFFFFF; color: #111111; box-shadow: 0 2px 8px rgba(0,0,0,.3); transform: none; }
+#erpAppSwitch .erp-appswitch-toggle[aria-expanded="true"] .erp-appswitch-caret svg { transform: rotate(180deg); }
+#erpAppSwitch .erp-appswitch-toggle:focus-visible .erp-appswitch-caret { box-shadow: 0 0 0 3px rgba(255,255,255,.35); }
+@media (prefers-reduced-motion: reduce) { #erpAppSwitch .erp-appswitch-caret, #erpAppSwitch .erp-appswitch-caret svg { transition: none; } }
+
+#erpAppSwitch .erp-appswitch-menu {
+    position: absolute; top: calc(100% + 6px); left: 0; z-index: 3000;
+    min-width: 360px; max-width: 420px; padding: 8px !important; margin: 0 !important;
+    background: #FFFFFF; color: #111111; border: 1px solid #E5E5E5; border-radius: 10px;
+    box-shadow: 0 12px 32px rgba(17,17,17,.14);
+    font-family: Inter, "Segoe UI", Arial, sans-serif; text-align: left;
+}
+#erpAppSwitch .erp-appswitch-menu[hidden] { display: none !important; }
+#erpAppSwitch .erp-appswitch-label {
+    display: block; padding: 6px 10px 4px; font-size: 10.5px; font-weight: 700; letter-spacing: .08em;
+    text-transform: uppercase; color: #777777;
+}
+#erpAppSwitch .erp-appswitch-item {
+    display: flex !important; align-items: center; gap: 12px;
+    width: 100% !important; height: auto !important; min-height: 40px; padding: 0 10px !important; margin: 0 !important;
+    border-radius: 7px; white-space: nowrap; line-height: 1.2 !important;
+    color: #111111 !important; text-decoration: none !important; font-size: 13.5px; font-weight: 400;
+    background: transparent; transition: background-color .12s ease;
+}
+#erpAppSwitch .erp-appswitch-item:hover, #erpAppSwitch .erp-appswitch-item:focus-visible { background: #F3F3F3 !important; outline: none; }
+#erpAppSwitch .erp-appswitch-item svg { width: 16px; height: 16px; flex: 0 0 auto; stroke: #4D4D4D; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; display: block; }
+#erpAppSwitch .erp-appswitch-item > span { display: inline-block; }
+#erpAppSwitch .erp-appswitch-name { flex: 1 1 auto; overflow: hidden; text-overflow: ellipsis; }
+#erpAppSwitch .erp-appswitch-home { font-weight: 600; }
+#erpAppSwitch .erp-appswitch-sep { height: 1px; background: #EEEEEE; margin: 6px 4px; }
+#erpAppSwitch .erp-appswitch-check { width: 16px; height: 16px; display: inline-flex !important; align-items: center; justify-content: center; flex: 0 0 auto; }
+#erpAppSwitch .erp-appswitch-item.is-current { background: #F0F0F0 !important; font-weight: 600; }
+#erpAppSwitch .erp-appswitch-item.is-current .erp-appswitch-check svg { stroke: #111111; }
+#erpAppSwitch .erp-appswitch-item.is-off { opacity: .55; pointer-events: none; }
+#erpAppSwitch .erp-appswitch-soon {
+    margin-left: auto; flex: 0 0 auto; font-size: 10px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    color: #777777; border: 1px solid #E5E5E5; border-radius: 999px; padding: 2px 7px; background: #F7F7F7; line-height: 1.2;
+}
+/* application logo tile in each row: light tile with a dark mark; the current app is the inverse */
+#erpAppSwitch .erp-appswitch-logo {
+    width: 32px; height: 32px; flex: 0 0 auto; border-radius: 8px; background: #F3F3F3; border: 1px solid #E5E5E5;
+    display: inline-flex !important; align-items: center; justify-content: center; overflow: hidden;
+}
+#erpAppSwitch .erp-appswitch-logo svg.erp-logo-pms { width: 16px; height: 16px; fill: #111111; stroke: none; }
+#erpAppSwitch .erp-appswitch-logo svg.erp-logo-people { width: 22px; height: 14px; fill: #111111; stroke: none; }   /* Payroll: people mark, landscape */
+#erpAppSwitch .erp-appswitch-logo svg.erp-logo-line { width: 18px; height: 18px; stroke: #111111; fill: none; stroke-width: 1.8; }
+#erpAppSwitch .erp-appswitch-logo .erp-logo-img { width: 26px; height: 26px; display: block; }
+#erpAppSwitch .erp-appswitch-logo .erp-logo-img-light { display: none; }
+#erpAppSwitch .erp-appswitch-item.is-current .erp-appswitch-logo { background: #111111; border-color: #111111; }
+#erpAppSwitch .erp-appswitch-item.is-current .erp-appswitch-logo svg.erp-logo-pms { fill: #FFFFFF; }
+#erpAppSwitch .erp-appswitch-item.is-current .erp-appswitch-logo svg.erp-logo-people { fill: #FFFFFF; }
+#erpAppSwitch .erp-appswitch-item.is-current .erp-appswitch-logo svg.erp-logo-line { stroke: #FFFFFF; }
+#erpAppSwitch .erp-appswitch-item.is-current .erp-appswitch-logo .erp-logo-img-dark { display: none; }
+#erpAppSwitch .erp-appswitch-item.is-current .erp-appswitch-logo .erp-logo-img-light { display: block; }
+/* states: hover lifts, pressed darkens, keyboard focus rings – current stays marked */
+#erpAppSwitch .erp-appswitch-item:hover .erp-appswitch-logo { border-color: #D4D4D4; }
+#erpAppSwitch .erp-appswitch-item:active { background: #E8E8E8 !important; }
+#erpAppSwitch .erp-appswitch-item:focus-visible { box-shadow: inset 0 0 0 2px #111111; }
+#erpAppSwitch .erp-appswitch-home svg { width: 16px; height: 16px; }
+#erpAppSwitch .erp-appswitch-home { min-height: 40px; }
+@media (max-width: 575.98px) { #erpAppSwitch .erp-appswitch-menu { min-width: 280px; max-width: calc(100vw - 24px); } }

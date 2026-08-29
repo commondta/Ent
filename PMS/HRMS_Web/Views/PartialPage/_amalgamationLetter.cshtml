@@ -1,0 +1,237 @@
+﻿
+<style>
+    #lesscountmembersdiv, #messcountmembersdiv {
+        display: none;
+    }
+
+    ol {
+        list-style-type: none;
+        counter-reset: item;
+        padding: 0;
+        margin: 0;
+    }
+
+        ol li {
+            counter-increment: item;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+        }
+
+            ol li::marker {
+                content: counter(item) ".";
+                font-size: 24px;
+                margin-right: 10px;
+            }
+
+            ol li p {
+                font-size: 21px;
+                margin: 0;
+                padding: 0;
+                line-height: 1;
+            }
+
+    table {
+        width: 100%;
+        border-collapse: collapse; /* Ensures table borders are merged */
+    }
+
+    tr {
+        border-bottom: 10px solid transparent; /* Adds space between rows */
+    }
+
+    td {
+        padding: 0px; /* Adds padding inside each cell */
+    }
+
+    /* Subject */
+    .subject {
+        margin-top: 20px;
+        font-size: 21px;
+    }
+
+    /* Paragraphs */
+    .content {
+        margin-top: 15px;
+        font-size: 21px;
+        text-align: justify;
+        padding-right: 80px;
+    }
+
+    /* Numbered points */
+    .point {
+        display: flex;
+        margin-top: 10px;
+        font-size: 121px;
+    }
+
+    .point-number {
+        width: 20px;
+        font-size: 21px;
+    }
+
+    .point-text {
+        flex: 1;
+        text-align: justify;
+    }
+
+    /* a,b,c table */
+    .details {
+        margin-top: 10px;
+        margin-left: 20px;
+        font-size: 21px;
+    }
+
+        .details div {
+            display: flex;
+            margin-bottom: 5px;
+        }
+
+        .details span:first-child {
+            width: 200px;
+        }
+</style>
+
+
+<div class="container" style="padding-left:70px;padding-right:75px;margin-top:255px; font-family: 'Times New Roman';">
+    <div class="row">
+        <div class="col-sm-4">
+            @*<img class="img-fluid" src="~/img/urbanLogo.jpg" />*@
+        </div>
+        <div class="col-sm-4 text-center">
+            @* <div class="qrcode-container" style="text-align: center;">
+            <div class="qrcode" style="display:inline-block;margin-left: 30px; margin-bottom:1rem"></div>
+            </div> *@
+        </div>
+        <br />
+        <div class="col-sm-4">
+            <div style="margin-bottom: 0px;font-size: 22px;">
+                <span><b></b></span>
+                <span style="
+
+                    margin-left: 10px;
+                    min-width: 160px;
+                    float: right;
+                  ">241/15/Tfr/N-Stack</span>
+            </div>
+            <div style="font-size: 22px;">
+                <span><b></b></span>
+                <span style="
+
+       margin-left: 10px;
+       min-width: 160px;
+       float: right;
+     " class="pppdate">@DateTime.Now.ToString("dd MMMM, yyyy")</span>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </div>
+
+    @*     <div class="row mt-3 pt-3">
+    <div class="col-sm-12">
+    <p style="font-weight:600; font-size: 24px">
+    UAN: 042-111-109-109
+    </p>
+    <p style="font-weight:400; font-size: 18px; margin-bottom: 0; ">
+    www.urbandevelopersgroup.com
+    </p>
+    </div>
+    </div> *@
+
+    <div class="row">
+        <div class="col-sm-9">
+            <p style="padding-left: 20px;font-size: 21px;  margin-bottom: 10px;">
+                <span class="ptitle"></span>
+            </p>
+            <div class="lesscountmembersdiv">
+                <p style="padding-left: 20px; font-size: 21px;  margin-bottom: 0;">
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <div class="messcountmembersdiv">
+                <p style="padding-left: 20px; font-size: 16px;  margin-bottom: 0;">
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <p class="ppermanentAddress" style="padding-left: 20px;font-size: 21px;  margin-bottom: 0; "></p>
+            <p class="pbuyerPhone" style="padding-left: 20px;font-size: 21px;  margin-bottom: 0; "></p>
+            <p class="pmembershipNo" style="padding-left: 20px;font-size: 21px;  margin-bottom: 0; "></p>
+
+        </div>
+        <div class="col-sm-3">
+            <div class="imgContainerForPrint" style="float: right; margin-right:0px; height: 160px;width:160px">
+            </div>
+        </div>
+    </div>
+
+    <!-- Subject -->
+    <div class="subject">
+        <b>Subject: <u>Allotment Letter of Amalgamated Plots</u></b>
+    </div>
+
+    <!-- Intro -->
+    <div class="content">
+        Your Letter / Affidavit dated <b><span class="pppdate"></span></b> for amalgamation of Plot No.
+        <b><span class="pAmalgamatedPlot1"></span></b>, Reference Number <b><span class="pAmalgamatedReg1"></span></b>
+        & Plot No. <b><span class="pAmalgamatedPlot2"></span></b>, Reference Number <b><span class="pAmalgamatedReg2"></span></b>,
+        Sector <b><span class="pamalgamatedSector"></span></b>, Phase <b><span class="pamalgamatedPhase"></span></b> refers.
+    </div>
+
+    <div class="col-sm-12 mt-2 mb-5" style="text-align:justify;">
+        <ol style="padding-left: 7px;">
+            <li style="padding-left: 0.5rem;">
+                <p style="font-size: 21px;">
+                    The amalgamation of your plot has been approved. Consequent to the amalgamation of your plot,
+                    you are hereby issued this letter which will be treated as a formal allotment letter
+                    for the amalgamated plot.
+                </p>
+            </li>
+            <li style="padding-left: 0.5rem; margin-top:20px !important">
+                <p style="font-size: 21px;">
+                    N-Stack reserves the right to make adjustment due to site constraints or change in town planning
+                    and impose additional development charges at later stages, if necessary.
+                </p>
+            </li>
+           
+
+        </ol>
+
+    </div>
+
+    <!-- Plot Details -->
+    <div class="content">
+        Plot details are as under:
+    </div>
+
+    <div class="details">
+        <div><span>a. Plot No:</span> <b><span class="ppropertyNo"></span></b></div>
+        <div><span>b. Sector:</span> <b><span class="psector"></span></b></div>
+        <div><span>c. Phase:</span> <b><span class="pphase"></span></b></div>
+        <div><span>d. Size:</span> <b><span class="pcategory"></span></b></div>
+        <div><span>e. New Reference No:</span> <b><span class="pregistrationNo"></span></b></div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+        </div>
+
+        <div class="col-sm-6">
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryRank"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryDesignation"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;">(<span class="pSignatoryName"></span>)</p>
+        </div>
+    </div>
+
+    <div class="row" style="">
+        <div class="col-sm-9">
+        </div>
+
+        <div class="col-sm-3">
+            <p style="font-size: 14px;  text-align: center; position: fixed; bottom: 22px;">
+                <b><span class="InternalNo"></span></b>
+            </p>
+        </div>
+    </div>
+
+</div>

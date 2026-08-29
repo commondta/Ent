@@ -1,0 +1,19 @@
+﻿<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
+<script>
+    function ShowAlert(id) {
+        $.getJSON("/api/Filter/GetFilterAlerts?id=" + id, function (response) {
+            $.each(response.data, function (key, value) {
+                toastr.warning(value.alertNarration, value.alertName, {
+                    positionClass: 'toast-bottom-right',
+                    closeButton: true,
+                    timeOut: 0,
+                    extendedTimeOut: 0
+                });
+            });
+        });
+    }
+</script>

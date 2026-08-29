@@ -1,0 +1,1643 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Dealer Profile</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16"><path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/></svg></span>
+                    <h1>DEALER PROFILE</h1>
+                        </div>
+                        @*
+                        <div class="col-sm-3" style="text-align:center;">
+                        <p><img id="PreviewUrl" width="150px; height:120px" src="/img/placeholder-photo.svg" /></p>
+
+                        <input type="file" id="fileUpload" class="fileUpload" onchange="UploadImageOnServer()">
+                        <input type="text" id="ImageURL" class="hidden" />
+                        </div>*@
+                    </div>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="dealerProfile">
+                            <div class="row">
+                                @*dealer*@
+                                <div class="col-sm-3">
+                                    <label>Dealer No.</label>
+
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="number" class="form-control  " disabled
+                                                   placeholder="" id="Id" />
+                                        </div>
+                                        <div >
+                                            <button data-toggle="modal" data-target="#dealerModal" id="searchbtn" type="button" class="btn dha_theme_btn">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                   
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Date Of Registration</label>
+                                    <div>
+                                        <input type="date" class="form-control" id="dateofRegistration"  value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                               placeholder="" />
+                                    </div>
+
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Dealer Category <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Dealer" id="DealerCategoryId">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Contact Person <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PrincipalOwner" name="PrincipalOwner" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3" style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+                                    <label style="align-self:flex-start;">Dealer Photo</label>
+                                    <img id="PreviewUrl" src="/img/placeholder-photo.svg" />
+                                    <input type="file" id="fileUpload" class="fileUpload" onchange="UploadImageOnServer()">
+                                    <input type="text" id="ImageURL" class="hidden" />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>CNIC <small style="color:red">*</small> </label>
+                                    <div>
+                                        <input  class="form-control"
+                                               id="Cnic" name="Cnic" type="number" onkeypress="validateNumberInput(event)" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Residential Address </label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="ResidentialAddress" name="ResidentialAddress" />
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Estate Name <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="EstateName" name="EstateName" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Estate Address <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="EstateAddress" name="EstateAddress" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Renewal Date <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="date" class="form-control" placeholder=" " id="RenewalDate" name="RenewalDate" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Nationality <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Nationality" id="Nationality">
+                                            <option value=""> Select Option </option>
+                                            <option value="Pakistan"> Pakistan </option>
+                                            <option value="Other"> Other </option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Country <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Country" name="Country" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>City <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="City" name="City" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Registration Fee <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="RegistrationFee" id="RegistrationFee">
+                                            <option value=""> Select Option </option>
+                                            <option value="Paid"> Paid </option>
+                                            <option value="UnPaid"> UnPaid </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Dealer Status <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="DealerStatus" id="DealerStatus">
+                                            <option value=""> Select Option </option>
+                                            <option value="Active"> Active </option>
+                                            <option value="InActive"> InActive </option>
+                                            <option value="Blacklist"> Blacklist </option>
+                                            <option value="Suspended"> Suspended </option>
+                                            <option value="Cancelled"> Cancelled </option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Outstanding Balance </label>
+                                    <div>
+                                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+                                               value="0.00" placeholder=" " id="OutstandingBalance" name="OutstandingBalance" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Outstanding Advance</label>
+                                    <div>
+                                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+                                               value="0.00" placeholder=" " id="OutstandingAdvance" name="OutstandingAdvance" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Estate Email </label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Email" name="Email" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Estate Contact No</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="ContactNo" name="ContactNo" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Regisration Code</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="DelaerRegisrationCode" name="DelaerRegisrationCode" />
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <br>
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item active"><a class="nav-link active tab_clr" href="#estatedetails" data-toggle="tab">Estate Deatils</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Properties" data-toggle="tab">Properties</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Renewal" data-toggle="tab">Renewal</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Deals" data-toggle="tab">Deals</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Financials" data-toggle="tab">Financials</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#DealerHistory" data-toggle="tab">Dealer History</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#RelationshipHistory" data-toggle="tab">Relationship History</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Attachments" data-toggle="tab">Attachments</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#LoginDetails" data-toggle="tab">Login Details</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#DealerWitness" data-toggle="tab">Witness</a></li>
+
+                            </ul>
+                            <br>
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane" id="LoginDetails">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="">
+                                                <div class="row">
+                                                    <div class="col-sm-3">
+                                                        <label>User Name <small style="color:red">*</small></label>
+                                                        <div>
+                                                            <input id="UserName" name="UserName" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-3">
+                                                        <label>Password <small style="color:red">*</small></label>
+                                                        <div>
+                                                            <input id="Password" name="Password" class="form-control" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane active" id="estatedetails">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                                <a class="btn btn-primary btn-sm btn-theme xyz" onclick="AddERow()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="rownumberE" value="0" class="hide" />
+                                            </div>
+                                           
+                                            <div class="table-responsive active">
+                                                <table id="EstateNametable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="min-width: 150px;">#</th>
+                                                            <th class="text-white" name="designation" style="min-width: 150px;">Designation</th>
+                                                            <th class="text-white" style="min-width: 150px;">Name</th>
+                                                            <th class="text-white" name="GCNIC" id="GCNIC" style="min-width: 150px;">CNIC</th>
+                                                            <th class="text-white" style="min-width: 150px;">Mobile No.</th>
+                                                            <th class="text-white" style="min-width: 150px;">Telephone No.</th>
+                                                            <th class="text-white" style="min-width: 150px;">Email Address</th>
+                                                            <th class="text-white" style="min-width: 150px;">Address</th>
+                                                            <th class="text-white" style="min-width: 150px;">Remarks</th>
+                                                            <th class="text-white" style="min-width: 200px;">Picture</th>
+                                                            <th class="text-white" style="min-width: 200px;">PreView</th>
+                                                            <th class="text-white">Is Primary</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="EstateNametbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="Properties">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Properties" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Reference No.</th>
+                                                            <th class="text-white">Property No.</th>
+                                                            <th class="text-white">Block</th>
+                                                            <th class="text-white">Phase</th>
+                                                            <th class="text-white">Real Estate Type</th>
+                                                            <th class="text-white">Project</th>
+                                                            <th class="text-white">Construction Status</th>
+                                                            <th class="text-white">Nature</th>
+                                                            <th class="text-white">Soft Locked</th>
+                                                            <th class="text-white">Outstanding Land Cost</th>
+                                                            <th class="text-white">Outstanding Charges</th>
+                                                            <th class="text-white">Expiry Date</th>
+                                                            <th class="text-white">Reservation Date</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Propertiestbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Renewal">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            @* <div class="menu" style="float: right;">
+                                            <a class="btn btn-primary btn-sm btn-theme" onclick="AddRowR()">Add New</a>
+                                            <input type="text" id="rownumberR" value="0" class="hide" />
+                                            </div>*@
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Renewal" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Document No.</th>
+                                                            <th class="text-white">Document Date</th>
+                                                            <th class="text-white">Posting Date</th>
+                                                            <th class="text-white">Description</th>
+                                                            <th class="text-white">Next Renewal Date</th>
+                                                            <th class="text-white">Overdue Days</th>
+                                                            <th class="text-white">Amount</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Renewaltbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Deals">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            @* <div class="menu" style="float: right;">
+                                            <a class="btn btn-primary btn-sm btn-theme" onclick="AddRowDeals()">Add New</a>
+                                            <input type="text" id="rownumberdeals" value="0" class="hide" />
+                                            </div>*@
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Deals" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Deal Code</th>
+                                                            <th class="text-white">No. of Plots</th>
+                                                            <th class="text-white">Block</th>
+                                                            <th class="text-white">Advance per Plot</th>
+                                                            <th class="text-white">Total Advance</th>
+                                                            <th class="text-white">Rebate</th>
+                                                            <th class="text-white">Net Receivable</th>
+                                                            <th class="text-white">Total Applied</th>
+                                                            <th class="text-white">Outstanding Balance</th>
+                                                            <th class="text-white">Reservation Date</th>
+                                                            <th class="text-white">Status</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Dealstbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Attachments">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                                <a class="btn btn-primary btn-sm btn-theme xyz" onclick="AddRowAttachment()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="rownumberAtt" value="0" class="hide" />
+                                            </div>
+                                            
+                                            <div class="table-responsive">
+                                                <table id="Attachments" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white" style="width:200px;">Attachment Path</th>
+                                                            <th class="text-white">Attachment Name</th>
+                                                            <th class="text-white">Attachment Date</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">View Attachment</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Attachmentstbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="Financials">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Financials" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Reference No.</th>
+                                                            <th class="text-white">Document</th>
+                                                            <th class="text-white">Document No.</th>
+                                                            <th class="text-white">Posting Date</th>
+                                                            <th class="text-white">Due Date</th>
+                                                            <th class="text-white">Amount</th>
+                                                            <th class="text-white">Closing Balance</th>
+                                                            <th class="text-white">Status</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Financialstbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="DealerHistory">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="DealerHistory" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Document No.</th>
+                                                            <th class="text-white">Document Name</th>
+                                                            <th class="text-white">Posting Date</th>
+                                                            <th class="text-white">Description</th>
+                                                            <th class="text-white">Next Renewal Date</th>
+                                                            <th class="text-white">Overdue Days</th>
+                                                            <th class="text-white">Amount</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="DealerHistorytbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="DealerWitness">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddRowJointMember()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="rownumberJ" value="0" class="hide" />
+                                            </div>
+                                           
+
+                                             <table id="JointTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Search</th>                         
+                                                            <th class="text-white" style="text-align: center;">Name</th>
+                                                            <th class="text-white" style="text-align: center;">Desgination</th>
+                                                            <th class="text-white" style="text-align: center;">CNIC</th>
+                                                            <th class="text-white" style="text-align: center;">Mobile No.</th>
+                                                            <th class="text-white" style="text-align: center;">Address</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="jointtbody">
+                                                    </tbody>
+                                                </table>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                
+                                <div class="tab-pane" id="RelationshipHistory">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                                <a class="btn btn-primary btn-sm btn-theme xyz" onclick="AddRowRH()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="rownumberD" value="0" class="hide" />
+                                            </div>
+                                           
+                                            <div class="table-responsive">
+                                                <table id="RelationshipHistory" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white">Alert Date</th>
+                                                            <th class="text-white" style="width: 150px;">Alert Narration</th>
+                                                            <th class="text-white" style="width: 150px;">Alert Type</th>
+                                                            <th class="text-white">Resolution Date</th>
+                                                            <th class="text-white">Resolution Description</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="RelationshipHistorytbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                            <br>
+                            <br>
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn dha_theme_btn" href="javascript:void(0);" id="sbt">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </button>
+
+                            </div>
+                            
+                        </form>
+                       @* <button class="btn btn-primary btn-group-sm btn-warning" href="javascript:void(0);" id="openModal" style="float: right;">
+                                Show Approval History
+                        </button>*@
+                        <button id="openModal" class="btn btn-warning">Show Approval History</button>
+
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+
+@*dealer profile*@
+<div class="modal" id="dealerModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Dealer Profile.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="dealerlist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Dealer Category</th>
+                                            <th class="text-white">Principal Owner</th>
+                                            <th class="text-white">CNIC</th>
+                                            <th class="text-white">Regisration Code</th>
+                                            <th class="text-white">Residential Address</th>
+                                            <th class="text-white">Estate Name</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Dealertbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@*dealer profile*@
+<!-- Main Modal -->
+<div class="modal" id="JMemberModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Member.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="JMemberModalTable" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Name.</th>
+                                            <th class="text-white">Mobile.</th>
+                                            <th class="text-white">CNIC.</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="JMembertbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<partial name="~/Views/PartialPage/_History.cshtml" />
+<input type="number" class="hide" id="DealerId" value="@ViewBag.Id" />
+<input type="number" class="hide" id="rownumberforid" value="0" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+
+@section Scripts {
+
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            "use strict";
+
+            $("#dealerProfile").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    Dealer: {
+                        required: true
+                    },
+                    PrincipalOwner: {
+                        required: true
+                    },
+                    EstateName: {
+                        required: true
+                    },
+                    EstateAddress: {
+                        required: true
+                    },
+                    Cnic: {
+
+                        minlength: 13,
+                        maxlength: 13,
+                        required: true
+                    },
+                    City: {
+                        required: true
+                    },
+                    Country: {
+                        required: true
+                    },
+                    Nationality: {
+                        required: true
+                    },
+                    RenewalDate: {
+                        required: true
+                    },
+                    RegistrationFee: {
+                        required: true
+                    },
+                    DealerStatus: {
+                        required: true
+                    },
+                    UserName: {
+                        required: true,
+                    },
+                    Password: {
+                        minlength: 4,
+                        maxlength: 12,
+                        required: true,
+                    },
+                },
+                messages: {
+                    Dealer: {
+                        required: "Select Deler Category"
+                    },
+                    PrincipalOwner: {
+                        required: "Enter Principal Owner"
+                    },
+                   
+                    ResidentialAddress: {
+                        required: "Enter Residential Address "
+                    },
+                    EstateName: {
+                        required: "Enter Estate Name "
+                    },
+                    EstateAddress: {
+                        required: "Enter Estate Address "
+                    },
+                    Cnic: {
+                        required: "Enter your CNIC"
+                    },
+                    City: {
+                        required: "Enter your City"
+                    },
+                    Country: {
+                        required: "Enter your Country"
+                    },
+                    Nationality: {
+                        required: "Select your Nationality"
+                    },
+                    RenewalDate: {
+                        required: "Select Renewal Date"
+                    },
+                    RegistrationFee: {
+                        required: "Select Registration Fee Status"
+                    },
+                    DealerStatus: {
+                        required: "Select Dealer Status"
+                    },
+                    Password: {
+                        required: "Enter Your Password",
+                    },
+                    UserName: {
+                        required: "Enter User Name",
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+
+            });
+            GetAllDealerCategories();
+            GetAllDealerprofile();
+
+            var id = $("#DealerId").val();
+           
+            if (id > 0) {
+                SelectDealerProfile(id);
+                if ($("#DealerId").val() != null) {
+                    //$("#searchbtn").prop("disabled", true);
+                    ////$("#xyz").prop("disabled", true);
+                    //$("#sbt").prop("disabled", true);
+                    //$("#cancel").prop("disabled", true);
+                    $("#openModal").prop("disabled", true);
+                    $("#dealerProfile :input").prop("disabled", true);
+
+                }
+            }
+
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+
+
+        function GetAllDealerCategories() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/DealerCategories/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#DealerCategoryId").empty();
+                        var row = ' <option value="">-- Select Category --</option> ';
+
+                        $("#DealerCategoryId").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.name + '</option> ';
+
+                                $("#DealerCategoryId").append(row);
+                            }
+                        }
+
+
+                    }
+                }
+            });
+        }
+
+        function AddERow() {
+            var rownumber = parseInt($("#rownumberE").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumberE").val(rownumber);
+            var row = '<tr id="E' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <select required name="Validate[' + rownumber + '].designation" name="designation" id="designation'+rownumber+'" class="form-control designation" /></td>' +
+                '<td> <input required name="Validate[' + rownumber + '].name" class="form-control name" /></td>' +
+                '<td> <input required minlength="13" maxlength="13" name="Validate[' + rownumber + '].cNIC" name="cNIC"  class="form-control cNIC" onkeypress="validateNumberInput(event)"/></td>' +
+                '<td> <input required name="Validate[' + rownumber + '].mobileNo"  class="form-control mobileNo"  onkeypress="validateNumberInput(event)"  /></td>' +
+                '<td> <input  class="form-control telephoneNo" onkeypress="validateNumberInput(event)"/></td>' +
+                '<td> <input  required name="Validate[' + rownumber + '].emailAddress" class="form-control emailAddress" type="email" /></td>' +
+                '<td> <input  name="Validate[' + rownumber + '].address" class="form-control address" /></td>' +
+                '<td> <textarea  class="form-control remarks" ></textarea></td>' +
+                '<td> <input type="file" class="form-control attachmentPath" /><input  class="form-control CopyToTargetDocument hide" /></td>' +
+                '<td class="ViewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+                '<td> <input class="checkboxfield isPrimary"  type = "checkbox"   /> </td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteEItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+
+            $("#EstateNametbody").append(row);
+            GetDealerDesignation(rownumber);
+        }
+
+        function DeleteEItemRow(id) {
+            $('#E' + id).remove();
+            var rownumber = 1;
+            $("#EstateNametbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#rownumberE").val(rownumber - 1);
+        }
+
+        function AddRowRH() {
+            var rownumberD = parseInt($("#rownumberD").val());
+            var LineId = rownumberD;
+            rownumberD = rownumberD + 1;
+            $("#rownumberD").val(rownumberD);
+
+            var row = '<tr id="D' + rownumberD + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumberD + '"/></td>' +
+                '<td> <input type="date" required name="Validate[' + rownumberD + '].alertDate" class="form-control alertDate" /></td>' +
+                '<td> <textarea  class="form-control alertNarration" ></textarea></td>' +
+                '<td> <input class="form-control alertType" /></td>' +
+                '<td> <input type="date" class="form-control resolationDate" /></td>' +
+                '<td> <textarea class="form-control resolutionDescription" ></textarea></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRowRH(\'' + rownumberD + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+
+
+            $("#RelationshipHistorytbody").append(row);
+        }
+
+        function DeleteItemRowRH(id) {
+            
+            $('#D' + id).remove();
+            var rownumberD = 1;
+            $("#RelationshipHistorytbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumberD));
+                rownumberD++;
+            });
+            $("#rownumberD").val(rownumberD - 1);
+        }
+
+
+        function AddRowAttachment() {
+            var rownumber4 = parseInt($("#rownumberAtt").val());
+            var LineId = rownumber4;
+            rownumber4 = rownumber4 + 1;
+            $("#rownumberAtt").val(rownumber4);
+
+            var row = '<tr id="Att' + rownumber4 + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber4 + '"/></td>' +
+                '<td> <input type="file" class="form-control attachmentPath" /><input  class="form-control CopyToTargetDocument hide" /></td>' +
+                '<td> <input readonly required name="Validate[' + rownumber4 + '].attachmentName" class="form-control attachmentName" /></td>' +
+                '<td> <input required name="Validate[' + rownumber4 + '].attachmentDate" type="date"  class="form-control attachmentDate" /></td>' +
+                '<td> <textarea  class="form-control remarks" ></textarea></td>' +
+                '<td class="ViewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRowAttach(\'' + rownumber4 + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+
+            $("#Attachmentstbody").append(row);
+        }
+
+        function DeleteItemRowAttach(id) {
+            $('#Att' + id).remove();
+            var rownumber4 = 1;
+            $("#Attachmentstbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber4));
+                rownumber4++;
+            });
+            $("#rownumberAtt").val(rownumber4 - 1);
+        }
+
+        function GetDealerDesignation(rowno, desigtype) {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/DealerDesignation/GetAllDealerDesignation`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 0) {
+
+                        $("#designation" + rowno).empty();
+                       
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#designation" + rowno).append(row);
+
+                                sr++;
+                            }
+                            $('#designation' + rowno).select2();
+                            if (desigtype != null && desigtype != undefined) {
+                                $('#designation' + rowno).select2('val', [desigtype]);
+                            }
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function UploadImageOnServer() {
+
+
+            var extension = $('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+
+                ResponseMessageModal("error", "Sorry, invalid extension.");
+
+                $('input[type=file]').val();
+                $("#PreviewUrl").attr("src", "/img/placeholder-photo.svg");
+                return false;
+            }
+            else {
+
+                var file = $("input[type=file]").get(0).files[0];
+                if (file) {
+                    var reader = new FileReader();
+
+                    reader.onload = function () {
+                        $("#PreviewUrl").attr("src", reader.result);
+                        $("#PreviewUrl").attr("href", reader.result);
+                        $("#PreviewUrl").attr("target", "_blank");
+                        $("#ImageURL").val(reader.result);
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        // image from body
+        $('body').on('change', '.attachmentPath', UploadImageOnServerforAttachmenttbody);
+
+        function UploadImageOnServerforAttachmenttbody() {
+
+            var row = $(this);
+            var extension = row.parents('tr').find('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                ResponseMessageModal("warning", "Sorry, invalid extension.");
+                var filepath = row.parents('tr').find('input[type=file]').val();
+                row.parents('tr').find('input[type=file]').val("");
+                return false;
+            }
+            else {
+                debugger;
+                var file = row.parents('td').find('input[type=file]').get(0).files[0];
+                row.parents("tr").find(".attachmentName").val(file.name);
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        row.parents('td').find('.CopyToTargetDocument').val(reader.result);
+                        row.parents('tr').find('.ViewAttachment img').attr("src", reader.result);
+                        row.parents('tr').find('input[type=file]').get(0).files[0];
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+
+        // selection All Dealer Profile
+        function GetAllDealerprofile() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Dealer/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        debugger;
+                        $("#Dealertbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td class="Id">' + list.id + '</td> ' +
+                                    ' <td class="dealerCategoryname">' + list.dealerCategory.name + '</td>           ' +
+                                    ' <td class="principalOwner">' + list.principalOwner + '</td>           ' +
+                                    ' <td onkeypress="validateNumberInput(event)">' + list.cnic + '</td>       ' +
+                                    ' <td class="residentialAddress">' + list.delaerRegisrationCode + '</td>       ' +
+                                    ' <td class="residentialAddress">' + list.residentialAddress + '</td>       ' +
+                                    ' <td>' + list.estateName + '</td> ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectDealerProfile(' + list.id + ')">Select</a></td> </tr>';
+                                $("#Dealertbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#dealerlist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectDealerProfile(id) {
+            
+            var url = "/api/Dealer/Get?id=" + id + "";
+           
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                contentType: 'application/json',
+                success: function (response) {
+                    
+                    if (response.code === 100) {
+                        var dealer_User = response.data;
+
+                        let dealerImage = dealer_User.pictureBase64 == "" ? "/img/placeholder-photo.svg" : dealer_User.pictureBase64;
+                        let renewalDate = (dealer_User.renewalDate).split('T')[0] ?? "N/A";
+                        let dateofRegistration = (dealer_User.createdOn).split('T')[0] ?? "N/A";
+
+                        $("#Id").val(dealer_User.id);
+                        $("#ImageURL").val(dealerImage);
+                        $("#PreviewUrl").attr("src", dealerImage);
+                        $('#DealerCategoryId').val(dealer_User.dealerCategory.id).trigger('change');
+                        $('#PrincipalOwner').val(dealer_User.principalOwner);
+                        $('#Cnic').val(dealer_User.cnic);
+                        $('#dateofRegistration').val(dateofRegistration);
+                        $('#ResidentialAddress').val(dealer_User.residentialAddress);
+                        $('#EstateName').val(dealer_User.estateName);
+                        $('#EstateAddress').val(dealer_User.estateAddress);
+                        $('#ContactNo').val(dealer_User.contactNo);
+                        $('#Email').val(dealer_User.email);
+                        $('#RenewalDate').val(renewalDate);
+                        $('#Nationality').val(dealer_User.nationality);
+                        $('#Country').val(dealer_User.country);
+                        $('#City').val(dealer_User.city);
+                        $('#RegistrationFee').val(dealer_User.registrationFee);
+                        $('#DealerStatus').val(dealer_User.dealerStatus);
+                        $('#OutstandingBalance').val(dealer_User.outstandingBalance);
+                        $('#OutstandingAdvance').val(dealer_User.outstandingAdvance);
+                        $('#DelaerRegisrationCode').val(dealer_User.delaerRegisrationCode);
+                        $('#UserName').val(dealer_User.userName);
+                        $('#Password').val(dealer_User.password);
+                        $("#dealerModal").modal("hide");
+
+                        LoadApprovalHistory(dealer_User.id);
+
+                        $("#EstateNametbody").empty();
+
+                        $.each(dealer_User.dealerEstateDeatail, function (i, item) {
+                            var rownumber = parseInt($("#rownumberE").val());
+                            let dealerEstateImage = item.picture == "" ? "/img/placeholder-photo.svg" : item.picture;
+                            var isPrimary = item.isPrimary == true ? "checked" : "";
+
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumberE").val(rownumber);
+                            var row = '<tr id="E' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td> <select required name="Validate[' + rownumber + '].designation" name="designation" id="designation'+rownumber+'" class="form-control designation" /></td>' +
+                                '<td> <input required name="Validate[' + rownumber + '].name" class="form-control name" value="' + item.name + '" /></td>' +
+                                '<td> <input required minlength="13" maxlength="13" name="Validate[' + rownumber + '].cNIC" name="cNIC"  class="form-control cNIC" onkeypress="validateNumberInput(event)" value="' + item.cnic + '"/></td>' +
+                                '<td> <input required name="Validate[' + rownumber + '].mobileNo"  class="form-control mobileNo"  onkeypress="validateNumberInput(event)"  value="' + item.mobileNo + '" /></td>' +
+                                '<td> <input  class="form-control telephoneNo" onkeypress="validateNumberInput(event)"    value="' + item.telephoneNo + '" /></td>' +
+                                '<td> <input  required name="Validate[' + rownumber + '].emailAddress" class="form-control emailAddress" type="email" value="' + item.emailAddress + '" /></td>' +
+                                '<td> <input  name="Validate[' + rownumber + '].address" class="form-control address" value="' + item.address + '" /></td>' +
+                                '<td> <textarea  class="form-control remarks">' + item.remarks + ' </textarea></td>' +
+                                '<td> <input type="file" class="form-control attachmentPath" /><input class="form-control CopyToTargetDocument hide" value="' + dealerEstateImage + '"/></td>' +
+                                '<td class="ViewAttachment" style="padding-top:10px"><a><img style="width:100px" src="' + dealerEstateImage + '" class="clickme" ></a></img></td>' +
+                                '<td> <input ' + isPrimary + ' class="checkboxfield isPrimary"  type = "checkbox"   /> </td>' +
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteEItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+
+
+                            $("#EstateNametbody").append(row);
+                            GetDealerDesignation(rownumber, item.dealerDesignationId);
+                        });
+
+                        $("#Attachmentstbody").empty();
+
+                        $.each(dealer_User.dealerAttachments, function (i, item) {
+                            var rownumber = parseInt($("#rownumberE").val());
+                            let dealerAtchmentImage = item.attachment == "" ? "/img/placeholder-photo.svg" : item.attachment;
+                            let AtchmentDatee = (item.attachmentDate).split('T')[0] ?? "0001-01-01";
+                            var rownumber4 = parseInt($("#rownumberAtt").val());
+                            var LineId = rownumber4;
+                            rownumber4 = rownumber4 + 1;
+                            $("#rownumberAtt").val(rownumber4);
+
+                            var row = '<tr id="Att' + rownumber4 + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber4 + '"/></td>' +
+                                '<td> <input type="file" class="form-control attachmentPath" /><input  class="form-control CopyToTargetDocument hide" name="attachmentPath[' + rownumber4 + ']" value="' + dealerAtchmentImage + '" /></td>' +
+                                '<td> <input  class="form-control attachmentName" value="' + item.attachmentName + '" /></td>' +
+                                '<td> <input required name="Validate[' + rownumber4 + '].attachmentDate" type="date"  class="form-control attachmentDate" value="' + AtchmentDatee + '" /></td>' +
+                                '<td> <textarea  class="form-control remarks">' + item.remarks + '</textarea></td>' +
+                                '<td class="ViewAttachment" style="padding-top:10px"><a><img style="width:100px" src="' + dealerAtchmentImage + '" class="clickme" ></a></img></td>' +
+
+
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRowAttach(\'' + rownumber4 + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+
+                            $("#Attachmentstbody").append(row);
+                        });
+
+
+                        $("#RelationshipHistorytbody").empty();
+                        $.each(dealer_User.dealerRelationshipHistory, function (i, item) {
+                            let relationshipalertDatee = item.alertDate != "" || item.alertDate != null ? (item.alertDate).split('T')[0] : "";
+                            let relationshipresolationDate = item.resolationDate != null ? item.resolationDate.split('T')[0] : "";
+                           
+                            var rownumberD = parseInt($("#rownumberD").val());
+                            var LineId = rownumberD;
+                            rownumberD = rownumberD + 1;
+                            $("#rownumberD").val(rownumberD);
+
+
+                            var row = '<tr id="D' + rownumberD + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumberD + '"/></td>' +
+                                '<td> <input type="date" required name="Validate[' + rownumberD + '].alertDate" class="form-control alertDate"   value="' + relationshipalertDatee + '"  /></td>' +
+                                '<td> <textarea  class="form-control alertNarration">' + item.alertNarration + ' </textarea></td>' +
+                                '<td> <input class="form-control alertType" value="' + item.alertType + '" /></td>' +
+                                '<td> <input type="date" class="form-control resolationDate" value="' + relationshipresolationDate + '" /></td>' +
+                                '<td> <textarea class="form-control resolutionDescription">' + item.resolationDescription + ' </textarea></td>' +
+
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRowRH(\'' + rownumberD + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+
+
+                            $("#RelationshipHistorytbody").append(row);
+                        });
+                        
+
+                        $("#jointtbody").empty();
+                        debugger;
+                        $.each(dealer_User.dealerWitness, function (i, item) {
+                           
+                            var rownumber = parseInt($("#rownumberJ").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumberJ").val(rownumber);
+                            var row = '<tr id="J' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td style="width: 250px;"><a class="btn btn-primary btn-sm btn-theme" onclick="GetMember(' + rownumber + ')" style="padding: 6px 7px; margin-left: 32px;"> Search </a> </td > ' +                            
+                                '<td> <input value="'+item.name+'" readonly  id="name_' + rownumber + '" name="name[' + rownumber + ']" class="form-control name" /></td>' +
+                                '<td> <input value="'+item.designation+'" readonly  id="designation_' + rownumber + '" name="designation[' + rownumber + ']" class="form-control designation " /></td>' +
+                                '<td> <input value="'+item.cnic+'" readonly  id="cnic_' + rownumber + '" name="cNIC[' + rownumber + ']" class="form-control  cNIC " /></td>' +
+                                '<td> <input value="'+item.mobileNo+'" readonly  id="mobileNo_' + rownumber + '" name="mobileNo[' + rownumber + ']" class="form-control  mobileNo" /></td>' +
+                                '<td> <input value="'+item.email+'" readonly  id="email_' + rownumber + '" name="email[' + rownumber + ']" class="form-control  email " /></td>' +
+
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteJointMemberRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+                            $("#jointtbody").append(row);
+                        });
+
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Lead");
+                    }
+                }
+            });
+        }
+
+    </script>
+    <script>
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Submit() {
+
+            var methodType = 'POST';
+            var url = "/api/Dealer/AddDealer";
+
+            var DealerProfile = new Object();
+            var EstateDetailArr = new Array();
+            debugger;
+            var DealerRelationshipHistoryArr = new Array();
+            var DealerEstate = new Array();
+            var AttachmentArr = new Array();
+
+            if ($("#Id").val()) {
+
+                DealerProfile.id = parseInt($("#Id").val());
+                methodType = 'PUT';
+                url = "/api/Dealer/UpdateDealer"
+            }
+
+            DealerProfile.RegistrationFee = $("#RegistrationFee").val();
+            DealerProfile.DealerStatus = $("#DealerStatus").val();
+            DealerProfile.DealerCategoryId = $("#DealerCategoryId").val();
+            DealerProfile.PrincipalOwner = $("#PrincipalOwner").val();
+            DealerProfile.CNIC = $("#Cnic").val();
+            DealerProfile.ResidentialAddress = $("#ResidentialAddress").val();
+            DealerProfile.EstateName = $("#EstateName").val();
+            DealerProfile.EstateAddress = $("#EstateAddress").val();
+            DealerProfile.Email = $("#Email").val();
+            DealerProfile.ContactNo = $("#ContactNo").val();
+            DealerProfile.RenewalDate = $("#RenewalDate").val();
+            DealerProfile.Nationality = $("#Nationality").val();
+            DealerProfile.Country = $("#Country").val();
+            DealerProfile.City = $("#City").val();
+            DealerProfile.OutstandingBalance = $("#OutstandingBalance").val();
+            DealerProfile.OutstandingAdvance = $("#OutstandingAdvance").val();
+            DealerProfile.DelaerRegisrationCode = $("#DelaerRegisrationCode").val();
+            DealerProfile.UserName = $("#UserName").val();
+            DealerProfile.Password = $("#Password").val();
+            DealerProfile.ModifiedBy = $("#User_Id").val();
+            DealerProfile.CreatedBy = $("#User_Id").val();
+            DealerProfile.CreatedOn = $("#dateofRegistration").val();
+            DealerProfile.LastModifiedUserName = $("#User_Name").val();
+
+            DealerProfile.PictureBase64 = $("#ImageURL").val();
+
+
+            $("#EstateNametbody tr").each(function () {
+                debugger;
+                var row = $(this);
+                var estateDetail = new Object();
+
+                    let isPrimary = row.find('.isPrimary').is(":checked");
+
+                    estateDetail.DealerDesignationId = row.find(".designation").val(),
+                    estateDetail.Name = row.find(".name").val(),
+                    estateDetail.CNIC = row.find(".cNIC").val(),
+                    estateDetail.MobileNo = row.find(".mobileNo").val(),
+                    estateDetail.TelephoneNo = row.find(".telephoneNo").val(),
+                    estateDetail.EmailAddress = row.find(".emailAddress").val(),
+                    estateDetail.Address = row.find(".address").val(),
+                    estateDetail.Remarks = row.find(".remarks").val(),
+                    estateDetail.Picture = row.find(".CopyToTargetDocument").val(),
+                    estateDetail.IsPrimary = isPrimary,
+
+                    EstateDetailArr.push(estateDetail);
+
+            });
+            debugger;
+            $("#RelationshipHistorytbody tr").each(function () {
+                var row = $(this);
+                var DealerRelationshipHistory = new Object();
+                let relationshipresolutionDatee = row.find(".resolationDate").val() == "" ? null : row.find(".resolationDate").val();
+
+                    DealerRelationshipHistory.AlertDate = row.find(".alertDate").val(),
+                    DealerRelationshipHistory.AlertNarration = row.find(".alertNarration").val(),
+                    DealerRelationshipHistory.AlertType = row.find(".alertType").val(),
+                    DealerRelationshipHistory.ResolationDate = relationshipresolutionDatee,
+                    DealerRelationshipHistory.ResolationDescription = row.find(".resolutionDescription").val(),
+
+                    DealerRelationshipHistoryArr.push(DealerRelationshipHistory);
+            });
+
+            $("#Attachmentstbody tr").each(function () {
+                var row = $(this);
+                var Attachment = new Object();
+
+                Attachment.AttachmentName = row.find(".attachmentName").val(),
+                    Attachment.AttachmentDate = row.find(".attachmentDate").val(),
+                    Attachment.Attachment = row.find(".CopyToTargetDocument").val(),
+                    Attachment.Remarks = row.find(".remarks").val(),
+
+                    AttachmentArr.push(Attachment);
+            });
+            
+            $("#jointtbody tr").each(function () {
+                var row = $(this);
+                var DealerEstae = new Object();
+
+                DealerEstae.Name = row.find(".name").val(),
+                    DealerEstae.Designation = row.find(".designation").val(),
+                    DealerEstae.Email = row.find(".email").val(),
+                    DealerEstae.MobileNo = row.find(".mobileNo").val(),
+                    DealerEstae.Remarks = "",
+                    DealerEstae.CNIC = row.find(".cNIC").val(),
+
+                    DealerEstate.push(DealerEstae);
+            });
+
+            DealerProfile.DealerEstateDeatail = EstateDetailArr;
+            DealerProfile.DealerRelationshipHistory = DealerRelationshipHistoryArr;
+            DealerProfile.DealerAttachments = AttachmentArr;
+            DealerProfile.DealerWitness = DealerEstate;
+
+            var ModelData = JSON.stringify(DealerProfile);
+       
+            $('#sbt').prop('disabled', true); //disble
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json; charset=utf-8',
+                processData: false,
+                dataType: "json",
+                data: ModelData,
+                success: function (response) {
+                    debugger;
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'success',
+                            text: 'DealerProfile Save Data',
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else if (response.code === 102) {
+                        $('#sbt').prop('disabled', true);
+                        ResponseMessageModal("warning", response.message);
+                    }
+                    else {
+                        $('#sbt').prop('disabled', true);
+                        ResponseMessageModal("error", response.message);
+                    }
+                }
+            });
+          
+        }
+
+        function clear() {
+            $("#Id").val("");
+            $("#RegistrationFee").val("");
+            $("#DealerStatus").val("");
+            $("#CNIC").val("");
+            $("#ResidentialAddress").val("");
+            $("#DealerCategoryId").val("")
+            $("#PrincipalOwner").val("");
+            $("#EstateName").val("");
+            $("#EstateAddress").val("");
+            $("#RenewalDate").val("");
+            $("#Nationality").val("");
+            $("#Country").val("");
+            $("#City").val("");
+            $("#OutstandingBalance").val("0");
+            $("#OutstandingAdvance").val("0");
+            $("#UserName").val("");
+            $("#Password").val("");
+            $("#EstateNametbody").empty();
+            $("#RelationshipHistorytbody").empty();
+            $("#Attachmentstbody").empty();
+        }
+        function ResponseMessageModal(iconValue, responseMessage, callBack) {
+            const options = {
+                position: 'center',
+                icon: iconValue,
+                title: responseMessage,
+                showConfirmButton: false,
+                timer: 2000
+            }
+            if (iconValue == "success") {
+                delete options.timer
+                options.showConfirmButton = true
+            }
+            Swal.fire(options).then((result) => {
+                if (result.isConfirmed && typeof callBack == "function")
+                    callBack()
+            })
+        }
+        
+        function AddRowJointMember() {
+
+            var rownumber = parseInt($("#rownumberJ").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumberJ").val(rownumber);
+            var row = '<tr id="J' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td style="width: 250px;"><a class="btn btn-primary btn-sm btn-theme" onclick="GetMember(' + rownumber + ')" style="padding: 6px 7px; margin-left: 32px;"> Search </a> </td > ' +                            
+                '<td> <input readonly required id="name_' + rownumber + '" name="name[' + rownumber + ']" class="form-control name" /></td>' +
+                '<td> <input readonly required id="designation_' + rownumber + '" name="designation[' + rownumber + ']" class="form-control designation " /></td>' +
+                '<td> <input readonly required id="cnic_' + rownumber + '" name="cNIC[' + rownumber + ']" class="form-control  cNIC " /></td>' +
+                '<td> <input readonly required id="mobileNo_' + rownumber + '" name="mobileNo[' + rownumber + ']" class="form-control  mobileNo" /></td>' +
+                '<td> <input readonly required id="email_' + rownumber + '" name="email[' + rownumber + ']" class="form-control  email " /></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteJointMemberRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+            $("#jointtbody").append(row);
+
+        }
+        function GetMember(id) {
+            GetAllMemberList();
+            $("#rownumberforid").val(id);
+            $("#JMemberModal").modal("show");
+        }
+
+        function DeleteJointMemberRow(id) {
+            $('#J' + id).remove();
+             var rownumber = 1;
+            $("#jointtbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#rownumberJ").val(rownumber - 1);
+        }
+          function GetAllMemberList() {
+            $.ajax({
+                type: 'GET',
+                url: "/api/Dealer/GetAllDealerEstates",
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#JMembertbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td >' + sr + '</td> ' +
+                                    ' <td>' + list.name + '</td> ' +
+                                    ' <td>' + list.mobileNo + '</td> ' +
+                                    ' <td>' + list.cnic + '</td> ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectDealerEstate(' + list.id + ')">Select</a></td> </tr>';
+                                $("#JMembertbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#JMemberModalTable').dataTable();
+                    }
+                }
+            });
+        }
+        
+        function SelectDealerEstate(id) {
+
+            var url = "/api/Dealer/SelectDealerEstateById?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 100) {
+                        debugger;
+                        var result_User = response.data;
+                        var rownumber = $("#rownumberforid").val();
+                        $("#name_" + rownumber).val(result_User.name);
+                        $("#designation_" + rownumber).val(result_User.description);
+                        $("#cnic_" + rownumber).val(result_User.cnic);
+                        $("#mobileNo_" + rownumber).val(result_User.mobileNo);
+                        $("#email_" + rownumber).val(result_User.emailAddress);
+                        
+                        $("#JMemberModal").modal("hide");
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+    </script>    
+ }

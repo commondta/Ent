@@ -1,0 +1,822 @@
+﻿@section css{
+
+    <style>
+
+    </style>
+}
+    <div class="vd_content-wrapper">
+        <div class="vd_container">
+            <div class="vd_content clearfix">
+                <div class="vd_head-section clearfix">
+                    <div class="vd_panel-header">
+                        <ul class="breadcrumb">
+                            <li><a href="/Home/index">Home</a> </li>
+                            <li class="active">Purchase Request</li>
+                        </ul>
+                        <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                            <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                            <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                            <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- vd_head-section -->
+
+                <div class="vd_title-section clearfix">
+                    <div class="vd_panel-header">
+                        <h1 style="text-transform:uppercase">Purchase Request</h1>
+
+                        <div class="vd_panel-menu  hidden-xs">
+
+                            <!-- menu -->
+                        </div>
+                        <!-- vd_panel-menu -->
+                    </div>
+                    <!-- vd_panel-header -->
+                </div>
+                <!-- vd_title-section -->
+
+                <div class="vd_content-section clearfix">
+                    <form id="DNForm">
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    @*   //form content here*@
+                                    <div class="row">
+                                        <div class="col-sm-9"></div>
+                                        <div class="col-sm-3">
+                                            <a onclick="findmodal()" class="btn btn-primary btn-sm btn-theme" style="float:right"><i class="fa fa-search"></i></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Status</label>
+                                            <div>
+                                                <select class="js-example-basic-single" name="Status" id="Status">
+                                                    <option value=""> Select Option </option>
+                                                    <option value="Open"> Open</option>
+                                                    <option value="Close">Close </option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Department</label>
+                                            <div>
+                                                <select name="Deparment" id="Department" class="form-control"></select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Item Group Code</label>
+                                            <div>
+                                                <select id="ItemGroupCode" name="ItemGroupCode" class="form-control"></select>
+                                            </div>
+
+                                        </div>
+                                      
+                                    </div>
+                                    <div class="row">
+                                          <div class="col-sm-4">
+                                            <label>Item Group Name</label>
+                                            <div>
+                                                <input class="form-control" id="GroupName" disabled />
+                                                <input class="form-control hide" id="DemandNoteId" />
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Requester Name</label>
+                                            <div>
+                                                <input disabled value="@Context.Session.GetString("FullName")" class="form-control" type="text" name="RequesterName" id="RequesterName" />
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Valid Untill</label>
+                                            <input class="form-cotrol" type="datetime-local" name="ValidUntill" id="ValidUntill" />
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Required Date</label>
+                                            <input class="form-cotrol" type="datetime-local" name="RequiredDate" id="RequiredDate" />
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>MDN Type</label>
+                                            <div>
+                                                <select class="js-example-basic-single" name="MDNType" id="MDNType">
+                                                    <option value=""> Select Option </option>
+                                                    <option value="Item"> Item</option>
+                                                    <option value="Service">Service </option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <a class="btn btn-sm btn-primary btn-theme" style="float:right;margin-right:20px" onclick="AddRow()">
+                                                    Add New Item
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="card p-3">
+                                            <div class="col-md-12">
+
+                                                <div class="table-responsive">
+                                                    <table id="DNTable" class="table table-bordered table-hover mb-0">
+                                                        <thead class="bg-theme">
+                                                            <tr>
+                                                                <th style="min-width:80px" class="text-white">#</th>
+                                                                <th style="min-width:100px" class="text-white">Item No</th>
+                                                                <th style="min-width:180px" class="text-white">Item Description</th>
+                                                                <th style="min-width:100px" class="text-white">Required Date</th>
+                                                                <th style="min-width:100px" class="text-white">Requird Quantity</th>
+                                                                <th style="min-width:100px" class="text-white">Whse</th>
+                                                                <th style="min-width:100px" class="text-white">Uom Code</th>
+                                                                <th style="min-width:100px" class="text-white">Info Price</th>
+                                                                <th style="min-width:100px" class="text-white">Last Purchase Price</th>
+                                                                <th style="min-width:100px" class="text-white">Line Total</th>
+                                                                <th style="min-width:180px" class="text-white">Remarks</th>
+                                                                <th style="min-width:100px" class="text-white">Action</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="DNTabletbody">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Remarks</label>
+                                            <textarea class="form-control" type="text" rows="3" name="Remarks" id="Remarks"></textarea>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-10">
+                                </div>
+                                <div class="col-sm-2">
+                                    <button class="btn btn-sm btn-primary btn-theme" type="submit" style="float:right;" >
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                 
+
+
+                </div>
+                <!-- .vd_content-section -->
+
+            </div>
+            <!-- .vd_content -->
+        </div>
+        <!-- .vd_container -->
+    </div>
+    <!-- .vd_content-wrapper -->
+    <!-- Middle Content End -->
+    <div class="modal" id="FindModal" tabindex="-1" role="dialog" aria-labelledby="modaltitle" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header modal-xl vd_bg-blue vd_white">
+                <h4 class="modal-title" id="modaltitle">Find MDN</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table id="findmodaltable" class="table">
+                                <thead class="bg-theme">
+                                    <tr>
+                              
+                                        <th class="text-white">DEPARTMENT</th>
+                                        <th class="text-white">REQUIRED DATE</th>
+                                        <th class="text-white">MDN TYPE</th>
+                                        <th class="text-white">STATUS</th>
+                                        <th class="text-white">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="findmodaltbody">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+    <input value="0" id="rownumber" />
+    @section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            
+            $("#DNForm").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    Status: {
+                        required: true
+                    },
+                    RequesterName:{
+                        required: true
+                    },
+                    ValidUntill: {
+                        required: true
+                    },
+                    RequiredDate: {
+                        required: true
+                    },
+                    MDNType: {
+                        required: true
+                    },
+                    Remarks: {
+                        required: true
+                    },
+                    Deparment: {
+                        required: true
+                    },
+                    ItemGroupCode: {
+                        required: true
+                    },
+                    "RequiredQuantity[]": {
+                        required: true
+                    }
+
+                },
+
+                errorPlacement: function (error, element) {
+                     
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Form Data");
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    //   label
+                    //       .addClass('valid').addClass('help-inline fa fa-check vd_green mgl-10') // mark the current input as valid and display OK icon
+                    //       .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    // alert("validation Successfully");
+                    PostRequest();
+                }
+
+            });
+            $("#StageNo").select2();
+            GetAllDepartments();
+            GetAllItemGroups();
+            GetPreviousRecords();
+
+        });
+        
+        function GetPreviousRecords() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/DemandNote/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        debugger;
+                        var datatabl = $('#findmodaltable').DataTable();
+                        datatabl.destroy();
+                        $("#findmodaltbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = '<tr>' +
+                                    '<td>' + list.deparment + '</td>' +
+                                    '<td>' + list.requiredDate + '</td>' +
+                                    '<td>' + list.mdnType + '</td>' +
+                                    '<td>' + list.status + '</td>' +
+                                    '<td><a onclick="SelectMDN(' + list.id + ')"><i class="fa fa-eye"></i></a></td>' +
+                                    '</tr>';
+                                $("#findmodaltbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#findmodaltable').dataTable();
+                    }
+                }
+            });
+
+        }
+
+            function GetAllItemGroups() {
+             
+            $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetAllItemGroups`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#ItemGroupCode").empty();
+                        var row = ' <option value="-1">Select Item Group</option> ';
+
+                        $("#ItemGroupCode").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                 
+                              
+                                    var row = ' <option value="' + list.id + '" >'+ list.name + '</option> ';
+
+                                    $("#ItemGroupCode").append(row);
+                          
+                                sr++;
+                            }
+                        }
+
+                        $('#ItemGroupCode').select2();
+                    }
+                }
+            });
+        }
+         $('body').on('change', '#ItemGroupCode', SelectGroupName);
+         $('body').on('change', '.ItemNo', SetItemName);
+         function SelectGroupName(){
+             var select2row = $(this);
+            var data_Val = $(this).select2('data');
+              
+            var goupname = data_Val[0].text;
+             $("#GroupName").val(goupname);
+         }
+         function SetItemName() {
+              var select2row = $(this);
+            var data_Val = $(this).select2('data');
+            var itemName = data_Val[0].text;
+            var itemCode = data_Val[0].id;
+             debugger;
+             select2row.parent().parent().find(".Description").val(itemName);
+               $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetItemDetails`,
+                dataType: "json",
+                 data: { itemCode: itemCode },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                     debugger;
+                    if (response.code === 100) {
+                           var relist = response.data;
+                       
+                       //select2row.parent().parent().find(".LastPurPrice").val(relist.lastPurPrc);
+                       //select2row.parent().parent().find(".infoPrice").val(relist.lastPurPrc);
+                       select2row.parent().parent().find(".UomCode").val(relist.uomCode).trigger("change");
+                    }
+                }
+            });
+
+         }
+        function GetAllDepartments() {
+             
+            $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetAllDepartments`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#Department").empty();
+                        var row = ' <option value="-1">Select Department</option> ';
+
+                        $("#Department").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                 
+                              
+                                    var row = ' <option value="' + list.id + '" >' + list.name + '</option> ';
+
+                                    $("#Department").append(row);
+                          
+                                sr++;
+                            }
+                        }
+
+                        $('#Department').select2();
+                    }
+                }
+            });
+        }
+      
+        function AddRow() {
+            var rownumber = parseInt($("#rownumber").val());
+
+            if ($("#ItemGroupCode").val() != "-1" && $("#RequiredDate").val() != "") {
+               var requireDate = $("#RequiredDate").val();
+                var LineId = rownumber;
+            rownumber = rownumber + 1;
+
+                $("#rownumber").val(rownumber);
+
+                var row = '<tr id="L' + rownumber + '" DetailId="0"> ' +
+                    '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                    '<td> <select id="ItemNo' + rownumber + '" class="form-control ItemNo" style="width:100%" /></td>' +
+                    '<td> <input  class="form-control Description" disabled/></td>' +
+                    '<td> <input disabled  type="datetime-local" value="'+requireDate+'" class="form-control RequiredDate" /></td>' +
+                    '<td><input type="number" name="RequiredQuantity[]" class="form-control RequiredQuantity" /></td>' +
+                    '<td><select id="whse' + rownumber + '" class="form-control whse" style="width:100%" /></td>' +
+                    '<td><select id="UomCode' + rownumber + '" class="form-control UomCode" style="width:100%" /></td>' +
+                    '<td><input type="number"  class="form-control infoPrice"  /></td>' +
+                    '<td><input type="text" disabled class="form-control LastPurPrice"  /></td>' +
+                    '<td><input type="text" disabled class="form-control lineTotal"  /></td>' +
+                    '<td><input type="text" class="form-control Remarks"  /></td>' +
+                    '<td style="padding-top:10px"><a class="fa fa-trash-o fa-2x text-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"></a> </td>' +
+                    '</tr>';
+
+            $("#DNTabletbody").append(row);
+                GetAllItems(rownumber);
+                GetAllWhse(rownumber);
+                GetAllUoms(rownumber);
+            }
+            else{
+                Swal.fire(
+                            'Error!',
+                            'Please Select Item Group and Require Date First.',
+                            'error'
+
+                        )
+            }
+            
+        }
+
+        function GetAllUoms(rownum,uom){
+
+              $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetAllUoms`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                     debugger;
+                    if (response.code === 100) {
+
+                        $("#UomCode"+rownum).empty();
+                        var row = ' <option value="-1">Select UOM</option> ';
+
+                        $("#UomCode"+rownum).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                 
+                              
+                                    var row = ' <option value="' + list.uomName + '" >'+ list.uomName + '</option> ';
+
+                                    $("#UomCode"+rownum).append(row);
+                          
+                                sr++;
+                            }
+                        }
+
+                        $("#UomCode"+rownum).select2();
+                         if (uom != null && uom != undefined) {
+                            $("#UomCode" + rownum).select2("val", [uom]);
+                           // $("#ItemNo" + rownum).val(item).trigger("change");
+
+                        }
+                    }
+                }
+            });
+        }
+
+
+        function GetAllItems(rownum,item){
+            var groupCode = $("#ItemGroupCode").val();
+              $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetAllItems`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                 data: { groupcode: groupCode },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                     debugger;
+                    if (response.code === 100) {
+
+                        $("#ItemNo"+rownum).empty();
+                        var row = ' <option value="-1">Select Item</option> ';
+
+                        $("#ItemNo"+rownum).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                              
+                                    var row = ' <option value="' + list.itemCode + '" >'+ list.itemName + '</option> ';
+
+                                    $("#ItemNo"+rownum).append(row);
+                          
+                                sr++;
+                            }
+                        }
+
+                        $("#ItemNo"+rownum).select2();
+                        if (item != null && item != undefined) {
+                            $("#ItemNo" + rownum).select2("val", [item]);
+                           // $("#ItemNo" + rownum).val(item).trigger("change");
+
+                        }
+                    }
+                }
+            });
+        }
+        
+        function GetAllWhse(rownum,whse){
+
+              $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetAllWhse`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                     debugger;
+                    if (response.code === 100) {
+
+                        $("#whse"+rownum).empty();
+                        var row = ' <option value="-1">Select WareHouse</option> ';
+
+                        $("#whse"+rownum).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                 
+                              
+                                    var row = ' <option value="' + list.whsCode + '" >'+ list.whsName + '</option> ';
+
+                                    $("#whse"+rownum).append(row);
+                          
+                                sr++;
+                            }
+                        }
+
+                        $("#whse"+rownum).select2();
+                        if (whse != null && whse != undefined) {
+                             $("#whse" + rownum).select2("val", [whse]);
+                        }
+                    }
+                }
+            });
+        }
+        function DeleteItemRow(id) {
+            $('#L' + id).remove();
+
+            var rownumber = 1;
+            $("#DNTabletbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#rownumber").val(rownumber - 1);
+        }
+
+        function PostRequest() {
+
+            var demandNote = new Object();
+
+            var demandNoteItems = new Array();
+
+            demandNote.Status = $('#Status').val();
+            demandNote.DemandNoteId = $('#DemandNoteId').val();
+            demandNote.RequesterName = $('#RequesterName').val();
+            demandNote.ValidUntill = $('#ValidUntill').val();
+            demandNote.RequiredDate = $('#RequiredDate').val();
+            demandNote.MDNType = $('#MDNType').val();
+            demandNote.Remarks = $('#Remarks').val();
+            demandNote.Deparment = $('#Department').val();
+            demandNote.ItemGroupCode = $('#ItemGroupCode').val();
+
+            $('#DNTabletbody tr').each(function () {
+                var row = $(this);
+                var itemArray = new Object();
+
+                itemArray.ItemNo = row.find('.ItemNo').val();
+                itemArray.Description = row.find('.Description').val();
+                itemArray.RequiredDate = row.find('.RequiredDate').val();
+                itemArray.RequiredQuantity = row.find('.RequiredQuantity').val();
+                itemArray.InfoPrice = row.find('.infoPrice').val();
+                itemArray.Whse = row.find('.whse').val();
+                itemArray.Uom = row.find('.UomCode').val();
+                itemArray.Remarks = row.find('.Remarks').val();
+                demandNoteItems.push(itemArray);
+            });
+
+            demandNote.demandNoteItems = demandNoteItems;
+
+            var model = JSON.stringify(demandNote);
+
+            $.ajax({
+                type: 'POST',
+                url: `/api/SapIntegration/PostPurchaseRequest`,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: model,
+                success: function (response) {
+
+                    console.log(response);
+                    if (response.code == 0) {
+                        notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+                        $("#DNTabletbody").empty();
+                        $("#rownumber").val(0);
+                        $('#Status').val("");
+                        $('#ValidUntill').val("");
+                        $('#RequiredDate').val("");
+                        $('#MDNType').val("");
+                        $('#Remarks').val("");
+                        $('#Deparment').val("-1").trigger("change");
+                        $('#ItemGroupCode').val().trigger("change");
+                    }
+                }
+
+            });
+        }
+        function findmodal(){
+            $("#FindModal").modal("show");
+
+        }
+
+        function SelectMDN(id) {
+            debugger;
+            var url = "/api/DemandNote/Get?id=" + id + "";
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var mdnData = response.data;
+                        $("#Status").val(mdnData.status);
+                        $("#DemandNoteId").val(mdnData.demandNoteId);
+                        
+                        $("#Department").val(mdnData.deparment).trigger("change");
+                        $("#ItemGroupCode").val(mdnData.itemGroupCode).trigger("change");
+                        $("#ValidUntill").val(mdnData.validUntill);
+                        $("#RequiredDate").val(mdnData.requiredDate);
+                        $("#MDNType").val(mdnData.mdnType);
+                        $("#DNTabletbody").empty();
+
+                        debugger;
+                        $.each(mdnData.demandNoteItems, function (index, mdnItem) {
+                            var rownumber = parseInt($("#rownumber").val());
+
+                                var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            var lastPurcPrice = mdnItem.lastPurcPrice!=null?mdnItem.lastPurcPrice:0;
+                           
+                                $("#rownumber").val(rownumber);
+
+                                var row = '<tr id="L' + rownumber + '" DetailId="0"> ' +
+                                    '<td> <input disabled class="form-control line" value="' + index+1 + '"/></td>' +
+                                    '<td> <select id="ItemNo' + rownumber + '" class="form-control ItemNo" style="width:100%" /></td>' +
+                                    '<td> <input  class="form-control Description" disabled/></td>' +
+                                    '<td> <input disabled  type="datetime-local" value="'+mdnItem.requiredDate+'" class="form-control RequiredDate" /></td>' +
+                                    '<td><input type="number" name="RequiredQuantity[]" value="'+mdnItem.requiredQuantity+'" class="form-control RequiredQuantity" /></td>' +
+                                    '<td><select id="whse' + rownumber + '" class="form-control whse" style="width:100%" /></td>' +
+                                    '<td><select id="UomCode' + rownumber + '" class="form-control UomCode" style="width:100%" /></td>' +
+                                    '<td><input type="number"  class="form-control infoPrice"  /></td>' +
+                                    '<td><input type="text" value="'+lastPurcPrice+'" disabled class="form-control LastPurPrice"  /></td>' +
+                                    '<td><input type="text" disabled class="form-control lineTotal"  /></td>' +
+                                    '<td><input type="text" class="form-control Remarks" value="'+mdnItem.remarks+'"  /></td>' +
+                                    '<td style="padding-top:10px"><a class="fa fa-trash-o fa-2x text-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"></a> </td>' +
+                                    '</tr>';
+
+                            $("#DNTabletbody").append(row);
+                            debugger;
+                                GetAllItems(rownumber,mdnItem.itemNo);
+                                GetAllWhse(rownumber,mdnItem.whse);
+                                GetAllUoms(rownumber,mdnItem.uom);
+            
+                        });
+
+                        $("#FindModal").modal("hide");
+                  
+
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Lead");
+                         Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Lead',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+
+
+         $('body').on('change', '.infoPrice', calculteLineTotal);
+          $('body').on('change', '.RequiredQuantity', calculteLineTotal);
+
+        function calculteLineTotal(){
+              debugger;
+              var infoprice=   $(this).parent().parent().find(".infoPrice").val();
+              var requiredQty=   $(this).parent().parent().find(".RequiredQuantity").val();
+              var lineTotal;
+              if (infoprice!="" && requiredQty!="")
+              {
+                  lineTotal = infoprice * requiredQty;
+                   $(this).parent().parent().find(".lineTotal").val(lineTotal);
+              }
+              else
+              {
+                    $(this).parent().parent().find(".lineTotal").val(0);
+              }
+             
+          }
+
+    </script>
+}
+
+

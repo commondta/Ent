@@ -1,0 +1,1132 @@
+﻿
+<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Clearance</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-circle" viewBox="0 0 16 16"><path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0"/><path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0z"/></svg></span>
+                    <h1>CLEARANCE</h1>
+
+                    <button id="propertyModal" class="btn btn-warning">Property Detail</button>
+                    @*                     <button id="openModal" class="btn btn-warning">Approval History</button>
+                    *@
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" role="form" id="clear">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Member Code</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="MembCode" name="MemberCode" readonly />
+                                            </div>
+                                            <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn dha_theme_btn">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder="" id="MembName" name="MemberName" />
+                                            </div>
+                                            <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                    Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Reference No.</label>
+                                    <div>
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder="" id="RegistrationNo" name="RegistrationNo" />
+                                            </div>
+                                            <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                    Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="PropertyNo" name="PropertyNo" readonly />
+                                            </div>
+                                            <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                    Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Block" id="Block" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Category" id="Category" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Size" id="Size" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PossessionStatus" id="PossessionStatus" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="ConstrucationStatus" id="ConstrucationStatus" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>CNIC</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CNIC" id="CNIC" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>CNIC Expiry Date</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CNICExp" id="CNICExp" readonly />
+                                    </div>
+                                </div>
+                                
+                            </div>
+
+
+                            <div class="card p-3">
+
+                                <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                    <a class="btn btn-sm dha_theme_btn" onclick="PrintGrid()"><i class="fa fa-print"></i></a>
+                                </div>
+
+
+                                <div class="table-responsive">
+                                    <table id="Clear" class="table table-bordered table-hover mb-0">
+                                        <thead class="bg-theme">
+
+                                            <tr>
+                                                <th class="text-white">#</th>
+                                                <th style="min-width:150px" class="text-white">Account Name</th>
+                                                <th style="min-width:120px" class="text-white">Description</th>
+                                                <th class="text-white">Invoice No.</th>
+                                                <th class="text-white">Due Date.</th>
+                                                <th class="text-white">Invoice Amount</th>
+                                                <th class="text-white">Balance Owed</th>
+                                                <th class="text-white">Settlement No.</th>
+                                                <th class="text-white">Settlement Date</th>
+                                                <th class="text-white">Recieved Amount</th>
+                                                <th class="text-white">Adjustment Amount</th>
+                                                <th class="text-white">Balance Due</th>
+                                                <th class="text-white">Surcharge</th>
+                                                <th class="text-white">WavieOff</th>
+                                                <th class="text-white">Surcharge Received Applied</th>
+                                                <th class="text-white">Total Amount Due</th>
+                                            
+                                            </tr>
+                                        </thead>
+                                        <tbody id="Cleartbody">
+                                        </tbody>
+                                    </table>
+                                </div>
+                                <div class="row">
+                                    <div class="col-12 text-center" style="margin:10px 0;">
+                                        <span style="font-size:16px;border-bottom:1px solid #000;">Summary</span>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <table class="table active table-bordered table-hover mb-0 w-100">
+                                            <thead>
+                                                <tr>
+                                                    <th style="font-size:12px">#</th>
+                                                    <th style="font-size:12px;min-width:150px">Charge Type</th>
+                                                    <th class="">Balance Owed</th>
+                                                    <th class="">Recieved Amount</th>
+                                                    <th class="">Adjustment Amount</th>
+                                                    <th class="">Balance Due</th>
+                                                    <th class="">Surcharge</th>
+                                                    <th class="">WavieOff</th>
+                                                    <th class="">Surcharge Received Applied</th>
+                                                    <th class="">Total Amount Due</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="summaryTableBody"></tbody>
+                                        </table>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            @* <div class="col-12" style="float: right;">
+                            <button onclick="SaveClearance()" class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);" id="submmit">
+                            <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                            </button>
+                            <button class="btn vd_btn vd_black" href="javascript:void(0);">
+                            <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                            </button>
+                            </div> *@
+                        </form>
+
+                        <br>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<div class="hide">
+    <div id="printdiv">
+        <partial name="~/Views/PartialPage/_ClearancePrint.cshtml" />
+    </div>
+</div>
+
+<partial name="~/Views/PartialPage/SearchPropertyModal.cshtml" />
+@* <partial name="~/Views/PartialPage/_History.cshtml" />
+ *@
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+<input class="hide" id="rownumber" value="0" />
+
+@section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+
+
+            $("#clear").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    RegistrationNo: {
+                        // minlength: 3,
+                        required: true
+                    },
+                    PropertyNo: {
+                        //minlength: 3,
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+                    
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Form Data");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    
+                    SaveClearance();
+                }
+
+            });
+            var chargeswavieOff = 0;
+            GetAllPropertyLists();
+            GetSurchargeSetup();
+        });
+        var totalSurCharge = 0;
+        var surchargeList=new Array();
+        function GetSurchargeSetup() {
+            
+            $.ajax({
+                type: 'GET',
+                url: `/api/SurchargeSetup/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    
+                    if (response.code === 100) {
+                        // surchargeList = response.data;
+                        $.each(response.data, function (j, item) {
+                            var fromDate = moment(item.fromDate).format('YYYY-MM-DD');
+                            var toDate = moment(item.toDate).format('YYYY-MM-DD');
+                            item.fromDate = new Date(fromDate);
+                            item.toDate = new Date(toDate);
+                            
+                            surchargeList.push(item);
+                        });
+                       // totalSurCharge = response.data.totalSurCharge;
+                        console.log(totalSurCharge);
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Reference Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+
+        function GetAllPropertyLists() {
+            $('#proplist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllProprtties",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "membershipNo", name: "MembershipNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<a class="btn btn-primary" onclick="SelectRegistration(' + data.id + ')">Select</a>';
+                        }
+                    }
+                ]
+            });
+        }
+
+        function valOrNA(value) {
+            return value === null || value === undefined || value === "" ? "N/A" : value;
+        }
+
+
+        function SelectRegistration(id) {
+
+            var url = "/api/Filter/GetFilterPropertyResultForNDCById?stockId=" + id + "";
+
+            
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        let possessionstatus = result_User.possessionStatus == true ? "Yes" : "No";
+
+                        $("#RegistrationNo").val(valOrNA(result_User.registrationNo));
+                        $("#PropertyNo").val(valOrNA(result_User.propertyNo));
+                        $("#MembCode").val(valOrNA(result_User.memberProfileId));
+                        $("#MembName").val(valOrNA(result_User.memberName));
+                        $("#ConstrucationStatus").val(valOrNA(result_User.constructionStatus));
+                        $("#PossessionStatus").val(possessionstatus);
+                        $("#Size").val(valOrNA(result_User.actualSize));
+                        $("#Category").val(valOrNA(result_User.categoryName));
+                        $("#Block").val(valOrNA(result_User.blockName));
+                        $("#CNIC").val(valOrNA(result_User.cnic));
+
+                        var cnicExpDate = result_User.cnicExpiryDate
+                            ? result_User.cnicExpiryDate.split("T")[0].split("-").reverse().join("-")
+                            : "N/A";
+
+                        $("#CNICExp").val(cnicExpDate);
+
+                        $("#PMemberId").text(valOrNA(result_User.memberProfileId));
+                        $("#PMemberName").text(valOrNA(result_User.memberName));
+                        $("#PRegistrationNumber").text(valOrNA(result_User.registrationNo));
+                        $("#PPropertyNumber").text(valOrNA(result_User.propertyNo));
+                        $("#PCategory").text(valOrNA(result_User.categoryName));
+                        $("#PBlock").text(valOrNA(result_User.blockName));
+                        $("#PSize").text(valOrNA(result_User.actualSize));
+                        $("#PCNIC").text(valOrNA(result_User.cnic));
+                        $("#PStatus").text(possessionstatus);
+                        $("#PCStatus").text(valOrNA(result_User.constructionStatus));
+
+                        chargeswavieOff = result_User.discountPercent;
+                        const Sector = result_User.sector;
+                        const Block = result_User.block;
+                        const Category = result_User.category;
+                        const ConstracutionStatus = result_User.constructionStatus;
+
+                        if (Sector && Block && Category && ConstracutionStatus) {
+                            const obj = {
+                                Sector,
+                                Block,
+                                Category,
+                                ConstracutionStatus
+                            };
+
+                            //getchargesdata(obj);
+                        }
+
+                        GetDataFromSap(result_User.registrationNo, result_User.memberProfileId);
+                        GetSummaryDataFromSap(result_User.registrationNo, result_User.memberProfileId);
+                        $("#StockCreationId").val(result_User.id);
+                        $("#MemberProfileId").val(result_User.memberProfileId);
+
+                        $("#registrationModal").modal("hide");
+                        // LoadApprovalHistory(result_User.id);
+                        PropertyDetail(result_User.id);
+                        ShowAlert(result_User.id);
+                    }
+                }
+            });
+        }
+
+            function safeNumber(val) {
+                val = parseFloat(val);
+                return isNaN(val) ? 0 : val;
+            }
+
+        function formatAmount(val) {
+            return safeNumber(val).toLocaleString('en-PK', {
+                minimumFractionDigits: 0,
+                maximumFractionDigits: 0
+            });
+        }
+
+        function GetSummaryDataFromSap(registrationNo, memberProfileId) {
+
+            $("#summaryTableBody").empty();
+            $("#summaryTableBodyPrint").empty();
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetCleareanceSummary`,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { registrationNo, memberProfileId },
+                success: function (response) {
+
+                    if (response.code !== 100 || !response.data || response.data.length === 0)
+                        return;
+
+                    let totals = {
+                        balanceOwed: 0,
+                        receivedAmount: 0,
+                        adjustmentAmount: 0,
+                        balanceDue: 0,
+                        surcharge: 0,
+                        waiverOff: 0,
+                        surchargeReceived: 0,
+                        totalAmountDue: 0
+                    };
+
+                    $.each(response.data, function (index, item) {
+
+                        const balanceOwed = safeNumber(item.balanceOwed);
+                        const receivedAmount = safeNumber(item.receivedAmount);
+                        const adjustmentAmount = safeNumber(item.adjustmentAmount);
+                        const balanceDue = safeNumber(item.balanceDue);
+                        const surcharge = safeNumber(item.surcharge);
+                        const waiverOff = safeNumber(item.waiverOff);
+                        const surchargeReceived = safeNumber(item.surchargeReceivedApplied);
+                        const totalAmountDue = safeNumber(item.totalAmountDue);
+
+                        totals.balanceOwed += balanceOwed;
+                        totals.receivedAmount += receivedAmount;
+                        totals.adjustmentAmount += adjustmentAmount;
+                        totals.balanceDue += balanceDue;
+                        totals.surcharge += surcharge;
+                        totals.waiverOff += waiverOff;
+                        totals.surchargeReceived += surchargeReceived;
+                        totals.totalAmountDue += totalAmountDue;
+
+                        let row = `
+        <tr>
+            <td>${index + 1}</td>
+            <td>${item.chargeType || ''}</td>
+            <td class="text-end">${formatAmount(balanceOwed)}</td>
+            <td class="text-end">${formatAmount(receivedAmount)}</td>
+            <td class="text-end">${formatAmount(adjustmentAmount)}</td>
+            <td class="text-end">${formatAmount(balanceDue)}</td>
+            <td class="text-end">${formatAmount(surcharge)}</td>
+            <td class="text-end">${formatAmount(waiverOff)}</td>
+            <td class="text-end">${formatAmount(surchargeReceived)}</td>
+            <td class="text-end fw-bold">${formatAmount(balanceDue + surcharge - waiverOff - surchargeReceived)}</td>
+        </tr>`;
+
+                        $("#summaryTableBody").append(row);
+                        $("#summaryTableBodyPrint").append(row);
+                    });
+
+                    // ===== GRAND TOTAL ROW =====
+                    let totalRow = `
+        <tr style="background:#f2f2f2;font-weight:bold;">
+            <td style="font-weight:bold;">#</td>
+            <td style="font-weight:bold;">GRAND TOTAL</td>
+            <td class="text-end" style="font-weight:bold;">${formatAmount(totals.balanceOwed)}</td>
+            <td class="text-end" style="font-weight:bold;">${formatAmount(totals.receivedAmount)}</td>
+            <td class="text-end" style="font-weight:bold;">${formatAmount(totals.adjustmentAmount)}</td>
+            <td class="text-end" style="font-weight:bold;">${formatAmount(totals.balanceDue)}</td>
+            <td class="text-end" style="font-weight:bold;">${formatAmount(totals.surcharge)}</td>
+            <td class="text-end" style="font-weight:bold;">${formatAmount(totals.waiverOff)}</td>
+            <td class="text-end" style="font-weight:bold;">${formatAmount(totals.surchargeReceived)}</td>
+            <td class="text-end" style="font-weight:bold;">${formatAmount(totals.balanceDue + totals.surcharge - totals.waiverOff - totals.surchargeReceived)}</td>
+        </tr>`;
+
+
+                    $("#summaryTableBody").append(totalRow);
+                    $("#summaryTableBodyPrint").append(totalRow);
+                }
+            });
+        }
+
+
+
+        
+       
+
+
+        function PrintGrid() {
+            var printContents = document.getElementById('printdiv').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('printdiv');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+
+        // Set to true to log parsed values for debugging
+        const DEBUG_PARSE_TOTALS = false;
+
+        function GetDataFromSap(registrationNo, memberProfileId) {
+            $('#loader').fadeIn();
+            NProgress.start();
+            NProgress.set(0.0);
+            $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetCleareanceData`,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { registrationNo, memberProfileId },
+                success: function (response) {
+
+                    if (response.code !== 100) {
+                        $('#loader').fadeOut();
+                        NProgress.done();
+                        return
+                    }
+
+                    $('#loader').fadeOut();
+                    NProgress.done();
+
+                    var rowIndex = 1;
+
+                    // clear previous body & print body
+                    $("#Cleartbody").empty();
+                    $("#tbodyPrint").empty();
+
+                    // 1) render rows with stable class names on numeric columns
+                    $.each(response.data, function (i, item) {
+                        var row = `<tr>
+                            <td>${rowIndex++}</td>
+                            <td>${item.accountName ?? ''}</td>
+                            <td>${item.description ?? ''}</td>
+                            <td style="text-align: center;">${item.invoiceNo ?? ''}</td>
+                            <td>${item.dueDate ? moment(item.dueDate).format("DD-MM-YYYY") : ''}</td>
+
+                            <td class="col-invoiceAmount" style="text-align: right;">${formatPKR(item.invoiceAmount)}</td>
+                            <td class="col-balanceOwed" style="text-align: right;">${formatPKR(item.balanceOwed)}</td>
+
+                            <td style="text-align: center;">${item.settleDocNum ?? ''}</td>
+                            <td>${item.settleDate ? moment(item.settleDate).format("DD-MM-YYYY") : ""}</td>
+
+                            <td class="col-receivedAmount" style="text-align: right;">${formatPKR(item.receivedAmount)}</td>
+                            <td class="col-adjustment" style="text-align: right;">${formatPKR(item.adjustment)}</td>
+                            <td class="col-balanceDue" style="text-align: right;">${formatPKR(item.balanceDue)}</td>
+
+                            <td class="col-surcharge" style="text-align: right;">${formatPKR(item.surcharge)}</td>
+                                    <td class="col-waiveOff" style="text-align: right;">${formatPKR(item.waiverPaid)}</td>
+                                    <td class="col-surchargeReceived" style="text-align: right;">${formatPKR(item.surchargePaymentPaid)}</td>
+                                    <td class="col-receivable" style="text-align: right;">${formatPKR(item.totalAmountDue)}</td>
+                        </tr>`;
+
+                        $("#Cleartbody").append(row);
+                        $("#tbodyPrint").append(row);
+                    });
+
+                    // 2) parse-then-sum from the rendered table (use integer cents)
+                    function parseCellToCents(text) {
+                        if (text === null || text === undefined) return 0;
+                        // Remove any character that is not digit, dot, or minus sign
+                        // This removes currency symbols, spaces, commas, non-breaking spaces, etc.
+                        const cleaned = String(text).replace(/[^\d.\-]/g, '').trim();
+                        if (cleaned === '' || cleaned === '-' || cleaned === '.' || cleaned === '-.') return 0;
+                        const f = parseFloat(cleaned);
+                        if (!isFinite(f)) return 0;
+                        // round to nearest cent (2 decimals)
+                        return Math.round(f * 100);
+                    }
+
+                    function formatMoneyFromCents(cents) {
+                        const value = cents / 100;
+                        if (typeof formatPKR === 'function') return formatPKR(value);
+                        return value.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+                    }
+
+                    // helper: sum column by td selector (class)
+                    function sumColumnByClass(tdClass) {
+                        let totalCents = 0;
+                        $("#Cleartbody").find(`td.${tdClass}`).each(function () {
+                            // each numeric cell should be exactly one td with the class; parse its text
+                            const txt = $(this).text();
+                            const cents = parseCellToCents(txt);
+                            totalCents += cents;
+                            if (DEBUG_PARSE_TOTALS) {
+                                console.debug(`parse ${tdClass}: raw="${txt}" -> ${cents} cents`);
+                            }
+                        });
+                        return totalCents;
+                    }
+
+                    // Remove any previous totals row(s) to avoid double counting
+                    $("#Cleartbody").find("tr.totals-row").remove();
+                    $("#tbodyPrint").find("tr.totals-row").remove();
+
+                    // Sum (in cents)
+                    const docTotalC = sumColumnByClass("col-invoiceAmount");
+                    const totalBalanceOwedC = sumColumnByClass("col-balanceOwed");
+                    const totalReceivedC = sumColumnByClass("col-receivedAmount");
+                    const totalAdjustmentC = sumColumnByClass("col-adjustment");
+                    const balanceDueC = sumColumnByClass("col-balanceDue");
+                    const totalSurchargeC = sumColumnByClass("col-surcharge");
+                    const totalWaiveOffC = sumColumnByClass("col-waiveOff");
+                    const totalSurchargeReceivedC = sumColumnByClass("col-surchargeReceived");
+                    const totalReceivableC = sumColumnByClass("col-receivable");
+
+                    if (DEBUG_PARSE_TOTALS) {
+                        console.debug({
+                            docTotalC, totalBalanceOwedC, totalReceivedC, totalAdjustmentC, balanceDueC,
+                            totalSurchargeC, totalWaiveOffC, totalSurchargeReceivedC, totalReceivableC
+                        });
+                    }
+
+                    // 3) append totals row (convert cents back to numeric/display)
+                    const totalRow = `
+                        <tr class="totals-row" style="font-weight: bold; background-color: #f9f9f9;">
+                            <td colspan="5">Total:</td>
+                            <td style="text-align: right;">${formatMoneyFromCents(docTotalC)}</td>
+                            <td style="text-align: right;">${formatMoneyFromCents(docTotalC)}</td>
+                            <td></td>
+                            <td></td>
+                            <td style="text-align: right;">${formatMoneyFromCents(totalReceivedC)}</td>
+                            <td style="text-align: right;">${formatMoneyFromCents(totalAdjustmentC)}</td>
+                            <td style="text-align: right;">${formatMoneyFromCents(docTotalC - totalReceivedC - totalAdjustmentC)}</td>
+                            <td style="text-align: right;">${formatMoneyFromCents(totalSurchargeC)}</td>
+                            <td style="text-align: right;">${formatMoneyFromCents(totalWaiveOffC)}</td>
+                            <td style="text-align: right;">${formatMoneyFromCents(totalSurchargeReceivedC)}</td>
+                             <td style="text-align: right;">${formatMoneyFromCents(docTotalC - totalReceivedC - totalAdjustmentC + totalSurchargeC - totalWaiveOffC - totalSurchargeReceivedC)}</td>
+                        </tr>`;
+
+                    $("#Cleartbody").append(totalRow);
+                    $("#tbodyPrint").append(totalRow);
+
+                    // 4) optional: call populateSummaryTable() which expects totals to be in table
+                    // if (typeof populateSummaryTable === 'function') populateSummaryTable();
+                },
+                error: function (xhr, status, err) {
+                    console.error("GetDataFromSap failed:", status, err);
+                }
+            });
+        }
+
+
+
+
+        // function GetDataFromSap(registrationNo, memberProfileId) {
+        //     $.ajax({
+        //         type: 'GET',
+        //         url: `/api/SapIntegration/GetCleareanceData`,
+        //         dataType: "json",
+        //         headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+        //         data: { registrationNo: registrationNo, memberProfileId, memberProfileId },
+        //         async: false,
+        //         contentType: 'application/json',
+        //         success: function (response) {
+        //             $("#Cleartbody").empty();
+        //             $("#tbodyPrint").empty();
+        //             if (response.code === 100) {
+        //                 var docTotal = 0;
+        //                 var totalRecieved = 0;
+        //                 var balanceDue = 0;
+        //                 var totalSurcharge = 0;
+        //                 // GetSurcharge(fromdate, todate, function (surcharge))
+        //                 var totalWavieOffSurcharge = 0;
+        //                 var footertotalamountRecieved = 0;
+        //                 $.each(response.data, function (index, clearence) {
+        //                     var rownumber = index + 1;
+        //                     var duedate = moment(clearence.docDueDate).format('DD-MM-YYYY');
+        //                     var ReceptNums = clearence.receiptNum.split(",");
+        //                     var receiptDate = moment(clearence.receiptDate).format('DD-MM-YYYY');
+                          
+        //                     var preduedate = moment(clearence.docDueDate).format('YYYY-MM-DD');
+        //                     var duedate1 = new Date(preduedate);
+        //                     var currentDate = new Date();
+                          
+        //                     var surcharge = findAmountForSurcharge(duedate1, surchargeList);
+        //                     var surchargenew=surcharge;
+        //                     var chargeswavieOffAmount = 0;
+
+        //                     if ( duedate1 < currentDate) {
+        //                         var timeDifference = currentDate.getTime() - duedate1.getTime();
+        //                         var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        //                         if (daysDifference > 0) {
+        //                             surcharge = (((surchargenew / 100) * clearence.balanceDue) / 365) * daysDifference;
+        //                             if(surcharge>0){
+        //                                 if (chargeswavieOff > 0 && chargeswavieOff >= surcharge) {
+        //                                     chargeswavieOffAmount = surcharge;
+        //                                     chargeswavieOff = chargeswavieOff - surcharge;
+        //                                 }
+        //                                 else if (chargeswavieOff > 0 && chargeswavieOff < surcharge) {
+        //                                     chargeswavieOffAmount = chargeswavieOff;
+        //                                     chargeswavieOff = chargeswavieOff - surcharge;
+        //                                 }
+        //                                 else {
+        //                                     chargeswavieOffAmount = 0;
+        //                                 }
+        //                             }
+                                    
+        //                         }
+        //                         else {
+        //                             surcharge = 0;
+        //                             surchargenew = 0;
+        //                         }
+                                
+        //                     }
+        //                     else{
+        //                         surcharge=0;
+        //                         surchargenew = 0;
+        //                     }
+        //                     var totalamountRecieved = surcharge + clearence.docTotal;
+        //                     var row = "";
+                            
+                            
+        //                     if (ReceptNums.length >= 1 && ReceptNums[0]!="") {
+        //                         var prereceiptDate = moment(clearence.receiptDate).format('YYYY-MM-DD');
+        //                         var newdate = new Date(prereceiptDate)
+        //                         if (duedate1 < newdate) {
+        //                             var timeDifference = newdate.getTime() - duedate1.getTime();
+        //                             var timeDifferencewithtodate = currentDate.getTime() - newdate.getTime();
+        //                             var daysDifference = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+        //                             var currentdaysDifference = Math.floor(timeDifferencewithtodate / (1000 * 60 * 60 * 24));
+        //                             if (daysDifference > 0) {
+        //                                 surcharge = (((surchargenew / 100) * clearence.docTotal) / 365) * daysDifference;
+        //                                 surcharge = surcharge + (((surchargenew / 100) * clearence.balanceDue) / 365) * currentdaysDifference;
+        //                                 if (chargeswavieOff > 0 && chargeswavieOff >= surcharge) {
+        //                                     chargeswavieOffAmount = surcharge;
+        //                                     chargeswavieOff = chargeswavieOff - surcharge;
+        //                                 }
+        //                                 else if (chargeswavieOff > 0 && chargeswavieOff < surcharge)
+        //                                 {
+        //                                     chargeswavieOffAmount = chargeswavieOff;
+        //                                     chargeswavieOff = chargeswavieOff - surcharge;
+        //                                 }
+        //                                 else {
+        //                                     chargeswavieOffAmount = 0;
+        //                                 }
+        //                                 totalamountRecieved = surcharge + clearence.docTotal;
+        //                             }
+        //                         }
+        //                         var ReceptDate = clearence.receiptDate.split(",");
+        //                         $.each(ReceptNums, function (j, receipt) {
+        //                             row = '<tr id="L' + rownumber + '" DetailId="0"> ' +
+        //                                 '<td>' + rownumber + '</td>' +
+        //                                 '<td>' + clearence.acctName + '</td>' +
+        //                                 '<td style="text-align: center;">' + clearence.docNum + '</td>' +
+        //                                 '<td>' + duedate + '</td>' +
+        //                                 '<td style="text-align: right;">' + formatPKR(clearence.docTotal) + '</td>' +
+        //                                 '<td style="text-align: right;">' + formatPKR(surcharge) + '</td>' +
+        //                                 '<td style="text-align: right;">' + formatPKR(chargeswavieOffAmount) + '</td>' +
+        //                                 '<td style="text-align: right;"></td>' +//Discount Will Beintegrated Here
+        //                                 '<td style="text-align: right;">' + formatPKR(totalamountRecieved) + '</td>' +
+                                       
+        //                                 '<td style="text-align: center">' + receipt + '</td>' +
+        //                                 '<td>' + moment(ReceptDate[j]).format('DD-MM-YYYY') + '</td>' +
+        //                                 '<td style="text-align: right;">' + formatPKR(clearence.totalRecieved) + '</td>' +
+
+        //                                 '<td style="text-align: right;">' + formatPKR(clearence.balanceDue + surcharge - chargeswavieOffAmount) + '</td>' +
+        //                                 '<td>' + clearence.remarks + '</td>' +
+        //                                 '</tr>';
+        //                             $("#Cleartbody").append(row);
+        //                             $("#tbodyPrint").append(row);
+        //                         });
+        //                     }
+        //                     else {
+        //                         row = '<tr id="L' + rownumber + '" DetailId="0"> ' +
+        //                             '<td>' + rownumber + '</td>' +
+        //                             '<td>' + clearence.acctName + '</td>' +
+        //                             '<td style="text-align: center;">' + clearence.docNum + '</td>' +
+        //                             '<td>' + duedate + '</td>' +
+        //                             '<td style="text-align: right;">' + formatPKR(clearence.docTotal) + '</td>' +
+        //                             '<td style="text-align: right;">' + formatPKR(surcharge) + '</td>' +
+        //                             '<td style="text-align: right;">' + formatPKR(chargeswavieOffAmount) + '</td>' +
+        //                             '<td style="text-align: right;"></td>' +//Discount Will Beintegrated Here
+        //                             '<td style="text-align: right;">' + formatPKR(totalamountRecieved) + '</td>' +
+
+        //                             '<td style="text-align: center">' + clearence.receiptNum + '</td>' +
+        //                             '<td>' + clearence.receiptDate + '</td>' +
+        //                             '<td style="text-align: right;">' + formatPKR(clearence.totalRecieved) + '</td>' +
+        //                             '<td style="text-align: right;">' + formatPKR(clearence.balanceDue + surcharge - chargeswavieOffAmount) + '</td>' +
+        //                             '<td>' + clearence.remarks + '</td>' +
+        //                             '</tr>';
+        //                         $("#Cleartbody").append(row);
+        //                         $("#tbodyPrint").append(row);
+        //                     }
+
+        //                     docTotal = docTotal + clearence.docTotal;
+        //                     totalRecieved = totalRecieved + clearence.totalRecieved;
+        //                     balanceDue = balanceDue + clearence.balanceDue +surcharge;
+        //                     totalSurcharge = totalSurcharge + surcharge;
+        //                     totalWavieOffSurcharge = totalWavieOffSurcharge + chargeswavieOffAmount;
+        //                     footertotalamountRecieved = totalamountRecieved + footertotalamountRecieved;
+
+        //                 });
+
+        //                 //populateSummaryTable();
+
+        //                 var row = '<tr id="L' + rownumber + '" DetailId="0"> ' +
+        //                     '<td colspan="4" style="text-align: center"><h5 style="font-size: 15px;font-weight: bold !important;">Total</h5></td>' +
+        //                     '<td style="text-align: right;"><h5 style="font-size: 15px;font-weight: bold !important;">' + formatPKR(docTotal) + '</h5></td>' +
+        //                     '<td style="text-align: right;"><h5 style="font-size: 15px;font-weight: bold !important;">' + formatPKR(totalSurcharge) + '</h5></td>' +
+        //                     '<td style="text-align: right;"><h5 style="font-size: 15px;font-weight: bold !important;">' + formatPKR(totalWavieOffSurcharge) + '</h5></td>' +
+        //                     '<td style="text-align: right;"><h5 style="font-size: 15px;font-weight: bold !important;"></h5></td>' +//Discount Total Will be Displayed here
+        //                     '<td style="text-align: right;"><h5 style="font-size: 15px;font-weight: bold !important;">' + formatPKR(footertotalamountRecieved) + '</h5></td>' +
+        //                     '<td colspan="2"  style="text-align: right;"><h5 style="font-size: 15px;font-weight: bold !important;"></h5></td>' +
+        //                     '<td style="text-align: right;"><h5 style="font-size: 15px;font-weight: bold !important;">' + formatPKR(totalRecieved) + '</h5></td>' +
+                           
+        //                     '<td style="text-align: right;"><h5 style="font-size: 15px;font-weight: bold !important;">' + formatPKR(balanceDue) + '</h5></td>' +
+        //                     '<td> </td>' +
+        //                     '</tr>';
+        //                 $("#Cleartbody").append(row);
+        //                 $("#tbodyPrint").append(row);
+        //             }
+        //             else {
+        //                 Swal.fire({
+        //                     icon: 'error',
+        //                     title: 'Error',
+        //                     text: response.message,
+        //                     allowOutsideClick: false,
+        //                     allowEscapeKey: false
+        //                 });
+        //             }
+        //         }
+        //     });
+        // }
+
+
+        function findAmountForSurcharge(checkDate, list) {
+            for (var i = 0; i < list.length; i++) {
+                var currentDateRange = list[i];
+                if (checkDate >= currentDateRange.fromDate && checkDate <= currentDateRange.toDate) {
+                    return currentDateRange.totalSurCharge;
+                }
+            }
+            return 0; // Return null if no matching range is found
+        }
+
+
+
+        function formatPKR(value) {
+            var roundedValue = Math.round(value);
+            var formattedValue = roundedValue.toLocaleString('en-PK').replace(/Rs/g, '');
+            return formattedValue;
+        }
+
+        function GetSurcharge(fromdate, todate , callback) {
+            var url = "/api/SurchargeSetup/GetSurchageInRange?fromdate=" + fromdate + "&todate=" + todate;
+
+            $.ajax({
+                type: "GET",
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                processData: false,
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    
+                    if (response.code == 100) {
+                        if (response.data != null) {
+                            callback(response.data);
+                        }
+                    }
+                }
+            });
+        }
+
+        // function populateSummaryTable() {
+
+        //     // --- Safe parser for table cells ---
+        //     function parseCellToCents(text) {
+        //         if (!text) return 0;
+        //         const cleaned = text.replace(/[^\d.\-]/g, '').trim();
+        //         if (cleaned === '' || cleaned === '-' || cleaned === '.' || cleaned === '-.') return 0;
+        //         const f = parseFloat(cleaned);
+        //         if (!isFinite(f)) return 0;
+        //         return Math.round(f * 100);
+        //     }
+
+        //     function formatMoneyFromCents(cents) {
+        //         const val = cents / 100;
+        //         return formatPKR(val);
+        //     }
+
+        //     const summary = {};
+
+        //     // Grand totals (in cents)
+        //     let totalAmountOwedC = 0;
+        //     let totalReceivedC = 0;
+        //     let totalAdjustmentC = 0;
+        //     let totalBalanceDueC = 0;
+        //     let totalSurchargeC = 0;
+        //     let totalWaiveOffC = 0;
+        //     let totalSurchargeReceivedC = 0;
+        //     let totalReceivableC = 0;
+
+        //     $("#Cleartbody tr").each(function () {
+        //         if ($(this).hasClass("totals-row")) return; // skip totals row
+
+        //         const chargeType = $(this).find("td:nth-child(2)").text().trim();
+
+        //         if (!chargeType) return;
+
+        //         const amountOwed = parseCellToCents($(this).find("td.col-balanceOwed").text());
+        //         const receivedAmount = parseCellToCents($(this).find("td.col-receivedAmount").text());
+        //         const adjustment = parseCellToCents($(this).find("td.col-adjustment").text());
+        //         const balanceDue = parseCellToCents($(this).find("td.col-balanceDue").text());
+        //         const surcharge = parseCellToCents($(this).find("td.col-surcharge").text());
+        //         const waiveOff = parseCellToCents($(this).find("td.col-waiveOff").text());
+        //         const surchargeReceived = parseCellToCents($(this).find("td.col-surchargeReceived").text());
+        //         const receivable = parseCellToCents($(this).find("td.col-receivable").text());
+
+        //         if (!summary[chargeType]) {
+        //             summary[chargeType] = {
+        //                 amountOwed: 0,
+        //                 receivedAmount: 0,
+        //                 adjustment: 0,
+        //                 balanceDue: 0,
+        //                 surcharge: 0,
+        //                 waiveOff: 0,
+        //                 surchargeReceived: 0,
+        //                 receivable: 0
+        //             };
+        //         }
+
+        //         // Accumulate per chargeType
+        //         summary[chargeType].amountOwed += amountOwed;
+        //         summary[chargeType].receivedAmount += receivedAmount;
+        //         summary[chargeType].adjustment += adjustment;
+        //         summary[chargeType].balanceDue += balanceDue;
+        //         summary[chargeType].surcharge += surcharge;
+        //         summary[chargeType].waiveOff += waiveOff;
+        //         summary[chargeType].surchargeReceived += surchargeReceived;
+        //         summary[chargeType].receivable += receivable;
+
+        //         // Accumulate grand totals
+        //         totalAmountOwedC += amountOwed;
+        //         totalReceivedC += receivedAmount;
+        //         totalAdjustmentC += adjustment;
+        //         totalBalanceDueC += balanceDue;
+        //         totalSurchargeC += surcharge;
+        //         totalWaiveOffC += waiveOff;
+        //         totalSurchargeReceivedC += surchargeReceived;
+        //         totalReceivableC += receivable;
+        //     });
+
+        //     $("#summaryTableBody").empty();
+        //     $("#summaryTableBodyPrint").empty();
+
+        //     let index = 1;
+        //     $.each(summary, function (chargeType, totals) {
+        //         const row = `
+        //             <tr>
+        //                 <td style="text-align: center;">${index++}</td>
+        //                 <td>${chargeType}</td>
+        //                 <td style="text-align: right;">${formatMoneyFromCents(totals.amountOwed)}</td>
+        //                 <td style="text-align: right;">${formatMoneyFromCents(totals.receivedAmount)}</td>
+        //                 <td style="text-align: right;">${formatMoneyFromCents(totals.adjustment)}</td>
+        //                 <td style="text-align: right;">${formatMoneyFromCents(totals.amountOwed - totals.receivedAmount - totals.adjustment)}</td>
+        //                 <td style="text-align: right;">${formatMoneyFromCents(totals.surcharge)}</td>
+        //                 <td style="text-align: right;">${formatMoneyFromCents(totals.waiveOff)}</td>
+        //                 <td style="text-align: right;">${formatMoneyFromCents(totals.surchargeReceived)}</td>
+        //                 <td style="text-align: right;">${formatMoneyFromCents(totals.receivable)}</td>
+        //             </tr>
+        //         `;
+        //         $("#summaryTableBody").append(row);
+        //         $("#summaryTableBodyPrint").append(row);
+        //     });
+
+        //     // Grand Total row showing all aggregates
+        //     const totalRow = `
+        //         <tr class="totals-row" style="font-weight: bold; background-color: #f9f9f9;">
+        //             <td colspan="2" style="text-align: center;">Grand Total</td>
+        //             <td style="text-align: right;">${formatMoneyFromCents(totalAmountOwedC)}</td>
+        //             <td style="text-align: right;">${formatMoneyFromCents(totalReceivedC)}</td>
+        //             <td style="text-align: right;">${formatMoneyFromCents(totalAdjustmentC)}</td>
+        //             <td style="text-align: right;">${formatMoneyFromCents(totalBalanceDueC)}</td>
+        //             <td style="text-align: right;">${formatMoneyFromCents(totalSurchargeC)}</td>
+        //             <td style="text-align: right;">${formatMoneyFromCents(totalWaiveOffC)}</td>
+        //             <td style="text-align: right;">${formatMoneyFromCents(totalSurchargeReceivedC)}</td>
+        //             <td style="text-align: right;">${formatMoneyFromCents(totalReceivableC)}</td>
+        //         </tr>
+        //     `;
+
+        //     $("#summaryTableBody").append(totalRow);
+        //     $("#summaryTableBodyPrint").append(totalRow);
+        // }
+
+
+    </script>
+}
+

@@ -1,0 +1,556 @@
+<style>
+    .ent-wrap {
+        font-family: inherit;
+    }
+
+    .ent-wrap .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .ent-wrap * {
+        box-sizing: border-box;
+    }
+
+    .ent-toolbar {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        padding: 12px 16px;
+        margin-bottom: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .ent-toolbar-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1e293b;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .ent-toolbar-title i {
+        color: #1e3a8a;
+    }
+
+    .ent-btn {
+        border: 1px solid #1e3a8a;
+        border-radius: 4px;
+        background: #1e3a8a;
+        color: #fff;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 0 18px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        transition: background .15s ease;
+    }
+
+    .ent-btn:hover {
+        background: #16296b;
+        color: #fff;
+    }
+
+    .ent-btn[disabled] {
+        opacity: .65;
+        cursor: not-allowed;
+    }
+
+    .ent-error-banner {
+        display: none;
+        margin-bottom: 14px;
+        padding: 9px 14px;
+        border-radius: 6px;
+        border: 1px solid #f5c2c0;
+        background: #fdecea;
+        color: #b3261e;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .ent-kpi-ribbon {
+        display: flex;
+        flex-wrap: wrap;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-bottom: 14px;
+    }
+
+    @@media (max-width: 991px) {
+        .ent-kpi-tile {
+            flex: 1 1 50% !important;
+            border-bottom: 1px solid #e2e8f0;
+        }
+    }
+
+    @@media (max-width: 575px) {
+        .ent-kpi-tile {
+            flex: 1 1 100% !important;
+        }
+    }
+
+    .ent-kpi-tile {
+        flex: 1;
+        min-width: 160px;
+        padding: 12px 16px;
+        border-right: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        position: relative;
+    }
+
+    .ent-kpi-tile:last-child {
+        border-right: none;
+    }
+
+    .ent-kpi-tile::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+    }
+
+    .ent-accent-blue::before {
+        background: #1e3a8a;
+    }
+
+    .ent-accent-teal::before {
+        background: #0f766e;
+    }
+
+    .ent-accent-orange::before {
+        background: #c2410c;
+    }
+
+    .ent-accent-purple::before {
+        background: #6d28d9;
+    }
+
+    .ent-accent-slate::before {
+        background: #475569;
+    }
+
+    .ent-accent-rose::before {
+        background: #be123c;
+    }
+
+    .ent-kpi-label {
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: #64748b;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .ent-kpi-value {
+        font-size: 22px;
+        font-weight: 700;
+        color: #0f172a;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .ent-kpi-sub {
+        display: block;
+        font-size: 11px;
+        color: #94a3b8;
+        margin-top: 4px;
+    }
+
+    .ent-insights-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-bottom: 14px;
+    }
+
+    @@media (max-width: 991px) {
+        .ent-insights-row {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .ent-panel {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+    }
+
+    .ent-panel-header {
+        padding: 10px 16px;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 12.5px;
+        font-weight: 700;
+        color: #1e293b;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .ent-chart-body-sm {
+        min-height: 240px;
+        padding: 8px 6px 4px;
+        position: relative;
+    }
+
+    .ent-chart-empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 200px;
+        color: #94a3b8;
+        font-size: 12.5px;
+    }
+
+    .ent-loading-overlay {
+        display: none;
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, .65);
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+        border-radius: 6px;
+    }
+
+    .ent-loading-overlay i {
+        font-size: 24px;
+        color: #1e3a8a;
+    }
+
+    .ent-dashboard {
+        position: relative;
+    }
+
+    .ent-dashboard.ent-is-loading .ent-loading-overlay {
+        display: flex;
+    }
+</style>
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper ent-wrap">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active"> Dashboard</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z"/><path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A8 8 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3"/></svg></span>
+                    <h1> Dashboard</h1>
+                    <div class="vd_panel-menu  hidden-xs">
+                    </div>
+
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+
+                    <div class="ent-toolbar">
+                        <div class="ent-toolbar-title"><i class="fa fa-dashboard"></i> Organization Overview</div>
+                        <button id="searchButton" class="ent-btn"><i class="fa fa-refresh"></i> <span>Refresh</span></button>
+                    </div>
+                    <div class="ent-error-banner" id="errorBanner"><i class="fa fa-exclamation-circle"></i> Unable to load overview data. Please try again.</div>
+
+                    <div class="ent-dashboard" id="entDashboard">
+
+                        <!-- KPI Ribbon -->
+                        <div class="ent-kpi-ribbon">
+                            <div class="ent-kpi-tile ent-accent-blue">
+                                <span class="ent-kpi-label">Total Members</span>
+                                <span class="ent-kpi-value" id="totalMembers">0</span>
+                            </div>
+                            <div class="ent-kpi-tile ent-accent-purple">
+                                <span class="ent-kpi-label">Total Dealers</span>
+                                <span class="ent-kpi-value" id="totalDealers">0</span>
+                            </div>
+                            <div class="ent-kpi-tile ent-accent-slate">
+                                <span class="ent-kpi-label">Total System Users</span>
+                                <span class="ent-kpi-value" id="totalSystemUsers">0</span>
+                            </div>
+                            <div class="ent-kpi-tile ent-accent-blue">
+                                <span class="ent-kpi-label">Total Stock</span>
+                                <span class="ent-kpi-value" id="totalStock">0</span>
+                            </div>
+                            <div class="ent-kpi-tile ent-accent-teal">
+                                <span class="ent-kpi-label">Sold / Registered</span>
+                                <span class="ent-kpi-value" id="kpiSold">0</span>
+                                <span class="ent-kpi-sub" id="kpiSoldPct"></span>
+                            </div>
+                            <div class="ent-kpi-tile ent-accent-orange">
+                                <span class="ent-kpi-label">Available</span>
+                                <span class="ent-kpi-value" id="kpiAvailable">0</span>
+                                <span class="ent-kpi-sub" id="kpiAvailablePct"></span>
+                            </div>
+                        </div>
+
+                        <!-- Insight charts -->
+                        <div class="ent-insights-row">
+                            <div class="ent-panel">
+                                <div class="ent-panel-header"><span>Stock by Category</span></div>
+                                <div class="ent-chart-body-sm" id="pie-chart"></div>
+                            </div>
+                            <div class="ent-panel">
+                                <div class="ent-panel-header"><span>Sold vs Available</span></div>
+                                <div class="ent-chart-body-sm" id="sold-available-chart"></div>
+                            </div>
+                            <div class="ent-panel">
+                                <div class="ent-panel-header"><span>Top Blocks by Volume</span></div>
+                                <div class="ent-chart-body-sm" id="top-blocks-chart"></div>
+                            </div>
+                        </div>
+
+                        <div class="ent-loading-overlay"><i class="fa fa-spinner fa-spin"></i></div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+@section Scripts {
+    <script type="text/javascript">
+        var pieChart, soldAvailableChart, topBlocksChart;
+        var entColors = ['#1e3a8a', '#c2410c', '#0f766e', '#6d28d9', '#be123c', '#0369a1', '#a16207', '#4338ca'];
+
+        $(document).ready(function () {
+            fetchData();
+            $("#searchButton").click(function () {
+                fetchData();
+            });
+        });
+
+        function setLoading(isLoading) {
+            var $dashboard = $("#entDashboard");
+            var $btn = $("#searchButton");
+            if (isLoading) {
+                $dashboard.addClass("ent-is-loading");
+                $btn.prop("disabled", true);
+                $("#errorBanner").hide();
+            } else {
+                $dashboard.removeClass("ent-is-loading");
+                $btn.prop("disabled", false);
+            }
+        }
+
+        function animateValue(id, endValue) {
+            var $el = $("#" + id);
+            if (!$el.length) return;
+            var startValue = 0;
+            var duration = 700;
+            var startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var current = Math.floor(progress * (endValue - startValue) + startValue);
+                $el.text(current.toLocaleString());
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    $el.text(endValue.toLocaleString());
+                }
+            }
+            window.requestAnimationFrame(step);
+        }
+
+        function sumBy(list, key) {
+            if (!list || !list.length) return 0;
+            return list.reduce(function (total, item) { return total + (item[key] || 0); }, 0);
+        }
+
+        function showChartEmpty(containerId, message) {
+            $("#" + containerId).html('<div class="ent-chart-empty"><i class="fa fa-inbox" style="margin-right:8px;"></i>' + (message || 'No data available') + '</div>');
+        }
+
+        function fetchData() {
+            setLoading(true);
+            $.ajax({
+                type: 'GET',
+                url: `/Home/api/Dashboard/GetCardsValues?project=all`,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                contentType: 'application/json',
+                success: function (response) {
+                    setLoading(false);
+                    if (response.code === 100) {
+                        var result = response.data;
+                        clearCharts();
+                        updateKpis(result);
+                        renderCategoryChart(result);
+                        renderSoldAvailableChart(result);
+                        renderTopBlocksChart(result);
+                    } else {
+                        $("#errorBanner").show();
+                    }
+                },
+                error: function (error) {
+                    setLoading(false);
+                    $("#errorBanner").show();
+                    console.error('Error fetching data:', error);
+                }
+            });
+        }
+
+        function clearCharts() {
+            if (pieChart) pieChart.destroy();
+            if (soldAvailableChart) soldAvailableChart.destroy();
+            if (topBlocksChart) topBlocksChart.destroy();
+        }
+
+        function updateKpis(result) {
+            var totalStock = result.totalStock || 0;
+            var sold = result.soldStock || 0;
+            var available = result.availableStock || 0;
+
+            animateValue('totalMembers', result.totalMembers || 0);
+            animateValue('totalDealers', result.totalDealers || 0);
+            animateValue('totalSystemUsers', result.totalPMSUsers || 0);
+            animateValue('totalStock', totalStock);
+            animateValue('kpiSold', sold);
+            animateValue('kpiAvailable', available);
+
+            $('#kpiSoldPct').text(totalStock ? ((sold / totalStock) * 100).toFixed(1) + '% of total' : '');
+            $('#kpiAvailablePct').text(totalStock ? ((available / totalStock) * 100).toFixed(1) + '% of total' : '');
+        }
+
+        function renderCategoryChart(result) {
+            var data = result.typeWisePieChartDTO || [];
+            if (!data.length) { showChartEmpty('pie-chart'); return; }
+
+            var options = {
+                chart: { type: 'donut', width: '100%', height: 250, toolbar: { show: false } },
+                labels: data.map(function (item) { return item.name; }),
+                series: data.map(function (item) { return item.count; }),
+                colors: entColors,
+                dataLabels: { style: { fontSize: '10px' } },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '62%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Total',
+                                    fontSize: '11px',
+                                    formatter: function (w) { return w.globals.seriesTotals.reduce((a, b) => a + b, 0); }
+                                }
+                            }
+                        }
+                    }
+                },
+                legend: { position: 'bottom', horizontalAlign: 'center', fontSize: '10.5px', itemMargin: { horizontal: 6, vertical: 2 } },
+                tooltip: { y: { formatter: function (val) { return val; } } }
+            };
+
+            pieChart = new ApexCharts(document.querySelector("#pie-chart"), options);
+            pieChart.render();
+        }
+
+        function renderSoldAvailableChart(result) {
+            var sold = result.soldStock || 0;
+            var available = result.availableStock || 0;
+            if (!(sold + available)) { showChartEmpty('sold-available-chart'); return; }
+
+            var options = {
+                chart: { type: 'donut', width: '100%', height: 250, toolbar: { show: false } },
+                labels: ['Sold / Registered', 'Available'],
+                series: [sold, available],
+                colors: ['#0f766e', '#c2410c'],
+                dataLabels: { style: { fontSize: '10px' } },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '62%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Total',
+                                    fontSize: '11px',
+                                    formatter: function (w) { return w.globals.seriesTotals.reduce((a, b) => a + b, 0); }
+                                }
+                            }
+                        }
+                    }
+                },
+                legend: { position: 'bottom', horizontalAlign: 'center', fontSize: '10.5px' },
+                tooltip: { y: { formatter: function (val) { return val; } } }
+            };
+
+            soldAvailableChart = new ApexCharts(document.querySelector("#sold-available-chart"), options);
+            soldAvailableChart.render();
+        }
+
+        function renderTopBlocksChart(result) {
+            var rows = (result.blockWiseData || []).map(function (item) {
+                var total = (item.residentialCount || 0) + (item.commercialCount || 0) + (item.villaCount || 0) + (item.farmHouseCount || 0) + (item.largeComercialCount || 0);
+                return { name: item.name, total: total };
+            }).sort(function (a, b) { return b.total - a.total; }).slice(0, 6);
+
+            if (!rows.length) { showChartEmpty('top-blocks-chart'); return; }
+
+            var options = {
+                series: [{ name: 'Total', data: rows.map(function (r) { return r.total; }) }],
+                chart: { type: 'bar', height: 250, toolbar: { show: false } },
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        borderRadius: 4,
+                        barHeight: '55%',
+                        distributed: true,
+                        dataLabels: { position: 'top' }
+                    }
+                },
+                colors: entColors,
+                dataLabels: { enabled: true, offsetX: 16, style: { fontSize: '10px', colors: ['#334155'] } },
+                xaxis: { categories: rows.map(function (r) { return r.name; }), labels: { style: { fontSize: '10px' } } },
+                grid: { borderColor: '#f1f5f9' },
+                legend: { show: false },
+                tooltip: { y: { formatter: function (val) { return val; } } }
+            };
+
+            topBlocksChart = new ApexCharts(document.querySelector("#top-blocks-chart"), options);
+            topBlocksChart.render();
+        }
+    </script>
+}

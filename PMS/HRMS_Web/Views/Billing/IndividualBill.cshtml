@@ -1,0 +1,697 @@
+﻿<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Individual Bill Generation</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>INDIVIDUAL BILL GENERATION</h1>
+
+                    <button id="propertyModal" class="btn btn-warning" style="margin-left:33%">Property Detail</button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="IndividualBill">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Reference No.</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input style="" type="text" class="form-control" disabled name="RegistrationNo"
+                                                   placeholder="" id="RegistrationNo" />
+
+                                        </div>
+                                        <div >
+                                            <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn" 
+                                            >Search</button>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PropertyNo" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Member Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberName" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Member Code</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberCode" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>For the Month</label>
+                                    <div>
+                                        <input type="month" class="form-control"
+                                               placeholder=" " id="FortheMonth"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Bill For</label>
+                                    <div>
+                                        <select name="BillFor" class="js-example-basic-single" id="BillFor">
+                                            <option value=""> -- Select Option --</option>
+                                            <option value="Electricity">Electricity</option>
+                                            <option value="Water">Water</option>
+                                            <option value="Fixed Dues">Fixed Dues</option>
+                                        </select>
+                                    </div>
+                                </div>
+                              
+                            </div>
+                            <br>
+
+                            <div >
+                                <div class="card p-3">
+                                    <div >
+                                        <br>
+                                        <br>
+                                        <div class="table-responsive">
+                                            <table id="IBillGenerate" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white" style="min-width: 90px;">#</th>
+                                                        <th class="text-white hide" style="min-width: 160px;">Id</th>
+                                                        <th class="text-white" style="min-width: 160px;">Bill Type</th>
+                                                        <th class="text-white" style="min-width: 160px;">Charge Type</th>
+                                                        <th class="text-white" style="min-width: 130px;">Amount</th>
+                                                        <th class="text-white" style="min-width: 130px;">Surcharge</th>
+                                                        <th class="text-white" style="min-width: 170px;">Other Dues Description</th>
+                                                        <th class="text-white" style="min-width: 130px;">Amount</th>
+                                                        <th class="text-white" style="min-width: 130px;">Sale Tax %</th>
+                                                        <th class="text-white" style="min-width: 130px;">Sale Tax Amount</th>
+                                                        <th class="text-white" style="min-width: 130px;">Gross Amount</th>
+                                                        <th class="text-white" style="min-width: 130px;">Discount</th>
+                                                        <th class="text-white" style="min-width: 130px;">Net Amount</th>
+                                                        <th class="text-white" style="min-width: 130px;">W Tax Amount</th>
+                                                </thead>
+                                                <tbody id="IBGeneratetbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-8">
+
+                                </div>
+                                <div class="col-sm-2">
+                                        <label>W Tax Amount</label>
+                                        <div>
+                                            <input type="number" class="form-control"
+                                                   placeholder=" " id="wTaxAmount" value="0" readonly />
+                                        </div>
+                                </div>
+                                <div class="col-sm-2">
+                                        <label>Total</label>
+                                        <div>
+                                            <input type="number" class="form-control"
+                                                   placeholder=" " id="total" value="0" readonly />
+                                        </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Remarks</label>
+                                    <div>
+                                        <textarea type="text" class="form-control" id="Remarks" name="Remarks"
+                                                  placeholder=" "></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                        </form>
+                        <div class="col-12" style="float: right;">
+                                @*<button class="btn vd_btn vd_black" href="javascript:void(0);" style="width: 150px;">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-file"></i></span>Generate Bill
+                                </button>*@
+                            <button type="submit" onclick="PostRequest()" class="btn dha_theme_btn">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                            <button class="btn btn-light" href="javascript:void(0);">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                                </button>
+                         </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+
+<div class="modal" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Reference Or Property No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="proplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            @*<th class="text-white hidden">StockId</th>*@
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Member Name</th>
+                                            <th class="text-white">Member Code</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<input id="rownumber" value="0" class="hide" />
+<input id="StockCreationId" value="0" class="hide" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+
+           // $('#proplist').dataTable();
+            GetAllPropertyLists();
+
+        });
+        
+        $("#BillFor").change(function () {
+            let readingFor = $(this).val();
+            let month = $("#FortheMonth").val();
+            let regno = $("#RegistrationNo").val();
+
+            if (month != "" && regno !="" && readingFor == "Fixed Dues")
+            {
+                GetAllFixedBillDetial(readingFor, month, regno);
+               // calculateBill();
+            }
+
+            if (month != "" && readingFor != "Fixed Dues" && regno != "") {
+                GetAllBillDetial(readingFor, month, regno);
+               // calculateBill();
+            }
+        });
+
+        $("#FortheMonth").change(function () {
+            var  month= $(this).val();
+            var readingFor = $("#BillFor").val();
+            let regno = $("#RegistrationNo").val();
+
+            if (month != "" && regno != "" && readingFor == "Fixed Dues") {
+                GetAllFixedBillDetial(readingFor, month, regno);
+               // calculateBill();
+            }
+
+            if(month != "" && readingFor != "Fixed Dues" && regno != "") {
+                GetAllBillDetial(readingFor, month, regno);
+               // calculateBill();
+            }
+        });
+
+        function GetAllBillDetial(readingFor, month, regno) {
+
+            debugger;
+            var url = "/api/Filter/GetDetailsFromMeterBillGeneration?readingFor=" + readingFor + "&month=" + month + "&regno=" + regno;
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        debugger;
+
+                        var readingFor = $("#BillFor").val();
+
+                        $("#IBGeneratetbody").empty();
+
+                        var model = response.data;
+
+                        var relist = model.meterBillGenerationDetail;
+                        if (relist != null && relist.length > 0) {
+                            debugger;
+                            var sr = 1;
+
+                            for (let list of relist) {
+
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td class="hide"> <input class="form-control   Id" value="' + list.id + '" /></td>' +
+                                    '<td> <input id="billType_' + sr + '" class="form-control   billType" value="' + readingFor + '" /></td>' +
+                                    '<td> <input id="description_' + sr + '" class="form-control   description" value="' + readingFor + '" /></td>' +
+                                    '<td> <input type="number" disabled name="amount1" class="form-control  amount1" value="' + list.amount + '" /></td>' + 
+                                    '<td> <input type="number" onkeyup="calculateGrossAmountSurcharge(event)" name="surcharge" class="form-control  surcharge" value="' + list.surcharge + '" /></td>' +
+                                    '<td> <input type="text" name="otherduesdescription" class="form-control  otherduesdescription" value="' + list.otherDuesDescription + '" /></td>' +
+                                    '<td> <input type="number" onkeyup="calculateGrossAmount(event)" name="amount2" class="form-control  amount2"  value="' + list.otherDuesAmount + '" /></td>' +
+                                    '<td> <input type="number" disabled name="saleTax" class="form-control  saleTax" value="' + list.saleTax + '" /></td>' +
+                                    '<td> <input type="number" disabled name="saleTaxAmount"  class="form-control  saleTaxAmount" value="' + list.saleTaxAmount + '" /></td>' +                                   
+                                    '<td> <input type="number" disabled name="grossAmount" class="form-control  grossAmount" value="' + list.grossAmount + '" /></td>' +
+                                    '<td> <input type="number" onkeyup="calculateNetAmount(event)" name="discount" class="form-control  discount"  value="' + list.discount + '" /></td>' +
+                                    '<td> <input type="number" disabled name="netAmount" class="form-control  netAmount" value="' + list.netAmount + '" /></td>' +
+                                    '<td> <input type="number" disabled name="wTaxAmount"  class="form-control  wTaxAmount" value="' + list.wTaxAmount + '" /></td>' +
+                                    '</tr>';
+                                $("#IBGeneratetbody").append(row);
+
+                                sr++;
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function GetAllFixedBillDetial(readingFor, month, regno) {
+
+            debugger;
+            var url = "/api/Filter/GetDetailsFromFixedChargeBillGeneration?readingFor=" + readingFor + "&month=" + month + "&regno=" + regno;
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        var readingFor = $("#BillFor").val();
+
+                        $("#IBGeneratetbody").empty();
+
+                        var model = response.data;
+
+                        $("#wTaxAmount").val(model.wTaxAmount);
+                        $("#total").val(model.totalAmount);
+
+                        var relist = model.fixedChargeBillDetail;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+
+                            for (let list of relist) {
+
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td class="hide"> <input class="form-control   Id" value="' + list.id + '" /></td>' +
+                                    '<td> <input id="billType_' + sr + '" class="form-control   billType" value="' + list.billType + '" /></td>' +
+                                    '<td> <input id="description_' + sr + '" class="form-control   description" value="' + list.description + '" /></td>' +
+                                    '<td> <input type="number" disabled name="amount1" class="form-control  amount1" value="' + list.amount + '" /></td>' +
+                                    '<td> <input type="number" onkeyup="calculateGrossAmountSurcharge(event)" name="surcharge" class="form-control  surcharge" value="' + list.surcharge + '" /></td>' +
+                                    '<td> <input type="text" name="otherduesdescription" class="form-control  otherduesdescription" value="' + list.otherDuesDescription + '" /></td>' +
+                                    '<td> <input type="number" onkeyup="calculateGrossAmount(event)" name="amount2" class="form-control  amount2"  value="' + list.otherDuesAmount + '" /></td>' +
+                                    '<td> <input type="number" disabled name="saleTax" class="form-control  saleTax" value="' + list.saleTax + '" /></td>' +
+                                    '<td> <input type="number" disabled name="saleTaxAmount"  class="form-control  saleTaxAmount" value="' + list.saleTaxAmount + '" /></td>' +                                   
+                                    '<td> <input type="number" disabled name="grossAmount" class="form-control  grossAmount" value="' + list.grossAmount + '" /></td>' +
+                                    '<td> <input type="number" diaabled onkeyup="calculateNetAmount(event)" name="discount" class="form-control  discount"  value="' + list.discount + '" /></td>' +
+                                    '<td> <input type="number" disabled name="netAmount" class="form-control  netAmount" value="' + list.netAmount + '" /></td>' +
+                                    '<td> <input type="number" disabled name="wTaxAmountLine"  class="form-control  wTaxAmountLine" value="' + list.wTaxAmountLine + '" /></td>' +
+                                    '</tr>';
+                                $("#IBGeneratetbody").append(row);
+
+                                sr++;
+                            }
+                            
+                        }
+                    }
+                }
+            });
+        }
+
+        function GetAllPropertyLists() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Filter/GetAllProperiesForIndiviualBillGenration`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        debugger;
+                        $("#Propertytbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    //' <td class="sr">' + sr + '</td> ' +
+                                    ' <td class="stockId">' + list.id + '</td> ' +
+                                    ' <td class="registrationNo">' + list.registrationNo + '</td>           ' +
+                                    ' <td class="propertyNo">' + list.propertyNo + '</td>           ' +
+                                    ' <td class="memberName">' + list.memberName + '</td>       ' +
+                                    ' <td class="memberCode">' + list.memberCode + '</td> ' +
+                                     '<td><a class="btn btn-primary" onclick="SelectRegistration(this)" >Select</a></td> </tr>';
+                                //</tr>';
+                                $("#Propertytbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#proplist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectRegistration(el) {
+
+            var stockCreationId = $(el).parents('tr').find(".stockId").text();
+            var property = $(el).parents('tr').find(".propertyNo").text();
+            var Registration = $(el).parents('tr').find(".registrationNo").text();
+            var memberName = $(el).parents('tr').find(".memberName").text();
+            var memberCode = $(el).parents('tr').find(".memberCode").text();
+
+            $("#StockCreationId").val(stockCreationId);
+            $("#RegistrationNo").val(Registration);
+            $("#PropertyNo").val(property);
+            $("#MemberName").val(memberName);
+            $("#MemberCode").val(memberCode);
+            $("#registrationModal").modal("hide");
+            PropertyDetail(stockCreationId);
+            ShowAlert(stockCreationId);
+
+            let month = $("#FortheMonth").val();
+            let readingFor = $("#BillFor").val();
+            let regno = $("#RegistrationNo").val();
+
+            if (month != "" && regno != "" && readingFor !="" && readingFor == "Fixed Dues") {
+                GetAllFixedBillDetial(readingFor, month, regno);
+                //calculateBill();
+            }
+
+            if (month != "" && readingFor != "Fixed Dues" && regno != "" && readingFor != "") {
+                GetAllBillDetial(readingFor, month, regno);
+                //calculateBill();
+            }
+        }
+
+        //function getchargesdata() {
+
+        //    var obj = new Object();
+
+        //    obj.RealStateTypeId = "1";
+        //    obj.ProjectId = "1";
+        //    obj.PhaseId = "1";
+        //    obj.BlockId = "1";
+        //    obj.CategoryId = "1";
+        //    obj.PropertyTypeId = "1";
+        //    obj.NatureId = "1";
+
+        //    var ModelData = JSON.stringify(obj);
+        //    debugger;
+        //    $.ajax({
+        //        type: "POST",
+        //        url: `/api/Filter/GetGlobalChargeDetail/?formId=4`,
+        //        contentType: 'application/json; charset=utf-8',
+        //        processData: false,
+        //        dataType: "json",
+        //        async: false,
+        //        data: ModelData,
+        //        success: function (response) {
+        //            debugger;
+        //            if (response.code == 100) {
+        //                if (response.data != null) {
+
+        //                    var readingFor = $("#BillFor").val();
+
+        //                    $("#IBGeneratetbody").empty();
+
+        //                    var model = response.data;
+
+        //                    var relist = model.globalChargeDetail;
+        //                    if (relist != null && relist.length > 0) {
+        //                        var sr = 1;
+
+        //                        for (let list of relist) {
+
+        //                            var row = '<tr>' +
+        //                                '<td>' + sr + '</td>' +
+        //                                '<td class="hide"> <input class="form-control   Id" value="' + list.id + '" /></td>' +
+        //                                '<td> <input id="billType_' + sr + '" class="form-control   billType" value="' + readingFor + '" /></td>' +
+        //                                '<td> <input id="description_' + sr + '" class="form-control   description" value="' + list.description + '" /></td>' +
+        //                                '<td> <input type="number" name="amount1" class="form-control  amount1" value="' + list.rate + '" /></td>' +
+        //                                '<td> <input type="number" onkeyup="calculateGrossAmountSurcharge(event)" name="surcharge" class="form-control  surcharge" value ="0" /></td>' +
+        //                                '<td> <input name="otherduesdescription" class="form-control  otherduesdescription"  /></td>' +
+        //                                '<td> <input type="number" onkeyup="calculateGrossAmount(event)" name="amount2" class="form-control  amount2"  value ="0" /></td>' +
+        //                                '<td> <input type="number" name="grossAmount" class="form-control  grossAmount" value="0" /></td>' +
+        //                                '<td> <input type="number" onkeyup="calculateNetAmount(event)" name="discount" class="form-control  discount" value="0" /></td>' +
+        //                                '<td> <input type="number" name="netAmount" class="form-control  netAmount" value="0" /></td>' +
+        //                                '</tr>';
+        //                            $("#IBGeneratetbody").append(row);
+
+        //                            sr++;
+        //                        }
+        //                    }
+        //                }
+        //            }
+        //        }
+
+        //    });
+        //}
+
+
+        //function calculateBill() {
+
+        //    let tbody = document.querySelector('#IBGeneratetbody');
+
+        //    tbody.querySelectorAll('tr').forEach(tr => {
+
+        //        let saleTaxAmount = tr.querySelector('input[name="saleTaxAmount"]').value == "" ? 0 : tr.querySelector('input[name="saleTaxAmount"]').value;
+        //        let amount1 = tr.querySelector('input[name="amount1"]').value == "" ? 0 : tr.querySelector('input[name="amount1"]').value;
+        //        let surcharge = tr.querySelector('input[name="surcharge"]').value == "" ? 0 : tr.querySelector('input[name="surcharge"]').value;
+
+        //        let result = parseInt(saleTaxAmount) + parseInt(amount1) + parseInt(surcharge) + parseInt(event.target.value);
+        //        tr.querySelector('input[name="grossAmount"]').value = result;
+
+        //        let discount = tr.querySelector('input[name="discount"]').value;
+        //        let netAmount = result - parseInt(discount);
+        //        tr.querySelector('input[name="netAmount"]').value = netAmount;
+
+        //    });
+        //}
+
+
+        function calculateGrossAmountSurcharge(event) {
+
+            let tr = event.target.closest('tr');
+            let saleTaxAmount = tr.querySelector('input[name="saleTaxAmount"]').value == "" ? 0 : tr.querySelector('input[name="saleTaxAmount"]').value;
+            let wTaxAmount = tr.querySelector('input[name="wTaxAmount"]').value == "" ? 0 : tr.querySelector('input[name="wTaxAmount"]').value;
+            let amount1 = tr.querySelector('input[name="amount1"]').value == "" ? 0 : tr.querySelector('input[name="amount1"]').value;
+            let amount2 = tr.querySelector('input[name="amount2"]').value == "" ? 0 : tr.querySelector('input[name="amount2"]').value;
+            let result = parseInt(saleTaxAmount) + parseInt(amount1) + parseInt(amount2) + parseInt(event.target.value);
+            tr.querySelector('input[name="grossAmount"]').value = result;
+
+            let discount = tr.querySelector('input[name="discount"]').value == "" ? 0 : tr.querySelector('input[name="discount"]').value;
+            tr.querySelector('input[name="netAmount"]').value = result - parseInt(discount);
+        }
+
+        function calculateGrossAmount(event) {
+    
+            let tr = event.target.closest('tr');
+            let saleTaxAmount = tr.querySelector('input[name="saleTaxAmount"]').value == "" ? 0 : tr.querySelector('input[name="saleTaxAmount"]').value;
+            let wTaxAmount = tr.querySelector('input[name="wTaxAmount"]').value == "" ? 0 : tr.querySelector('input[name="wTaxAmount"]').value;
+            let amount1 = tr.querySelector('input[name="amount1"]').value == "" ? 0 : tr.querySelector('input[name="amount1"]').value;
+            let surcharge = tr.querySelector('input[name="surcharge"]').value == "" ? 0 : tr.querySelector('input[name="surcharge"]').value;
+
+            let result = parseInt(saleTaxAmount) + parseInt(amount1) + parseInt(surcharge) + parseInt(event.target.value);
+            tr.querySelector('input[name="grossAmount"]').value = result;
+
+            let discount = tr.querySelector('input[name="discount"]').value == "" ? 0 : tr.querySelector('input[name="discount"]').value;
+            tr.querySelector('input[name="netAmount"]').value = result - parseInt(discount);
+        }
+
+        function calculateNetAmount(event) {
+
+            let tbody = document.querySelector('#IBGeneratetbody');
+
+            let tr = event.target.closest('tr');
+            let amount = tr.querySelector('input[name="grossAmount"]').value;
+            let result = parseInt(amount) - parseInt(event.target.value);
+            tr.querySelector('input[name="netAmount"]').value = result;
+        }
+
+        function PostRequest() {
+
+            var methodType = 'POST';
+            var url = "/api/IndividualBill/AddNewIndividualBill";
+
+            var individualBillGeneration = new Object();
+
+            var individualBillGenerationDetailArr = new Array();
+
+            //if ($("#Id").val()) {
+
+            //    debugger;
+
+            //    meterInstallation.id = parseInt($("#Id").val());
+            //    methodType = 'PUT';
+            //    url = "/api/MeterInstallation/UpdateMeterInstallation"
+            //}
+
+            individualBillGeneration.Month = $('#FortheMonth').val();
+            individualBillGeneration.BillFor = $('#BillFor').val();
+            individualBillGeneration.RegistrationNo = $('#RegistrationNo').val();
+            individualBillGeneration.StockCreationID = $('#StockCreationId').val();
+            individualBillGeneration.CreatedBy = $("#User_Id").val();
+            individualBillGeneration.ModifiedBy = $("#User_Id").val();
+            individualBillGeneration.LastModifiedUserName = $("#User_Name").val();
+           
+            $('#IBGeneratetbody tr').each(function () {
+
+                var row = $(this);
+                var individualBillGenerationDetail = new Object();
+
+                individualBillGenerationDetail.Id = row.find('.Id').val();
+                individualBillGenerationDetail.BillType = row.find('.billType').val();
+                individualBillGenerationDetail.Description = row.find('.description').val();
+                individualBillGenerationDetail.Amount = row.find('.amount1').val();
+                individualBillGenerationDetail.Surcharge = row.find('.surcharge').val();
+                individualBillGenerationDetail.OtherDuesDescription = row.find('.otherduesdescription').val();
+                individualBillGenerationDetail.OtherDuesAmount = row.find('.amount2').val();
+                individualBillGenerationDetail.GrossAmount = row.find('.grossAmount').val();
+                individualBillGenerationDetail.Discount = row.find('.discount').val();
+                individualBillGenerationDetail.NetAmount = row.find('.netAmount').val();
+
+                individualBillGenerationDetailArr.push(individualBillGenerationDetail);
+            });
+
+
+            individualBillGeneration.IndividualBillDetail = individualBillGenerationDetailArr;
+
+            var model = JSON.stringify(individualBillGeneration);
+     
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: model,
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+    </script>
+ }

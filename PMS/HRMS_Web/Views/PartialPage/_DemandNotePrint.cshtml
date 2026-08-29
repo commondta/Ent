@@ -1,0 +1,93 @@
+﻿
+<link media="print" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+
+<div class="container mt-5 pt-5">
+    <div class="row mb-5 pb-5">
+        <div class="col-md-12 text-center">
+            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/></svg></span>
+                    <h1>
+                Urban Developers (Pvt.) Ltd.
+            </h1>
+            <h3>Demand Note</h3>
+        </div>
+    </div>
+    <div class="row">
+       <div class="col-md-6">
+            <label style="font-weight:400;font-size:20px">
+                 Requester Name &nbsp;&nbsp;&nbsp;: &nbsp;
+            </label>
+           <span id="RequesterNameP" style="font-weight:400;font-size:20px"></span> <br />
+            <label style="font-weight:400;font-size:20px">
+                 Department &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
+            </label>
+            <span id="DepartmentP" style="font-weight:400;font-size:20px"></span><br />
+            <label style="font-weight:400;font-size:20px">
+                 Status &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;: &nbsp;
+            </label>
+            <span id="StatusP" style="font-weight:400;font-size:20px"></span>
+            
+       </div>
+       <div class="col-md-6">
+            <label style="font-weight:400;font-size:20px">
+                 DocNum &nbsp;&nbsp;&nbsp; : &nbsp;
+            </label>
+           <span id="DocNumP" style="font-weight:400;font-size:20px"></span> <br />
+            <label style="font-weight:400;font-size:20px">
+                 DocDate &nbsp;&nbsp;&nbsp;&nbsp; : &nbsp;
+            </label>
+                <span id="DocDateP" style="font-weight:400;font-size:20px"></span>
+       </div>
+     </div>
+     
+
+     <div class="row">
+     <div class="col-md-12" style="margin-top:100px;margin-bottom:100px">
+           <table style="background:lightgrey;color:#000" class="table table-borderless w-100 ">
+              <thead>
+                   <tr>
+                       <th>
+                            Sr #
+                       </th>
+                       <th>
+                            ItemCode
+                       </th>
+                       <th>
+                            Description
+                       </th>
+                       <th>
+                            UOM
+                       </th>
+                       <th>
+                            WareHouse
+                       </th>
+                       <th>
+                            Project
+                       </th>
+                       <th>
+                            Quantity
+                       </th>
+                       <th>
+                            InfoPrice
+                       </th>
+                       <th>
+                            LineTotal
+                       </th>
+                   </tr>
+              </thead>
+              <tbody id="tbodyPrint"></tbody>
+           </table>
+          <div style="float:right;font-weight:400;font-size:20px">Total : <span style="float:right;font-weight:400;font-size:18px;margin-top:2px" id="TotalP"></span></div>
+        </div>
+          </div>
+           <div class="row mt-5 pt-5">
+        <div class="col-md-12">
+            <label style="font-weight:400;font-size:20px">
+                Remarks / Instruction:
+            </label>
+            <span style="font-weight:400;font-size:18px" id="RemarksP"></span>
+        </div>
+
+
+    </div>
+</div>

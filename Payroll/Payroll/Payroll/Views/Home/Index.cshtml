@@ -1,0 +1,170 @@
+﻿@using DataLayer
+@using Payroll_HCC.Infrastructure
+@{
+    ViewBag.Title = "Home";
+    SessionUser me = Payroll_HCC.Infrastructure.App.CurrentUser;
+    var modules = (List<ModuleInfo>)ViewBag.Modules;
+    var kpi = (Dictionary<string, string>)ViewBag.Kpi;
+    var recent = (List<ActivityLogModel>)ViewBag.Recent;
+    var pending = (List<ApprovalRequestModel>)ViewBag.PendingApprovals;
+    var returned = (List<ApprovalRequestModel>)ViewBag.MyReturned;
+    string greeting = DateTime.Now.Hour < 12 ? "Good morning" : DateTime.Now.Hour < 17 ? "Good afternoon" : "Good evening";
+    Func<string, string> val = k => kpi.ContainsKey(k) && !string.IsNullOrEmpty(kpi[k]) ? kpi[k] : null;
+}
+<div class="content-wrapper">
+    <section class="content" style="padding-top:26px">
+        <div class="home-hero">
+            <div>
+                <h1>@greeting, @me.DisplayName.Split(' ')[0]</h1>
+                <p>@DateTime.Now.ToString("dddd, d MMMM yyyy") · @me.RoleName@(string.IsNullOrEmpty(Session["activeComp"] as string) ? "" : " · " + Session["activeComp"])</p>
+            </div>
+            @if (returned.Count > 0)
+            {
+                <a href="@Url.Action("Approvals", "Security", new { status = "Returned" })" class="alert alert-warning" style="margin:0;padding:8px 14px">@Icons.Svg("arrow-repeat", 14) @returned.Count request@(returned.Count == 1 ? "" : "s") returned to you for revision</a>
+            }
+        </div>
+
+        @if (kpi.Count > 0)
+        {
+            <div class="kpi-row">
+                @if (kpi.ContainsKey("Employees"))
+                {
+                    <a class="kpi" href="~/Master/Employees"><span class="kpi-ico">@Icons.Svg("people", 18)</span><div><b>@kpi["Employees"]</b><span>Employees</span></div></a>
+                }
+                @if (kpi.ContainsKey("Departments"))
+                {
+                    <a class="kpi" href="~/Master/DepartmentSetup"><span class="kpi-ico">@Icons.Svg("diagram", 18)</span><div><b>@kpi["Departments"]</b><span>Departments</span></div></a>
+                }
+                @if (kpi.ContainsKey("Period"))
+                {
+                    <a class="kpi @(val("Period") == null ? "kpi-empty" : "")" href="~/Master/PayPeriod"><span class="kpi-ico">@Icons.Svg("calendar-range", 18)</span><div><b>@(val("Period") ?? "No period defined")</b><span>Current payroll period</span></div></a>
+                }
+                @if (kpi.ContainsKey("LastPayroll"))
+                {
+                    <a class="kpi @(val("LastPayroll") == null ? "kpi-empty" : "")" href="~/Transaction/PayrollProcess"><span class="kpi-ico">@Icons.Svg("gear-play", 18)</span><div><b>@(val("LastPayroll") ?? "No payroll run yet")</b><span>Last payroll run</span></div></a>
+                }
+                @if (kpi.ContainsKey("Pending"))
+                {
+                    <a class="kpi" href="@Url.Action("Approvals", "Security")"><span class="kpi-ico @(kpi["Pending"] != "0" ? "warn" : "")">@Icons.Svg("inbox", 18)</span><div><b>@kpi["Pending"]</b><span>Pending approvals</span></div></a>
+                }
+                @if (kpi.ContainsKey("Users"))
+                {
+                    <a class="kpi" href="@Url.Action("Users", "Security")"><span class="kpi-ico">@Icons.Svg("person-gear", 18)</span><div><b>@kpi["Users"]</b><span>Active users</span></div></a>
+                }
+            </div>
+        }
+
+        <div class="home-grid">
+            <div>
+                <div class="section-title"><h2>Modules</h2></div>
+                @if (modules.Count == 0)
+                {
+                    <div class="box"><div class="box-body"><div class="empty"><div class="ico">@Icons.Svg("shield-lock", 30)</div><b>No modules assigned</b><span>Your role has no form access yet. Ask an administrator.</span></div></div></div>
+                }
+                <div class="mod-grid">
+                    @foreach (ModuleInfo m in modules)
+                    {
+                        var forms = m.Forms.Where(f => me.CanView(f.Key)).ToList();
+                        <div class="mod-card">
+                            <div class="mod-head">
+                                <span class="mod-ico">@Icons.Svg(m.Icon, 17)</span>
+                                <div><b>@m.Title</b><small>@forms.Count form@(forms.Count == 1 ? "" : "s")</small></div>
+                            </div>
+                            <ul>
+                                @foreach (FormInfo f in forms)
+                                {
+                                    <li><a href="@Url.Content("~" + f.Url)">@Icons.Svg(f.Icon, 13) @f.Title</a></li>
+                                }
+                            </ul>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <aside>
+                @{
+                    // ERP application switcher (same card as PMS / LIMS My Home): the applications the central
+                    // login granted, cached at sign-in; current = this app; others open through the host's /Apps/Go.
+                    var erpApps = ErpSso.Apps(Session);
+                    bool erpOn = ErpSso.Enabled;
+                    if (erpApps.Count == 0) { erpApps.Add(new ErpApplication { Code = ErpSso.AppCode, Name = "Payroll Management", BaseUrl = "/payroll", IsActive = true }); }
+                    Func<ErpApplication, string> appIcon = a =>
+                        a.Code == "PAYROLL" ? Url.Content("~/Content/brand/payroll-mark-white.svg") :
+                        a.Code == "PMS" && erpOn ? ErpSso.BaseUrl + "/img/brand/pms-icon-plain-white.svg" :
+                        a.Code == "LIMS" && erpOn ? ErpSso.BaseUrl + "/img/lims-logo-white.svg" : null;
+                    Func<string, string> appInitials = n => string.Concat(n.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Where(w => char.IsUpper(w[0])).Take(3).Select(w => w[0]));
+                }
+                <div class="side-card">
+                    <div class="side-head"><b>Apps</b>@if (erpOn) { <a href="@ErpSso.AppsUrl">All applications &rarr;</a> }</div>
+                    <div class="mh-apps-row">
+                        @foreach (var a in erpApps)
+                        {
+                            bool cur = string.Equals(a.Code, ErpSso.AppCode, StringComparison.OrdinalIgnoreCase);
+                            string ico = appIcon(a);
+                            if (a.IsActive && !cur && erpOn)
+                            {
+                                <a class="mh-app-tile" href="@ErpSso.GoUrl(a.Code)">
+                                    <span class="mh-app-icon">@if (ico != null) { <img src="@ico" alt=""> } else { @appInitials(a.Name) }</span>
+                                    <span><span class="mh-app-name">@a.Name</span><br /><span class="mh-app-state">Open</span></span>
+                                </a>
+                            }
+                            else
+                            {
+                                <span class="mh-app-tile @(cur ? "is-current" : "disabled")" @(cur ? Html.Raw("aria-current=\"true\"") : null)>
+                                    <span class="mh-app-icon">@if (ico != null) { <img src="@ico" alt=""> } else { @appInitials(a.Name) }</span>
+                                    <span><span class="mh-app-name">@a.Name</span><br /><span class="mh-app-state">@(cur ? "Current" : "Coming soon")</span></span>
+                                </span>
+                            }
+                        }
+                    </div>
+                </div>
+                @if (me.CanView("Security.Approvals"))
+                {
+                    <div class="side-card">
+                        <div class="side-head"><b>Pending approvals</b><a href="@Url.Action("Approvals", "Security")">Open queue</a></div>
+                        @if (pending.Count == 0)
+                        {
+                            <div class="empty" style="padding:22px 16px"><span>Nothing waiting for approval.</span></div>
+                        }
+                        else
+                        {
+                            <ul class="act-list apr-list">
+                                @foreach (var r in pending)
+                                {
+                                    <li>
+                                        <span class="act-ico">@Icons.Svg("inbox", 13)</span>
+                                        <div class="apr-body"><b>@r.Title</b><small>@r.RequestedBy · @Payroll_HCC.Infrastructure.App.TimeAgo(r.RequestedAt) · @r.RequestType</small></div>
+                                        <a class="btn btn-sm btn-default" href="@Url.Action("Approvals", "Security")#r@(r.id)">Review</a>
+                                    </li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                }
+
+                <div class="side-card">
+                    <div class="side-head"><b>Recent activity</b>@if (me.CanView("Security.ActivityLog")) { <a href="@Url.Action("ActivityLog", "Security")">View all</a> } else { <a href="@Url.Action("Profile", "Account")">My activity</a> }</div>
+                    @if (recent.Count == 0)
+                    {
+                        <div class="empty" style="padding:22px 16px"><span>No activity recorded yet.</span></div>
+                    }
+                    else
+                    {
+                        <ul class="act-list">
+                            @foreach (var a in recent)
+                            {
+                                <li>
+                                    <span class="act-ico">@Icons.Svg(a.Action == "Login" || a.Action == "Logout" || a.Action == "LoginFailed" ? "person-circle" : a.Action == "Approve" || a.Action == "Reject" ? "check-circle" : "activity", 13)</span>
+                                    <div class="act-body">
+                                        <div>@a.Detail</div>
+                                        <small><b>@a.Username</b> · @Payroll_HCC.Infrastructure.App.TimeAgo(a.OccurredAt)@(string.IsNullOrEmpty(a.Module) ? "" : " · " + a.Module)</small>
+                                    </div>
+                                </li>
+                            }
+                        </ul>
+                    }
+                </div>
+            </aside>
+        </div>
+    </section>
+</div>

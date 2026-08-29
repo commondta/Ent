@@ -1,0 +1,1049 @@
+<style>
+    .ent-wrap {
+        font-family: inherit;
+    }
+
+    .ent-wrap .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .ent-wrap * {
+        box-sizing: border-box;
+    }
+
+    /* Toolbar */
+    .ent-toolbar {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        padding: 12px 16px;
+        margin-bottom: 14px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: space-between;
+        gap: 12px;
+    }
+
+    .ent-toolbar-title {
+        font-size: 15px;
+        font-weight: 700;
+        color: #1e293b;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .ent-toolbar-title i {
+        color: #1e3a8a;
+    }
+
+    .ent-toolbar-filters {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        gap: 10px;
+    }
+
+    .ent-field label {
+        display: block;
+        font-size: 11px;
+        font-weight: 600;
+        color: #64748b;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        margin-bottom: 4px;
+    }
+
+    .ent-field {
+        min-width: 220px;
+    }
+
+    .ent-input {
+        border-radius: 4px;
+        border: 1px solid #cbd5e1;
+        height: 34px;
+        font-size: 13px;
+    }
+
+    .ent-btn {
+        border: 1px solid #1e3a8a;
+        border-radius: 4px;
+        background: #1e3a8a;
+        color: #fff;
+        font-weight: 600;
+        font-size: 13px;
+        padding: 0 18px;
+        height: 34px;
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        transition: background .15s ease;
+    }
+
+    .ent-btn:hover {
+        background: #16296b;
+        color: #fff;
+    }
+
+    .ent-btn[disabled] {
+        opacity: .65;
+        cursor: not-allowed;
+    }
+
+    .ent-error-banner {
+        display: none;
+        margin-bottom: 14px;
+        padding: 9px 14px;
+        border-radius: 6px;
+        border: 1px solid #f5c2c0;
+        background: #fdecea;
+        color: #b3261e;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    /* KPI ribbon */
+    .ent-kpi-ribbon {
+        display: flex;
+        flex-wrap: wrap;
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+        overflow: hidden;
+        margin-bottom: 14px;
+    }
+
+    @@media (max-width: 991px) {
+        .ent-kpi-tile {
+            flex: 1 1 50% !important;
+            border-bottom: 1px solid #e2e8f0;
+        }
+    }
+
+    @@media (max-width: 575px) {
+        .ent-kpi-tile {
+            flex: 1 1 100% !important;
+        }
+    }
+
+    .ent-kpi-tile {
+        flex: 1;
+        min-width: 160px;
+        padding: 12px 16px;
+        border-right: 1px solid #e2e8f0;
+        border-bottom: 1px solid #e2e8f0;
+        position: relative;
+    }
+
+    .ent-kpi-tile:last-child {
+        border-right: none;
+    }
+
+    .ent-kpi-tile::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 3px;
+    }
+
+    .ent-accent-blue::before {
+        background: #1e3a8a;
+    }
+
+    .ent-accent-teal::before {
+        background: #0f766e;
+    }
+
+    .ent-accent-orange::before {
+        background: #c2410c;
+    }
+
+    .ent-accent-slate::before {
+        background: #475569;
+    }
+
+    .ent-kpi-label {
+        display: block;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: .05em;
+        color: #64748b;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .ent-kpi-value {
+        font-size: 22px;
+        font-weight: 700;
+        color: #0f172a;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .ent-kpi-sub {
+        display: block;
+        font-size: 11px;
+        color: #94a3b8;
+        margin-top: 4px;
+    }
+
+    /* Additional insights row */
+    .ent-insights-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+        margin-bottom: 14px;
+    }
+
+    @@media (max-width: 991px) {
+        .ent-insights-row {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    /* Main grid */
+    .ent-main-grid {
+        display: grid;
+        grid-template-columns: 1.7fr 1fr;
+        gap: 14px;
+        align-items: start;
+    }
+
+    @@media (max-width: 991px) {
+        .ent-main-grid {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .ent-panel {
+        background: #fff;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+    }
+
+    .ent-panel-header {
+        padding: 10px 16px;
+        border-bottom: 1px solid #e2e8f0;
+        font-size: 12.5px;
+        font-weight: 700;
+        color: #1e293b;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+    }
+
+    .ent-tabs {
+        display: flex;
+        gap: 4px;
+    }
+
+    .ent-tab {
+        background: transparent;
+        border: 1px solid transparent;
+        border-radius: 4px;
+        padding: 4px 12px;
+        font-size: 11.5px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .03em;
+        color: #64748b;
+        cursor: pointer;
+    }
+
+    .ent-tab.active {
+        background: #eef2ff;
+        color: #1e3a8a;
+        border-color: #c7d2fe;
+    }
+
+    .ent-table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 12.5px;
+    }
+
+    .ent-table thead th {
+        position: sticky;
+        top: 0;
+        background: #f8fafc;
+        border-bottom: 2px solid #e2e8f0;
+        padding: 8px 10px;
+        text-align: left;
+        font-size: 10.5px;
+        text-transform: uppercase;
+        letter-spacing: .04em;
+        color: #475569;
+        cursor: pointer;
+        user-select: none;
+        white-space: nowrap;
+    }
+
+    .ent-table thead th.ent-num {
+        text-align: right;
+    }
+
+    .ent-table thead th[data-key]::after {
+        content: "";
+        display: inline-block;
+        width: 10px;
+    }
+
+    .ent-table thead th.ent-sort-asc::after {
+        content: "\2191";
+        color: #1e3a8a;
+    }
+
+    .ent-table thead th.ent-sort-desc::after {
+        content: "\2193";
+        color: #1e3a8a;
+    }
+
+    .ent-table tbody td {
+        padding: 8px 10px;
+        border-bottom: 1px solid #f1f5f9;
+        color: #334155;
+    }
+
+    .ent-table tbody tr:nth-child(even) {
+        background: #fafbfc;
+    }
+
+    .ent-table tbody tr:hover {
+        background: #f0f4ff;
+    }
+
+    .ent-num {
+        text-align: right;
+        font-variant-numeric: tabular-nums;
+    }
+
+    .ent-total-col {
+        font-weight: 700;
+        color: #0f172a;
+    }
+
+    .ent-total-row td {
+        background: #f8fafc !important;
+        font-weight: 700;
+        border-top: 2px solid #e2e8f0;
+    }
+
+    .ent-share-col {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        min-width: 110px;
+    }
+
+    .ent-share-bar {
+        flex: 1;
+        height: 6px;
+        background: #e2e8f0;
+        border-radius: 3px;
+        overflow: hidden;
+    }
+
+    .ent-share-fill {
+        height: 100%;
+        background: #1e3a8a;
+        border-radius: 3px;
+    }
+
+    .ent-share-text {
+        font-size: 11px;
+        color: #64748b;
+        min-width: 34px;
+        text-align: right;
+    }
+
+    .ent-empty-cell {
+        text-align: center;
+        padding: 34px;
+        color: #94a3b8;
+        font-size: 13px;
+    }
+
+    /* Side panel */
+    .ent-side-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+    }
+
+    .ent-chart-body-sm {
+        min-height: 220px;
+        padding: 8px 6px 4px;
+        position: relative;
+    }
+
+    .ent-chart-empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 180px;
+        color: #94a3b8;
+        font-size: 12.5px;
+    }
+
+    .ent-loading-overlay {
+        display: none;
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, .65);
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+        border-radius: 6px;
+    }
+
+    .ent-loading-overlay i {
+        font-size: 24px;
+        color: #1e3a8a;
+    }
+
+    .ent-dashboard {
+        position: relative;
+    }
+
+    .ent-dashboard.ent-is-loading .ent-loading-overlay {
+        display: flex;
+    }
+</style>
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper ent-wrap">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Alloted Inventory</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z"/><path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A8 8 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3"/></svg></span>
+                    <h1>Alloted Inventory</h1>
+                    <div class="vd_panel-menu  hidden-xs">
+                    </div>
+
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+
+                    <!-- Toolbar -->
+                    <div class="ent-toolbar">
+                        <div class="ent-toolbar-title"><i class="fa fa-home"></i> Alloted Inventory Dashboard</div>
+                        <div class="ent-toolbar-filters">
+                            <div class="ent-field">
+                                <label for="Project">Project</label>
+                                <select id="Project" name="Project" class="form-control ent-input">
+                                    <option value="all">Select Option</option>
+                                </select>
+                            </div>
+                            <button id="searchButton" class="ent-btn"><i class="fa fa-search"></i> <span>Apply</span></button>
+                        </div>
+                    </div>
+                    <div class="ent-error-banner" id="errorBanner"><i class="fa fa-exclamation-circle"></i> Unable to load alloted inventory data. Please try again.</div>
+
+                    <div class="ent-dashboard" id="entDashboard">
+
+                        <!-- KPI Ribbon -->
+                        <div class="ent-kpi-ribbon">
+                            <div class="ent-kpi-tile ent-accent-blue">
+                                <span class="ent-kpi-label">Total Alloted Units</span>
+                                <span class="ent-kpi-value" id="kpiTotalStock">0</span>
+                            </div>
+                            <div class="ent-kpi-tile ent-accent-slate">
+                                <span class="ent-kpi-label">Blocks Covered</span>
+                                <span class="ent-kpi-value" id="kpiBlocks">0</span>
+                            </div>
+                        </div>
+
+                        <!-- Additional insight charts -->
+                        <div class="ent-insights-row">
+                            <div class="ent-panel">
+                                <div class="ent-panel-header"><span>Alloted Stock Mix</span></div>
+                                <div class="ent-chart-body-sm" id="mix-chart"></div>
+                            </div>
+                            <div class="ent-panel">
+                                <div class="ent-panel-header"><span>Top Blocks by Volume</span></div>
+                                <div class="ent-chart-body-sm" id="top-blocks-chart"></div>
+                            </div>
+                            <div class="ent-panel">
+                                <div class="ent-panel-header"><span>Alloted Stock by Type (Composition)</span></div>
+                                <div class="ent-chart-body-sm" id="type-breakdown-chart"></div>
+                            </div>
+                        </div>
+
+                        <!-- Main grid: table centerpiece + side charts -->
+                        <div class="ent-main-grid">
+                            <div class="ent-panel">
+                                <div class="ent-panel-header">
+                                    <span>Alloted Stock Breakdown</span>
+                                    <div class="ent-tabs">
+                                        <button type="button" class="ent-tab active" data-tab="block">By Block</button>
+                                        <button type="button" class="ent-tab" data-tab="type">By Type</button>
+                                        <button type="button" class="ent-tab" data-tab="category">By Category</button>
+                                    </div>
+                                </div>
+                                <div class="ent-table-scroll">
+                                    <div id="blockTableWrap">
+                                        <table class="ent-table" id="blockTable">
+                                            <thead>
+                                                <tr>
+                                                    <th data-key="name">Block</th>
+                                                    <th class="ent-num" data-key="residential">Residential</th>
+                                                    <th class="ent-num" data-key="commercial">Commercial</th>
+                                                    <th class="ent-num" data-key="villa">Villa</th>
+                                                    <th class="ent-num" data-key="farmHouse">Farm House</th>
+                                                    <th class="ent-num" data-key="largeCommercial">Large Comm.</th>
+                                                    <th class="ent-num" data-key="total">Total</th>
+                                                    <th>Share</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="blockTableBody"></tbody>
+                                            <tfoot id="blockTableFoot"></tfoot>
+                                        </table>
+                                    </div>
+                                    <div id="typeTableWrap" style="display:none;">
+                                        <table class="ent-table" id="typeTable">
+                                            <thead>
+                                                <tr>
+                                                    <th data-key="name">Type</th>
+                                                    <th class="ent-num" data-key="residential">Residential</th>
+                                                    <th class="ent-num" data-key="commercial">Commercial</th>
+                                                    <th class="ent-num" data-key="villa">Villa</th>
+                                                    <th class="ent-num" data-key="farmHouse">Farm House</th>
+                                                    <th class="ent-num" data-key="largeCommercial">Large Comm.</th>
+                                                    <th class="ent-num" data-key="total">Total</th>
+                                                    <th>Share</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="typeTableBody"></tbody>
+                                            <tfoot id="typeTableFoot"></tfoot>
+                                        </table>
+                                    </div>
+                                    <div id="categoryTableWrap" style="display:none;">
+                                        <table class="ent-table" id="categoryTable">
+                                            <thead>
+                                                <tr>
+                                                    <th data-key="name">Category</th>
+                                                    <th class="ent-num" data-key="count">Count</th>
+                                                    <th>Share</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="categoryTableBody"></tbody>
+                                            <tfoot id="categoryTableFoot"></tfoot>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="ent-side-panel">
+                                <div class="ent-panel">
+                                    <div class="ent-panel-header"><span>Alloted Stock by Binded Property</span></div>
+                                    <div class="ent-chart-body-sm" id="plot-type-pie-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="ent-loading-overlay"><i class="fa fa-spinner fa-spin"></i></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+@section Scripts {
+    <script type="text/javascript">
+        var pieChartType, mixChartInst, topBlocksChartInst, typeBreakdownChartInst;
+        var entColors = ['#1e3a8a', '#c2410c', '#0f766e', '#6d28d9', '#be123c', '#0369a1', '#a16207', '#4338ca'];
+        var mixColors = ['#0f766e', '#c2410c', '#6d28d9', '#be123c', '#4338ca'];
+
+        var blockRows = [], typeRows = [], categoryRows = [];
+        var blockSort = { key: 'total', dir: 'desc' };
+        var typeSort = { key: 'total', dir: 'desc' };
+        var categorySort = { key: 'count', dir: 'desc' };
+
+        $(document).ready(function () {
+            initTabs();
+            initTableSorting();
+
+            getAllProjects();
+            fetchData();
+
+            $("#searchButton").click(function () {
+                fetchData();
+            });
+        });
+
+        function getAllProjects() {
+            $.ajax({
+                type: 'GET',
+                url: "/api/Project/GetAllProjects",
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 0) {
+                        $("#Project").empty();
+                        $("#Project").append('<option value="all">All Projects</option>');
+                        var projects = response.data || [];
+                        projects.forEach(function (project) {
+                            $("#Project").append('<option value="' + project.id + '">' + project.description + '</option>');
+                        });
+                    }
+                }
+            });
+        }
+
+        function initTabs() {
+            $(".ent-tab").click(function () {
+                var tab = $(this).data("tab");
+                $(".ent-tab").removeClass("active");
+                $(this).addClass("active");
+                $("#blockTableWrap").toggle(tab === "block");
+                $("#typeTableWrap").toggle(tab === "type");
+                $("#categoryTableWrap").toggle(tab === "category");
+            });
+        }
+
+        function initTableSorting() {
+            $(".ent-table thead th[data-key]").on("click", function () {
+                var $th = $(this);
+                var $table = $th.closest("table");
+                var tableId = $table.attr("id");
+                var key = $th.data("key");
+                var state = tableId === "blockTable" ? blockSort : (tableId === "typeTable" ? typeSort : categorySort);
+
+                if (state.key === key) {
+                    state.dir = state.dir === "asc" ? "desc" : "asc";
+                } else {
+                    state.key = key;
+                    state.dir = "desc";
+                }
+
+                updateSortIndicators($table, state);
+                if (tableId === "blockTable") renderBlockTable();
+                else if (tableId === "typeTable") renderTypeTable();
+                else renderCategoryTable();
+            });
+        }
+
+        function updateSortIndicators($table, state) {
+            $table.find("th[data-key]").removeClass("ent-sort-asc ent-sort-desc");
+            $table.find('th[data-key="' + state.key + '"]').addClass(state.dir === "asc" ? "ent-sort-asc" : "ent-sort-desc");
+        }
+
+        function setLoading(isLoading) {
+            var $dashboard = $("#entDashboard");
+            var $btn = $("#searchButton");
+            if (isLoading) {
+                $dashboard.addClass("ent-is-loading");
+                $btn.prop("disabled", true);
+                $("#errorBanner").hide();
+            } else {
+                $dashboard.removeClass("ent-is-loading");
+                $btn.prop("disabled", false);
+            }
+        }
+
+        function fetchJson(url) {
+            return $.ajax({
+                type: 'GET',
+                url: url,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                contentType: 'application/json'
+            }).then(
+                function (response) { return { ok: response.code === 100, data: response.data }; },
+                function () { return { ok: false, data: null }; }
+            );
+        }
+
+        function fetchData() {
+            var project = $("#Project").val() || "all";
+            setLoading(true);
+
+            fetchJson(`/Home/api/Dashboard/GetAllotedInventory?project=${project}`).done(function (current) {
+                setLoading(false);
+                if (current.ok) {
+                    var result = current.data;
+                    clearCharts();
+                    updateKpis(result);
+
+                    blockRows = computeRows(result.blockWiseData);
+                    typeRows = computeRows(result.typeWiseStackedChartDTO);
+                    categoryRows = computeCategoryRows(result.sizeWisePieChartDTO);
+                    blockSort = { key: 'total', dir: 'desc' };
+                    typeSort = { key: 'total', dir: 'desc' };
+                    categorySort = { key: 'count', dir: 'desc' };
+                    updateSortIndicators($("#blockTable"), blockSort);
+                    updateSortIndicators($("#typeTable"), typeSort);
+                    updateSortIndicators($("#categoryTable"), categorySort);
+                    renderBlockTable();
+                    renderTypeTable();
+                    renderCategoryTable();
+
+                    typePieChart(result);
+                    renderMixChart(result);
+                    renderTopBlocksChart();
+                    renderTypeBreakdownChart();
+                } else {
+                    $("#errorBanner").show();
+                }
+            }).fail(function () {
+                setLoading(false);
+                $("#errorBanner").show();
+                console.error('Error fetching data');
+            });
+        }
+
+        function clearCharts() {
+            if (pieChartType) pieChartType.destroy();
+            if (mixChartInst) mixChartInst.destroy();
+            if (topBlocksChartInst) topBlocksChartInst.destroy();
+            if (typeBreakdownChartInst) typeBreakdownChartInst.destroy();
+        }
+
+        function animateValue(id, endValue) {
+            var $el = $("#" + id);
+            if (!$el.length) return;
+            var startValue = 0;
+            var duration = 700;
+            var startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var current = Math.floor(progress * (endValue - startValue) + startValue);
+                $el.text(current.toLocaleString());
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    $el.text(endValue.toLocaleString());
+                }
+            }
+            window.requestAnimationFrame(step);
+        }
+
+        function sumBy(list, key) {
+            if (!list || !list.length) return 0;
+            return list.reduce(function (total, item) { return total + (item[key] || 0); }, 0);
+        }
+
+        function updateKpis(result) {
+            var totalStock = result.totalStock || 0;
+            var blocks = (result.blockWiseData || []).length;
+
+            animateValue('kpiTotalStock', totalStock);
+            animateValue('kpiBlocks', blocks);
+        }
+
+        function escapeHtml(str) {
+            var map = { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' };
+            return String(str == null ? '' : str).replace(/[&<>"']/g, function (ch) { return map[ch]; });
+        }
+
+        function computeRows(list) {
+            return (list || []).map(function (item) {
+                var residential = item.residentialCount || 0;
+                var commercial = item.commercialCount || 0;
+                var villa = item.villaCount || 0;
+                var farmHouse = item.farmHouseCount || 0;
+                var largeCommercial = item.largeComercialCount || 0;
+                return {
+                    name: item.name,
+                    residential: residential,
+                    commercial: commercial,
+                    villa: villa,
+                    farmHouse: farmHouse,
+                    largeCommercial: largeCommercial,
+                    total: residential + commercial + villa + farmHouse + largeCommercial
+                };
+            });
+        }
+
+        function sortRows(rows, key, dir) {
+            var sorted = rows.slice().sort(function (a, b) {
+                if (a[key] > b[key]) return 1;
+                if (a[key] < b[key]) return -1;
+                return 0;
+            });
+            if (dir === 'desc') sorted.reverse();
+            return sorted;
+        }
+
+        function renderTableBody(bodyId, rows, grandTotal) {
+            var $body = $("#" + bodyId);
+            if (!rows.length) {
+                $body.html('<tr><td colspan="8" class="ent-empty-cell"><i class="fa fa-inbox" style="margin-right:8px;"></i>No data available</td></tr>');
+                return;
+            }
+            var html = rows.map(function (r) {
+                var share = grandTotal ? ((r.total / grandTotal) * 100).toFixed(1) : '0.0';
+                return '<tr>' +
+                    '<td>' + escapeHtml(r.name) + '</td>' +
+                    '<td class="ent-num">' + r.residential.toLocaleString() + '</td>' +
+                    '<td class="ent-num">' + r.commercial.toLocaleString() + '</td>' +
+                    '<td class="ent-num">' + r.villa.toLocaleString() + '</td>' +
+                    '<td class="ent-num">' + r.farmHouse.toLocaleString() + '</td>' +
+                    '<td class="ent-num">' + r.largeCommercial.toLocaleString() + '</td>' +
+                    '<td class="ent-num ent-total-col">' + r.total.toLocaleString() + '</td>' +
+                    '<td><div class="ent-share-col"><div class="ent-share-bar"><div class="ent-share-fill" style="width:' + share + '%"></div></div><span class="ent-share-text">' + share + '%</span></div></td>' +
+                    '</tr>';
+            }).join('');
+            $body.html(html);
+        }
+
+        function renderTableFooter(footId, rows) {
+            var $foot = $("#" + footId);
+            if (!rows.length) { $foot.html(''); return; }
+            var totals = rows.reduce(function (acc, r) {
+                acc.residential += r.residential;
+                acc.commercial += r.commercial;
+                acc.villa += r.villa;
+                acc.farmHouse += r.farmHouse;
+                acc.largeCommercial += r.largeCommercial;
+                acc.total += r.total;
+                return acc;
+            }, { residential: 0, commercial: 0, villa: 0, farmHouse: 0, largeCommercial: 0, total: 0 });
+
+            $foot.html(
+                '<tr class="ent-total-row">' +
+                '<td>Total</td>' +
+                '<td class="ent-num">' + totals.residential.toLocaleString() + '</td>' +
+                '<td class="ent-num">' + totals.commercial.toLocaleString() + '</td>' +
+                '<td class="ent-num">' + totals.villa.toLocaleString() + '</td>' +
+                '<td class="ent-num">' + totals.farmHouse.toLocaleString() + '</td>' +
+                '<td class="ent-num">' + totals.largeCommercial.toLocaleString() + '</td>' +
+                '<td class="ent-num ent-total-col">' + totals.total.toLocaleString() + '</td>' +
+                '<td></td>' +
+                '</tr>'
+            );
+        }
+
+        function renderBlockTable() {
+            var sorted = sortRows(blockRows, blockSort.key, blockSort.dir);
+            var grandTotal = blockRows.reduce(function (s, r) { return s + r.total; }, 0);
+            renderTableBody('blockTableBody', sorted, grandTotal);
+            renderTableFooter('blockTableFoot', blockRows);
+        }
+
+        function renderTypeTable() {
+            var sorted = sortRows(typeRows, typeSort.key, typeSort.dir);
+            var grandTotal = typeRows.reduce(function (s, r) { return s + r.total; }, 0);
+            renderTableBody('typeTableBody', sorted, grandTotal);
+            renderTableFooter('typeTableFoot', typeRows);
+        }
+
+        function computeCategoryRows(list) {
+            return (list || []).map(function (item) {
+                return { name: item.name, count: item.count || 0 };
+            });
+        }
+
+        function renderCategoryTableBody(bodyId, rows, grandTotal) {
+            var $body = $("#" + bodyId);
+            if (!rows.length) {
+                $body.html('<tr><td colspan="3" class="ent-empty-cell"><i class="fa fa-inbox" style="margin-right:8px;"></i>No data available</td></tr>');
+                return;
+            }
+            var html = rows.map(function (r) {
+                var share = grandTotal ? ((r.count / grandTotal) * 100).toFixed(1) : '0.0';
+                return '<tr>' +
+                    '<td>' + escapeHtml(r.name) + '</td>' +
+                    '<td class="ent-num ent-total-col">' + r.count.toLocaleString() + '</td>' +
+                    '<td><div class="ent-share-col"><div class="ent-share-bar"><div class="ent-share-fill" style="width:' + share + '%"></div></div><span class="ent-share-text">' + share + '%</span></div></td>' +
+                    '</tr>';
+            }).join('');
+            $body.html(html);
+        }
+
+        function renderCategoryTableFooter(footId, rows) {
+            var $foot = $("#" + footId);
+            if (!rows.length) { $foot.html(''); return; }
+            var total = rows.reduce(function (sum, r) { return sum + r.count; }, 0);
+            $foot.html(
+                '<tr class="ent-total-row">' +
+                '<td>Total</td>' +
+                '<td class="ent-num ent-total-col">' + total.toLocaleString() + '</td>' +
+                '<td></td>' +
+                '</tr>'
+            );
+        }
+
+        function renderCategoryTable() {
+            var sorted = sortRows(categoryRows, categorySort.key, categorySort.dir);
+            var grandTotal = categoryRows.reduce(function (s, r) { return s + r.count; }, 0);
+            renderCategoryTableBody('categoryTableBody', sorted, grandTotal);
+            renderCategoryTableFooter('categoryTableFoot', categoryRows);
+        }
+
+        function showChartEmpty(containerId, message) {
+            $("#" + containerId).html('<div class="ent-chart-empty"><i class="fa fa-inbox" style="margin-right:8px;"></i>' + (message || 'No data available') + '</div>');
+        }
+
+        function typePieChart(result) {
+            var data = result.typeWisePieChartDTO || [];
+            if (!data.length) { showChartEmpty('plot-type-pie-chart'); return; }
+
+            var labels = data.map(item => item.name);
+            var series = data.map(item => item.count);
+
+            var pieChartOptions = {
+                chart: { type: 'donut', width: '100%', height: 230, toolbar: { show: false } },
+                labels: labels,
+                series: series,
+                colors: entColors,
+                dataLabels: { style: { fontSize: '10px' } },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '62%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Total',
+                                    fontSize: '11px',
+                                    formatter: function (w) {
+                                        return w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                legend: { position: 'bottom', horizontalAlign: 'center', fontSize: '10.5px', itemMargin: { horizontal: 6, vertical: 2 } },
+                tooltip: { y: { formatter: function (val) { return val; } } }
+            };
+
+            pieChartType = new ApexCharts(document.querySelector("#plot-type-pie-chart"), pieChartOptions);
+            pieChartType.render();
+        }
+
+        function renderMixChart(result) {
+            var residential = sumBy(result.blockWiseData, 'residentialCount');
+            var commercial = sumBy(result.blockWiseData, 'commercialCount');
+            var villa = sumBy(result.blockWiseData, 'villaCount');
+            var farmHouse = sumBy(result.blockWiseData, 'farmHouseCount');
+            var largeCommercial = sumBy(result.blockWiseData, 'largeComercialCount');
+
+            if (!(residential + commercial + villa + farmHouse + largeCommercial)) { showChartEmpty('mix-chart'); return; }
+
+            var options = {
+                chart: { type: 'donut', width: '100%', height: 230, toolbar: { show: false } },
+                labels: ['Residential', 'Commercial', 'Villa', 'Farm House', 'Large Commercial'],
+                series: [residential, commercial, villa, farmHouse, largeCommercial],
+                colors: mixColors,
+                dataLabels: { style: { fontSize: '10px' } },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '62%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Total',
+                                    fontSize: '11px',
+                                    formatter: function (w) {
+                                        return w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                legend: { position: 'bottom', horizontalAlign: 'center', fontSize: '10.5px', itemMargin: { horizontal: 6, vertical: 2 } },
+                tooltip: { y: { formatter: function (val) { return val; } } }
+            };
+
+            mixChartInst = new ApexCharts(document.querySelector("#mix-chart"), options);
+            mixChartInst.render();
+        }
+
+        function renderTopBlocksChart() {
+            var sorted = blockRows.slice().sort(function (a, b) { return b.total - a.total; }).slice(0, 6);
+            if (!sorted.length) { showChartEmpty('top-blocks-chart'); return; }
+
+            var options = {
+                series: [{ name: 'Total', data: sorted.map(function (r) { return r.total; }) }],
+                chart: { type: 'bar', height: 230, toolbar: { show: false } },
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        borderRadius: 4,
+                        barHeight: '55%',
+                        distributed: true,
+                        dataLabels: { position: 'top' }
+                    }
+                },
+                colors: entColors,
+                dataLabels: { enabled: true, offsetX: 16, style: { fontSize: '10px', colors: ['#334155'] } },
+                xaxis: { categories: sorted.map(function (r) { return r.name; }), labels: { style: { fontSize: '10px' } } },
+                grid: { borderColor: '#f1f5f9' },
+                legend: { show: false },
+                tooltip: { y: { formatter: function (val) { return val; } } }
+            };
+
+            topBlocksChartInst = new ApexCharts(document.querySelector("#top-blocks-chart"), options);
+            topBlocksChartInst.render();
+        }
+
+        function renderTypeBreakdownChart() {
+            if (!typeRows.length) { showChartEmpty('type-breakdown-chart'); return; }
+
+            var options = {
+                series: [
+                    { name: 'Residential', data: typeRows.map(function (r) { return r.residential; }) },
+                    { name: 'Commercial', data: typeRows.map(function (r) { return r.commercial; }) },
+                    { name: 'Villa', data: typeRows.map(function (r) { return r.villa; }) },
+                    { name: 'Farm House', data: typeRows.map(function (r) { return r.farmHouse; }) },
+                    { name: 'Large Commercial', data: typeRows.map(function (r) { return r.largeCommercial; }) }
+                ],
+                chart: { type: 'bar', height: 230, stacked: true, toolbar: { show: false } },
+                plotOptions: { bar: { borderRadius: 3, columnWidth: '50%' } },
+                colors: mixColors,
+                xaxis: { categories: typeRows.map(function (r) { return r.name; }), labels: { style: { fontSize: '9px' }, rotate: -30, trim: true } },
+                yaxis: { labels: { style: { fontSize: '10px' } } },
+                grid: { borderColor: '#f1f5f9' },
+                legend: { position: 'top', horizontalAlign: 'left', fontSize: '10px' },
+                tooltip: { y: { formatter: function (val) { return val; } } },
+                fill: { opacity: 1 }
+            };
+
+            typeBreakdownChartInst = new ApexCharts(document.querySelector("#type-breakdown-chart"), options);
+            typeBreakdownChartInst.render();
+        }
+    </script>
+}

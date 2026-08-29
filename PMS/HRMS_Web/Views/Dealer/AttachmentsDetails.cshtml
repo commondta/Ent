@@ -1,0 +1,313 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Attachment Details</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16"><path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/></svg></span>
+                    <h1>ATTACHMENT DETAILS </h1>
+                         
+                        </div>
+
+                        <div class="col-sm-6" style="text-align:center;">
+                            <p><img id="output" src="~/img/avatar/avatar.jpg" style="max-width: 100%" /></p>
+                        </div>
+                    </div>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="AttachmentDetails">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Registration No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="RegNo" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Date of Registration</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder="  " id="dtreg" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Dealer Code</label>
+                                    <div>
+                                        <div class="vd_input-wrapper">
+                                            <span class="menu-icon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                            <input type="text" class="form-control"
+                                                   placeholder=" " id="dlcode" data-toggle="modal" data-target="#myModal1" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Dealer Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="DealerSttaus" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>CNIC</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="   " id="cnic" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Residential Address</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="Raddress" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Dealer Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="Dcategory" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Principal Owner</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="Powner" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Estate Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="EstateName" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Outstanding Balance</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="outbal" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Nationality</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="Nationality" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Country</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="country" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>City</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="city" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-sm-6">
+                                    <label>Outstanding Advance</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="   " id="outadvance" disabled />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <br>
+                            <br>
+
+
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="active"><a href="#AttachmentDetails" data-toggle="tab">Attachment Details</a></li>
+
+                            </ul>
+                            <br />
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane active" id="AttachmentDetails">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddRow4()">Add New</a>
+                                                <input type="text" id="rownumber4" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Attachments" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Attachment Name</th>
+                                                            <th class="text-white">Attachment</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">View Attachment</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Attachmentstbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <br>
+
+                        <div class="col-12" style="float: right;">
+                            <input type="button" class="btn btn-primary btn-sm btn-theme" style="margin:5px;" value="Submit " />
+                            <input type="button" class="btn btn-primary btn-sm btn-theme" style="margin:5px;" value="Cancel">
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<div class="modal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="myModalLabel">Dealer Code</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+
+                    @* <div class="container">
+                    <div class="row">
+                    <div class="col-6">
+                    <label>Code</label>
+                    <input class="form-control" />
+                    </div>
+                    <div class="col-6">
+                    <label>Description</label>
+                    <input class="form-control" />
+                    </div>
+                    </div>
+                    </div>*@
+
+                </form>
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-theme">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+@section Scripts {
+
+    <script>
+        function AddRow4() {
+
+
+            var rownumber4 = parseInt($("#rownumber4").val());
+            var LineId = rownumber4;
+            rownumber4 = rownumber4 + 1;
+            $("#rownumber4").val(rownumber4);
+
+
+            var row = '<tr id="' + rownumber4 + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber4 + '"/></td>' +
+                '<td> <input  class="form-control AttachmentName" /></td>' +
+                '<td> <input type="file"  class="form-control AttachmentD" /></td>' +
+                '<td> <input  class="form-control Remarks" /></td>' +
+                '<td> <input  class="form-control ViewAttachment" /></td>' +
+
+
+                '<td style="padding-top:20px"><a class="btn btn-sm btn-danger"  onclick="return DeleteItemRow(\'' + rownumber4 + '\')">X</a> </td>' +
+                '</tr>';
+
+
+            $("#Attachmentstbody").append(row);
+
+
+        }
+
+        function DeleteItemRow(id) {
+            $('#' + id).remove();
+        }
+    </script>
+
+ }

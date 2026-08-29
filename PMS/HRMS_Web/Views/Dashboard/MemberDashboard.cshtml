@@ -1,0 +1,587 @@
+<style>
+    .sd-wrap {
+        font-family: inherit;
+    }
+
+    .sd-wrap .container-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .sd-filter-card {
+        background: #ffffff;
+        border-radius: 12px;
+        box-shadow: 0 2px 10px rgba(24, 39, 75, 0.08);
+        padding: 18px 20px;
+        margin-bottom: 20px;
+    }
+
+    .sd-filter-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+    }
+
+    .sd-filter-title {
+        font-size: 16px;
+        font-weight: 600;
+        color: #22223b;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .sd-search-box {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        flex: 1;
+        max-width: 320px;
+        margin-left: auto;
+    }
+
+    .sd-search-box input {
+        border-radius: 8px;
+        border: 1px solid #e1e5ee;
+        height: 38px;
+    }
+
+    .sd-btn {
+        border: none;
+        border-radius: 8px;
+        background: linear-gradient(135deg, #4361ee, #3a0ca3);
+        color: #fff;
+        font-weight: 600;
+        padding: 9px 22px;
+        height: 38px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 10px rgba(67, 97, 238, .3);
+        transition: opacity .15s ease, transform .1s ease;
+        flex-shrink: 0;
+    }
+
+    .sd-btn:hover {
+        opacity: .92;
+        color: #fff;
+    }
+
+    .sd-btn:active {
+        transform: translateY(1px);
+    }
+
+    .sd-btn[disabled] {
+        opacity: .7;
+        cursor: not-allowed;
+    }
+
+    .sd-error-banner {
+        display: none;
+        margin-top: 12px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        background: #fdecea;
+        color: #b3261e;
+        font-size: 13px;
+        font-weight: 500;
+    }
+
+    .sd-kpi-row {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-bottom: 22px;
+    }
+
+    @@media (max-width: 991px) {
+        .sd-kpi-row {
+            grid-template-columns: repeat(2, 1fr);
+        }
+    }
+
+    @@media (max-width: 575px) {
+        .sd-kpi-row {
+            grid-template-columns: 1fr;
+        }
+    }
+
+    .sd-kpi-card {
+        border-radius: 14px;
+        padding: 18px 20px;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        gap: 16px;
+        box-shadow: 0 6px 16px rgba(24, 39, 75, .12);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .sd-kpi-card::after {
+        content: "";
+        position: absolute;
+        right: -20px;
+        top: -20px;
+        width: 90px;
+        height: 90px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, .12);
+    }
+
+    .sd-kpi-blue {
+        background: linear-gradient(135deg, #4361ee, #3a0ca3);
+    }
+
+    .sd-kpi-teal {
+        background: linear-gradient(135deg, #06d6a0, #059669);
+    }
+
+    .sd-kpi-orange {
+        background: linear-gradient(135deg, #f77f00, #d1495b);
+    }
+
+    .sd-kpi-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 12px;
+        background: rgba(255, 255, 255, .18);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 20px;
+        flex-shrink: 0;
+        z-index: 1;
+    }
+
+    .sd-kpi-info {
+        display: flex;
+        flex-direction: column;
+        z-index: 1;
+        min-width: 0;
+    }
+
+    .sd-kpi-value {
+        font-size: 26px;
+        font-weight: 700;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .sd-kpi-label {
+        font-size: 12.5px;
+        opacity: .9;
+        font-weight: 500;
+    }
+
+    .sd-row {
+        margin-bottom: 20px;
+    }
+
+    .sd-chart-card {
+        background: #fff;
+        border-radius: 14px;
+        box-shadow: 0 2px 10px rgba(24, 39, 75, 0.08);
+        padding: 18px 18px 8px;
+        height: 100%;
+    }
+
+    .sd-chart-header {
+        font-size: 14.5px;
+        font-weight: 600;
+        color: #22223b;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        margin-bottom: 6px;
+        padding-bottom: 10px;
+        border-bottom: 1px solid #f0f1f5;
+    }
+
+    .sd-chart-header i {
+        color: #4361ee;
+    }
+
+    .sd-chart-count-badge {
+        font-size: 11.5px;
+        font-weight: 600;
+        color: #4361ee;
+        background: #eef1fd;
+        border-radius: 20px;
+        padding: 3px 10px;
+    }
+
+    .sd-chart-body {
+        min-height: 340px;
+        position: relative;
+    }
+
+    .sd-empty {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 300px;
+        color: #9aa0ac;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    .sd-loading-overlay {
+        display: none;
+        position: absolute;
+        inset: 0;
+        background: rgba(255, 255, 255, .6);
+        align-items: center;
+        justify-content: center;
+        z-index: 5;
+        border-radius: 14px;
+    }
+
+    .sd-loading-overlay i {
+        font-size: 26px;
+        color: #4361ee;
+    }
+
+    .sd-dashboard.sd-is-loading .sd-loading-overlay {
+        display: flex;
+    }
+</style>
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper sd-wrap">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active"> Member</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-speedometer2" viewBox="0 0 16 16"><path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4M3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707M2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10m9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5m.754-4.246a.39.39 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.39.39 0 0 0-.029-.518z"/><path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A8 8 0 0 1 0 10m8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3"/></svg></span>
+                    <h1>Member</h1>
+                    <div class="vd_panel-menu  hidden-xs">
+                    </div>
+
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+
+                    <div class="sd-filter-card">
+                        <div class="sd-filter-row">
+                            <div class="sd-filter-title"><i class="fa fa-users"></i> Member City-wise Overview</div>
+                            <div class="sd-search-box">
+                                <input type="text" id="citySearch" class="form-control" placeholder="Search city...">
+                            </div>
+                            <button id="searchButton" class="sd-btn"><i class="fa fa-refresh"></i> <span>Refresh</span></button>
+                        </div>
+                        <div class="sd-error-banner" id="errorBanner"><i class="fa fa-exclamation-circle"></i> Unable to load member data. Please try again.</div>
+                    </div>
+
+                    <div class="sd-dashboard" id="sdDashboard">
+
+                        <!-- KPI Cards -->
+                        <div class="sd-kpi-row">
+                            <div class="sd-kpi-card sd-kpi-blue">
+                                <div class="sd-kpi-icon"><i class="fa fa-users"></i></div>
+                                <div class="sd-kpi-info">
+                                    <span class="sd-kpi-value" id="kpiTotalMembers">0</span>
+                                    <span class="sd-kpi-label">Total Members</span>
+                                </div>
+                            </div>
+                            <div class="sd-kpi-card sd-kpi-teal">
+                                <div class="sd-kpi-icon"><i class="fa fa-map-marker"></i></div>
+                                <div class="sd-kpi-info">
+                                    <span class="sd-kpi-value" id="kpiTotalCities">0</span>
+                                    <span class="sd-kpi-label">Total Cities</span>
+                                </div>
+                            </div>
+                            <div class="sd-kpi-card sd-kpi-orange">
+                                <div class="sd-kpi-icon"><i class="fa fa-trophy"></i></div>
+                                <div class="sd-kpi-info">
+                                    <span class="sd-kpi-value" id="kpiTopCity">-</span>
+                                    <span class="sd-kpi-label">Top City</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row sd-row">
+                            <div class="col-lg-8 col-md-12">
+                                <div class="sd-chart-card">
+                                    <div class="sd-chart-header">
+                                        <span><i class="fa fa-bar-chart"></i> Members by City (All Results)</span>
+                                        <span class="sd-chart-count-badge" id="cityCountBadge">0 cities</span>
+                                    </div>
+                                    <div class="sd-chart-body" id="member-wise-stacked-chart"></div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-12">
+                                <div class="sd-chart-card">
+                                    <div class="sd-chart-header"><i class="fa fa-circle-o-notch"></i> Top Cities Share</div>
+                                    <div class="sd-chart-body" id="member-top-donut-chart"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="sd-loading-overlay"><i class="fa fa-spinner fa-spin"></i></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+@section Scripts {
+    <script type="text/javascript">
+        var memberChart, memberDonutChart;
+        var allCityData = [];
+
+        var sdColors = ['#4361ee', '#f77f00', '#06d6a0', '#7209b7', '#e63946', '#4cc9f0', '#ffb703', '#560bad'];
+
+        $(document).ready(function () {
+            fetchData();
+
+            $("#searchButton").click(function () {
+                fetchData();
+            });
+
+            $("#citySearch").on('input', function () {
+                var term = $(this).val().toLowerCase();
+                var filtered = allCityData.filter(function (item) {
+                    return (item.name || '').toLowerCase().indexOf(term) !== -1;
+                });
+                renderCityBarChart(filtered);
+            });
+        });
+
+        function setLoading(isLoading) {
+            var $dashboard = $("#sdDashboard");
+            var $btn = $("#searchButton");
+            if (isLoading) {
+                $dashboard.addClass("sd-is-loading");
+                $btn.prop("disabled", true);
+                $("#errorBanner").hide();
+            } else {
+                $dashboard.removeClass("sd-is-loading");
+                $btn.prop("disabled", false);
+            }
+        }
+
+        function fetchData() {
+            setLoading(true);
+            $.ajax({
+                type: 'GET',
+                url: `/Home/api/Dashboard/GetMemberDashboardValues`,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                contentType: 'application/json',
+                success: function (response) {
+                    setLoading(false);
+                    if (response.code === 100) {
+                        var result = response.data;
+                        clearCharts();
+                        $("#citySearch").val('');
+                        processMemberData(result);
+                    } else {
+                        $("#errorBanner").show();
+                    }
+                },
+                error: function (error) {
+                    setLoading(false);
+                    $("#errorBanner").show();
+                    console.error('Error fetching data:', error);
+                }
+            });
+        }
+
+        function clearCharts() {
+            if (memberChart) memberChart.destroy();
+            if (memberDonutChart) memberDonutChart.destroy();
+        }
+
+        function animateValue(id, endValue) {
+            var $el = $("#" + id);
+            var startValue = 0;
+            var duration = 700;
+            var startTime = null;
+
+            function step(timestamp) {
+                if (!startTime) startTime = timestamp;
+                var progress = Math.min((timestamp - startTime) / duration, 1);
+                var current = Math.floor(progress * (endValue - startValue) + startValue);
+                $el.text(current.toLocaleString());
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                } else {
+                    $el.text(endValue.toLocaleString());
+                }
+            }
+            window.requestAnimationFrame(step);
+        }
+
+        function showEmptyState(containerId, message) {
+            $("#" + containerId).html('<div class="sd-empty"><i class="fa fa-inbox" style="margin-right:8px;"></i>' + (message || 'No data available') + '</div>');
+        }
+
+        function processMemberData(result) {
+            var data = (result.memberCityWiseData || []).slice();
+
+            // Show every result, sorted so the largest cities surface first.
+            data.sort(function (a, b) { return (b.count || 0) - (a.count || 0); });
+            allCityData = data;
+
+            var totalMembers = data.reduce(function (sum, item) { return sum + (item.count || 0); }, 0);
+            animateValue('kpiTotalMembers', totalMembers);
+            animateValue('kpiTotalCities', data.length);
+            $("#kpiTopCity").text(data.length ? (data[0].name + ' (' + data[0].count + ')') : '-');
+
+            renderCityBarChart(data);
+            renderTopCitiesDonut(data);
+        }
+
+        function renderCityBarChart(data) {
+            if (memberChart) { memberChart.destroy(); memberChart = null; }
+
+            $("#cityCountBadge").text(data.length + (data.length === 1 ? ' city' : ' cities'));
+
+            if (!data.length) { showEmptyState('member-wise-stacked-chart', 'No matching cities'); return; }
+
+            $("#member-wise-stacked-chart").empty();
+
+            var labels = data.map(item => item.name);
+            var counts = data.map(item => item.count);
+
+            // Dynamic height ensures every city is rendered without clipping or scrolling.
+            var chartHeight = Math.max(360, data.length * 30);
+
+            var options = {
+                series: [{ name: 'Members', data: counts }],
+                chart: {
+                    type: 'bar',
+                    height: chartHeight,
+                    toolbar: { show: false }
+                },
+                plotOptions: {
+                    bar: {
+                        horizontal: true,
+                        borderRadius: 4,
+                        barHeight: '65%',
+                        distributed: true,
+                        dataLabels: { position: 'top' }
+                    }
+                },
+                colors: sdColors,
+                dataLabels: {
+                    enabled: true,
+                    offsetX: 20,
+                    style: { fontSize: '11px', colors: ['#22223b'] }
+                },
+                xaxis: {
+                    categories: labels,
+                    title: { text: 'Count' }
+                },
+                grid: { borderColor: '#f0f1f5' },
+                legend: { show: false },
+                tooltip: {
+                    y: {
+                        formatter: function (val) {
+                            return val;
+                        }
+                    }
+                },
+                fill: { opacity: 1 }
+            };
+
+            memberChart = new ApexCharts(document.querySelector("#member-wise-stacked-chart"), options);
+            memberChart.render();
+        }
+
+        function renderTopCitiesDonut(data) {
+            if (!data.length) { showEmptyState('member-top-donut-chart'); return; }
+
+            var topN = data.slice(0, 6);
+            var othersTotal = data.slice(6).reduce(function (sum, item) { return sum + (item.count || 0); }, 0);
+
+            var labels = topN.map(item => item.name);
+            var series = topN.map(item => item.count);
+
+            if (othersTotal > 0) {
+                labels.push('Others');
+                series.push(othersTotal);
+            }
+
+            var options = {
+                chart: {
+                    type: 'donut',
+                    width: '100%',
+                    height: 340,
+                    toolbar: { show: false }
+                },
+                labels: labels,
+                series: series,
+                colors: sdColors,
+                dataLabels: {
+                    style: { fontSize: '11px' }
+                },
+                plotOptions: {
+                    pie: {
+                        donut: {
+                            size: '65%',
+                            labels: {
+                                show: true,
+                                total: {
+                                    show: true,
+                                    label: 'Total',
+                                    formatter: function (w) {
+                                        return w.globals.seriesTotals.reduce((a, b) => a + b, 0);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                legend: {
+                    position: 'bottom',
+                    horizontalAlign: 'center',
+                    fontSize: '11px'
+                },
+                tooltip: {
+                    y: {
+                        formatter: function (val) {
+                            return val;
+                        }
+                    }
+                }
+            };
+
+            memberDonutChart = new ApexCharts(document.querySelector("#member-top-donut-chart"), options);
+            memberDonutChart.render();
+        }
+    </script>
+}

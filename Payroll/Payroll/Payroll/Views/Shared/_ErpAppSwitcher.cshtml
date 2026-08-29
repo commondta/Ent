@@ -1,0 +1,60 @@
+﻿@using Payroll_HCC.Infrastructure
+@*
+    ERP application switcher for the Payroll header (top-left brand is the trigger) - same markup and
+    stylesheet (erp-platform.css) as the PMS/LIMS switchers. Reads the application list cached at sign-in.
+*@
+@{
+    var apps = ErpSso.Apps(Session);
+    if (apps.Count == 0) { apps.Add(new ErpApplication { Code = ErpSso.AppCode, Name = "Payroll Management", BaseUrl = "/payroll", IsActive = true }); }
+    bool erp = ErpSso.Enabled;
+}
+<div class="erp-appswitch" id="erpAppSwitch">
+    <a href="#" class="brand-lockup erp-appswitch-toggle" role="button" aria-haspopup="true" aria-expanded="false" aria-label="Payroll Management — switch application" title="Switch application">
+        <svg class="brand-svg" width="184" height="34" viewBox="0 0 184 34" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+            <g transform="translate(0,1.25)">
+                <g transform="translate(0,4.3) scale(0.0935) translate(-40,-117)" fill="#ffffff"><defs><mask id="pmlock" maskUnits="userSpaceOnUse" x="0" y="0" width="474" height="474"><rect width="474" height="474" fill="#fff"/><circle cx="237" cy="160" r="61" fill="#000"/><path d="M137 362V295c0-22 8-39 24-51 12-9 26-13 42-13h17l17 30 17-30h17c16 0 30 4 42 13 16 12 24 29 24 51v67Z" fill="#000" stroke="#000" stroke-width="28" stroke-linejoin="round"/></mask></defs><g><g mask="url(#pmlock)"><circle cx="113" cy="160" r="43"/><path d="M40 314V263c0-22 8-38 24-50 12-9 26-13 40-13h19c17 0 30 5 41 14 8 6 14 15 18 25V314Z"/><circle cx="361" cy="160" r="43"/><path d="M434 314V263c0-22-8-38-24-50-12-9-26-13-40-13h-19c-17 0-30 5-41 14-8 6-14 15-18 25V314Z"/></g><circle cx="237" cy="160" r="47"/><path d="M137 362V295c0-22 8-39 24-51 12-9 26-13 42-13h17l17 30 17-30h17c16 0 30 4 42 13 16 12 24 29 24 51v67Z"/></g></g>
+                <text x="43" y="15.5" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#ffffff" letter-spacing="0.4">Payroll</text>
+                <text x="43.5" y="28" font-family="Arial, Helvetica, sans-serif" font-size="7.4" font-weight="600" fill="#ffffff" fill-opacity="0.82" letter-spacing="2">MANAGEMENT</text>
+            </g>
+        </svg>
+        <span class="erp-appswitch-caret" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg></span>
+    </a>
+    <div class="erp-appswitch-menu" role="menu" aria-label="Applications" hidden>
+        @if (erp)
+        {
+            <a class="erp-appswitch-item erp-appswitch-home" role="menuitem" href="@ErpSso.AppsUrl">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg><span>Applications Library</span>
+            </a>
+            <div class="erp-appswitch-sep"></div>
+        }
+        <span class="erp-appswitch-label">Applications</span>
+        @foreach (var app in apps)
+        {
+            bool current = string.Equals(app.Code, ErpSso.AppCode, StringComparison.OrdinalIgnoreCase);
+            string href = current ? Url.Action("Index", "Home") : (app.IsActive && erp ? ErpSso.GoUrl(app.Code) : "#");
+            <a class="erp-appswitch-item @(current ? "is-current" : "") @(app.IsActive ? "" : "is-off")" role="menuitem" href="@href" @(current ? "aria-current=true" : "") @(app.IsActive ? "" : "aria-disabled=true tabindex=-1")>
+                <span class="erp-appswitch-logo" aria-hidden="true">
+                    @if (app.Code == "PAYROLL")
+                    {
+                        <svg viewBox="40 117 394 245" class="erp-logo-people"><defs><mask id="pmsw" maskUnits="userSpaceOnUse" x="0" y="0" width="474" height="474"><rect width="474" height="474" fill="#fff"/><circle cx="237" cy="160" r="61" fill="#000"/><path d="M137 362V295c0-22 8-39 24-51 12-9 26-13 42-13h17l17 30 17-30h17c16 0 30 4 42 13 16 12 24 29 24 51v67Z" fill="#000" stroke="#000" stroke-width="28" stroke-linejoin="round"/></mask></defs><g><g mask="url(#pmsw)"><circle cx="113" cy="160" r="43"/><path d="M40 314V263c0-22 8-38 24-50 12-9 26-13 40-13h19c17 0 30 5 41 14 8 6 14 15 18 25V314Z"/><circle cx="361" cy="160" r="43"/><path d="M434 314V263c0-22-8-38-24-50-12-9-26-13-40-13h-19c-17 0-30 5-41 14-8 6-14 15-18 25V314Z"/></g><circle cx="237" cy="160" r="47"/><path d="M137 362V295c0-22 8-39 24-51 12-9 26-13 42-13h17l17 30 17-30h17c16 0 30 4 42 13 16 12 24 29 24 51v67Z"/></g></svg>
+                    }
+                    else if (app.Code == "PMS")
+                    {
+                        <svg viewBox="30.94 -6 753.91 852" class="erp-logo-pms"><path fill-rule="evenodd" d="M277,364.93 L374,401.9 L374,620.54 L407.9,601.47 L438,618.4 L438,236 L599,174.74 L599,59.23 L437.93,0 L277,59.14Z M613,179.33 L613,184.39 L599,189.72 L599,708.98 L762,800.68 L762,236.08Z M277,379.91 L263,374.58 L263,360.25 L211.28,340.47 L50,401.92 L50,802.82 L277,675.11Z"/><path fill-rule="evenodd" fill-opacity="0.72" d="M778.86,840 L407.9,631.3 L36.94,840 L128.48,840 L407.9,682.8 L687.32,840Z"/><path d="M373.4,742 L403.4,742 L403.4,712 L373.4,712Z M412.4,742 L442.4,742 L442.4,712 L412.4,712Z M373.4,781 L403.4,781 L403.4,751 L373.4,751Z M412.4,781 L442.4,781 L442.4,751 L412.4,751Z"/></svg>
+                    }
+                    else if (app.Code == "LIMS")
+                    {
+                        <img src="@(ErpSso.BaseUrl)/img/lims-logo-dark.svg" alt="" class="erp-logo-img erp-logo-img-dark"><img src="@(ErpSso.BaseUrl)/img/lims-logo-white.svg" alt="" class="erp-logo-img erp-logo-img-light">
+                    }
+                    else
+                    {
+                        <svg viewBox="0 0 24 24" class="erp-logo-line"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20c0-3.6 2.9-6 6.5-6s6.5 2.4 6.5 6"/><circle cx="17" cy="9" r="2.5"/><path d="M16 14c3 0 5.5 2 5.5 5"/></svg>
+                    }
+                </span>
+                <span class="erp-appswitch-name">@app.Name</span>
+                @if (current) { <span class="erp-appswitch-check" aria-hidden="true"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span> }
+                @if (!app.IsActive) { <span class="erp-appswitch-soon">soon</span> }
+            </a>
+        }
+    </div>
+</div>

@@ -1,0 +1,790 @@
+﻿
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Meter Bill Generation</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>METER BILL GENERATION</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="MeterBill">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Document No.</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder="" id="DocNo" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                               placeholder=" " id="Docdate" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Month.</label>
+                                    <div>
+                                         <input type="month" class="form-control"
+                                               placeholder="" id="month" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <a  onclick="DiscardRequest()" style="margin-top:26px;" class="btn btn-danger">
+                                       <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Discard
+                                    </a>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Fuel Adjusted Month</label>
+                                    <div>
+                                        <input type="month" class="form-control"
+                                               placeholder=" " id="FuelAjustedMonth" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Fuel Price</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder=" " id="FuelPrice" value="1" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>For the Month</label>
+                                    <div>
+                                        <input type="month" class="form-control"
+                                               placeholder=" " id="FortheMonth"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Bill For</label>
+                                    <div>
+                                        <select name="BillFor" class="js-example-basic-single" id="BillFor">
+                                            <option value=""> -- Select Option --</option>
+                                            <option value="Electricity">Electricity</option>
+                                            <option value="Water">Water</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                 <div class="col-sm-3">
+                                    <label>Charges Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " value="Draft" id="ChargeStatus" readonly/>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                            <br>
+
+                            <div >
+                                <div class="card " >
+                                    <div >
+                                        <br>
+                                        <br>
+                                        <div class="table-responsive">
+                                            <table id="MeterBillG" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white" style="min-width: 100px;">#</th>
+                                                        <th class="text-white" style="min-width: 190px;">Reference No.</th>
+                                                        <th class="text-white" style="min-width: 150px;">Property No.</th>
+                                                        <th class="text-white hide" style="min-width: 150px;">SapAccount</th>
+                                                        <th class="text-white hide" style="min-width: 150px;">W Tax.</th>
+                                                        <th class="text-white hide" style="min-width: 150px;">Previous Reading</th>
+                                                        <th class="text-white hide" style="min-width: 150px;">Current Reading</th>
+                                                        <th class="text-white" style="min-width: 150px;">Meter No.</th>
+                                                        <th class="text-white" style="min-width: 150px;">Total Units Consumed</th>
+                                                        <th class="text-white" style="min-width: 150px;">Per Unit Rate</th>
+                                                        <th class="text-white" style="min-width: 150px;">Fuel Ajusted Unit</th>
+                                                        <th class="text-white" style="min-width: 150px;">Fuel Adjustment</th>
+                                                        <th class="text-white" style="min-width: 150px;">Sales Tax %</th>
+                                                        <th class="text-white" style="min-width: 150px;">Sales Tax Amount</th>
+                                                        <th class="text-white" style="min-width: 150px;">Gross Amount</th>
+                                                        <th class="text-white" style="min-width: 150px;">Discount</th>
+                                                        <th class="text-white" style="min-width: 150px;">Net Amount</th>
+                                                        <th class="text-white" style="min-width: 150px;">W Tax Amount</th>
+                                                                                                        
+                                                </thead>
+                                                <tbody id="MeterGeneratetbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                </div>
+                                <div class="col-sm-2">
+                                    <label>Total Consumed Units</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder=" " id="totalconsumedUnits" value="0" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label>Total Amount</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder=" " id="total" value="0" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div >
+                                <div >
+                                    <label>Remarks</label>
+                                    <div>
+                                        <textarea type="text" class="form-control" id="Remarks" name="Remarks"
+                                                  placeholder=" "></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            
+                        </form>
+                        <div class="col-12" style="float: right;">
+                            <button type="submit" onclick="PostRequest()" id="Submitp" class="btn dha_theme_btn">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<div class="modal" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Reference No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="registrationNO" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Type</th>
+                                            <th class="text-white">Real Estate</th>
+                                            <th class="text-white">Status</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="registrationtbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<input id="rownumberforid" class="hide" value="0" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+
+            $('#registrationNO').dataTable();
+
+            //var today = new Date();
+            //var currentMonth = today.toISOString().slice(0, 7);
+            //$('#FuelAjustedMonth').attr('max', currentMonth);
+
+            //var today = new Date();
+            //var currentMonth = today.toISOString().slice(0, 7); 
+            //$('#FortheMonth').attr('min', currentMonth);
+
+        });
+
+        $("#BillFor").change(function () {
+            let readingFor = $(this).val();
+            let month = $("#FortheMonth").val();
+            let fuelAjustedMonth = $("#FuelAjustedMonth").val();
+
+            if (month != "" && readingFor != "") {
+                GetAllBillDetial(readingFor, month, fuelAjustedMonth);
+                calculateBill();
+            }
+        });
+
+        $("#FortheMonth").change(function () {
+            let  month= $(this).val();
+            let readingFor = $("#BillFor").val();
+            let fuelAjustedMonth = $("#FuelAjustedMonth").val();
+
+            if(month != "" && readingFor != "") {
+              GetAllBillDetial(readingFor, month, fuelAjustedMonth);
+              calculateBill();
+            }
+        });
+
+        $("#FuelAjustedMonth").change(function () {
+            let fuelAjustedMonth = $(this).val();
+            let readingFor = $("#BillFor").val();
+            let month = $("#FortheMonth").val();
+
+            if (month != "" && readingFor != "") {
+                GetAllBillDetial(readingFor, month, fuelAjustedMonth);
+                calculateBill();
+            }
+        });
+
+        function GetAllBillDetial(readingFor, month, fuelAjustedMonth) {
+
+            var url = "/api/Filter/GetMeterReadingForBillGenration?readingFor=" + readingFor + "&month=" + month + "&fuelAjustedMonth=" + fuelAjustedMonth;
+            NProgress.start();
+            NProgress.set(0.4);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    $('#loader').fadeOut();
+                    NProgress.done();
+                    if (response.code == 100) {
+
+                       
+                        $("#MeterGeneratetbody").empty();
+
+                        var model = response.data;
+
+                        var relist = model;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+
+                            for (let list of relist) {
+
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td> <input disabled id="regNo_' + sr + '" class="form-control   registrationNo" /></td>' +
+                                    '<td> <input disabled id="propNo_' + sr + '" class="form-control   propertyNo"  /></td>' +
+                                    '<td class="hide"> <input disabled name="sapAccount" id="sapAccount_' + sr + '" class="form-control   SapAccount"  /></td>' +
+                                    '<td class="hide"> <input disabled name="wTax" id="wTax_' + sr + '" class="form-control   wTax"  /></td>' +
+                                    '<td class="hide"> <input disabled name="PreviousReading"  class="form-control   PreviousReading" value="' + list.lastReading + '" /></td>' +
+                                    '<td class="hide"> <input disabled name="CurrentReading"  class="form-control   CurrentReading" value="' + list.currentReading + '" /></td>' +
+                                    '<td> <input disabled class="form-control  meterNo" value="' + list.meterNo + '" /></td>' +
+                                    '<td> <input type="number" disabled name="totalUnitConsumed" class="form-control  totalUnitConsumed" value="' + list.unitsConsumed + '" /></td>' +
+                                    '<td> <input type="number" disabled name="perUnitRate" id="unitrate_' + sr + '" class="form-control  perUnitRate" value="0" /></td>' +
+                                    '<td> <input type="number" disabled name="fuelAdjustedUnit" class="form-control  fuelAdjustedUnit" value="' + list.fuelAdjustedUnits + '" /></td>' +
+                                    '<td> <input type="number" disabled name="fuelAdjustment" id="fuelrate_' + sr + '" class="form-control  fuelAdjustment" value="0" /></td>' +
+                                    '<td> <input type="number" disabled name="saleTax" class="form-control  saleTax" value="' + list.saleTax + '" /></td>' +
+                                    '<td> <input type="number" disabled name="saleTaxAmount"  class="form-control  saleTaxAmount" value="0" /></td>' +
+                                    '<td> <input type="number" disabled name="grossAmount" class="form-control  grossAmount" value="0" /></td>' +
+                                    '<td> <input type="number" onkeypress="validateNumberInput(event)" onkeyup="calculateNetAmount(event)" name="discount" class="form-control  discount" value="0" /></td>' +
+                                    '<td> <input type="number" disabled name="netAmount" class="form-control  netAmount" value="0" /></td>' +
+                                     '<td> <input type="number" disabled name="wTaxAmount"  class="form-control  wTaxAmount" value="0" /></td>' +
+                                    '</tr>';
+                                $("#MeterGeneratetbody").append(row);
+
+                                GetMeter(sr, list.meterNo);
+                                sr++;
+                            }
+                        }
+                       
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+
+        function GetMeter(sr, meterNo){
+            $("#rownumberforid").val(sr);
+            SelectProperty(meterNo);
+        }
+
+        function SelectProperty(meterNo) {
+
+            var url = "/api/Filter/GetPropertyForBillGenrationByMeterNo?meterNo=" + meterNo + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { meterNo: meterNo },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                   
+                    if (response.code === 100) {
+                        var result = response.data;
+                        var rownumber = $("#rownumberforid").val();
+                        $("#regNo_" + rownumber).val(result.registrationNo);
+                        $("#propNo_" + rownumber).val(result.propertyNo);
+
+                        GetWTax(result.id);
+
+                        var obj = new Object();
+
+                        obj.RealStateTypeId = result.realStateType;
+                        obj.ProjectId = result.project;
+                        obj.PhaseId = result.phase;
+                        obj.BlockId = result.block;
+                        obj.CategoryId = result.category;
+                        obj.PropertyTypeId = result.type;
+                        obj.NatureId = result.nature;
+                        obj.GeneratorUnitType = result.generatorUnitType;
+
+                        getchargesdata(obj);
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+
+            });
+        }
+
+        function getchargesdata(obj) {
+            
+            var ModelData = JSON.stringify(obj);
+    
+            $.ajax({
+                type: "POST",
+                url: `/api/Filter/GetGlobalChargeDetail/?formId=2`,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                processData: false,
+                dataType: "json",
+                async: false,
+                data: ModelData,
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+                        if (response.data != null) {
+
+                            let perUnit = response.data.globalChargeDetail[0].rate;
+                            let sapAccount = response.data.globalChargeDetail[0].sapAccount;
+                            let fuelAdjustment = $("#FuelPrice").val();
+
+                            var rownumber = $("#rownumberforid").val();
+                            $("#unitrate_" + rownumber).val(perUnit);
+                            $("#fuelrate_" + rownumber).val(fuelAdjustment);
+                            $("#sapAccount_" + rownumber).val(sapAccount);
+                        }
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+
+            });
+        }
+
+         function GetWTax(id) {
+
+            var url = "/api/Filter/GetWTax?id=" + id + "";
+
+            $.ajax({
+                type: "GET",
+                url : url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                processData: false,
+                dataType: "json",
+                async: false,
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+                        if (response.data != null) {
+
+                            let wTax = response.data;
+                            
+                            var rownumber = $("#rownumberforid").val();
+                            $("#wTax_" + rownumber).val(wTax);
+                        }
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+
+            });
+        }
+
+        function calculateBill() {
+            const tbody = document.querySelector('#MeterGeneratetbody');
+            let totalUnits = 0.00;
+            let totalAmount = 0.00;
+
+            tbody.querySelectorAll('tr').forEach((tr) => {
+                debugger;
+                
+                let totalUnitConsumed = parseFloat(tr.querySelector('input[name="totalUnitConsumed"]').value);
+                let perUnitRate = parseFloat(tr.querySelector('input[name="perUnitRate"]').value);
+                let fuelAdjustment = parseFloat(tr.querySelector('input[name="fuelAdjustment"]').value);
+                let fuelAdjustedUnit = parseFloat(tr.querySelector('input[name="fuelAdjustedUnit"]').value);
+                let wTax = parseFloat(tr.querySelector('input[name="wTax"]').value);
+                let saleTax = parseFloat(tr.querySelector('input[name="saleTax"]').value);
+                
+                let totalunitBill = totalUnitConsumed * perUnitRate;
+                let totalfuelAdjustmentBill = fuelAdjustedUnit * fuelAdjustment;
+                let total = totalunitBill + totalfuelAdjustmentBill;
+                
+                let saleTaxAmount = total * (saleTax / 100);
+                let grossAmount = total;
+                let wTaxAmount = grossAmount * (wTax / 100);
+
+                totalUnits = totalUnits + totalUnitConsumed;
+                totalAmount = totalAmount + grossAmount;
+
+                tr.querySelector('input[name="saleTaxAmount"]').value = saleTaxAmount.toFixed(2);
+                tr.querySelector('input[name="wTaxAmount"]').value = wTaxAmount.toFixed(2);
+                tr.querySelector('input[name="grossAmount"]').value = grossAmount.toFixed(2);
+                tr.querySelector('input[name="netAmount"]').value = grossAmount.toFixed(2);
+            });
+
+            $("#totalconsumedUnits").val(totalUnits.toFixed(2));
+            $("#total").val(totalAmount.toFixed(2));
+        }
+
+        function calculateNetAmount(event) {
+            let tr = event.target.closest('tr');
+            let grossAmount = tr.querySelector('input[name="grossAmount"]').value;
+            let discountAmount = event.target.value;
+            let netAmount = tr.querySelector('input[name="netAmount"]').value;
+
+            let result;
+            if (grossAmount !== '') {
+                if (grossAmount === '0' && discountAmount >= 0) {
+                    result = 0;
+                } else {
+                    result = parseInt(grossAmount) - parseInt(discountAmount);
+                }
+            } else {
+                result = netAmount;
+            }
+
+            tr.querySelector('input[name="netAmount"]').value = result;
+        }
+
+
+
+        function PostRequest() {
+
+            var methodType = 'POST';
+            var url = "/api/MeterBillGeneration/AddNewMeterBillGeneration";
+
+            var meterBillGeneration = new Object();
+
+            var meterBillGenerationDetailArr = new Array();
+
+            //if ($("#Id").val()) {
+
+            //    debugger;
+
+            //    meterInstallation.id = parseInt($("#Id").val());
+            //    methodType = 'PUT';
+            //    url = "/api/MeterInstallation/UpdateMeterInstallation"
+            //}
+
+            meterBillGeneration.Month = $('#FortheMonth').val();
+            meterBillGeneration.BillFor = $('#BillFor').val();
+            meterBillGeneration.ChargesStatus = $('#ChargeStatus').val();
+            meterBillGeneration.CreatedBy = $("#User_Id").val();
+            meterBillGeneration.ModifiedBy = $("#User_Id").val();
+            meterBillGeneration.LastModifiedUserName = $("#User_Name").val();
+
+
+            $('#MeterGeneratetbody tr').each(function () {
+
+                var row = $(this);
+                var merterBillGenerationDetail = new Object();
+
+                // Amount
+
+                const totalUnitConsumed = row.find('.totalUnitConsumed').val();
+                const perUnitRate = row.find('.perUnitRate').val();
+                const fuelAdjustment = row.find('.fuelAdjustment').val();
+                const fuelAdjustedUnit = row.find('.fuelAdjustedUnit').val();
+               
+                const totalunitBill = totalUnitConsumed * perUnitRate;
+                const totalfuelAdjustmentBill = fuelAdjustedUnit * fuelAdjustment;
+                const total = totalunitBill + totalfuelAdjustmentBill;
+
+                //end
+
+                merterBillGenerationDetail.PropertyNo = row.find('.propertyNo').val();
+                merterBillGenerationDetail.RegistrationNo = row.find('.registrationNo').val();
+                merterBillGenerationDetail.SapAccount = row.find('.SapAccount').val();
+                merterBillGenerationDetail.Month = $('#FortheMonth').val();
+                merterBillGenerationDetail.MeterNo = row.find('.meterNo').val();
+                merterBillGenerationDetail.PreviousReading = row.find('.PreviousReading').val();
+                merterBillGenerationDetail.CurrentReading = row.find('.CurrentReading').val();
+                merterBillGenerationDetail.TotalUnitConsumed = row.find('.totalUnitConsumed').val();
+                merterBillGenerationDetail.PerUnitRate = row.find('.perUnitRate').val();
+                merterBillGenerationDetail.FuelAdjustedUnits = row.find('.fuelAdjustedUnit').val();
+                merterBillGenerationDetail.FuelAdjustment = row.find('.fuelAdjustment').val();
+                merterBillGenerationDetail.Amount = total;
+                merterBillGenerationDetail.SaleTax = row.find('.saleTax').val();
+                merterBillGenerationDetail.SaleTaxAmount = row.find('.saleTaxAmount').val();
+                merterBillGenerationDetail.WTaxAmount = row.find('.wTaxAmount').val();
+                merterBillGenerationDetail.GrossAmount = row.find('.grossAmount').val();
+                merterBillGenerationDetail.Discount = row.find('.discount').val();
+                merterBillGenerationDetail.NetAmount = row.find('.netAmount').val();
+
+                meterBillGenerationDetailArr.push(merterBillGenerationDetail);
+            });
+
+
+            meterBillGeneration.MeterBillGenerationDetail = meterBillGenerationDetailArr;
+
+            var model = JSON.stringify(meterBillGeneration);
+            $('#Submitp').prop('disabled', true); //disble
+            $('#loader').fadeIn();
+            NProgress.start();
+            NProgress.set(0.4);
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+                     $('#loader').fadeOut();
+                    if (response.code === 100) {
+                        NProgress.done();
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else
+                    {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+            $('#Submitp').prop('disabled', false); //enable
+        }
+
+         function DiscardRequest() {
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'success',
+                        title: 'Deleted',
+                        text: 'Your data is deleted.',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+
+                    var month = $("#month").val();
+                     if ($("#FortheMonth") != "") {
+                        Discard(month);
+                     }
+                     else
+                     {
+                          Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: 'Please select month',
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                            })
+                     }
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Discard(month) {
+            debugger;
+
+            var methodType = 'Delete';
+            var url = "/api/MeterBillGeneration/Discard?month=" + month + "";
+            NProgress.start();
+            NProgress.set(0.4);
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+
+                success: function (response) {
+                    NProgress.done();
+                    if (response.code == 100) {
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+
+    </script>
+ }

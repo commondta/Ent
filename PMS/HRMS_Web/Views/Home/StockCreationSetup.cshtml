@@ -1,0 +1,189 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Stock Creation Setup</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16"><path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"/></svg></span>
+                    <h1>STOCK CREATION SETUP</h1>
+                        </div>
+                    </div>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" action="#" role="form" id="Saletax">
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="ConstructionStatus" id="ConstructionStatus">
+                                            <option value="Non-Constructed">Non-Constructed</option>
+                                            <option value="Under-Constructed">Under-Constructed</option>
+                                            <option value="Constructed">Constructed</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Possession Announced</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="PossessionStatus" id="PossessionStatus">
+                                            <option value="false">No</option>
+                                            <option value="true">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+
+                        <br>
+                        <div class="col-12" style="float: right;">
+                            <button type="submit" class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);" style="margin-right:4px;" onclick="PostRequest()">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Save
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<input type="number" id="Id" class="hide" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+
+            GetStockCreationSetup();
+        });
+
+        function GetStockCreationSetup() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/StockCreationSetup/Get`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var data = response.data;
+
+                        let pos = data.possessionStatus == true ? "true" : "false";
+
+                        $('#Id').val(data.id);
+                        $('#ConstructionStatus').val(data.construcationStatus);
+                        $('#PossessionStatus').val(pos);
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        function PostRequest() {
+
+            var methodType = 'POST';
+            var url = "/api/StockCreationSetup/AddNewStockCreationSetup";
+
+            var Operation = new Object();
+
+            let possessionStatus = $("#PossessionStatus").val() == "true" ? true : false;
+
+            Operation.ConstrucationStatus = $('#ConstructionStatus').val();
+            Operation.PossessionStatus = possessionStatus;
+            Operation.ModifiedBy = $("#User_Id").val();
+            Operation.CreatedBy = $("#User_Id").val();
+            Operation.LastModifiedUserName = $("#User_Name").val();
+
+            if ($("#Id").val()) {
+                Operation.Id = parseInt($("#Id").val());
+                methodType = 'PUT';
+                url = "/api/StockCreationSetup/UpdateStockCreationSetup"
+            }
+
+            var model = JSON.stringify(Operation);
+            debugger;
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                }
+            });
+        }
+
+    </script>
+
+
+    }
+

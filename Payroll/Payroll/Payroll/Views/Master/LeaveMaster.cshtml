@@ -1,0 +1,589 @@
+﻿
+@{
+    ViewBag.Title = "Leave Types";
+}
+
+<!-- Add Modal -->
+<div id="add-leave-master-modal" class="modal fade" role="dialog" style="float:none;margin:auto; ">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Leave Types</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="row">
+                            <div class="col-md-6 split-col">
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="leave-code" class="col-sm-5 control-label">Leave Code <span class="red-text">*</span></label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="leave-code" autofocus required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="description" class="col-sm-5 control-label">Description</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="description">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="total-leaves-in-year" class="col-sm-5 control-label">Total Leaves in Year <span class="red-text">*</span></label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="total-leaves-in-year" required>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="total-leaves-in-year-for-trainer" class="col-sm-5 control-label">Total Leaves in Year For Trainer</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="total-leaves-in-year-for-trainer">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="leave-type" class="col-sm-5 control-label">Leave Type</label>
+                                        <div class="col-sm-7">
+                                            <select id="leave-type" class="form-control">
+                                                <option selected="selected">this</option>
+                                                <option>that</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-7 col-sm-offset-5">
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="applicable-during-probation">
+                                                    Applicable During Probation
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-7 col-sm-offset-5">
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="encashable">
+                                                    Encashable
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="min-balance-for-encash" class="col-sm-5 control-label">Min. Balance For Encash</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="min-balance-for-encash">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="max-leave-to-encash" class="col-sm-5 control-label">Max Leave to Encash</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="max-leave-to-encash">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-7 col-sm-offset-5">
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="payable-leave">
+                                                    Payable Laeave
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+
+                                <div class="row">
+                                    <div class="form-group">
+                                        <label for="max-monthly-aplli" class="col-sm-5 control-label">Max Monthly Aplli.</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="max-monthly-aplli">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="min-continuous" class="col-sm-5 control-label">Min Continuous</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="min-continuous">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="max-continuous" class="col-sm-5 control-label">Max Continuous</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="max-continuous">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="min-conti-dur-prob" class="col-sm-5 control-label">Min. Conti. Dur. Prob.</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="min-conti-dur-prob">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="max-conti-dur-prob" class="col-sm-5 control-label">Max. Conti. Dur. Prob.</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="max-conti-dur-prob">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="effective-from" class="col-sm-5 control-label">Effective From</label>
+                                        <div class="col-sm-7">
+                                            <input type="date" class="form-control" id="effective-from">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-7 col-sm-offset-5">
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="payable-leave">
+                                                    Carry Forward to Next Year
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="max-leave-carry-forward" class="col-sm-5 control-label">Max. Leave Carry Forward</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="max-leave-carry-forward">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="company-leave-policy" class="col-sm-5 control-label">Company Leave Policy</label>
+                                        <div class="col-sm-7">
+                                            <input type="text" class="form-control" id="company-leave-policy">
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-sm-7 col-sm-offset-5">
+                                        <div class="form-group">
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" id="close">
+                                                    Close
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row topSectionMargin">
+                    <div class="col-md-12">
+                        <div class="row topMargin">
+                            <table id="myTable" class="table table-responsive table-bordered" style="margin-top:2%;">
+                                <thead>
+                                    <tr>
+                                        <th class="grey-cell">#</th>
+                                        <th class="grey-cell">From Year</th>
+                                        <th class="grey-cell">To Year</th>
+                                        <th class="grey-cell">Close</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @for (int i = 0; i < 3; i++)
+                                    {
+                                    <tr>
+                                        <td>@(i + 1)</td>
+                                        <td><input type="text" /></td>
+                                        <td><input type="text" /></td>
+                                        <td style="text-align: center;"><input type="checkbox"></td>
+                                    </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row topMargin">
+                    <div class="form-group">
+                        <label for="remarks" class="col-sm-2 control-label">Remarks</label>
+                        <div class="col-sm-10">
+                            <textarea class="form-control" id="remarks" rows="3" placeholder="Enter..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" onclick="save()">Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>Leave Types</h1>
+        <ol class="breadcrumb">
+            <li><a href="~/Home/Index">Home</a></li>
+            <li>Leave &amp; Benefits Setup</li>
+            <li class="active">Leave Types</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Leave Types</h3>
+                <button type="button" class="btn" data-toggle="tooltip" title="Add Criteria" onclick="$('#add-leave-master-modal').modal('show');">
+                    <i class="fa fa-plus"></i>
+                    <div class="ripple-container">
+                    </div>
+                </button>
+            </div>
+            <div class="box-body">
+                <table id="myTable" class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Leave Code</th>
+                            <th>Description</th>
+                            <th>Total Leaves in Year</th>
+                            <th>Total Leaves in Year For Trainer</th>
+                            <th>Laeave Type</th>
+                            <th>Applicable During Probation</th>
+                            <th>Enchashable</th>
+                            <th>...</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>
+
+@*Script part*@
+<script>
+    let Global_Array = new Array();
+    //show data
+    $(document).ready(function () {
+        view();
+    });
+
+    function view() {
+        $.ajax({
+            type: "get",
+            url: "@Url.Action("list", "leaveMaster")",
+            success: function (result) {
+                if (result != "error") {
+                    Global_Array = result;
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].leaveCode + "</td>", "<td>" + result[i].description + "</td>", "<td>" + result[i].leavesInYear + "</td>", "<td>" + result[i].leavesInYearForTrainer + "</td>", "<td>" + result[i].leaveType + "</td>", "<td>" + result[i].apllicable + "</td>", "<td>" + result[i].encashable + "</td>", "<td >" + "<a onclick='more(" + result[i].id + ")'>Read</a> |<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+
+    //Employee Profile
+    function more(id) {
+        for (let i = 0; i < Global_Array.length; i++) {
+            if (Global_Array[i].id == id) {
+                $('#myModal3').modal('show');
+                $("#pid").val(id);
+                $('#pleavecode').val(Global_Array[i].leaveCode);
+                $('#pdescription').val(Global_Array[i].description);
+                $('#ptotalleavesyear').val(Global_Array[i].leavesInYear);
+                $('#ptotalleavesfortrainer').val(Global_Array[i].leavesInYearForTrainer);
+                $('#pleavetype').val(Global_Array[i].leaveType);
+                $('#papplicable').val(Global_Array[i].apllicable);
+                $('#pencashable').val(Global_Array[i].encashable);
+                $('#pminimumbalance').val(Global_Array[i].minBalance);
+                $('#pmaximumleaves').val(Global_Array[i].maxLeave);
+                $('#ppayableleave').val(Global_Array[i].payableLeave);
+                $('#pmaxmonthlyappli').val(Global_Array[i].MaxMonthly);
+                $('#pmincontinous').val(Global_Array[i].MinContinous);
+                $('#pmaxcontinous').val(Global_Array[i].MaxContinous);
+                $('#pminconti').val(Global_Array[i].MinContinousProb);
+                $('#pmaxconti').val(Global_Array[i].MaxContinousProb);
+                $('#peffectivefrom').val(Global_Array[i].effectiveForm);
+                $('#pcarryforawrd').val(Global_Array[i].carryForawrdNextyear);
+                $('#pmaxleavecarry').val(Global_Array[i].maxLeaveCarryForward);
+                $('#pcompanyleavepolicy').val(Global_Array[i].companyLeavePolicy);
+                $('#pclose').val(Global_Array[i].lclose);
+                $('#pfromyear').val(Global_Array[i].fromdate);
+                $('#ptoyear').val(Global_Array[i].todate);
+                $('#ptclose').val(Global_Array[i].tclose);
+                $('#premarks').val(Global_Array[i].remarks);
+            }
+        }
+    }
+
+    //add Data
+    function Add() {
+        $('#add-leave-master-modal').modal('show');
+    }
+    function save() {
+        let lc = $("#leavecode").val();
+        let des = $("#description").val();
+        let tly = $("#totalleavesyear").val();
+        let tlyft = $("#totalleavesfortrainer").val();
+        let lt = $("#leavetype").val();
+        let app = $("#applicable").val();
+        let encash = $("#encashable").val();
+        let minb = $("#minimumbalance").val();
+        let maxl = $("#maximumleaves").val();
+        let pl = $("#payableleave").val();
+        let mma = $("#maxmonthlyappli").val();
+        let mic = $("#mincontinous").val();
+        let mac = $("#maxcontinous").val();
+        let minc = $("#minconti").val();
+        let maxc = $("#maxconti").val();
+        let ef = $("#effectivefrom").val();
+        let cf = $("#carryforawrd").val();
+        let mlc = $("#maxleavecarry").val();
+        let clp = $("#companyleavepolicy").val();
+        let c = $("#close").val();
+        let fy = $("#fromyear").val();
+        let ty = $("#toyear").val();
+        let tc = $("#tclose").val();
+        let r = $("#Remarks").val();
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("Add", "leaveMaster")",
+            data: {
+                lc: lc,
+                des: des,
+                tly: tly,
+                tlyft: tlyft,
+                lt: lt,
+                app: app,
+                encash: encash,
+                minb: minb,
+                maxl: maxl,
+                pl: pl,
+                mma: mma,
+                mic: mic,
+                mac: mac,
+                minc: minc,
+                maxc: maxc,
+                ef: ef,
+                cf: cf,
+                mlc: mlc,
+                clp: clp,
+                c: c,
+                fy: fy,
+                ty: ty,
+                tc: tc,
+                r: r
+            },
+            success: function (result) {
+                $('#myModal').modal('hide');
+                if (result != "error") {
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].leaveCode + "</td>", "<td>" + result[i].description + "</td>", "<td>" + result[i].leavesInYear + "</td>", "<td>" + result[i].leavesInYearForTrainer + "</td>", "<td>" + result[i].leaveType + "</td>", "<td>" + result[i].apllicable + "</td>", "<td>" + result[i].encashable + "</td>", "<td >" + "<a onclick='more(" + result[i].id + ")'>Read</a> |<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+
+    //Edit data
+    function Edit(idRow) {
+        for (let i = 0; i < Global_Array.length; i++) {
+            if (Global_Array[i].id == idRow) {
+                $('#myModal2').modal('show');
+                $("#eid").val(idRow);
+                $('#eleavecode').val(Global_Array[i].leaveCode);
+                $('#edescription').val(Global_Array[i].description);
+                $('#etotalleavesyear').val(Global_Array[i].leavesInYear);
+                $('#etotalleavesfortrainer').val(Global_Array[i].leavesInYearForTrainer);
+                $('#eleavetype').val(Global_Array[i].leaveType);
+                $('#eapplicable').val(Global_Array[i].apllicable);
+                $('#eencashable').val(Global_Array[i].encashable);
+                $('#eminimumbalance').val(Global_Array[i].minBalance);
+                $('#emaximumleaves').val(Global_Array[i].maxLeave);
+                $('#epayableleave').val(Global_Array[i].payableLeave);
+                $('#emaxmonthlyappli').val(Global_Array[i].MaxMonthly);
+                $('#emincontinous').val(Global_Array[i].MinContinous);
+                $('#emaxcontinous').val(Global_Array[i].MaxContinous);
+                $('#eminconti').val(Global_Array[i].MinContinousProb);
+                $('#emaxconti').val(Global_Array[i].MaxContinousProb);
+                $('#eeffectivefrom').val(Global_Array[i].effectiveForm);
+                $('#ecarryforawrd').val(Global_Array[i].carryForawrdNextyear);
+                $('#emaxleavecarry').val(Global_Array[i].maxLeaveCarryForward);
+                $('#ecompanyleavepolicy').val(Global_Array[i].companyLeavePolicy);
+                $('#eclose').val(Global_Array[i].lclose);
+                $('#efromyear').val(Global_Array[i].fromdate);
+                $('#etoyear').val(Global_Array[i].todate);
+                $('#etclose').val(Global_Array[i].tclose);
+                $('#eremarks').val(Global_Array[i].remarks);
+            }
+        }
+    }
+    function update() {
+        let id = $("#eid").val();
+        let lc = $("#eleavecode").val();
+        let des = $("#edescription").val();
+        let tly = $("#etotalleavesyear").val();
+        let tlyft = $("#etotalleavesfortrainer").val();
+        let lt = $("#eleavetype").val();
+        let app = $("#eapplicable").val();
+        let encash = $("#eencashable").val();
+        let minb = $("#eminimumbalance").val();
+        let maxl = $("#emaximumleaves").val();
+        let pl = $("#epayableleave").val();
+        let mma = $("#emaxmonthlyappli").val();
+        let mic = $("#emincontinous").val();
+        let mac = $("#emaxcontinous").val();
+        let minc = $("#eminconti").val();
+        let maxc = $("#emaxconti").val();
+        let ef = $("#eeffectivefrom").val();
+        let cf = $("#ecarryforawrd").val();
+        let mlc = $("#emaxleavecarry").val();
+        let clp = $("#ecompanyleavepolicy").val();
+        let c = $("#eclose").val();
+        let fy = $("#efromyear").val();
+        let ty = $("#etoyear").val();
+        let tc = $("#etclose").val();
+        let r = $("#eremarks").val();
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("Edit", "leaveMaster")",
+            data: {
+                id: id,
+                lc: lc,
+                des: des,
+                tly: tly,
+                tlyft: tlyft,
+                lt: lt,
+                app: app,
+                encash: encash,
+                minb: minb,
+                maxl: maxl,
+                pl: pl,
+                mma: mma,
+                mic: mic,
+                mac: mac,
+                minc: minc,
+                maxc: maxc,
+                ef: ef,
+                cf: cf,
+                mlc: mlc,
+                clp: clp,
+                c: c,
+                fy: fy,
+                ty: ty,
+                tc: tc,
+                r: r
+            },
+            success: function (result) {
+                $('#myModal2').modal('hide');
+                if (result != "error") {
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].leaveCode + "</td>", "<td>" + result[i].description + "</td>", "<td>" + result[i].leavesInYear + "</td>", "<td>" + result[i].leavesInYearForTrainer + "</td>", "<td>" + result[i].leaveType + "</td>", "<td>" + result[i].apllicable + "</td>", "<td>" + result[i].encashable + "</td>", "<td >" + "<a onclick='more(" + result[i].id + ")'>Read</a> |<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+
+    // Delete data
+    function del(idrow) {
+        var id = idrow
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("Delete", "leaveMaster")",
+            data: {
+                id: id,
+            },
+            success: function (result) {
+                if (result != "error") {
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].leaveCode + "</td>", "<td>" + result[i].description + "</td>", "<td>" + result[i].leavesInYear + "</td>", "<td>" + result[i].leavesInYearForTrainer + "</td>", "<td>" + result[i].leaveType + "</td>", "<td>" + result[i].apllicable + "</td>", "<td>" + result[i].encashable + "</td>", "<td >" + "<a onclick='more(" + result[i].id + ")'>Read</a> |<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+</script>

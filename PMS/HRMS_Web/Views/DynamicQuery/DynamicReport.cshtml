@@ -1,0 +1,393 @@
+﻿<style>
+    .d-none {
+        display: none !important;
+    }
+    /* safety if utilities aren't loaded */
+    .loader-overlay {
+        position: fixed;
+        inset: 0;
+        z-index: 2000;
+        background: rgba(255,255,255,.7);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .loader-spinner {
+        width: 48px;
+        height: 48px;
+        border: 4px solid #ddd;
+        border-top-color: #0d6efd;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 0 auto;
+    }
+
+    #reportResultWrapper {
+        max-height: 800px; /* adjust height */
+        overflow-y: auto;
+        border: 1px solid #ddd;
+    }
+
+    /* Sticky header */
+    #reportTable thead th {
+        position: sticky;
+        top: 0;
+        background: #f8f9fa; /* light bg */
+        z-index: 2;
+    }
+
+    @@keyframes spin {
+        to {
+            transform: rotate(360deg);
+        }
+    }
+</style>
+
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <ul class="breadcrumb">
+                    <li><a href="/Home/index">Home</a></li>
+                    <li class="active">Dynamic Report</li>
+                </ul>
+            </div>
+
+            <div class="vd_title-section clearfix">
+                <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/></svg></span>
+                    <h1>DYNAMIC REPORT</h1>
+            </div>
+
+            <div class="vd_content-section clearfix container-fluid">
+                <!-- Select Query -->
+                <div class="form-group">
+                    <label>Select Query</label>
+                    <select id="queryDropdown" class="form-control">
+                        <option value="">-- Select Query --</option>
+                    </select>
+                </div>
+
+                <!-- Filters Section -->
+                <div id="filtersSection" class="d-none mt-4 mb-3">
+                    <h5>Filters</h5>
+                    <form id="filtersForm" class="border p-3 rounded">
+                        <div class="row" id="filtersRow"></div>
+                    </form>
+                    <div class="text-right">
+                        <button class="btn btn-success mt-2" id="generateReportBtn">Generate Report</button>
+                    </div>
+                </div>
+
+                <div class="text-right mt-5" style="margin-top:20px;">
+                    <button id="printBtn" class="btn btn-danger d-none">
+                        <i class="fa fa-print"></i>
+                    </button>
+                    <button id="exportBtn" class="btn btn-success d-none">
+                        <i class="fa fa-file-excel-o"></i>
+                    </button>
+                </div>
+
+                <!-- Report Section -->
+                <div id="reportSection" class="mt-4 d-none">
+                    <h5>Report Result</h5>
+                    <div id="reportResultWrapper">
+                        <div id="reportResult"></div>
+                    </div>
+                </div>
+
+                <div id="pageLoader" class="loader-overlay d-none">
+                    <div class="text-center">
+                        <div class="loader-spinner"></div>
+                        <p class="mt-2">Generating report, please wait…</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script type="text/javascript">
+        // SECURITY (#5, #6): the report endpoints now require authentication; attach the
+        // token to every call this page makes, including the $.get shorthands.
+        $.ajaxSetup({ headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
+
+        let allQueries = [];
+
+        $(function () {
+            loadDynamicQueries();
+
+            let currentPrintLayout = '';
+
+            $('#queryDropdown').change(function () {
+                const selectedId = $(this).val();
+                $('#reportSection').addClass('d-none');
+                $('#reportResult').empty();
+
+                if (!selectedId) {
+                    $('#filtersSection').addClass('d-none');
+                    return;
+                }
+
+                $.get(`/api/DynamicQuery/Get/${selectedId}`, function (resp) {
+                    const selectedQuery = resp.data;
+                    currentPrintLayout = selectedQuery.printTitle || '';
+                    if (selectedQuery && selectedQuery.params) {
+                        buildFilterForm(selectedQuery.params);
+                        $('#filtersSection').removeClass('d-none');
+                    } else {
+                        $('#filtersSection').addClass('d-none');
+                    }
+                });
+            });
+
+            $('#printBtn').click(function () {
+                if (!currentPrintLayout) {
+                    alert("No print layout available.");
+                    return;
+                }
+
+                const theadHtml = $('#reportResult table thead').html();
+                const tbodyHtml = $('#reportResult table tbody').html();
+
+                const tableHtml = `
+                        <table class="table table-bordered table-striped">
+                            <thead>${theadHtml}</thead>
+                            <tbody>${tbodyHtml}</tbody>
+                        </table>
+                    `;
+
+                const printName = $('#User_Name').val();
+                const now = new Date();
+                const formattedDateTime =
+                    `Date: ${now.toLocaleDateString('en-GB')} , ${now.toLocaleTimeString('en-PK', { hour: '2-digit', minute: '2-digit', hour12: true })} | Printed By: ${printName}`;
+
+                // Replace both tableHtml and printDate placeholders
+                let finalHtml = currentPrintLayout
+                    .replace('${tableHtml}', tableHtml)
+                    .replace('${printDate}', formattedDateTime);
+
+                const printWindow = window.open('', '', 'width=1000,height=800');
+                printWindow.document.write(finalHtml);
+                printWindow.document.close();
+
+                printWindow.onload = function () {
+                    printWindow.focus();
+                    printWindow.print();
+                    printWindow.close();
+                };
+            });
+
+            $('#generateReportBtn').click(function (e) {
+                e.preventDefault();
+
+                const queryId = $('#queryDropdown').val();
+                if (!queryId) return;
+
+                const parameters = {};
+                $('#filtersForm').serializeArray().forEach(({ name, value }) => parameters[name] = value);
+
+                const payload = { queryId: parseInt(queryId), parameters };
+
+                $('#reportSection').addClass('d-none');
+                $('#reportResult').empty();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/SapIntegration/GenerateDynamicReport',
+                    contentType: 'application/json',
+                    data: JSON.stringify(payload),
+
+                    // show loader for this request
+                    beforeSend: function () { $('#pageLoader').removeClass('d-none'); },
+
+                    success: function (resp) {
+                        if (resp.code === 100 && resp.data && resp.data.length > 0) {
+                            renderTable(resp.data);
+                            $('#reportSection').removeClass('d-none');
+                        } else {
+                            $('#reportResult').html(`<p class="text-danger">${resp.data}</p>`);
+                            $('#reportSection').removeClass('d-none');
+                        }
+                    },
+                    error: function () {
+                        $('#reportResult').html('<p class="text-danger">Error generating report.</p>');
+                        $('#reportSection').removeClass('d-none');
+                    },
+                    complete: function () {
+                        // always hide loader (success or error)
+                        $('#pageLoader').addClass('d-none');
+                    }
+                });
+            });
+
+
+        });
+
+        function loadDynamicQueries() {
+            const userId = $('#User_Id').val();
+
+            $.get('/api/DynamicQuery/GetAll', function (resp) {
+                allQueries = resp.data || [];
+
+                const filtered = allQueries.filter(q => {
+                    if (!q.accessUsers) return false;
+                    const users = q.accessUsers.split(',').map(u => u.trim());
+
+                    return users.includes(userId);
+                });
+
+                const options = filtered.map(q => `<option value="${q.id}">${q.title}</option>`);
+                $('#queryDropdown').append(options);
+            });
+        }
+
+
+        function buildFilterForm(params) {
+            const $row = $('#filtersRow');
+            $row.empty();
+
+            params.forEach(param => {
+                const { name, label, type, options = [], dataSourceQuery } = param;
+
+                let fieldHtml = '';
+                switch (type) {
+                    case 'text':
+                    case 'number':
+                    case 'date':
+                        fieldHtml = `
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>${label}</label>
+                                            <input type="${type}" class="form-control" name="${name}" />
+                                        </div>
+                                    </div>`;
+                        break;
+
+                    case 'month':
+                        fieldHtml = `
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>${label}</label>
+                                            <input type="month" class="form-control" name="${name}" />
+                                        </div>
+                                    </div>`;
+                        break;
+
+                    case 'dropdown':
+                        const opts = options.map(o => `<option value="${o.value}">${o.name}</option>`).join('');
+                        fieldHtml = `
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>${label}</label>
+                                            <select class="form-control" name="${name}">
+                                                <option value="all">Select Dropdown</option>
+                                                ${!dataSourceQuery ? opts : ''}
+                                            </select>
+                                        </div>
+                                    </div>`;
+                        break;
+
+                    default:
+                        fieldHtml = `
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label>${label}</label>
+                                            <input type="text" class="form-control" name="${name}" />
+                                        </div>
+                                    </div>`;
+                        break;
+                }
+
+                $row.append(fieldHtml);
+
+                // 🔑 If dropdown is dynamic, fetch options from API
+                if (type === 'dropdown' && dataSourceQuery) {
+                    fetchDropdownOptions(name, dataSourceQuery);
+                }
+            });
+        }
+
+
+        function fetchDropdownOptions(fieldName, query) {
+            $.ajax({
+                url: `/api/DynamicQuery/ExecuteParamQuery`,
+                method: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify({ sql: query }),
+                success: (data) => {
+                    const $select = $(`[name="${fieldName}"]`);
+                    $select.empty();
+                    $select.append(`<option value="all">Select Dropdown</option>`);
+                    data.forEach(item => {
+                        $select.append(`<option value="${item.value}">${item.name}</option>`);
+                    });
+                },
+                error: (xhr) => {
+                    console.error(`Failed to load dropdown options for ${fieldName}`, xhr);
+                }
+            });
+        }
+
+        function renderTable(data) {
+            if (data.length === 0) {
+                $('#reportResult').html('<p>No records found.</p>');
+                $('#printBtn').addClass('d-none');
+                $('#exportBtn').addClass('d-none');
+                return;
+            }
+
+            const columns = Object.keys(data[0]);
+            let table = `<table id="reportTable" class="table table-bordered table-striped"><thead><tr>`;
+            columns.forEach(col => {
+                table += `<th>${col}</th>`;
+            });
+            table += `</tr></thead><tbody id="reportTbody">`;
+
+            data.forEach(row => {
+                table += `<tr>`;
+                columns.forEach(col => {
+                    table += `<td>${row[col] ?? ''}</td>`;
+                });
+                table += '</tr>';
+            });
+
+            table += '</tbody></table>';
+            $('#reportResult').html(table);
+
+            // Show buttons
+            $('#printBtn').removeClass('d-none');
+            $('#exportBtn').removeClass('d-none');
+        }
+
+        // Export to Excel
+        $('#exportBtn').on('click', function () {
+
+            let ws = XLSX.utils.table_to_sheet(
+                document.getElementById("reportTable"),
+                {
+                    raw: true
+                }
+            );
+
+            Object.keys(ws).forEach(cell => {
+                if (cell[0] === '!') return;
+
+                ws[cell].t = 's';
+                ws[cell].v = String(ws[cell].v);
+            });
+
+            let wb = XLSX.utils.book_new();
+            XLSX.utils.book_append_sheet(wb, ws, "Report");
+            XLSX.writeFile(wb, "Report.xlsx");
+        });
+
+    </script>
+}

@@ -1,0 +1,456 @@
+﻿
+<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">LDA PLot No.</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/></svg></span>
+                    <h1>LDA PLOT No.</h1>
+
+                    <button id="propertyModal" class="btn btn-warning">Property Detail</button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="ReSurrender">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Registration No. <small style="color:red">*</small></label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input style="" type="text" class="form-control" name="RegNoA"
+                                                   placeholder="" id="RegNoA" readonly />
+                                        </div>
+                                            <div>
+                                            <button data-toggle="modal" data-target="#registrationModalA" type="button" onclick="GetAllPropertiesListsA()" class="btn btn-outline-primary srchbtn">Search</button>
+                                            </div>
+                                            </div>
+                                </div>
+
+                            </div>
+                            <br>
+                            <div class="row">
+
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PropertyNoA" readonly />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="BlockA" id="BlockA" disabled />
+                                    </div>
+                                </div>
+ 
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CategoryA" id="CategoryA" readonly />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-3">
+                                    <label>Phase</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PhaseA" id="PhaseA" readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="row">
+
+                                <div class="col-sm-3">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="SizeA" id="SizeA" readonly />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>LDA Plot No. <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="LDAPlotNo" id="LDAPlotNo" />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>LDA Area Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="LDAAreaSize" id="LDAAreaSize" />
+                                    </div>
+                                </div>
+                            </div>
+                                                    <div class="col-12" style="float: right;">
+                            @*<button type="submit" onclick="PostRequest();" class="btn btn-primary btn-sm btn-theme" id="Submitp">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                            </button>*@
+                            <button id="PostRequest" class="btn btn-primary btn-sm btn-theme" type="submit">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                            </button>
+                                <a class="btn vd_btn vd_black" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </a>
+                        </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<div class="modal" id="registrationModalA" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Registration NO. </h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="registrationListA" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Registration No.</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="registrationtbodyA">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<input type="number" id="Id" value="" class="hide" />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+@section Scripts
+    {
+    <script>
+
+
+        $(document).ready(function () {
+            "use strict";
+            $("#ReSurrender").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+
+                    LDAPlotNo: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    RegNoA: {
+                        //minlength: 3,
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.parent().parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Form Data");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Data',
+                    })
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    //   label
+                    //       .addClass('valid').addClass('help-inline fa fa-check vd_green mgl-10') // mark the current input as valid and display OK icon
+                    //       .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+
+            });
+
+
+        });
+
+        // Select A property
+        function GetAllPropertiesListsA() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/LDAPlotNo/GetPropertiesForLDAPlotNo`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        propertyListsA = response.data;
+                        processResponseA(propertyListsA);
+                    }
+                }
+            });
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function processResponseA(responseData) {
+            $("#registrationtbodyA").empty();
+            var relist = responseData;
+            if (relist != null && relist.length > 0) {
+                var sr = 1;
+                for (let list of relist) {
+                    var row = '<tr>' +
+                        '<td>' + sr + '</td>' +
+                        '<td>' + list.propertyNo + '</td>' +
+                        '<td>' + list.registrationNo + '</td>' +
+                        '<td><a class="btn btn-primary" onclick="SelectRegistrationA(' + list.id + ')">Select</a></td>' +
+                        '</tr>';
+                    $("#registrationtbodyA").append(row);
+                    sr++;
+                }
+            }
+            $('#registrationListA').dataTable();
+        }
+
+        function SelectRegistrationA(id) {
+
+            var url = "/api/LDAPlotNo/GetFilterProperty?id=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        // set values
+
+                        $("#Id").val(result_User.id);
+                        $("#RegNoA").val(result_User.registrationNo);
+                        $("#PropertyNoA").val(result_User.propertyNo);
+                        $("#SizeA").val(result_User.actualSize);
+                        $("#CategoryA").val(result_User.categoryName);
+                        $("#BlockA").val(result_User.blockName);
+                        $("#PhaseA").val(result_User.phaseName);
+                        $("#StockId").val(result_User.id);
+                        $("#LDAPlotNo").val(result_User.ldaPlotNo);
+                        $("#LDAAreaSize").val(result_User.ldaAreaSize);
+                        $("#registrationModalA").modal("hide");
+                        PropertyDetail(result_User.id);
+                        ShowAlert(result_User.id);
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Submit() {
+            var methodType = 'POST';
+            var url = "/api/LDAPlotNo/SaveLDAPlotNoDTO";
+
+            var ldaplot = new Object();
+
+            ldaplot.StockId = $('#Id').val();
+            ldaplot.LDAPlotNo = $('#LDAPlotNo').val();
+            ldaplot.LDAAreaSize = $('#LDAAreaSize').val();
+
+            var model = JSON.stringify(ldaplot);
+
+            $('#PostRequest').prop('disabled', true); //disble
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+                    debugger;
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                               // location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        $('#PostRequest').prop('disabled', false);
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'warning',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+         //   $('#PostRequest').prop('disabled', false); //enable
+        }
+    </script>
+ }
+

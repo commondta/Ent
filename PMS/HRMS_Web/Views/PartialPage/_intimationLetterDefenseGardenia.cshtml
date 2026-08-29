@@ -1,0 +1,274 @@
+﻿<style>
+    #lesscountmembersdiv, #messcountmembersdiv {
+        display: none;
+    }
+
+    ol {
+        list-style-type: none;
+        counter-reset: item;
+        padding: 10px;
+        margin: 0;
+    }
+
+        ol li {
+            counter-increment: item;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            line-height: 1.5;
+        }
+
+            ol li::marker {
+                content: counter(item) ".";
+                font-size: 24px;
+                margin-right: 10px;
+            }
+
+            ol li p {
+                font-size: 21px;
+                margin: 0;
+                padding: 0;
+                line-height: 1;
+            }
+
+
+    table {
+        width: 100%;
+        border-collapse: collapse; /* Ensures table borders are merged */
+    }
+
+        table td {
+            padding-right: 40px;
+        }
+
+    tr {
+        border-bottom: 10px solid transparent; /* Adds space between rows */
+    }
+
+    td {
+        padding: 0px; /* Adds padding inside each cell */
+    }
+</style>
+
+
+<div class="container" style="padding-left:70px;padding-right:75px;margin-top:30px; font-family: 'Times New Roman';">
+    <div class="row" style="margin-bottom: 30px">
+
+        <!-- Left Side Text -->
+        <div class="col-sm-6">
+        </div>
+
+        <!-- Right Side Date -->
+        <div class="col-sm-6">
+            <div style="font-size:21px; line-height:1.2; width:100%;">
+
+                <div style="display:flex; justify-content:space-between;">
+                    <span>N-Stack</span>
+                </div>
+
+                <div style="display:flex; justify-content:space-between;">
+                    <span>Jinnah Avenue Sector B Main Boulevard- 2</span>
+                </div>
+
+                <div style="display:flex; justify-content:space-between;">
+                    <span>Ahmed Pur Easte Canal Road Bahawalpur</span>
+                </div>
+
+                <div style="display:flex; justify-content:space-between;">
+                    <span>Telephone Number&nbsp;&nbsp;&nbsp;&nbsp;:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;062-111-111-518</span>
+                </div>
+
+                <div style="display:flex; justify-content:space-between;">
+                    <span>241/5 / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Tfr / &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;N-Stack</span>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-sm-4">
+            @*<img class="img-fluid" src="~/img/urbanLogo.jpg" />*@
+        </div>
+        <div class="col-sm-4 text-center">
+            @* <div class="qrcode-container" style="text-align: center;">
+            <div class="qrcode" style="display:inline-block;margin-left: 30px; margin-bottom:1rem"></div>
+            </div> *@
+        </div>
+        <br />
+        <div class="col-sm-4">
+            <div style="font-size: 22px;">
+                <span><b></b></span>
+                <span style="
+       margin-left: 10px;
+       min-width: 160px;
+       float: right;
+     " class="pppdate">@DateTime.Now.ToString("dd MMMM, yyyy")</span>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </div>
+
+    @*     <div class="row mt-3 pt-3">
+    <div class="col-sm-12">
+    <p style="font-weight:600; font-size: 24px">
+    UAN: 042-111-109-109
+    </p>
+    <p style="font-weight:400; font-size: 18px; margin-bottom: 0; ">
+    www.urbandevelopersgroup.com
+    </p>
+    </div>
+    </div> *@
+
+    <div class="row">
+        <div class="col-sm-9">
+            <p style="font-size:21px; font-weight:bold; background:#dff0d8; display:inline-block; padding:3px 10px;">
+                Reference Number <span class="pregistrationNo"></span>
+            </p>
+            <p style="font-size: 21px; font-weight: bold;">
+              To:
+            </p>
+            <div class="lesscountmembersdiv">
+                <p style="padding-left: 20px; font-size: 21px; margin-bottom
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <div class="messcountmembersdiv">
+                <p style="padding-left: 20px; font-size: 16px; margin-bottom: 0;">
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <p class="ppermanentAddress" style="padding-left: 20px;font-size: 21px; margin-bottom: 0;"></p>
+            <p class="pbuyerPhone" style="padding-left: 20px;font-size: 21px; margin-bottom: 0;"></p>
+            @*  <p class="pmembershipNo" style="padding-left: 20px;font-size: 21px; font-weight: bold; margin-bottom: 0; "></p> *@
+
+        </div>
+        <div class="col-sm-3">
+            <div class="imgContainerForPrint hide" style="float: right; margin-right:0px; height: 160px;width:160px">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1 mt-2">
+            <p>
+                <b style="font-size: 22px">Subj:</b>
+            </p>
+        </div>
+        <div class="col-sm-11 mt-2 ms-2">
+            <span style="
+    margin-left: 10px;
+    border-bottom: 1px solid black;
+    font-size: 23px;
+    font-weight: bold;">
+                Intimation Letter – <span class="pcategory"></span> <span class="ptype"></span> - Defense Gardenia
+            </span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 mt-2 mb-5" style="text-align:justify;">
+            <ol style="padding-left:7px;">
+
+    <!-- 1 -->
+    <li>
+        <p style="font-size:21px;">
+            The Management of N-Stack is pleased to inform that you have been allocated a
+                        <b><span class="ptype"></span></b> measuring <b>
+                            <span class="pcategory"></span>
+                            (<span class="psqryard"></span> Square Yards)</b> in N-Stack.
+
+            Congratulations for availing the valuable opportunity to own a property in a developed and prestigious community of 
+            Defense Gardenia at N-Stack which is a premium housing society offering a blend of luxury residential and 
+            high-potential commercial opportunities.
+
+            For customers, Defense Gardenia not only ensures a secure and modern living environment, exceptional business and 
+            rental income potential but also promises significant future value appreciation thus making this project a complete 
+            package of comfort, convenience, and long-term financial growth.
+
+            Details of the Villa as under:
+        </p>
+
+           <table style="margin-top:10px; font-size:24px;">
+            <tr>
+                            <td><u><b>Phase: <span class="pphase"></span></b></u></td>
+                            <td><u><b>Sector: <span class="psector"></span></b></u></td>
+                            <td><u><b><span class="proptype"></span> No: <span class="ppropertyNo"></span></b></u></td>
+            </tr>
+        </table>
+    </li>
+
+    <!-- 2 -->
+    <li>
+        <p style="font-size:21px;">
+            <u><b>Payment Plan.</b></u> As per payment plan, you have deposited
+                        <b><span class="pdownPaymentPercent"></span>% Downpayment</b> (<span class="pbookingPricePercent"></span>
+                        % booking price + <span class="pconfirmationPercent"></span>% Confirmation price).
+                        Balance of <span class="pbalanceInstallmentPercent"></span> Installments
+                        (<b>Payment plan attached as Anx-A</b>).
+        </p>
+    </li>
+
+    <!-- 3 -->
+    <li>
+        <p style="font-size:21px;">
+            In case of failure to make payments within the prescribed period or after Final Notice, the application / allotment 
+            will stand cancelled. The amount deposited by the applicant shall be refunded after the completion of the project. 
+            Refund will be made after deduction of <b>20%</b> of the amount deposited by the customer.
+        </p>
+    </li>
+
+    <!-- 4 -->
+    <li>
+        <p style="font-size:21px;">
+              A surcharge @@<span class="pSurcharge"></span>% per annum for delay of each day shall be levied on the defaulted amount as per N-Stack by-laws.
+        </p>
+    </li>
+
+    <!-- 5 -->
+    <li>
+        <p style="font-size:21px;">
+            N-Stack reserves the right to make adjustment and relocate the Villa, if need arises due to site constraints or change 
+            in town planning.
+        </p>
+    </li>
+
+    <!-- 6 -->
+    <li>
+        <p style="font-size:21px;">
+            <u><b>Category Plot Charges.</b></u> In case of corner plot, 10% corner along with extra land charges will be collected as per N-Stack by laws 
+            at the time of possession according to per Marla rate prevailing at that time.
+        </p>
+    </li>
+
+    <!-- 7 -->
+    <li>
+        <p style="font-size:21px;">
+            <u><b>Final Allotment Letter.</b></u> Final allotment letter will be issued after clearance of all outstanding dues including 
+            sale consideration, development charges and applicable taxes/duties.
+        </p>
+    </li>
+
+    <!-- 8 -->
+    <li>
+        <p style="font-size:21px;">
+            We assure you of our best cooperation at all the times.
+        </p>
+    </li>
+
+</ol>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+        </div>
+
+        <div class="col-sm-6">
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryRank"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryDesignation"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;">(<span class="pSignatoryName"></span>)</p>
+        </div>
+    </div>
+
+</div>

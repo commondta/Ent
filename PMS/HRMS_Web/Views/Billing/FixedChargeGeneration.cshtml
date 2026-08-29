@@ -1,0 +1,708 @@
+﻿<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Fixed Charges Bill Generation</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>FIXED CHARGES BILL GENERATION</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <!-- Form Section 3 -->
+                        <div class="row form-section">
+                            <div class="col-md-12">
+                                <form class="custom-validation" id="UpdateGraceBill">
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="gracePeriodDate">Set Grce Peroid Date:</label>
+                                            <input type="date" required class="form-control" id="gracePeriodDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder=" ">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="display: flex; align-items: flex-end;">
+                                        <a onclick="updateGraceDate()" id="btn_grace" class="btn btn-primary" style="margin-top: 25px">
+                                            <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Update
+                                        </a>
+                                        <a onclick="updateAndInsert()" id="btn_grace" class="btn btn-primary" style="margin-top: 25px">
+                                            <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Update & Insert
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row form-section">
+                            <div class="col-md-12">
+                                <form class="custom-validation" id="FixedBill">
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-4">
+                                            <label for="FortheMonth">For the Month</label>
+                                            <input type="month" required class="form-control" id="FortheMonth" placeholder=" ">
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="demarGraceDate">Grace/Demarcation Date</label>
+                                            <input type="date" class="form-control" id="demarGraceDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder=" ">
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="display: flex; align-items: flex-end; gap-2">
+                                        <a type="button" onclick="RunConstructed()" id="Submitp" class="btn btn-primary" style="margin-top: 25px">
+                                            <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Run Constructed
+                                        </a>
+                                        <a type="button" onclick="RunNonConstructed()" id="Submitpp" class="btn btn-primary" style="margin-top: 25px">
+                                            <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Run Non-Constructed
+                                        </a>
+                                        <a type="button" onclick="RunBoth()" id="Submit" class="btn btn-primary" style="margin-top: 25px">
+                                            <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Run Both
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Form Section 2 -->
+                        <div class="row form-section">
+                            <div class="col-md-12">
+                                <form class="custom-validation" id="AnotherBill">
+                                    <div class="form-row">
+                                        <div class="form-group col-sm-3">
+                                            <label for="month">For the Month</label>
+                                            <input type="month" required class="form-control" id="month" placeholder=" ">
+                                        </div>
+                                        <div class="form-group col-sm-3">
+                                            <label>Bill For</label>
+                                            <div>
+                                                <select name="BillFor" class="js-example-basic-single" id="BillFor">
+                                                    <option value=""> -- Select Option --</option>
+                                                    <option value="Constructed">Constructed</option>
+                                                    <option value="Non-Constructed">Non-Constructed</option>
+                                                    <option value="Fixed Dues">Fixed Charges</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" style="display: flex; align-items: flex-end; justify-content:space-between">
+                                        <a onclick="DiscardRequest()" id="btn_discard" class="btn btn-danger" style="margin-top: 25px">
+                                            <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Discard
+                                        </a>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            "use strict";
+
+            //var today = new Date();
+            //var currentMonth = today.toISOString().slice(0, 7);
+            //$('input[type="month"]').attr('min', currentMonth);
+        });
+        function RunBoth() {
+
+            if ($("#FortheMonth") != "") {
+
+                let month = $("#FortheMonth").val();
+                let gracePeriodDate = $("#demarGraceDate").val();
+
+                var methodType = 'GET';
+                var url = "/api/FixedChargeGeneration/AddNewMonthlyFixedCharges?month=" + month + "&gracePeriodDate=" + gracePeriodDate;
+                $('#Submit').prop('disabled', true); //disble
+                NProgress.start();
+                NProgress.set(0.0);
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: methodType,
+                    url: url,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    dataType: "json",
+                    success: function (response) {
+
+                        if (response.code === 100) {
+                            $('#loader').fadeOut();
+                            NProgress.done();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+                        else if (response.code === 4) {
+                            NProgress.done();
+                            $('#loader').fadeOut();
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Warning',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            })
+                        }
+                        else {
+                            NProgress.done();
+                            $('#loader').fadeOut();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'error',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            })
+                        }
+                    }
+                });
+            }
+            else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please select month',
+                    customClass: 'swal-wide',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                })
+            }
+            $('#Submit').prop('disabled', false); //enable
+        }
+
+        function RunConstructed() {
+
+            if ($("#FortheMonth") != "") {
+
+                let month = $("#FortheMonth").val();
+                let gracePeriodDate = $("#demarGraceDate").val();
+
+                var methodType = 'GET';
+                var url = "/api/FixedChargeGeneration/AddNewMonthlyFixedChargesRunConstructed?month=" + month + "&gracePeriodDate=" + gracePeriodDate;
+                $('#Submitp').prop('disabled', true); //disble
+                NProgress.start();
+                NProgress.set(0.0);
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: methodType,
+                    url: url,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    dataType: "json",
+                    success: function (response) {
+
+                        if (response.code === 100) {
+                            $('#loader').fadeOut();
+                            NProgress.done();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+                        else if (response.code === 4) {
+                            NProgress.done();
+                            $('#loader').fadeOut();
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Warning',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            })
+                        }
+                        else {
+                            NProgress.done();
+                            $('#loader').fadeOut();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'error',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            })
+                        }
+                    }
+                });
+            }
+            else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please select month',
+                    customClass: 'swal-wide',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                })
+            }
+            $('#Submitp').prop('disabled', false); //enable
+        }
+
+        function RunNonConstructed() {
+
+            if ($("#FortheMonth") != "") {
+
+                let month = $("#FortheMonth").val();
+                let gracePeriodDate = $("#demarGraceDate").val();
+
+                var methodType = 'GET';
+                var url = "/api/FixedChargeGeneration/AddNewMonthlyFixedChargesRunNonConstructed?month=" + month + "&gracePeriodDate=" + gracePeriodDate;
+                $('#Submitpp').prop('disabled', true); //disble
+                NProgress.start();
+                NProgress.set(0.0);
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: methodType,
+                    url: url,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    dataType: "json",
+                    success: function (response) {
+
+                        if (response.code === 100) {
+                            $('#loader').fadeOut();
+                            NProgress.done();
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+                        else if (response.code === 4) {
+                            NProgress.done();
+                            $('#loader').fadeOut();
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Warning',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            })
+                        }
+                        else {
+                            NProgress.done();
+                            $('#loader').fadeOut();
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'error',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            })
+                        }
+                    }
+                });
+            }
+            else {
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please select month',
+                    customClass: 'swal-wide',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                })
+            }
+            $('#Submitpp').prop('disabled', false); //enable
+        }
+
+        function DiscardRequest() {
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, delete it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var month = $("#month").val();
+                    var billFor = $("#BillFor").val();
+                    if ($("#month") != "" && $("#BillFor") != "") {
+                        Discard(month, billFor);
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: 'Please select month and Bill For',
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+
+
+            // $("#DeleteID").val(id);
+
+        }
+        function Discard(month, billFor) {
+
+            var methodType = 'Delete';
+            var url = "/api/FixedChargeGeneration/Discard?month=" + month + "&billFor=" + billFor;
+            $('#btn_discard').prop('disabled', true); //disble
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $('#loader').fadeOut();
+                        NProgress.done();
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+
+        // Update Setup
+
+        function updateGraceDate() {
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Update it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var month = $("#gracePeriodDate").val();
+                    if ($("#gracePeriodDate") != "") {
+                        GraceDate(month);
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: 'Please select month',
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                } else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+
+
+            // $("#DeleteID").val(id);
+
+        }
+
+        //insert
+
+        // Update Setup
+
+        function updateAndInsert() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            });
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Update it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    updateAndInsert();
+                } else {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe!',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            });
+        }
+
+
+        function updateAndInsert() {
+
+            var methodType = 'Get';
+            var url = "/api/Filter/InsetAllFixedCharges";
+            $('#btn_grace').prop('disabled', true);
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $('#loader').fadeOut();
+                        NProgress.done();
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+
+
+        function GraceDate(gracePeriodDate) {
+
+
+
+            var username = $("#User_Name").val();
+            var methodType = 'GET';
+
+            var url = "/api/Filter/UpdateAllFixedChargesByDate"
+                + "?gracePeriodDate=" + encodeURIComponent(gracePeriodDate)
+                + "&lastModifiedUserName=" + encodeURIComponent(username);
+
+
+            $('#btn_grace').prop('disabled', true); //disble
+            NProgress.start();
+            NProgress.set(0.0);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $('#loader').fadeOut();
+                        NProgress.done();
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        NProgress.done();
+                        $('#loader').fadeOut();
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+
+    </script>
+}
+

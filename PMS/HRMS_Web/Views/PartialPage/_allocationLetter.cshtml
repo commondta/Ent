@@ -1,0 +1,53 @@
+﻿<div style="width:210mm;height:297mm;margin:0 auto;padding:0;position:relative;font-family:'Times New Roman', serif;font-size:16.5px;color:#000;">
+
+    <!-- TOP RIGHT -->
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:38mm;left:150mm;"><span class="CaseNoPP"></span></div>
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:66mm;left:150mm;"><span class="AllocationNoPP"></span></div>
+
+    <!-- PHOTO DATE -->
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:72mm;left:145mm;">@DateTime.Now.ToString("dd MMMM yyyy")</div>
+
+    <!-- PHOTO BOX -->
+    <div style="position:absolute;top:80mm;left:145mm;width:26mm;height:33mm;border:1px solid #000;text-align:center;font-size:10px;line-height:33mm;">
+        <img id="photoImage"
+             style="width:100%; height:100%; object-fit:fill;" />
+    </div>
+
+    <!-- MEMBER DETAILS -->
+    <div style="position:absolute;white-space:nowrap;top:80mm; left:10mm;">
+        <div class="lesscountmembersdiv">
+            <p style="font-size: 16px; margin-bottom: 0;">
+                <span class="pmemberNameAndDetails"></span>
+            </p>
+        </div>
+        <div class="messcountmembersdiv">
+            <p style="font-size: 14px; margin-bottom: 0;">
+                <span class="pmemberNameAndDetails"></span>
+            </p>
+        </div>
+    </div>
+
+    <!-- SUBJECT PART -->
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:119mm;left:135mm;"><span id="PhaseNamePP"></span></div>
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:127mm;left:135mm;"><span id="CategoryPP"></span> (<span id="SqryardPP"></span> Sq Yds)</div>
+
+    <!-- ITEM 1 -->
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:137mm;left:95mm;"><span id="MemberInfoPP"></span></div>
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:147mm;left:70mm;"><span id="DeedNoPP"></span></div>
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:157mm;left:25mm;"><span id="DeedDatePP"></span></div>
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:157mm;left:90mm;"><span id="MouzaPP"></span></div>
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:167mm;left:50mm;"><span class="CaseNoPP"></span></div>
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:177mm;left:90mm;"><span class="AllocationNoPP"></span></div>
+
+    <!-- FEES BLOCK -->
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:194mm;left:135mm;"><span id="Fee1PP"></span></div>
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:204mm;left:135mm;"><span id="Fee2PP"></span></div>
+    <div style="position:absolute;font-weight:bold;white-space:nowrap;top:214mm;left:135mm;"><span id="TotalPP"></span></div>
+
+    <!-- BOTTOM SIGNATURE -->
+    <div style="position:absolute;width:65mm;text-align:end;font-size:13px;white-space:normal;top:260mm;left:140mm;font-weight:bold; line-height:1">
+            <p style="font-size: 16px; line-height:1!important; text-align:right;"><span class="pSignatoryRank"></span></p>
+            <p style="font-size: 16px; line-height:1!important; text-align:right;"><span class="pSignatoryDesignation"></span></p>
+            <p style="font-size: 16px; line-height:1!important; text-align:right;">(<span class="pSignatoryName"></span>)</p>
+    </div>
+</div>

@@ -1,0 +1,74 @@
+@using B_DB_Model
+@inject B_DB_Context.DataBase_Context Db
+@{
+    // Registry-driven form title strip: every form page shows the SAME name the
+    // navigation uses (AI file.xlsx req. 11 — renames follow the registry), a
+    // breadcrumb of its place in the module tree, and the Add-to-Favourite star
+    // (Restructure req. 4 — available when a form is open, absent on Home).
+    var path = (Context.Request.Path.Value ?? "").TrimEnd('/');
+    NavigationNode? current = null;
+    var crumbs = new List<string>();
+
+    if (path.Length > 0 && !path.Equals("/Home/Index", StringComparison.OrdinalIgnoreCase))
+    {
+        try
+        {
+            var nodes = Db.NavigationNodes.Where(n => n.IsActive).ToList();
+            var byId = nodes.ToDictionary(n => n.Id);
+            current = nodes.FirstOrDefault(n => n.NodeType == "Form" && n.Route != null &&
+                                                string.Equals(n.Route.TrimEnd('/'), path, StringComparison.OrdinalIgnoreCase));
+            if (current != null)
+            {
+                var walk = current.ParentId;
+                while (walk != null && byId.TryGetValue(walk.Value, out var parent))
+                {
+                    crumbs.Insert(0, parent.DisplayName);
+                    walk = parent.ParentId;
+                }
+            }
+        }
+        catch { /* strip is decoration — never break a page over it */ }
+    }
+}
+@if (current != null)
+{
+    <div class="fts">
+        <span class="fts-icon" id="ftsIcon" aria-hidden="true"></span>
+        <div class="fts-left">
+            @if (crumbs.Any())
+            {
+                <nav class="fts-crumbs" aria-label="Breadcrumb">@string.Join(" › ", crumbs)</nav>
+            }
+            @* The legacy per-form h1 is hidden by the strip, so the strip's title IS the page h1 *@
+            <h1 class="fts-title">@current.DisplayName</h1>
+        </div>
+        <div class="fts-actions" id="ftsActions"></div>
+        @* Expand controls restored from the legacy per-form panel menu (theme.js
+           binds the data-actions): hide the side navigation, hide the top bar,
+           or both — clicking again restores the layout. *@
+        <div class="fts-view hidden-sm hidden-xs" role="group" aria-label="Expand page controls">
+            <button type="button" class="fts-view-btn remove-navbar-button" data-action="remove-navbar" title="Expand horizontally — hide navigation bar" aria-label="Hide navigation bar">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M1.146 8.354a.5.5 0 0 1 0-.708l2-2a.5.5 0 1 1 .708.708L2.707 7.5h10.586l-1.147-1.146a.5.5 0 0 1 .708-.708l2 2a.5.5 0 0 1 0 .708l-2 2a.5.5 0 0 1-.708-.708L13.293 8.5H2.707l1.147 1.146a.5.5 0 0 1-.708.708z"/></svg>
+            </button>
+            <button type="button" class="fts-view-btn remove-header-button" data-action="remove-header" title="Expand vertically — hide top menu" aria-label="Hide top menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M11.5 15a.5.5 0 0 0 .5-.5V2.707l3.146 3.147a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L11 2.707V14.5a.5.5 0 0 0 .5.5m-7-14a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L4 13.293V1.5a.5.5 0 0 1 .5-.5"/></svg>
+            </button>
+            <button type="button" class="fts-view-btn fullscreen-button" data-action="fullscreen" title="Full page — hide navigation bar and top menu" aria-label="Full page">
+                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707m4.344 0a.5.5 0 0 1 .707 0l4.096 4.096V11.5a.5.5 0 1 1 1 0v3.975a.5.5 0 0 1-.5.5H11.5a.5.5 0 0 1 0-1h2.768l-4.096-4.096a.5.5 0 0 1 0-.707m0-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707m-4.344 0a.5.5 0 0 1-.707 0L1.025 1.732V4.5a.5.5 0 0 1-1 0V.525a.5.5 0 0 1 .5-.5H4.5a.5.5 0 0 1 0 1H1.732l4.096 4.096a.5.5 0 0 1 0 .707"/></svg>
+            </button>
+        </div>
+        <button type="button" class="fts-star" id="ftsFavBtn" title="Add to favourites"
+                aria-label="Add @current.DisplayName to favourites" aria-pressed="false"
+                data-u="@current.Route" data-t="@current.DisplayName">&#9733;</button>
+    </div>
+    <script>
+        // One header per form: this strip is it. The class below hides the
+        // legacy per-form breadcrumb row and title banner; the layout script
+        // relocates the banner's icon and action buttons into the strip.
+        document.body.classList.add('fts-active');
+        // Lets the recent-forms tracker and the favourite store use the registry
+        // display name instead of a URL-derived one.
+        window.__pmsForm = { u: @Html.Raw(Json.Serialize(current.Route)), t: @Html.Raw(Json.Serialize(current.DisplayName)) };
+        document.title = @Html.Raw(Json.Serialize(current.DisplayName + " · PMS"));
+    </script>
+}

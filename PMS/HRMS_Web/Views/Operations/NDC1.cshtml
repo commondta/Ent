@@ -1,0 +1,1418 @@
+﻿
+
+<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    #propertyModal {
+        margin-left: auto;
+    }
+
+    .scrollable-input {
+        width: 300px; /* Set your desired fixed width */
+        overflow: auto;
+    }
+
+    .dClr_icon i {
+        color: #111111 !important;
+    }
+
+    .dha_table {
+        background-color: #111111 !important;
+    }
+</style>
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">NDC-1</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16"><path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/><path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/></svg></span>
+                    <h1>NDC-1</h1>
+                    <button id="propertyModal" class="btn dha_theme_btn">Property Detail</button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" action="#" role="form" id="MemberNDC">
+                            
+                            <div class="row">
+                                 @if (Html.UserHavePermission("NDC-1") != null && Html.UserHavePermission("NDC-1").CanEdit)
+                                {
+                                <div class="col-sm-3">
+                                    <label for="printDate">Print Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" id="printDate" name="printDate" value="" />
+                                    </div>
+                                </div>
+                                }
+                                <div class="col-sm-3">
+                                    <label>Find NDC No.</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="text" class="form-control" readonly
+                                                   placeholder="" id="NDCNOFind" name="NDCNOFind" />
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#registrationModalNDC1FindMode" type="button" class="btn btn-sm dha_theme_btn">
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>NDC No.</label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input type="text" class="form-control" readonly
+                                                   placeholder="" id="NDCNO" name="NDCNO" />
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#registrationModalFindMode" type="button" class="btn btn-sm dha_theme_btn">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Document No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="DocumentNo" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label for="documentDate">Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" id="documentDate" name="documentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Request Type</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="RequestType" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Apply Station</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="ApplyStation" name="ApplyStation" disabled>
+                                            <option value=""> Select Option </option>
+                                            <option value="HeadOffice">HeadOffice</option>
+                                            <option value="Lahore">Lahore</option>
+                                            <option value="Karachi">Karachi</option>
+                                            <option value="Islamabad">Islamabad</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Reference No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="RegistrationNo" readonly id="RegistrationNo"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PropertyNo" id="PropertyNo" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="MemberName" id="MemberName" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>CNIC</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CNIC" id="CNIC" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Applied Through Dealer</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="ATDealer" id="ATDealer" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 hide">
+                                    <label>Dealer Code</label>
+                                     <div>
+                                         <input type="text" class="form-control"
+                                                placeholder="" id="DealerCode" name="DealerCode" readonly />
+                                     </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Estate Name</label>
+                                        <div>
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="EstateName" name="EstateName" readonly />
+                                        </div>
+                                   
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Dealer Name</label>
+                                        <div>
+                                            
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="DealerName" name="DealerName" readonly />
+                                           
+                                        </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Transfer Type</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="TransferType" id="TransferType" disabled/>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Validate Date</label>
+                                    <div>
+                                        <input type="text" class="form-control" id="ValidateDate" disabled
+                                               placeholder="" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Preferred Date</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PreferredSlot" id="PreferredDate"  disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Transfer Request Time</label>
+                                    <div>
+                                        <input type="text" class="form-control" disabled name="Time" id="Time"
+                                               placeholder=" " />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Transfer Request Day</label>
+                                    <div>
+                                        <input type="text" class="form-control" disabled name="Day" id="Day"
+                                               placeholder=" " />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Block" id="Block" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Category" id="Category" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Size" id="Size" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PossessionStatus" id="PossessionStatus" readonly />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="ConstrucationStatus" id="ConstrucationStatus" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Processing Request</label>
+                                    <div>
+                                        <input type="text" class="form-control" disabled name="Processing" id="Processing"
+                                               placeholder=" " />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Outstation</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Outstation" id="Outstation" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item active"><a class="nav-link active tab_clr" href="#CheckList" data-toggle="tab">CheckList</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#PowerOfAttorney" data-toggle="tab">Power Of Attorney</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Attachments" data-toggle="tab">Attachments</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#JointMember" data-toggle="tab">Joint Members</a></li>
+                            </ul>
+
+                            <br />
+
+                            <div class="tab-content ">
+
+                                <div class="tab-pane active" id="CheckList">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-right: 25px;">
+                                               @* <a class="btn btn-primary btn-sm btn-theme" onclick="AddCheckListRow()" style="padding: 6px 20px;">Add New</a>
+                                               *@    
+                                            <input type="text" id="Crownumber" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="CheckListTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme dha_table">
+                                                        <tr>
+                                                            <th class="text-white width-10" style="text-align: center;">#</th>
+                                                            <th class="text-white width-20" style="text-align: center;">Department</th>
+                                                            <th class="text-white width-30" style="text-align: center;">Remarks</th>
+                                                            <th class="text-white width-20" style="text-align: center;">Status</th>
+                                                            <th class="text-white width-20" style="text-align: center;">Action Date</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="CheckListtbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="PowerOfAttorney">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                                <a class="btn btn-sm dha_theme_btn" onclick="AddAttorneyRow()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="AArownumber" value="0" class="hide" />
+                                            </div>
+                                           
+                                            <div class="table-responsive">
+                                                <table id="PowerOfAttorneyTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme dha_table">
+                                                        <tr>
+                                                            <th class="text-white width-10" style="text-align: center;">#</th>
+                                                            <th class="text-white width-40" style="text-align: center;">Name</th>
+                                                            <th class="text-white width-30" style="text-align: center;">CNIC</th>
+                                                            <th class="text-white width-20" style="text-align: center;">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="PowerOfAttorneytbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Attachments">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-bottom:.5rem;">
+                                                <a class="btn btn-sm dha_theme_btn" onclick="AddAtachmentRow()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="Arownumber" value="0" class="hide" />
+                                            </div>
+                                           
+                                            <div class="table-responsive">
+                                                <table id="AttachmentTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme dha_table">
+                                                        <tr>
+                                                            <th class="text-white width-10" style="text-align: center;">#</th>
+                                                            <th class="text-white width-20" style="text-align: center;">Attachment Path</th>
+                                                            <th class="text-white width-20" style="text-align: center;">Attachment Name</th>
+                                                            <th class="text-white width-20" style="text-align: center;">Attachment Date</th>
+                                                            <th class="text-white width-20" style="text-align: center;">Remarks</th>
+                                                            <th class="text-white width-20" style="text-align: center;">View Attachment</th>
+                                                            <th class="text-white width-20" style="text-align: center;">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Atachmenttbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="JointMember">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="">
+                                                <table id="JointMemberTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme dha_table">
+                                                        <tr>
+                                                            <th class="text-white width-10" style="text-align: center;">#</th>
+                                                            <th class="text-white width-30" style="text-align: center;">Member Name</th>
+                                                            <th class="text-white width-30" style="text-align: center;">CNIC</th>
+                                                            <th class="text-white width-30" style="text-align: center;">Mobile</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="JointMembertbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12" style="float: right; ">
+                                <button class="btn dha_theme_btn" id="sbbtn" type="submit">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </button>
+                            </div>
+                        </form>
+                         
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+</div>
+<!-- .vd_container -->
+<div class="hide">
+    <div id="printdiv" class="container">
+        <partial name="~/Views/PartialPage/_ndc.cshtml" />
+    </div>
+</div>
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+<partial name="~/Views/PartialPage/SearchPropertyModalFindMode.cshtml" />
+<partial name="~/Views/PartialPage/SearchPropertyModalNDC1FindMode.cshtml" />
+@if (Html.UserHavePermission("NDC-1") != null && Html.UserHavePermission("NDC-1").CanDelete)
+{
+    <input class="hide" id="canDelete" value="yes" />
+}
+else
+{
+    <input class="hide" id="canDelete" value="no" />
+}
+<input class="hide" type="number" id="MemberProfileId" />
+<input class="hide" type="number" id="StockCreationId" />
+<input class="hide" type="number" id="DealerCode" />
+<input class="hide" type="number" id="cancelId" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+    
+    <script>
+       $(document).ready(function () {
+            "use strict";
+            $("#MemberNDC").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    RegistrationNo: {
+
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+             
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+            });
+            GetAllPropertyLists();
+           GetAllFindModePropertyLists();
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function GetAllFindModePropertyLists() {
+
+            $('#proplistFindNDC1Mode').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllModeNDC1",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "membershipNo", name: "MembershipNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    { data: "formattedDateTime", name: "DateTime" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return `<a class="fa fa-print fa-2x" onclick="Print(${data.id},'${data.memberNdcId}')"></a>
+                                    <a class="fa fa-edit fa-2x" onclick="SelectFind(${data.id})"></a>`;
+             
+                        }
+                    }
+                ]
+            });
+        }
+
+        function Print(id, memberNdcId) {
+
+            var methodType = 'GET';
+            var url = "/api/NDC1/GetPrint?Id=" + id + "";
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                 headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+                    if (response.code == 100) {
+
+                        var printdata = response.data;
+                        let ndcdatee = "";
+
+                        let printDateVal = $('#printDate').val();
+
+                        let finalDate = "";
+
+                        if (printDateVal) {
+                            finalDate = printDateVal;
+                        } else {
+                            finalDate = printdata.ndcDate.split('T')[0]; 
+                        }
+
+                        const dateObj = new Date(finalDate);
+
+                        const options = { day: '2-digit', month: 'short', year: 'numeric' };
+                        ndcdatee = dateObj.toLocaleDateString('en-GB', options);
+
+
+                        $('.referenceNo').text(printdata.registrationNo);
+                        $('.plotNo').text(printdata.propertyNo);
+                        $('.memberName').text(printdata.memberName);
+                        $('.membershipNo').text(printdata.membershipNo);
+                        $('.sector').text(printdata.sector);
+                        $('.phase').text(printdata.phase);
+                        $('.docNo').text(memberNdcId);
+                        $('.docDate').text(ndcdatee);
+
+                        printInvoice();
+                    }
+                }
+            });
+        }
+
+        function printInvoice() {
+            var printContents = document.getElementById('printdiv').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('printdiv');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+
+        function SelectFind(id) {
+
+            var url = "/api/NDC1/Get?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#registrationModalNDC1FindMode").modal("hide");
+
+
+                        $('#sbbtn').prop('disabled', true); //disble
+                        $('#btnDiscard').prop('disabled', true); //disble
+                       
+                        var data = response.data;
+
+                        let processing = data.processing == true ? "Yes" : "No";
+                        let possessionstatus = data.possessionStatus == true ? "Yes" : "No";
+                        let atDealer = data.dealerCode != null ? "Yes" : "No";
+                        let propertyNo = data.propertyNo ?? "N/A";
+
+                        let slot = data.slot ? data.slot : "";
+                        let slotDate = data.slotDate ? data.slotDate.split('T')[0] : "";
+
+                        $("#RequestType").val(data.ndcRequestType);
+                        $("#Processing").val(processing);
+                        $("#NDCNOFind").val(data.id);
+                        $("#DocumentNo").val(data.id);
+                        $("#NDCRequestForMemberId").val(data.id);
+                        $("#RegistrationNo").val(data.registrationNo);
+                        $("#PropertyNo").val(propertyNo);
+                        $("#ApplyStation").val(data.applyStation);
+                        $("#MemberName").val(data.memberName);
+                        $("#CNIC").val(data.cnic);
+                        $("#ATDealer").val(atDealer);
+                        $("#EstateName").val(data.estateName);
+                        $("#DealerName").val(data.dealerName);
+                        $("#TransferType").val(data.transferType);
+                        $("#Outstation").val(data.outstation);
+                        $("#ValidateDate").val(data.validityDate);
+                        $("#PreferredDate").val(slotDate);
+                        $("#Time").val(slot);
+                        $("#Day").val(data.day);
+                        $("#ConstrucationStatus").val(data.constracutionStatus);
+                        $("#PossessionStatus").val(possessionstatus);
+                        $("#Size").val(data.actualSize + " " + data.actualSizeUnit);
+                        $("#Category").val(data.categoryName);
+                        $("#Block").val(data.blockName);
+
+                        $("#StockCreationId").val(data.stockId);
+                        $("#DealerCode").val(data.dealerCode);
+                        $("#MemberProfileId").val(data.memberProfileId);
+
+                        $("#CheckListtbody").empty();
+
+                        if (data.ndC1CheckList != null && data.ndC1CheckList.length > 0) {
+                            for (let item of data.ndC1CheckList) {
+
+                                var rownumber = parseInt($("#Crownumber").val());
+                                var LineId = rownumber;
+                                rownumber = rownumber + 1;
+                                $("#Crownumber").val(rownumber);
+
+                                var row = '<tr id="C' + rownumber + '">' +
+                                    '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                    '<td> <input disabled class="form-control Department" value="' + item.department + '" /></td>' +
+                                    '<td> <textarea disabled  class="form-control Remarks">' + item.alertNarration + '</textarea></td>' +
+                                    '<td> <input disabled class="form-control AlertNarration" value="' + item.remarks + '" /></td>' +
+                                    '<td> <input disabled class="form-control Date" value="' + item.date + '" /></td>' +
+                                    '</tr>';
+                                $("#CheckListtbody").append(row);
+                            }
+                        }
+
+                        // SelectCheckList(data.id);
+                        getjointmembers(data.stockId);
+                        PropertyDetail(data.stockId);
+                        ShowAlert(data.stockId);
+
+                    }
+
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+
+        function GetAllPropertyLists() {
+
+            $('#proplistFindMode').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllFindModeNDC1",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "membershipNo", name: "MembershipNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    { data: "status", name: "Status" },
+                    { data: "formattedDateTime", name: "DateTime" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            var html = '<a class="btn btn-primary" onclick="SelectRegistration(' + data.id + ')">Select</a>';
+
+                            if (document.getElementById("canDelete").value === "yes") {
+                                html += '<a class="fa fa-times fa-2x" style="color: red;" onclick="CancelRequest(' + data.id + ')"></a>';
+                            }
+
+                            return html;
+                        }
+                    }
+                ]
+            });
+        }
+
+        function SelectRegistration(id) {
+
+            var url = "/api/Filter/GetFilterPropertyResultForNDC1ById?ndcId=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#registrationModalFindMode").modal("hide");
+
+                        var data = response.data;
+
+                        let processing = data.processing == true ? "Yes" : "No";
+                        let possessionstatus = data.possessionStatus == true ? "Yes" : "No";
+                        let atDealer = data.dealerCode != null ? "Yes" : "No";
+                        let Outstation = data.outstation == "1" ? "Yes" : "No";
+                        let hour = data.slotHour ? data.slotHour : "";
+                        let mintues = data.slotMintues ? data.slotMintues : "";
+                        let time = hour +":"+ mintues;
+                        let validityDate = moment(data.validityDate).format('DD-MM-YYYY');
+                        let slotDate =  data.slotDate ? data.slotDate.split('T')[0] : "";
+                        let propertyNo = data.propertyNo ?? "N/A";
+
+                        $("#RequestType").val(data.ndcRequestType);
+                        $("#Processing").val(processing);
+                        $("#NDCNO").val(data.id);
+                        $("#DocumentNo").val(data.id);
+                        $("#RegistrationNo").val(data.registrationNo);
+                        $("#ApplyStation").val(data.applyStation);
+                        $("#PropertyNo").val(propertyNo);
+                        $("#MemberName").val(data.memberName);
+                        $("#CNIC").val(data.cnic);
+                        $("#ATDealer").val(atDealer);
+                        $("#DealerCode").val(data.dealerCode);
+                        $("#EstateName").val(data.estateName);
+                        $("#DealerName").val(data.dealerName);
+                        $("#TransferType").val(data.description);
+                        $("#Outstation").val(Outstation);
+                        $("#ValidateDate").val(validityDate);
+                        $("#PreferredDate").val(slotDate);
+                        $("#Time").val(time);
+                        $("#Day").val(data.day);
+                        $("#ConstrucationStatus").val(data.constracutionStatus);
+                        $("#PossessionStatus").val(possessionstatus);
+                        $("#Size").val(data.actualSize);
+                        $("#Category").val(data.categoryName);
+                        $("#Block").val(data.blockName);
+
+                        $("#StockCreationId").val(data.stockId);
+                        $("#MemberProfileId").val(data.memberProfileId);
+                        $("#cancelId").val(data.id);
+
+                        SelectCheckList(data.id);
+                        getjointmembers(data.stockId);
+                        PropertyDetail(data.stockId);
+                        ShowAlert(data.stockId);
+                        $("#registrationModal").modal("hide");
+                    }
+
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+         function SelectCheckList(id) {
+
+            var url = "/api/Filter/GetNDC1CheckList?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#CheckListtbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0)
+                        {
+                           for (let item of relist) 
+                           {
+
+                                var rownumber = parseInt($("#Crownumber").val());
+                                var LineId = rownumber;
+                                rownumber = rownumber + 1;
+                                $("#Crownumber").val(rownumber);
+
+                                // set values
+                                let date = moment(item.actionDateTime).format('DD-MM-YYYY, h:mmA');
+
+                                var row = '<tr id="C' + rownumber + '">' +
+                                    '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                    '<td> <input disabled class="form-control Department" value="' + item.userDesignation + '" /></td>' +
+                                    '<td> <textarea disabled  class="form-control Remarks">' + item.lastActionComment + '</textarea></td>' +
+                                    '<td> <input disabled class="form-control AlertNarration" value="'+item.approvalStatus+'" /></td>' +
+                                    '<td> <input disabled class="form-control Date" value="'+date+'" /></td>' +
+                                    '</tr>';
+                                $("#CheckListtbody").append(row);
+                           }
+                        }
+                    }
+
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Payment Plan',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        function getjointmembers(id) {
+            $('#JointMembertbody').empty();
+            var url = "/api/Filter/GetJointMembersByStockId?stockId=" + id + "";
+            $.ajax({
+                type: "GET",
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                processData: false,
+                dataType: "json",
+                async: false,
+                data: { id: id },
+                success: function (response) {
+         
+                    if (response.code == 100) {
+                        if (response.data != null) {
+                            var rownumber = 1;
+                            $.each(response.data, function (i, item) {
+                                var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                                    '<td> <input disabled class="form-control line" disabled value="' + rownumber + '"/></td>' +
+                                    '<td> <input  class="form-control JName" disabled  value="' + item.name + '" /></td>' +
+                                    '<td> <input  class="form-control Jcnic" disabled value="' + item.cnic + '" /></td>' +
+                                    '<td> <input  class="form-control Jmobile" disabled  value="' + item.mobile + '" /></td>' +
+                                    '</tr>';
+                                $("#JointMembertbody").append(row);
+                                rownumber++;
+                            });
+                        }
+                    }
+                }
+
+            });
+        }
+
+        function AddAtachmentRow() {
+
+            var rownumber = parseInt($("#Arownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#Arownumber").val(rownumber);
+
+
+            var row = '<tr id="A' + rownumber + '">' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input required type="file" class="form-control attachmentPath" name="attachmentPath[' + rownumber + ']" /><input  class="form-control CopyToTargetDocument hide" /></td>' +
+                '<td> <input disabled class="form-control attachmentName" /></td>' +
+                '<td> <input type="date" class="form-control attachmentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/></td>' +
+                '<td> <textarea  class="form-control remarks" ></textarea></td>' +
+                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmentItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+            $("#Atachmenttbody").append(row);
+        }
+
+        function DeleteAttachmentItemRow(id) {
+            $('#A' + id).remove();
+            var rownumber = 1;
+            $("#Atachmenttbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#Arownumber").val(rownumber - 1);
+        }
+
+
+        function AddAttorneyRow() {
+            var rownumber = parseInt($("#AArownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#AArownumber").val(rownumber);
+
+
+            var row = '<tr id="AA' + rownumber + '">' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input required class="form-control Name" name="Name[' + rownumber + ']" /></td>' +
+                '<td> <input required class="form-control CNIC" name="CNIC[' + rownumber + ']"/></td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttorneyRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+
+            $("#PowerOfAttorneytbody").append(row);
+        }
+        function DeleteAttorneyRow(id) {
+            $('#AA' + id).remove();
+            var rownumber = 1;
+            $("#PowerOfAttorneytbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#AArownumber").val(rownumber - 1);
+        }
+
+        // image from body
+        $('body').on('change', '.attachmentPath', UploadImageOnServerforAttachmenttbody);
+       
+        function UploadImageOnServerforAttachmenttbody() {
+
+            var row = $(this);
+            var extension = row.parents('tr').find('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                ResponseMessageModal("warning", "Sorry, invalid extension.");
+                var filepath = row.parents('tr').find('input[type=file]').val();
+                row.parents('tr').find('input[type=file]').val("");
+               
+                return false;
+            }
+            else {
+        
+                var file = row.parents('td').find('input[type=file]').get(0).files[0];
+                row.parents("tr").find(".attachmentName").val(file.name);
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        row.parents('td').find('.CopyToTargetDocument').val(reader.result);
+                        row.parents('tr').find('.viewAttachment img').attr("src", reader.result);
+                        row.parents('tr').find('input[type=file]').get(0).files[0];
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Submit() {
+      
+           var today = new Date();
+           var formattedToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+           
+           var validateDate = $('#ValidateDate').val();
+           var parts = validateDate.split("-");
+           var formattedValidateDate = new Date(parts[2], parts[1] - 1, parts[0]);
+           
+           if (formattedValidateDate > formattedToday){
+            var NDC1 = new Object();
+
+            var NDC1PowerOfAtornyArray = new Array();
+            var NDC1CheckListArray = new Array();
+            var NDC1AttachmentArray = new Array();
+
+            NDC1.StockCreationId = $('#StockCreationId').val();
+            NDC1.MemberProfileId = $('#MemberProfileId').val();
+            NDC1.NDCRequestType = $('#RequestType').val();
+            NDC1.ApplyStation = $('#ApplyStation').val();
+            NDC1.TransferType = $('#TransferType').val();
+            NDC1.Outstation = $("#Outstation").val();
+            NDC1.SlotDate = $("#PreferredDate").val();
+            NDC1.Slot =  $("#Time").val();
+            NDC1.DealerCode = $('#DealerCode').val();
+            NDC1.EstateName = $('#EstateName').val();
+            NDC1.DealerName = $('#DealerName').val();
+            NDC1.Day = $('#Day').val();
+            NDC1.ValidityDate = $('#ValidateDate').val();
+            NDC1.CreatedBy = $("#User_Id").val();
+            NDC1.ModifiedBy = $("#User_Id").val();
+            NDC1.LastModifiedUserName = $("#User_Name").val();
+            NDC1.CreatedOn = $("#documentDate").val();
+
+            $('#Atachmenttbody tr').each(function () {
+
+                var row = $(this);
+                var attachment = new Object();
+                attachment.DoucmentName = row.find('.attachmentPath').val();
+                attachment.Document = row.find('.CopyToTargetDocument').val();
+                attachment.Remarks = row.find('.remarks').val();
+
+                NDC1AttachmentArray.push(attachment);
+            });
+
+            $('#PowerOfAttorneytbody tr').each(function () {
+
+                var row = $(this);
+                var power = new Object();
+                power.Name = row.find('.Name').val();
+                power.CNIC = row.find('.CNIC').val();
+
+                NDC1PowerOfAtornyArray.push(power);
+            });
+
+            $('#CheckListtbody tr').each(function () {
+
+                var row = $(this);
+                var checkList = new Object();
+                checkList.Department = row.find('.Department').val();
+                checkList.Remarks = row.find('.Remarks').val();
+                checkList.AlertNarration = row.find('.AlertNarration').val();
+                checkList.Date = row.find('.Date').val();
+
+                NDC1CheckListArray.push(checkList);
+            });
+
+            NDC1.NDC1PowerOfAttorey = NDC1PowerOfAtornyArray;
+            NDC1.NDC1CheckList = NDC1CheckListArray;
+            NDC1.NDC1Attachments = NDC1AttachmentArray;
+
+            var model = JSON.stringify(NDC1);
+
+                $('#sbbtn').prop('disabled', true); //disble
+                $('#btnDiscard').prop('disabled', true); //disble
+                $('#changeStatus').prop('disabled', true); //disble
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'POST',
+                url: `/api/NDC1/AddNewNDC1`,
+                contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+                       
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                               // location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                   else {
+                            $('#sbbtn').prop('disabled', false); //disble
+                            $('#btnDiscard').prop('disabled', false); //disble
+                            $('#changeStatus').prop('disabled', false); //disble
+                       Swal.fire({
+                           icon: 'warning',
+                           title: 'warning',
+                           text: response.message,
+                           allowOutsideClick: false,
+                           allowEscapeKey: false
+                       })
+                   }
+                }
+            });
+           }
+            else {
+                $('#sbbtn').prop('disabled', false); //disble
+                $('#btnDiscard').prop('disabled', false); //disble
+                $('#changeStatus').prop('disabled', false); //disble
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Invalid Date',
+                    text: 'NDC request outdated.',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                });
+            }
+        }
+
+        // cancel request
+
+        function CancelRequest(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Cancel(id);
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Cancel(id) {
+          
+            var methodType = 'POST';
+            var url = "/api/NDC1/Discard?id=" + id + "";
+           
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+
+                success: function (response) {
+               
+                    console.log(response);
+                    if (response.code == 100) {
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+
+        // change processing status
+
+        function ChangeProcessingStatus() {
+
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, change it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    var id = $("#cancelId").val();
+                    if (id) {
+                        swalWithBootstrapButtons.fire({
+                            icon: 'success',
+                            title: 'Deleted',
+                            text: 'Your data is updated.',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+
+                        ChangeStatus(id);
+                    } else {
+                        swalWithBootstrapButtons.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: 'Please select a request',
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+                else if (
+                    /* Read more about handling dismissals below */
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function ChangeStatus(id) {
+           
+            var methodType = 'POST';
+            var url = "/api/NDC1/ChangeProcessingStatus?id=" + id + "";
+           
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+
+                success: function (response) {
+                 
+                    console.log(response);
+                    if (response.code == 100) {
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+    </script>
+    }

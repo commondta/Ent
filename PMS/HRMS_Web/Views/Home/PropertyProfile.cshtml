@@ -1,0 +1,728 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Property Profile</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/></svg></span>
+                    <h1>PROPERTY PROFILE </h1>
+                      
+                        </div>
+
+                    </div>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="PropertyProfile">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Reference No.</label>
+                                    <div>
+
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                                  <input  type="text" class="form-control"
+                                                                         placeholder="" id="RegistrationNo" name="RegistrationNo" readonly />
+                                                               </div>
+                                                               <div >
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn dha_theme_btn">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                                               </div>
+                                        </div>
+
+
+                                                @*<div class="vd_input-wrapper">
+                                                    <span data-toggle="modal" data-target="#registrationModal" class="menu-icon">
+                                                        <i class="fa fa-search"></i>
+                                                    </span>
+                                                    <input style="padding-left:33px" type="text" class="form-control"
+                                                   placeholder="" id="RegistrationNo" name="RegistrationNo" readonly />
+                                                </div>*@
+
+
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Property No.</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                                  <input type="text" class="form-control"
+                                                                     placeholder="" id="PropertyNo" name="PropertyNo" readonly />
+                                                               </div>
+                                                               <div >
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn"
+                                                >search</button>
+                                                               </div>
+                                        </div>
+
+
+                                               @* <div class="vd_input-wrapper">
+                                                    <span data-toggle="modal" data-target="#registrationModal"  class="menu-icon">
+                                                        <i class="fa fa-search"></i>
+                                                    </span>
+                                                    <input style="padding-left:33px" type="text" class="form-control"
+                                                   placeholder="" id="PropertyNo" name="PropertyNo" readonly />
+                                                </div>*@
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Principal Member</label>
+                                    <div>
+                                       <div class="vd_input-wrapper">
+                                         @*<span data-toggle="modal" data-target="#memberModal"  class="menu-icon">
+                                           <i class="fa fa-search"></i>
+                                         </span>*@
+                                         <input type="text" class="form-control"
+                                            placeholder="" id="PrincipalMember" name="PrincipalMember" readonly />
+                                         </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Joint Members</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="  " id="jointMember" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                           
+                                <div class="col-sm-3">
+                                    <label>Real Estate Type</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="  " id="REType" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Project</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="  " id="Project" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Phase</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="  " id="Phase" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="  " id="Block" disabled />
+                                    </div>
+                                </div>
+                          
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="  " id="Category" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Type</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="  " id="Type" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Nature</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="  " id="Nature" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Floor</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="  " id="Floor" disabled />
+                                    </div>
+                                </div>
+                            
+                                <div class="col-sm-3">
+                                    <label>Location</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder=" " id="Location"  />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Road/Street</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Road" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Finishing</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="  " id="Finishing" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="  " id="Status" disabled />
+                                    </div>
+                                </div>
+                           
+                                <div class="col-sm-2">
+                                    <label>Actual Size</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="   " id="ActualSize" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label> </label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="  " id="ActualSizeValue" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label>Standard Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="  " id="StandardSize" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-1">
+                                    <label> </label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="   " id="StandardSizeValue" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <div>
+                                            <input type="text" class="form-control"
+                                                   placeholder="  " id="ConstructionStatus" disabled />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Registry</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="  " id="Registry" disabled />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <input type="button" style="float: right;" class="btn btn-primary btn-sm btn-theme" onclick="UpdatePropertyLocation()" value="Update" id="submt" />
+                                </div>  
+                            </div>
+                            <br>
+
+                            <ul class="nav nav-tabs">
+                                <li class="nav-item active"><a class="nav-link active tab_clr" href="#Features" data-toggle="tab">Features</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Nominees" data-toggle="tab">Nominees</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#DemarcationStatus" data-toggle="tab">Demarcation Status</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Meter" data-toggle="tab">Meter</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Finishings" data-toggle="tab">Finishings</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#Litigation" data-toggle="tab">Litigation</a></li>
+                                <li class="nav-item"><a class="nav-link tab_clr" href="#History" data-toggle="tab">History</a></li>
+                            </ul>
+                            <br />
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane active" id="Features">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                           
+                                            <br>
+                                            <br>
+                                            <div class="">
+                                                <table id="Features" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width:90px">#</th>
+                                                            <th class="text-white">Feature Name</th>
+                                                            <th class="text-white">Cost</th>
+
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Featurestbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Nominees">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                        
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Nominees" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width:90px">#</th>
+                                                            <th class="text-white">Name</th>
+                                                            <th class="text-white">CNIC</th>
+                                                            <th class="text-white">Relationship</th>
+                                                            <th class="text-white">Mobile No.</th>
+                                                            <th class="text-white">Address</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Nomineestbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="DemarcationStatus">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                         
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="DemarcationStatus" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width:90px">#</th>
+                                                            <th class="text-white">Document</th>
+                                                            <th class="text-white">Date</th>
+                                                            <th class="text-white">Status</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="DemarcationStatustbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="Meter">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                            
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Meter" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width:90px">#</th>
+                                                            <th class="text-white">Meter No.</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">Status</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Metertbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="Finishings">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                          
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Finishings" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width:90px">#</th>
+                                                            <th class="text-white">Code</th>
+                                                            <th class="text-white">Description</th>
+                                                            <th class="text-white">Finish Type</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Finishingstbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="Litigation">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                      
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Litigation" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width:90px">#</th>
+                                                            <th class="text-white">Case ID</th>
+                                                            <th class="text-white">Description</th>
+                                                            <th class="text-white">FIR Ref No.</th>
+                                                            <th class="text-white">Settlement Mark</th>
+                                                            <th class="text-white">Status</th>
+
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Litigationtbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="History">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                         
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="History" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width:90px">#</th>
+                                                            <th class="text-white">Reference No.</th>
+                                                            <th class="text-white">Binding Date</th>
+                                                            <th class="text-white">Unbinding Date</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Historytbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </form>
+                        @*<br>
+
+                        <div class="col-12" style="float: right;">
+                            <a class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                            </a>
+                            <a class="btn vd_btn vd_black" href="javascript:void(0);">
+                                <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                            </a>
+                        </div>*@
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+
+
+<div class="modal" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Reference Or Property No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="proplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Type</th>
+                                            <th class="text-white">Real Estate</th>
+
+                                            <th class="text-white">Status</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            GetAllPropertyLists();
+         //   GetAllMemberProfiles();
+        });
+
+        // selection stockcreationId start
+        function GetAllPropertyLists() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/RegistrationNoProfile/GetFilterList`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+                        debugger;
+                        $("#Propertytbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td class="Id">' + list.id + '</td> ' +
+                                    ' <td class="propertyNo">' + list.propertyNo + '</td>           ' +
+                                    ' <td class="registrationNo">' + list.registrationNo + '</td>           ' +
+                                    ' <td>' + list.type + '</td>       ' +
+                                    ' <td class="realStateType">' + list.realStateType + '</td>       ' +
+                                    ' <td>' + list.status + '</td> ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectRegistration(' + list.id + ')">Select</a></td> </tr>';
+                                $("#Propertytbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#proplist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectRegistration(id) {
+
+            debugger;
+
+            var url = "/api/Filter/GetFilterPropertyResult?stock=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var result_User = response.data;
+
+                        $("#ID").val(result_User.id);
+                        $("#PrincipalMember").val(result_User.memberProfile.memberName);
+                        $("#RegistrationNo").val(result_User.registrationNo);
+                        $("#PropertyNo").val(result_User.propertyNo);
+                        $("#Phase").val(result_User.phaseName);
+                        $("#Block").val(result_User.blockName);
+                        $("#Project").val(result_User.projectName);
+                        $("#Type").val(result_User.typeName);
+                        $("#Category").val(result_User.categoryName);
+                        $("#Floor").val(result_User.floor);
+                        $("#Nature").val(result_User.natureName);
+                        $("#REType").val(result_User.realStateTypeName);
+                        $("#Location").val(result_User.location);
+                        $("#Road").val(result_User.street);
+                        $("#ActualSize").val(result_User.actualSize);
+                        $("#ActualSizeValue").val(result_User.actualSizeUnit);
+                        $("#StandardSize").val(result_User.standardSize);
+                        $("#StandardSizeValue").val(result_User.standardSizeUnit);
+                        $("#ConstructionStatus").val(result_User.constructionStatus);
+
+                        $("#stockCreationId").val(result_User.id);
+                        $("#registrationModal").modal("hide");
+
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                    }
+                }
+            });
+        }
+
+        function UpdatePropertyLocation(){
+
+            var propertyNumber = $("#PropertyNo").val();
+            var location = $("#Location").val();
+            var street = $("#Road").val();
+       
+            if(propertyNumber!="" && propertyNumber!=null){
+                var url = '/api/StockCreation/UpdatePropertyLocation?propertyNumber=' + propertyNumber + '&location=' + location + '&street=' + street + '';
+                     debugger;
+                $('#submt').prop('disabled', true); //disble
+
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    processData: false,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    async: false,
+                    success: function (response) {
+                        debugger;
+                        
+                        console.log(response);
+                        if (response.code == 100) {
+
+                            //Swal.fire('Saved', response.message, 'success')
+                            Swal.fire({
+                              icon: 'success',
+                              title: 'success',
+                              text: 'PropertyProfile Update',
+                              customClass: 'swal-wide',
+                              allowOutsideClick: false,
+                              allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+
+                        }
+                        else {
+
+                            notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Error Occured");
+                            //  alert(response.message);
+                        }
+                    }
+                });
+                $('#submt').prop('disabled', false); //enable
+            }
+           else{
+                notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Please Select Property and Registration number");
+           }
+        }
+
+    </script>
+            }

@@ -1,0 +1,684 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">KYC Form</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-stack" viewBox="0 0 16 16"><path d="M1 3a1 1 0 0 1 1-1h12a1 1 0 0 1 1 1zm7 8a2 2 0 1 0 0-4 2 2 0 0 0 0 4"/><path d="M0 5a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1H1a1 1 0 0 1-1-1zm3 0a2 2 0 0 1-2 2v4a2 2 0 0 1 2 2h10a2 2 0 0 1 2-2V7a2 2 0 0 1-2-2z"/></svg></span>
+                    <h1>KYC FORM</h1>
+                    <small class="subtitle">KYC FORM</small>
+                    </div>
+                   
+                    <div class="col-sm-6" style="text-align:center;">
+                    <p><img id="output" src="~/img/avatar/avatar.jpg" style="width=150px; height=140px; text-align: center;" /></p>
+                    @* <span>Biometric Verification</span>*@
+                    <span>
+                        <input type="button" class="btn btn-primary btn-sm btn-theme" style="padding: 10px 10px;" value="Biometric Verification" />
+                    </span>
+                    </div>
+                    </div>
+                    <div class="vd_panel-menu  hidden-xs">
+                       
+                       
+                        <div class="menu">
+                        
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="kycform">
+                            <div class="row">
+                                 <div class="col-sm-6">
+                          <label>Document No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder="" id="docnos" />
+                                    </div>
+              
+                                  
+                                        <label>Registration Form No.</label>
+                                        <div>
+                                            <div class="vd_input-wrapper">
+                                                <span class="menu-icon">
+                                                    <i class="fa fa-search"></i>
+                                                </span>
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="regfNo" data-toggle="modal" data-target="#myModal" />
+                                            </div>
+                                        </div>
+                                  
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder="" id="docdt" />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                  
+                                </div>
+                            </div>
+   
+                            <div class="row">
+                                <div class="col-sm-6">
+                                     <label>Member Code</label>
+                                    <div>
+                                        <div class="vd_input-wrapper">
+                                            <span class="menu-icon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                            <input type="text" class="form-control"
+                                                   placeholder="" id="mcode" data-toggle="modal" data-target="#myModal1" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Member Name</label>
+                                    <div>
+                                        <div class="vd_input-wrapper">
+                                            <span class="menu-icon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                            <input type="text" class="form-control"
+                                                   placeholder="" id="mname" data-toggle="modal" data-target="#myModal2" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>S/O,D/O,W/O</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="relation">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="1"> S/O </option>
+                                            <option value="2"> D/O</option>
+                                            <option value="3"> W/O</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label> </label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="rel" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Member Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="mstatus" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>DOB</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder="" id="dob" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Gender</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="gender">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="1"> Male </option>
+                                            <option value="2"> Female</option>
+                                            <option value="3"> Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    
+                                   @*  <span class="btn btn-success fileinput-button" onchange="loadFile(event)">*@
+                                    
+                                   @* <i class="glyphicon glyphicon-plus"></i> <span>Add image</span>
+                                    <input type="file" name="files[]" multiple> *@                                    
+                                   @* </span>*@
+                                   @* <p><input type="file" accept="image/*" name="image" id="file" onchange="loadFile(event)" style="display: none;"></p>
+                                    <p><label for="file" style="cursor: pointer;">Upload Image</label></p>
+                                    <p><img id="output" width="200" /></p>
+*@
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>CNIC</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder="" id="cnic" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>CNIC Expiry Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder="" id="cexpidt" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Passport No.</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder="" id="passno" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Passport Expiry Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder="" id="passexpidt" />
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Nationality</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="nationality">
+                                            <option value="-1"> Select Option </option>
+                                            @* <option value="1"> Approved </option>
+                                            <option value="2"> Pending for Approval</option>*@
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Overseas</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Overseas">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="1"> Yes </option>
+                                            <option value="2"> No</option>
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Country</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="country" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>City</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="city" />
+                                    </div>
+                                </div>
+                                 <div class="col-sm-6">
+                                    <label>Source of Info.</label>
+                                    <div>
+                                       <select class="js-example-basic-single" name="Source">
+                                            <option value="-1"> Select Option </option>
+                                           @* <option value="1"> Yes </option>
+                                            <option value="2"> No</option>*@
+                                        </select>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Joinig Fee Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="source">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="1"> Paid </option>
+                                            <option value="2"> Unpaid </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Outstanding Balance</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="outbal" />
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>NICOP No.</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder=" " id="nicop" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>POC No.</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder=" " id="poc" />
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <br>
+
+
+
+
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="active"><a href="#PersonalInfo" data-toggle="tab">Personal Info</a></li>
+
+                            </ul>
+                            <br />
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane active" id="PersonalInfo">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+
+                                            <div class="">
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        <label>Current Address</label>
+                                                        <div>
+                                                            <textarea type="text" class="form-control"
+                                                                      placeholder=" " id="curaddress"></textarea>
+                                                        </div>
+                                                    </div>
+                                                
+                                                    <div class="col-sm-12">
+                                                        <label>Permanent Address</label>
+                                                        <div>
+                                                            <textarea type="text" class="form-control"
+                                                                      placeholder=" " id="peraddress"></textarea>
+                                                        </div>
+                                                    </div>
+                                               
+                                                    <div class="col-sm-4">
+                                                        <label>Mother's Maiden Name</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="mother" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4">
+                                                        <label>Organization</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="organiz" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Profession</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="profess" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4">
+                                                        <label>Designation</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="desig" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Salary/Income(Monthly)</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="salary" />
+                                                        </div>
+                                                    </div>
+                                              
+                                                    <div class="col-sm-4">
+                                                        <label>Employment/Business Address</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="empadr" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Employment/Business Tenure</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="tenure" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Relationship Manager</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="relmag" />
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="col-sm-4">
+                                                        <label>Mobile No.</label>
+                                                        <div>
+                                                            <input type="text" class="form-control" data-rel="tags-input" value=" "/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Whatsapp No.</label>
+                                                        <div>
+                                                            <input type="number" class="form-control"
+                                                                   placeholder=" " id="whatsapp" />
+                                                        </div>
+                                                    </div>
+                                               
+                                                    <div class="col-sm-4">
+                                                        <label>Home No.</label>
+                                                        <div>
+                                                            <input type="number" class="form-control"
+                                                                   placeholder=" " id="home" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Office No.</label>
+                                                        <div>
+                                                            <input type="number" class="form-control"
+                                                                   placeholder=" " id="officeno" />
+                                                        </div>
+                                                    </div>
+                                               
+                                                    <div class="col-sm-4">
+                                                        <label>Residential Status</label>
+                                                        <div>
+                                                            <select class="js-example-basic-single" name="residential">
+                                                                <option value="-1"> Select Option </option>
+                                                                <option value="1"> Owned </option>
+                                                                <option value="2"> Rental</option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Vehicle</label>
+                                                        <div>
+                                                            <select class="js-example-basic-single" name="vehicle">
+                                                                <option value="-1"> Select Option </option>
+                                                                <option value="1"> Owned </option>
+                                                                <option value="2"> Company </option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Email ID</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="email" />
+                                                        </div>
+                                                    </div>
+                                                  
+                                                </div>
+                                                <div class="row">
+                                                       <div class="col-sm-4">
+                                                        <label>Instagram ID</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="insta" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Facebook ID</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="facebook" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Imo No.</label>
+                                                        <div>
+                                                            <input type="number" class="form-control"
+                                                                   placeholder=" " id="imo" />
+                                                        </div>
+                                                    </div>                                          
+                                                    <div class="col-sm-4">
+                                                        <label>LinkedIn ID</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="linkedin" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Twitter</label>
+                                                        <div>
+                                                            <input type="text" class="form-control"
+                                                                   placeholder=" " id="twitter" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>Tax Status</label>
+                                                        <div>
+                                                            <select class="js-example-basic-single" name="tax">
+                                                                <option value="-1"> Select Option </option>
+                                                                <option value="1"> Filler </option>
+                                                                <option value="2">Non-Filler </option>
+
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                  
+                                                    <div class="col-sm-4">
+                                                        <label>No. of Dependants</label>
+                                                        <div>
+                                                            <input type="number" class="form-control"
+                                                                   placeholder=" " id="depend" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-sm-4">
+                                                        <label>NTN No.</label>
+                                                        <div>
+                                                            <input type="number" class="form-control"
+                                                                   placeholder=" " id="ntono" />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                            </div>
+                        </form>
+
+                        <br>
+                        <div class="col-12" style="text-align:right;">
+                            <input type="button" class="btn btn-primary btn-sm btn-theme"  value="Add " />
+                            <input type="button" class="btn btn-primary btn-sm btn-theme"  value="Cancel">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header vd_bg-blue vd_white">
+                    <h4 class="modal-title" id="myModalLabel">Registration Form No.</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+
+                        @* <div class="container">
+                        <div class="row">
+                        <div class="col-6">
+                        <label>Code</label>
+                        <input class="form-control" />
+                        </div>
+                        <div class="col-6">
+                        <label>Description</label>
+                        <input class="form-control" />
+                        </div>
+                        </div>
+                        </div>*@
+
+                    </form>
+
+                </div>
+                <div class="modal-footer background-login">
+                    <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-theme">Save</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header vd_bg-blue vd_white">
+                    <h4 class="modal-title" id="myModalLabel">Member Code</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+
+                        @* <div class="container">
+                        <div class="row">
+                        <div class="col-6">
+                        <label>Code</label>
+                        <input class="form-control" />
+                        </div>
+                        <div class="col-6">
+                        <label>Description</label>
+                        <input class="form-control" />
+                        </div>
+                        </div>
+                        </div>*@
+
+                    </form>
+
+                </div>
+                <div class="modal-footer background-login">
+                    <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-theme">Save</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <div class="modal" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header vd_bg-blue vd_white">
+                    <h4 class="modal-title" id="myModalLabel">Member Name</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+
+                        @* <div class="container">
+                        <div class="row">
+                        <div class="col-6">
+                        <label>Code</label>
+                        <input class="form-control" />
+                        </div>
+                        <div class="col-6">
+                        <label>Description</label>
+                        <input class="form-control" />
+                        </div>
+                        </div>
+                        </div>*@
+
+                    </form>
+
+                </div>
+                <div class="modal-footer background-login">
+                    <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-theme">Save</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    @*@section Scripts {
+
+
+
+
+    <script type="text/javascript">
+    $(document).ready(function () {
+    "use strict";
+
+    $('#finishdef').dataTable();
+    });
+
+
+
+    </script>
+
+
+    }*@
+
+    @section Scripts {
+
+    <script>
+        var loadFile = function (event) {
+            var image = document.getElementById('output');
+            image.src = URL.createObjectURL(event.target.files[0]);
+        };
+    </script>
+    }

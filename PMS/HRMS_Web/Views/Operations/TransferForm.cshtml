@@ -1,0 +1,478 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Transfer Form</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+          <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/></svg></span>
+                    <h1>TRANSFER FORM</h1>
+                        </div>
+                    </div>
+                        <div class="col-sm-6" style="text-align:center;">
+                            <p><img id="PreviewUrl" width="150px;height:120px" src="/img/placeholder-photo.svg" /></p>
+
+                            @* <input type="file" id="fileUpload" class="fileUpload" onchange="UploadImageOnServer()">
+                            <input type="text" id="ImageURL" class="hidden" />*@
+                        </div>
+                 
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" action="#" role="form" id="TransferForm">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Document No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Id" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" readonly
+                                               placeholder=" " value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Registration No.</label>
+                                    <div>
+                                        <div class="vd_input-wrapper">
+                                            <span class="menu-icon" data-toggle="modal" data-target="#registrationModal">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                            <input type="text" class="form-control" style="padding-left:38px"
+                                                   placeholder="" id="RegistrationNo" name="RegistrationNo" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <div class="vd_input-wrapper">
+                                            <span class="menu-icon" data-toggle="modal" data-target="#registrationModal">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                            <input type="text" class="form-control" style="padding-left:38px"
+                                                   placeholder="" id="PropertyNo" name="PropertyNo" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Phase</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Phase" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Real Estate Type</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="REType" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Project</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Project" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Block" readonly />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Nature</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Nature" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Type</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Type" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Size" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>NDCFor</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="NDCFor" readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <br>
+
+                            <ul class="nav nav-pills widget">
+                                <li class="active"><a href="#Seller" data-toggle="tab">Seller</a></li>
+                                <li><a href="#Buyer" data-toggle="tab">Buyer</a></li>
+                            </ul>
+
+                            <br />
+
+                            <div class="tab-content  mgbt-xs-20">
+
+                                <div class="tab-pane active" id="Seller">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-right: 25px;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddAttorneyRow()">Add New</a>
+                                                <input type="text" id="AArownumber" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="PowerOfAttorneyTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Name</th>
+                                                            <th class="text-white">CNIC</th>
+
+                                                            <th class="text-white">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="PowerOfAttorneytbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="Buyer">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-right: 25px;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddAtachmentRow()">Add New</a>
+                                                <input type="text" id="Arownumber" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="AttachmentTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Attachment Path</th>
+                                                            <th class="text-white">Attachment Name</th>
+                                                            <th class="text-white">Attachment Date</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">View Attachment</th>
+                                                            <th class="text-white">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Atachmenttbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="col-12" style="float: right; margin-top: 9px">
+                                <button class="btn btn-primary btn-sm btn-theme" type="submit" onclick="NDC()">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn vd_btn vd_black" href="javascript:void(0);">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                                </button>
+                            </div>
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+</div>
+<!-- .vd_container -->
+<div class="modal" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Registration Or Property No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="proplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Registration No.</th>
+                                            <th class="text-white">Type</th>
+                                            <th class="text-white">Real Estate</th>
+
+                                            <th class="text-white">Status</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary btn-theme">Save</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            "use strict";
+
+
+            $("#TransferForm").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    RegistrationNo: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    PropertyNo: {
+                        // minlength: 3,
+                        required: true
+                    },
+                    MemberCode: {
+                        // minlength: 3,
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Form Data");
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    //   label
+                    //       .addClass('valid').addClass('help-inline fa fa-check vd_green mgl-10') // mark the current input as valid and display OK icon
+                    //       .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    debugger;
+                    AddStockCreation();
+                }
+
+            });
+            //GetAllDealerCategories();
+        });
+
+
+
+
+
+
+        function AddAtachmentRow() {
+
+
+            var rownumber = parseInt($("#Arownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#Arownumber").val(rownumber);
+
+
+            var row = '<tr id="A' + rownumber + '">' +
+                '<td> <input readonly class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input type="file" class="form-control attachmentPath" /><input  class="form-control imagefile hide" /></td>' +
+                '<td> <input  class="form-control attachmentName" /></td>' +
+                '<td> <input type="date" class="form-control attachmentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" readonly/></td>' +
+                '<td> <input  class="form-control remarks" /></td>' +
+                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmentItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+
+            $("#Atachmenttbody").append(row);
+
+
+        }
+        function DeleteAttachmentItemRow(id) {
+            $('#A' + id).remove();
+
+        }
+
+
+        function AddAttorneyRow() {
+            var rownumber = parseInt($("#AArownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#AArownumber").val(rownumber);
+
+
+            var row = '<tr id="AA' + rownumber + '">' +
+                '<td> <input readonly class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input  class="form-control Name" /></td>' +
+                '<td> <input  class="form-control CNIC" /></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttorneyRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+
+            $("#PowerOfAttorneytbody").append(row);
+
+
+        }
+        function DeleteAttorneyRow(id) {
+            $('#AA' + id).remove();
+
+        }
+
+        function AddCheckListRow() {
+            var rownumber = parseInt($("#Crownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#Crownumber").val(rownumber);
+
+
+            var row = '<tr id="C' + rownumber + '">' +
+                '<td> <input readonly class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input  class="form-control Department" /></td>' +
+                '<td> <input  class="form-control Remarks" /></td>' +
+                '<td> <input  class="form-control Status" /></td>' +
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteCheckListRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+
+            $("#CheckListtbody").append(row);
+
+
+        }
+        function DeleteCheckListRow(id) {
+            $('#C' + id).remove();
+
+        }
+    </script>
+    <script>
+        function NDC() {
+
+        }
+    </script>
+
+    }

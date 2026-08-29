@@ -1,0 +1,82 @@
+﻿<!-- Main Modal -->
+<style>
+    #mainTable {
+        table-layout: fixed;
+        width: 100%;
+    }
+
+        #mainTable th,
+        #mainTable td {
+            word-wrap: break-word;
+            white-space: normal;
+            vertical-align: top;
+        }
+
+            #mainTable td:last-child {
+                word-break: break-word;
+            }
+</style>
+
+
+<div class="modal fade" id="mainModal" tabindex="-1" role="dialog" aria-labelledby="mainModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="mainModalLabel">Main Modal</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <table class="table table-bordered" id="mainTable" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th style="width:12%">User Designation</th>
+                            <th style="width:18%">Assigned Date</th>
+                            <th style="width:18%">Action Date</th>
+                            <th style="width:12%">Approval Status</th>
+                            <th style="width:40%">Comment</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function LoadApprovalHistory(id, approvalUiId) {
+        // Get data for main table and populate it
+        $.getJSON("/api/Filter/GetFilterListForApprovalHistoryById?id=" + id + "&approvalUiId=" + approvalUiId, function (response) {
+            $('#mainTable tbody').empty();
+            $.each(response.data, function (key, value) {
+
+                const assignedDateTime = value.assignedDateTime != null ? moment(value.assignedDateTime).format('DD-MM-YYYY, h:mmA') : "N/A";
+                const actionDateTime = value.actionDateTime != null ? moment(value.actionDateTime).format('DD-MM-YYYY, h:mmA') : "N/A";
+                const lastActionComment = value.lastActionComment != null ? value.lastActionComment : "N/A";
+
+                var row = "<tr>" +
+                    "<td>" + value.userDesignation + "</td>" +
+                    "<td>" + assignedDateTime + "</td>" +
+                    "<td>" + actionDateTime + "</td>" +
+                    "<td>" + value.approvalStatus + "</td>" +
+                    "<td>" + lastActionComment + "</td>" +
+                    "</tr>";
+                $('#mainTable tbody').append(row);
+            });
+        });
+    }
+
+    // Open main-modal when button is clicked
+    $('#openModal').click(function () {
+        // Open main-modal
+        $('#mainModal').modal('show');
+
+    });
+
+</script>

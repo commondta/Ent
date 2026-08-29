@@ -1,0 +1,265 @@
+﻿@section CSS {
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <!--datatable responsive css-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css">
+}
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Allocation Report</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/></svg></span>
+                    <h1>Allocation Report</h1>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                            @*
+                            <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>
+                            *@
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="col-md-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row">
+                                            <div class="col-sm-3">
+                                                <label for="startDate">Start Date:</label>
+                                                <input type="date" id="startDate" class="form-control">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="endDate">End Date:</label>
+                                                <input type="date" id="endDate" class="form-control">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>Ref No. :</label>
+                                                <div>
+                                                    <input type="text" class="form-control"
+                                                           placeholder=" " id="refrenceNo" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>Plot No. :</label>
+                                                <div>
+                                                    <input type="text" class="form-control"
+                                                           name ="plotNo" id="plotNo" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>Sector :</label>
+                                                <div>
+                                                    <select class="form-control" name="sector" id="sector">
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label>Property Status</label>
+                                                <div>
+                                                    <select class="js-example-basic-single" name="PropertyStatus" id="PropertyStatus">
+                                                        <option value=""> -- Select Status --</option>
+                                                        <option value="Active">Active</option>
+                                                        <option value="InActive">Inactive</option>
+                                                        <option value="Restored-Active">Restored-Active</option>
+                                                        <option value="Refunded-InActive">Refunded-Inactive</option>
+                                                        <option value="Dormant">Dormant</option>
+                                                        <option value="Cancelled">Cancelled</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            @* <div class="col-sm-3">
+                                                <label>Plot Size :</label>
+                                                <div>
+                                                    <input type="text" class="form-control"
+                                                           id="plotSize" />
+                                                </div>
+                                            </div> *@
+                                            <div class="col-sm-3">
+                                                <label>Dealer Name :</label>
+                                                <div>
+                                                    <input type="text" class="form-control"
+                                                           placeholder=" " id="dealerName" />
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 mt-2 text-right">
+                                                <button id="searchButton" class="btn btn-primary">Filter</button>
+                                            </div>
+                                        </div>
+                                        <br />
+                                        <div class="">
+                                            <table id="proplist" class="table table-bordered table-hover mb-0" style="width:100%">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white">Sr #</th>
+                                                        <th class="text-white">DateTime</th>
+                                                        <th class="text-white">Referance No.</th>
+                                                        <th class="text-white">Member Name</th>
+                                                        <th class="text-white">Relationship With</th>
+                                                        <th class="text-white">Membership No.</th>
+                                                        <th class="text-white">Cnic</th>
+                                                        <th class="text-white">Estate Name</th>
+                                                        <th class="text-white">Dealer Name</th>
+                                                        <th class="text-white">Plot No</th>
+                                                        <th class="text-white">PropertyStatus</th>
+                                                        <th class="text-white">Sector</th>
+                                                        <th class="text-white">Phase</th>
+                                                        <th class="text-white">Category</th>
+                                                        <th class="text-white">Property Type</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+@section Scripts {
+    <script src="~/code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="~/cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="~/cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="~/cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="~/cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="~/cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    <script src="~/cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+            GetAllPropertyLists();
+            GetAllSector();
+        });
+
+        $('#searchButton').on('click', function () {
+            $('#proplist').DataTable().ajax.reload();
+        });
+
+        function GetAllPropertyLists() {
+
+            $('#proplist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllocationReport",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                    data: function (d) {
+                        d.startDate = $('#startDate').val() || null;
+                        d.endDate = $('#endDate').val() || null;
+                        d.refrenceNo = $('#refrenceNo').val() || null;
+                        d.plotNo = $('#plotNo').val() || null;
+                        d.sector = $('#sector').val() || null;
+                        d.dealerName = $('#dealerName').val() || null;
+                        d.PropertyStatus = $('#PropertyStatus').val() || null;
+                    }
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                lengthMenu: [[10, 25, 50, 10000000], [10, 25, 50, "All"]],
+                filter: true,
+                dom: '<"top"lfB>rt<"bottom"ip><"clear">',
+                buttons: ["copy", "csv", "excel", "print", "pdf"],
+                columns: [
+                    {
+                        data: null,
+                        render: (data, type, row, meta) => meta.row + 1,
+                        title: '#'
+                    },
+                    { data: 'formattedDateTime', name: 'DateTime' },
+                    { data: 'registrationNo', name: 'ReferenceNo' },
+                    { data: 'memberName', name: 'MemberName' },
+                    { data: 'relationshipWith', name: 'RelationshipWith' },
+                    { data: 'membershipNo', name: 'MembershipNo' },
+                    { data: 'cnic', name: 'Cnic' },
+                    { data: 'estateName', name: 'EstateName' },
+                    { data: 'dealerName', name: 'DealerName' },
+                    { data: 'propertyNo', name: 'PlotNo' },
+                    { data: 'propertyStatus', name: 'PropertyStatus' },
+                    { data: 'sector', name: 'Sector' },
+                    { data: 'phase', name: 'Phase' },
+                    { data: 'category', name: 'Category' },
+                    { data: 'propertyType', name: 'PropertyType' },
+                ]
+            });
+        }
+
+        function GetAllSector() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/Sector/GetAllSectors`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#sector").empty();
+                        var row = ' <option value="">-- Select Sector --</option> ';
+
+                        $("#sector").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#sector").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#sector').select2();
+                    }
+                }
+            });
+        }
+    </script>
+}

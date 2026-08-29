@@ -1,0 +1,1619 @@
+﻿<!-- Middle Content Start -->
+@section css {
+    <link media="print" rel="stylesheet" href="~/bootstrap/bootstrapcss.css">
+    <style>
+        .vd_panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+
+        #propertyModal {
+            margin-left: auto;
+        }
+    </style>
+}
+
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Map Approval</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-map" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M15.817.113A.5.5 0 0 1 16 .5v14a.5.5 0 0 1-.402.49l-5 1a.5.5 0 0 1-.196 0L5.5 15.01l-4.902.98A.5.5 0 0 1 0 15.5v-14a.5.5 0 0 1 .402-.49l5-1a.5.5 0 0 1 .196 0L10.5.99l4.902-.98a.5.5 0 0 1 .415.103M10 1.91l-4-.8v12.98l4 .8zm1 12.98 4-.8V1.11l-4 .8zm-6-.8V1.11l-4 .8v12.98z"/></svg></span>
+                    <h1>MAP APPROVAL</h1>
+
+                    <button id="propertyModal" class="btn btn-warning" style="margin-right:.5rem;">Property Detail</button>
+                    <button id="openModal" class="btn btn-warning">Approval History</button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" action="#" role="form" id="MapApproval">
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Completed Document No.</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder="" id="RegistrationNoFind" name="RegistrationNoFind" />
+                                            </div>
+                                            <div>
+                                                <button data-toggle="modal" data-target="#registrationModal1" type="button" class="btn btn-sm proprty_btn">
+                                                    <i class="fa fa-search"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Revised Verification Of Map <small style="color:red">*</small></label>
+                                    <div>
+                                        <select name="RedesignMappApproved" class="js-example-basic-single" id="RedesignMappApproved">
+                                            <option value="No">No</option>
+                                            <option value="Yes">Yes</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Registration No.<small style="color:red">*</small></label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder="" id="RegistrationNo" name="RegistrationNo" />
+
+                                                <input type="text" class="form-control hide"
+                                                       placeholder="" id="ID" />
+                                            </div>
+                                            <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm proprty_btn">
+                                                    Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.<small style="color:red">*</small></label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder=" " id="PropertyNo" name="PropertyNo" />
+                                            </div>
+                                            <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm proprty_btn">
+                                                    Search
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class=" col-sm-3">
+                                    <label>Member Code</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberCode" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberName" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Real Estate Type</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="realstate" id="RealStateType" disabled>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Project</label>
+                                    <select class="js-example-basic-single" name="Project" id="Project" disabled>
+                                        <option value="-1">    </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Phase</label>
+                                    <select class="js-example-basic-single" name="Phase" id="Phase" disabled>
+                                        <option value="-1">    </option>
+                                    </select>
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <select class="js-example-basic-single" name="Block" id="Block" disabled>
+                                        <option value="-1">    </option>
+
+                                    </select>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+
+                                    <select class="js-example-basic-single" name="Category" id="Category" disabled>
+                                        <option value="-1">    </option>
+                                    </select>
+
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Type</label>
+                                    <select class="js-example-basic-single" name="Type" id="Type" disabled>
+                                        <option value="-1">    </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Nature</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Nature" id="Nature" disabled>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Clearance Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder=" " id="ClearanceDate" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Covered Area <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CoveredArea" id="CoveredArea" value="0" onkeypress="validateNumberInput(event)" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Verification Of Map <small style="color:red">*</small></label>
+                                    <div>
+                                        <select name="MappApproved" class="js-example-basic-single" id="Is_MappApproved">
+                                            <option value=""> Select Option </option>
+                                            <option value="1">Yes</option>
+                                            <option value="2">No</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+
+                            <ul class="nav nav-tabs">
+                                <li class="active nav-item"><a class="nav-link active" href="#Correspondence" data-toggle="tab">Correspondence</a></li>
+                                @*                                <li><a href="#History" data-toggle="tab">History</a></li>
+                                *@
+                            </ul>
+                            <br />
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane active" id="Correspondence">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;  margin-bottom:.5rem">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddRow()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="rownumber" value="0" class="hide" />
+                                            </div>
+
+
+                                            <div class="table-responsive">
+                                                <table id="Correspondence" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th style="min-width:90px; text-align: center;" class="text-white">#</th>
+                                                            <th style="min-width:140px ; text-align: center;" class="text-white hide">Design Name</th>
+                                                            <th style="min-width:170px ; text-align: center;" class="text-white">Description</th>
+                                                            <th style="min-width:170px ; text-align: center;" class="text-white">Status Type</th>
+                                                            <th style="min-width:140px ; text-align: center;" class="text-white">Date of Submission</th>
+                                                            <th style="min-width:140px ; text-align: center;" class="text-white">Stage</th>
+                                                            <th style="min-width:140px ; text-align: center;" class="text-white">Client Feedback</th>
+                                                            <th style="min-width:140px ; text-align: center;" class="text-white">Date of Feedback</th>
+                                                            <th style="min-width:190px ; text-align: center;" class="text-white">Attachments</th>
+                                                            <th style="min-width:190px ; text-align: center;" class="text-white"> View Attachment</th>
+                                                            <th style="min-width:170px ; text-align: center;" class="text-white">Architect Remarks</th>
+                                                            <th style="min-width:170px ; text-align: center;" class="text-white">Client Remarks</th>
+                                                            <th style="min-width:170px ; text-align: center;" class="text-white">Select</th>
+                                                            <th style="min-width:170px ; text-align: center;" class="text-white">Task Performed By</th>
+                                                            <th style="min-width:100px ; text-align: center;" class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Correspondencetbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <br>
+                                            <div class="col-12" style="float: right;">
+
+                                                <button id="SaveMapApproval" type="submit" class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);">
+                                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                                </button>
+                                                <a class="btn vd_btn vd_black" href="javascript:void(0);" onclick="refreshPage();">
+                                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                @*                                <div class="tab-pane " id="History">
+                                <div class="row mt-5">
+                                <div class="table-responsive">
+                                <table id="Hist" class="table table-bordered table-hover mb-0">
+                                <thead class="bg-theme">
+                                <tr>
+                                <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                <th class="text-white" style="text-align: center;">Design Name</th>
+                                <th class="text-white" style="text-align: center;">Description</th>
+                                <th class="text-white" style="text-align: center;">Architecture</th>
+                                <th class="text-white" style="text-align: center;">Date of Submission</th>
+                                <th class="text-white" style="min-width:120px;text-align: center;">Client Status</th>
+                                <th class="text-white" style="text-align: center;">Date of Feedback</th>
+                                <th class="text-white" style="text-align: center;">Attachments</th>
+                                <th class="text-white" style="text-align: center;">Remarks</th>
+
+                                </tr>
+                                </thead>
+                                <tbody id="Historytbody">
+                                </tbody>
+                                </table>
+                                </div>
+                                </div>
+                                </div>
+                                *@
+                            </div>
+                        </form>
+
+                        <br>
+
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<div class="modal" id="registrationModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Registration Or Property No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="proplist1" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Registration No.</th>
+                                            <th class="text-white">Block</th>
+                                            <th class="text-white">Type</th>
+                                            <th class="text-white">Real Estate</th>
+                                            <th class="text-white">Status</th>
+
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody1">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+<div class="modal" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Registration Or Property No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="proplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Registration No.</th>
+                                            <th class="text-white">Block</th>
+                                            <th class="text-white">Type</th>
+                                            <th class="text-white">Real Estate</th>
+                                            <th class="text-white">Status</th>
+                                            <th class="text-white">Task Performed By</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<div class="hide">
+    <div id="printdivfilerecieving" class="container">
+        <partial name="~/Views/PartialPage/_ClientFileRecieving.cshtml" />
+    </div>
+</div>
+@*<input class="hide" id="rownumber" value="0" />*@
+<partial name="~/Views/PartialPage/_History.cshtml" />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+<input type="text" class="hide" id="FindMode" />
+<input type="number" class="hide" id="MapAId" value="@ViewBag.Id" />
+<input type="text" id="userid" value="@Context.Session.GetString("ID")" class="hide" />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+
+
+            $("#MapApproval").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    // RegistrationNo: {
+                    //     required: true
+                    // },
+                    PropertyNo: {
+                        required: true
+                    },
+                    // CoveredArea: {
+                    //     required: true
+                    // },
+                    // MappApproved: {
+                    //     required: true
+                    // },
+                },
+
+                errorPlacement: function (error, element) {
+
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("form-control")) {
+                        error.insertAfter(element);
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                },
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    //   label
+                    //       .addClass('valid').addClass('help-inline fa fa-check vd_green mgl-10') // mark the current input as valid and display OK icon
+                    //       .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    SaveMapApproval();
+                }
+
+            });
+            GetAllPropertyLists();
+            GetAllPropertyListsFindMode();
+            GetAllBlocks();
+            GetAllCategories();
+            GetAllNatures();
+            GetAllPhases();
+            GetAllFinishing();
+            GetAllRealEstate();
+            GetAllProjects();
+            GetAllFloor();
+            GetAllTypes();
+
+            var id = $("#MapAId").val();
+
+            if (id > 0) {
+                SelectRegistration(id);
+                if ($("#MapAId").val() != null) {
+                    $("#openModal").prop("disabled", true);
+                    $("#MapApproval :input").prop("disabled", true);
+
+                }
+            }
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+
+
+
+
+        function GetAllPropertyListsFindMode() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/MapApproval/GetAllMapApprovalFilterListFindMode`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Propertytbody1").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td class="propertyNo">' + list.propertyNo + '</td>           ' +
+                                    ' <td class="registrationNo">' + list.registrationNo + '</td>           ' +
+                                    ' <td>' + list.blockName + '</td>       ' +
+                                    ' <td>' + list.typeName + '</td>       ' +
+                                    ' <td>' + list.realStateTypeName + '</td>       ' +
+                                    ' <td>' + list.status + '</td> ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectRegistrationFindMode(' + list.id + ', \'' + list.status + '\')">Select</a></td>';
+                                //</tr>';
+                                $("#Propertytbody1").append(row);
+
+                                sr++;
+                            }
+                        }
+
+                        $('#proplist1').dataTable();
+                    }
+                }
+            });
+        }
+
+        function GetAllPropertyLists() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/MapApproval/GetAllMapApprovalFilterList`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Propertytbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td class="propertyNo">' + list.propertyNo + '</td>' +
+                                    '<td class="registrationNo">' + list.registrationNo + '</td>' +
+                                    '<td>' + list.blockName + '</td>' +
+                                    '<td>' + list.typeName + '</td>' +
+                                    '<td>' + list.realStateTypeName + '</td>' +
+                                    '<td>' + list.status + '</td>' +
+                                    '<td>' + list.lastModifiedUser + '</td>' +
+                                    '<td>';
+                                if (list.requestId != null) {
+                                    row += '<a class="fa fa-print fa-2x" onclick="PrintFileRecieving(' + list.requestId + ')"></a> ';
+                                }
+                                row += '<a class="btn btn-primary" onclick="SelectRegistration(' + list.id + ')">Select</a>' +
+                                    '</td>' +
+                                    '</tr>';
+
+                                $("#Propertytbody").append(row);
+                                sr++;
+                            }
+                        }
+
+
+                        $('#proplist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectRegistration(id) {
+
+            var url = "/api/StockCreation/GetSingleStock?stock=" + id + "";
+
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        debugger;
+
+                        var result_User = response.data;
+                        // set values
+                        let clearanceDate = (result_User.clearanceOn).split('T')[0] ?? "N/A";
+                        $("#MemberName").val(result_User.memberProfile.memberName);
+                        $("#MemberCode").val(result_User.memberProfile.id);
+                        $("#RegistrationNo").val(result_User.registrationNo);
+                        $("#ID").val(result_User.id);
+                        $("#PropertyNo").val(result_User.propertyNo);
+                        $("#Phase").val(result_User.phase);
+                        $("#Phase").trigger("change");
+                        $("#Block").val(result_User.block);
+                        $("#Block").trigger("change");
+                        $("#Project").val(result_User.project);
+                        $("#Project").trigger("change");
+                        $("#Type").val(result_User.type);
+                        $("#Type").trigger("change");
+                        $("#Category").val(result_User.category);
+                        $("#Category").trigger("change");
+                        $("#Floor").val(result_User.floor);
+                        $("#Floor").trigger("change");
+                        $("#Nature").val(result_User.nature);
+                        $("#Nature").trigger("change");
+                        $("#StockCreationId").val(result_User.id);
+                        $("#CoveredArea").val(result_User.coveredArea);
+                        $("#Finishing").val(result_User.finishing);
+                        $("#Finishing").trigger("change");
+                        $("#RealStateType").val(result_User.realStateType);
+                        $("#RealStateType").trigger("change");
+                        $("#ClearanceDate").val(clearanceDate);
+                        $("#FindMode").val("No");
+
+                        if (result_User.is_MapApprovalRequested == true) {
+                            $("#Is_MappApproved").val("1");
+                            $("#Is_MappApproved").prop("disabled", true);
+                            $("#ArrivalDate").prop("disabled", true);
+                            var dateval = result_User.updated_at;
+                            $("#ArrivalDate").val(dateval.substr(0, 10));
+
+                        }
+                        else {
+                            $("#Is_MappApproved").val("2");
+                            $("#Is_MappApproved").prop("disabled", false);
+                        }
+
+                        $("#registrationModal").modal("hide");
+                        $("#registrationModal1").modal("hide");
+
+                        BindHistory(result_User.id);
+                        LoadApprovalHistory(result_User.id, 10);
+                        PropertyDetail(result_User.id);
+                        ShowAlert(result_User.id);
+
+                    }
+                    else {
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+
+        }
+
+
+        function SelectRegistrationFindMode(id, status) {
+
+            var url = "/api/StockCreation/GetSingleStock?stock=" + id + "";
+
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        var result_User = response.data;
+                        // set values
+                        let clearanceDate = (result_User.clearanceOn).split('T')[0] ?? "N/A";
+                        let coveredArea = result_User.coveredArea ?? 0;
+                        $("#MemberName").val(result_User.memberProfile.memberName);
+                        $("#MemberCode").val(result_User.memberProfile.id);
+                        $("#RegistrationNoFind").val(result_User.registrationNo);
+                        $("#RegistrationNo").val(result_User.registrationNo);
+                        $("#ID").val(result_User.id);
+                        $("#PropertyNo").val(result_User.propertyNo);
+                        $("#Phase").val(result_User.phase);
+                        $("#Phase").trigger("change");
+                        $("#Block").val(result_User.block);
+                        $("#Block").trigger("change");
+                        $("#Project").val(result_User.project);
+                        $("#Project").trigger("change");
+                        $("#Type").val(result_User.type);
+                        $("#Type").trigger("change");
+                        $("#Category").val(result_User.category);
+                        $("#Category").trigger("change");
+                        $("#Floor").val(result_User.floor);
+                        $("#Floor").trigger("change");
+                        $("#Nature").val(result_User.nature);
+                        $("#Nature").trigger("change");
+                        $("#StockCreationId").val(result_User.id);
+                        $("#CoveredArea").val(result_User.coveredArea);
+                        $("#Finishing").val(result_User.finishing);
+                        $("#Finishing").trigger("change");
+                        $("#RealStateType").val(result_User.realStateType);
+                        $("#RealStateType").trigger("change");
+                        $("#ClearanceDate").val(clearanceDate);
+                        $("#FindMode").val("Yes");
+
+                        if (result_User.is_MapApprovalRequested == true) {
+                            $("#Is_MappApproved").val("1");
+                            $("#Is_MappApproved").prop("disabled", true);
+                            $("#ArrivalDate").prop("disabled", true);
+                            var dateval = result_User.updated_at;
+                            $("#ArrivalDate").val(dateval.substr(0, 10));
+
+                        }
+                        else {
+                            $("#Is_MappApproved").val("2");
+                            $("#Is_MappApproved").prop("disabled", false);
+                        }
+
+                        $("#registrationModal").modal("hide");
+                        $("#registrationModal1").modal("hide");
+
+                        BindHistory(result_User.id);
+                        LoadApprovalHistory(result_User.id, 10);
+                        PropertyDetail(result_User.id);
+                        ShowAlert(result_User.id);
+
+                    }
+                    else {
+
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+
+        }
+
+        // $('body').on('change', '.checkboxfield', checkuncheckboxes);
+        // function checkuncheckboxes() {
+        //     $("#Correspondence input:checkbox").prop("checked", false);
+        //     $(this).prop("checked", true);
+
+        // }
+
+        function BindHistory(id) {
+
+            var url = "/api/MapApproval/Get?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Correspondencetbody").empty();
+
+                        var relist = response.data[0].mapApprovalHistory;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                let attachments = list.attachments == "" ? "/img/placeholder-photo.svg" : list.attachments;
+                                var dateofsub = list.dateofSubmission != "" ? (list.dateofSubmission).split('T')[0] : "";
+                                let dateoffeed = list.dateofFeedback != "" ? (list.dateofFeedback).split('T')[0] : "";
+                                //var dateoffeed = list.dateofFeedback != null ? list.dateofFeedback.substring(0, 10) : ""
+                                var selection = list.is_Checked == true ? "checked" : "";
+
+
+                                var row = '<tr id="L' + sr + '" DetailId="0"> ' +
+                                    '<td> <input disabled class="form-control line" value="' + sr + '"/></td>' +
+                                    '<td> <textarea readonly required name="LGActivities[' + sr + '].Description" class="form-control Description" value="' + list.description + '">' + list.description + '</textarea></td>' +
+                                    '<td>' +
+                                    ' <select disabled id="MapType' + sr + '" class="form-control MapType">' +
+                                    '<option>Select Option</option>' +
+                                    '<option value = "Work in Progress"> Work in Progress </option>' +
+                                    '<option value = "Requirement Pending"> Requirement Pending </option>' +
+                                    '<option value = "Hold from Client Side"> Hold from Client Side </option>' +
+                                    '</select>' +
+                                    '</td>' +
+                                    '<td> <input type="date"  class="form-control DateofSubmission" value="' + dateofsub + '" disabled/></td>' +
+                                    '<td>' +
+                                    ' <select disabled id="Stage' + sr + '" class="form-control Stage">' +
+                                    '<option>Select Option</option>' +
+                                    '<option value = "0"> Consultant</option>' +
+                                    '<option value = "1"> Stage 1 (Layout) </option>' +
+                                    '<option value = "2"> Stage 2 (Front Elevation) </option>' +
+                                    '<option value = "3"> Stage 3 (Submission and Structure) </option>' +
+                                    '<option value = "4"> Stage 4 (Working Drawings) </option>' +
+                                    '<option value = "5"> Revised</option>' +
+                                    '<option value = "6"> Revised - Stage 1 (Layout) </option>' +
+                                    '<option value = "7"> Revised - Stage 2 (Front Elevation) </option>' +
+                                    '<option value = "8"> Revised - Stage 3 (Submission and Structure) </option>' +
+                                    '<option value = "9"> Revised - Stage 4 (Working Drawings) </option>' +
+                                    '</select>' +
+                                    '</td>' +
+                                    '<td>' +
+                                    ' <select disabled id="ClientStatus' + sr + '" class="form-control ClientStatus">' +
+                                    '<option>Select Option</option>' +
+                                    '<option value = "Yes"> Yes </option>' +
+                                    '<option value = "No"> No </option>' +
+                                    '< /select>' +
+                                    '</td>' +
+                                    '<td> <input disabled type="date"  class="form-control DateofFeedback" id="DateofFeedback' + sr + '" value="' + dateoffeed + '" /></td>' +
+                                    //'<td><a><img src="' + list.attachments + '" alt="" width="100" height="80"></a><input class="Attachments hide" value="' + list.attachments + '"  /></td>' +
+                                    '<td>' +
+                                    '<input  type="file" class="form-control attachmentPath" value="' + list.attachmentPath + '" />' +
+                                    '<input class="form-control attachments hide" value="' + attachments + '" />' +
+                                    '</td>' +
+                                    '<td class="viewAttachment">' +
+                                    '<a href="javascript:void(0);" onclick="openFileInNewTab(\'' + attachments + '\')">' +
+                                    '<img style="width:100px; height:80px" src="' + getAttachmentIcon(attachments) + '" class="clickme" />' +
+                                    '</a>' +
+                                    '</td>' +
+                                    '<td> <textarea disabled  class="form-control archRemarks">' + list.archRemarks + '</textarea></td>' +
+                                    '<td> <textarea disabled  class="form-control clientRemarks">' + list.clientRemarks + '</textarea></td>' +
+                                    '<td> <input ' + selection + ' type="checkbox" class="checkboxfield ActiveInactive" /></td>' +
+                                    '<td> <input disabled class="form-control LastModifiedUser" value="' + list.lastModifiedUserName + '"/></td>' +
+                                    '<td style="padding-top:10px"> </td>' +
+                                    '</tr>';
+
+                                $("#Correspondencetbody").append(row);
+                                $("#MapType" + sr).val(list.mapType);
+                                $("#ClientStatus" + sr).val(list.clientStatus);
+                                $("#Stage" + sr).val(list.stage);
+                                $("#rownumber").val(sr);
+                                sr++;
+
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function getAttachmentIcon(url) {
+            // Extract the extension
+            let ext = url.split('.').pop().toLowerCase();
+
+            // If image, return the original url
+            if (['jpg', 'jpeg', 'png', 'gif'].includes(ext)) {
+                return url;
+            }
+
+            // If PDF or Word, return icon path
+            if (ext === 'pdf') return '/img/pdf-icon.png';
+            if (ext === 'doc' || ext === 'docx') return '/img/word-icon.png';
+
+            // Default icon for unknown file types
+            return '/images/file-icon.png';
+        }
+
+
+        function openFileInNewTab(fileData) {
+            if (!fileData) return alert('No file data');
+
+            // Check if it is a Base64 string (starts with data:)
+            if (fileData.startsWith('data:')) {
+                // Base64 handling
+                const [meta, content] = fileData.split(',');
+
+                if (!meta || !content) {
+                    return alert('Invalid Base64 file data');
+                }
+
+                const byteCharacters = atob(content);
+                const byteNumbers = new Array(byteCharacters.length);
+                for (let i = 0; i < byteCharacters.length; i++) {
+                    byteNumbers[i] = byteCharacters.charCodeAt(i);
+                }
+                const byteArray = new Uint8Array(byteNumbers);
+
+                const mimeType = meta.split(':')[1].split(';')[0];
+                const fileBlob = new Blob([byteArray], { type: mimeType });
+
+                const fileURL = URL.createObjectURL(fileBlob);
+                window.open(fileURL);
+
+            } else if (fileData.startsWith('http')) {
+                // URL handling
+                window.open(fileData, '_blank');
+            } else {
+                alert('Invalid file data');
+            }
+        }
+
+
+
+
+        function SaveMapApproval() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+
+
+
+        function Submit() {
+
+            if ($("#ArrivalDate").val() != "" && $("#RegistrationNo").val() != "") {
+
+                var CorrespondenceArr = new Array();
+
+                var isapproved = $("#Is_MappApproved").val();
+
+                if (isapproved == "1") {
+                    var isMapapproved = true;
+
+                }
+                else {
+                    var isMapapproved = false;
+                }
+                $("#Correspondencetbody tr").each(function () {
+                    var row = $(this);
+                    var selection = row.find('.ActiveInactive').is(":checked");
+
+                    var Correspondence = new Object();
+
+                    let coveredArea = $("#CoveredArea").val() == '' ? '0' : $("#CoveredArea").val();
+
+                    Correspondence.StockCreationID = $("#ID").val(),
+                        Correspondence.Is_MappApproved = isMapapproved,
+                        Correspondence.Description = row.find(".Description").val(),
+                        Correspondence.MapType = row.find(".MapType").val(),
+                        Correspondence.DateofSubmission = row.find(".DateofSubmission").val(),
+                        Correspondence.DateofFeedback = row.find(".DateofFeedback").val(),
+                        Correspondence.Stage = row.find(".Stage").val(),
+                        Correspondence.ClientStatus = row.find(".ClientStatus").val(),
+                        Correspondence.Attachments = row.find(".attachments").val(),
+                        Correspondence.ArchRemarks = row.find(".archRemarks").val(),
+                        Correspondence.ClientRemarks = row.find(".clientRemarks").val(),
+                        Correspondence.CoveredArea = coveredArea;
+                    Correspondence.RedesignMappApproved = $("#RedesignMappApproved").val(),
+                        Correspondence.FindMode = $("#FindMode").val(),
+                        Correspondence.LastModifiedUserName = $("#User_Name").val(),
+                        Correspondence.CreatedBy = $("#userid").val(),
+                        Correspondence.ModifiedBy = $("#userid").val(),
+                        Correspondence.ClientStage = 0,
+                        Correspondence.Is_Checked = selection,
+                        CorrespondenceArr.push(Correspondence);
+
+
+                });
+
+                if (CorrespondenceArr != null && CorrespondenceArr != undefined && CorrespondenceArr != "") {
+
+                    var ModelData = JSON.stringify(CorrespondenceArr);
+
+                    $('#SaveMapApproval').prop('disabled', true); //disble
+                    $('#loader').fadeIn();
+                    $.ajax({
+                        type: 'POST',
+                        url: `/api/MapApproval/AddMappApproval`,
+                        dataType: "json",
+                        headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                        async: false,
+                        data: ModelData,
+                        contentType: 'application/json',
+                        success: function (response) {
+                            $('#loader').fadeOut();
+                            if (response.code === 100) {
+                                debugger;
+                                Swal.fire({
+                                    icon: 'success',
+                                    title: 'success',
+                                    text: response.message,
+                                    customClass: 'swal-wide',
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        //location.reload(true);
+                                    }
+                                    else if (result.isDenied) {
+                                        Swal.fire('Changes are not saved', '', 'info')
+                                    }
+                                })
+                            }
+
+                            else {
+                                $('#SaveMapApproval').prop('disabled', false);
+                                //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", response.message);
+                                Swal.fire({
+                                    icon: 'error',
+                                    title: 'Error',
+                                    text: response.message,
+                                    customClass: 'swal-wide',
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false
+                                });
+                                // window.alert(response.message);
+                            }
+                        }
+                    });
+
+                    //$('#SaveMapApproval').prop('disabled', false); //enable
+                }
+
+                else {
+                    $('#SaveMapApproval').prop('disabled', false);
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Please add atleast one Line Item',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            }
+            else {
+                $('#SaveMapApproval').prop('disabled', false);
+                //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Please Fill Relevant Data");
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'Please Fill Relevant Data',
+                    customClass: 'swal-wide',
+                    allowOutsideClick: false,
+                    allowEscapeKey: false
+                });
+            }
+        }
+
+        function GetAllTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PropertyType/GetAllPropertyTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Type").empty();
+                        var row = ' <option value="">  </option> ';
+
+                        $("#Type").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Type").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Type').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllRealEstate() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/RealEstate/GetAllRealEstate`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#RealStateType").empty();
+                        var row = ' <option value=""></option>';
+
+                        $("#RealStateType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#RealStateType").append(row);
+                                sr++;
+                            }
+                            $('#RealStateType').select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function GetAllPhases() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Phase/GetAllPhases`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Phase").empty();
+                        var row = ' <option value=""></option>';
+
+                        $("#Phase").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Phase").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Phase').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllBlocks() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Block/GetAllBlocks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Block").empty();
+                        var row = ' <option value=""></option>';
+
+                        $("#Block").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Block").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Block').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllCategories() {
+            var url = "/api/Category/GetAllCategories";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Category").empty();
+                        var row = ' <option value=""></option>';
+
+                        $("#Category").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+                                $("#Category").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#Category').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllNatures() {
+            var url = "/api/Nature/GetAllNatures";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 0) {
+
+                        $("#Nature").empty();
+                        var row = ' <option value=""></option>';
+
+                        $("#Nature").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Nature").append(row);
+
+                                sr++;
+                            }
+                        }
+
+                        $('#Nature').select2();
+                    }
+                }
+            });
+
+
+        }
+
+        function GetAllFloor() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Floor/GetAllBlocks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Floor").empty();
+                        var row = ' <option value=""></option>';
+
+                        $("#Floor").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Floor").append(row);
+
+                                sr++;
+                            }
+                        }
+                        $('#Floor').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllFinishing() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Finishes/GetAllFinishes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Finishing").empty();
+                        var row = ' <option value=""></option>';
+
+                        $("#Finishing").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+                                $("#Finishing").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Finishing').select2();
+                    }
+                }
+            });
+
+
+        }
+
+        function GetAllProjects(id) {
+
+            var url = "/api/Project/GetAllProjects";
+
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 0) {
+
+                        $("#Project").empty();
+                        var row = ' <option value=""></option>';
+
+                        $("#Project").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Project").append(row);
+
+                                sr++;
+                            }
+                        }
+
+                        $('#Project').select2();
+                    }
+                }
+            });
+
+
+        }
+
+        function AddRow() {
+
+
+            var rownumber = parseInt($("#rownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumber").val(rownumber);
+            var lastModifiedUserName = $("#User_Name").val();
+
+            var row = '<tr id="L' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <textarea required name="LGActivities[' + rownumber + '].Description"  class="form-control Description"></textarea></td>' +
+                '<td><select required class="form-control MapType" name="MapType[' + rownumber + ']" >' +
+                '<option value="">Select Option</option>' +
+                '<option value = "Work in Progress"> Work in Progress </option>' +
+                '<option value = "Requirement Pending"> Requirement Pending </option>' +
+                '<option value = "Hold from Client Side"> Hold from Client Side </option>' +
+                '</select></td>' +
+                '<td> <input type="date" class="form-control DateofSubmission" value="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/></td>' +
+                '<td><select required id="Stage" class="form-control Stage" name="Stage[' + rownumber + ']">' +
+                '<option value="">Select Option</option>' +
+                '<option value = "0"> Consultant</option>' +
+                '<option value = "1"> Stage 1 (Layout) </option>' +
+                '<option value = "2"> Stage 2 (Front Elevation) </option>' +
+                '<option value = "3"> Stage 3 (Submission and Structure) </option>' +
+                '<option value = "4"> Stage 4 (Working Drawings) </option>' +
+                '<option value = "5"> Revised</option>' +
+                '<option value = "6"> Revised - Stage 1 (Layout) </option>' +
+                '<option value = "7"> Revised - Stage 2 (Front Elevation) </option>' +
+                '<option value = "8"> Revised - Stage 3 (Submission and Structure) </option>' +
+                '<option value = "9"> Revised - Stage 4 (Working Drawings) </option>' +
+                '</select></td>' +
+                '<td><select required class="form-control ClientStatus" name="ClientStatus[' + rownumber + ']">' +
+                '<option value="">Select Option</option>' +
+                '<option value = "Yes"> Yes </option>' +
+                '<option value = "No"> No </option>' +
+                '</select></td>' +
+                '<td> <input required disabled type="date"  class="form-control DateofFeedback" value="@DateTime.Now.ToString("yyyy-MM-dd")" name="LGActivities[' + rownumber + '].DateofFeedback" id="DateofFeedback' + rownumber + '" /></td>' +
+                '<td> <input  type="file" class="form-control attachmentPath" name="LGActivities[' + rownumber + '].attachmentPath" /><input  class="form-control attachments hide" /></td>' +
+                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px; height:80px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+                '<td> <textarea class="form-control archRemarks"></textarea></td>' +
+                '<td> <textarea class="form-control clientRemarks"></textarea></td>' +
+                '<td> <input type="checkbox" class="checkboxfield  ActiveInactive" /></td>' +
+                '<td> <input disabled class="form-control LastModifiedUser" value="' + lastModifiedUserName + '"/></td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+
+
+
+            $("#Correspondencetbody").append(row);
+        }
+
+        $('body').on('change', '.attachmentPath', imageuploading);
+
+
+        function imageuploading() {
+
+            var row = $(this);
+            var extension = row.parents('tr').find('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg', 'pdf']) == -1) {
+                // alert();
+                notification("topright", "error", "fa fa-exclamation-circle vd_red", "Eror", "Sorry, invalid extension.");
+                row.parents('tr').find('input[type=file]').val("");
+                // $("#PreviewUrl").attr("src", "/img/placeholder-photo.svg");
+                return false;
+            }
+            else {
+
+                var file = row.parents('td').find('input[type=file]').get(0).files[0];
+                row.parents("tr").find(".attachments").val(file.name);
+                if (file) {
+                    var reader = new FileReader();
+
+                    reader.onload = function () {
+
+                        row.parents('td').find('.attachments').val(reader.result);
+                        row.parents('tr').find('.viewAttachment img').attr("src", reader.result);
+
+                        row.parents('tr').find('.attachmentPath').get(0).files[0];
+                        row.parents('tr').find('.viewAttachment a').simpleLightbox();
+
+                    }
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+        function DeleteRow(id) {
+            $('#L' + id).remove();
+
+            var rownumber = 1;
+            $("#Correspondencetbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#rownumber").val(rownumber - 1);
+        }
+
+
+        function PrintFileRecieving(id) {
+
+            var methodType = 'GET';
+            var url = "/api/FileVerification/GetClientFilebyId?Id=" + id + "";
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+                    var printdata = response;
+
+                    let memberImage = printdata.image == null ? "/img/placeholder-photo.svg" : printdata.image;
+
+                    $("#PreviewUrl1").attr("src", memberImage);
+                    $("#PropNo").text(printdata.propertyNo);
+                    $("#RegNo").text(printdata.registrationNo);
+                    $("#PropSize").text(printdata.area + " " + printdata.unitArea);
+                    $("#PNature").text(printdata.nature);
+                    $("#pFloor").text(printdata.floor);
+                    $("#pBlock").text(printdata.block);
+                    $("#pType").text(printdata.type);
+                    $("#MemName").text(printdata.memberName);
+                    $("#sdw").text(printdata.relationshipWith);
+                    $("#MCnic").text(printdata.cnic);
+                    $("#RecName").text(printdata.receivedBy);
+                    $("#RecMob").text(printdata.recieverMobile);
+                    $("#RecSDW").text(printdata.recieverFatherName);
+                    // $("#RecDate").text(printdata.docDate);
+                    $("#RecDate").text(printdata.docDate.split("T")[0]);
+                    $("#RecCnic").text(printdata.recieverCNIC);
+                    $("#reqtype").text(printdata.initialRequestType);
+                    $("#requesttype").text(printdata.requestType);
+
+                    if (printdata.requestType === "File Recieving" || printdata.requestType === "File Recieving (Authority Letter)") {
+                        $("#title").text("");
+                        $("#preTitle").text("File");
+                    }
+                    if (printdata.requestType === "NDC For Construction"
+                        || printdata.requestType === "NDC Bank Loan") {
+                        $("#title").text(" Recieving");
+                        $("#preTitle").text("NDC");
+                    }
+
+                    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+                    document.getElementById('currentDate').textContent = `Dated: ${new Date().toLocaleDateString('en-US', options)}`;
+
+
+                    printInvoicefilerecieving();
+                }
+            });
+        }
+
+        function printInvoicefilerecieving() {
+            debugger;
+            var printContents = document.getElementById('printdivfilerecieving').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('printdivfilerecieving');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => {
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close();
+                printWindow.focus();
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+
+    </script>
+
+
+}

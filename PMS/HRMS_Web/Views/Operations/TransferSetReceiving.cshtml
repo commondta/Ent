@@ -1,0 +1,1029 @@
+﻿@section css{
+    <link media="print" rel="stylesheet" href="~/bootstrap/bootstrapcss.css">
+    <style>
+        .vd_panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+
+}
+<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    #propertyModal {
+        margin-left: auto;
+    }
+</style>
+
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Transfer Set Receiving</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/></svg></span>
+                    <h1>Transfer Set Receiving</h1>
+
+                    <div class="menu">
+                        <button id="propertyModal" class="btn btn-warning" style="">Property Detail</button>
+                        @*                         <button id="openModal" class="btn btn-warning">Approval History</button>
+                        *@
+                    </div>
+                    <!-- menu -->
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>Transfer Set Receiving No.</label>
+
+                                <div class="search_btn">
+                                    <div class="input_div">
+                                        <input type="number" class="form-control" disabled
+                                               placeholder="" id="Id" />
+                                    </div>
+                                        <div>
+                                        <button data-toggle="modal" data-target="#registrationModalFindMode" type="button" class="btn btn-sm dha_theme_btn">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                        </div>
+                                        </div>
+                            </div>
+                        </div>
+                        <form class="custom-validation" action="#" role="form" id="MemberNDC">
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Document No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="DocumentNo" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"  id="docDate" name="docDate"
+                                               placeholder=" " value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Validity Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder=" " name="effectiveDateTime" id="effectiveDateTime" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Apply Station</label>
+                                    <div>
+                                        <select class="js-example-basic-single" id="ApplyStation" name="ApplyStation" disabled>
+                                            <option value=""> Select Option </option>
+                                            <option value="HeadOffice">HeadOffice</option>
+                                            <option value="Lahore">Lahore</option>
+                                            <option value="Karachi">Karachi</option>
+                                            <option value="Islamabad">Islamabad</option>
+                                            
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Member Code</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="MembCode" name="MemberCode" readonly />
+                                            </div>
+                                                <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn">Search</button>
+                                                </div>
+                                                </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <textarea type="text" class="form-control" readonly
+                                                       placeholder="" id="MembName" name="MemberName" >
+                                                </textarea>
+                                            </div>
+                                                <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn">Search</button>
+                                                </div>
+                                                </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Reference No.</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control" readonly
+                                                       placeholder="" id="RegistrationNo" name="RegistrationNo" />
+                                            </div>
+                                                <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn">Search</button>
+                                                </div>
+                                                </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+
+                                        <div class="search_btn">
+                                            <div class="input_div">
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="PropertyNo" name="PropertyNo" readonly />
+                                            </div>
+                                                <div>
+                                                <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn btn-sm dha_theme_btn">Search</button>
+                                                </div>
+                                                </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Block" id="Block" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Category" id="Category" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Size" id="Size" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PossessionStatus" id="PossessionStatus" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="ConstrucationStatus" id="ConstrucationStatus" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>CNIC</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CNIC" id="CNIC" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3 hide">
+                                    <label>Dealer Code</label>
+                                            <div>
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="DealerCode" name="DealerCode" readonly />
+                                            </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Set Receiving Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="SetReceivingStatus" id="SetReceivingStatus">
+                                            <option value="Complete">Complete</option>
+                                            <option value="Partial">Partial</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Depositor</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Depositor" id="Depositor" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Estate Name</label>
+                                            <div class="input_div">
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="EstateName" name="EstateName" readonly />
+                                            </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Dealer Name</label>
+                                            <div class="input_div">
+                                                <input type="text" class="form-control"
+                                                       placeholder="" id="DealerName" name="DealerName" readonly />
+                                            </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>NDC Request Type</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="NDCRequestType" id="NDCRequestType" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Transfer Type</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="TransferType" id="TransferType" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                
+                                <div class="col-sm-3">
+                                    <label>Selected Date For Transfer</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder=" " name="slotDate" id="slotDate" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Transfer Hour</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="availableHour" id="availableHour" readonly />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Transfer Slot</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="availableMintues" id="availableMintues" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Transfer Day</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="Day" id="Day" readonly />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                
+                             </div>
+
+                            <br>
+                            <ul class="nav nav-pills widget">
+                                <li class="active"><a href="#Attachments" data-toggle="tab">Attachments</a></li>
+                            </ul>
+                            <br />
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane active" id="Attachments">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right; margin-right: 25px;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddAtachmentRow()" style="padding: 6px 20px;">Add New</a>
+                                                <input type="text" id="Arownumber" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="AttachmentTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Attachment Path</th>
+                                                            <th class="text-white" style="text-align: center;">Attachment Name</th>
+                                                            <th class="text-white" style="text-align: center;">Attachment Date</th>
+                                                            <th class="text-white" style="text-align: center;">Remarks</th>
+                                                            <th class="text-white" style="text-align: center;">View Attachment</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Atachmenttbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="col-12" style="float: right; margin-top: 9px">
+                                <button class="btn btn-primary btn-sm btn-theme" type="submit" id="SubmitMR">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <a class="btn vd_btn vd_black" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </a>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+</div>
+
+<div class="hide">
+    <div id="printdiv" class="container">
+        <partial name="~/Views/PartialPage/_TransferSetReceiving.cshtml" />
+    </div>
+</div>
+
+<partial name="~/Views/PartialPage/_History.cshtml" />
+<partial name="~/Views/PartialPage/SearchPropertyModal.cshtml" />
+<partial name="~/Views/PartialPage/SearchPropertyModalFindMode.cshtml" />
+<input class="hide" id="rownumber" value="0" />
+<input class="hide" type="number" value="0" id="Ndc1Id" />
+<input class="hide" type="number"  id="MemberProfileId" />
+<input class="hide" type="number" id="StockCreationId" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            "use strict";
+
+            $("#MemberNDC").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    RegistrationNo: {
+
+                        required: true
+                    },
+                    slotDate: {
+
+                        required: true
+                    },
+                    availableHour: {
+
+                        required: true
+                    },
+                    availableMintues: {
+
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) {
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+            });
+            GetAllPropertyLists();
+            GetPreviousRecords();
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        function Print(id) {
+           
+            var methodType = 'GET';
+            var url = "/api/TransferSetReceiving/GetTransferSetReceivingPrint?Id=" + id + "";
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+                    if (response.code == 100) {
+
+                        var printdata = response.data;
+                   
+                        let drpTime = printdata.depositTime != "" ? (printdata.depositTime).split('T')[1] : "";
+                        let drpextTime = drpTime !== "" ? convertTo12HourFormat(drpTime.split('.')[0]) : "";
+                        const format = d =>
+                            d ? new Date(d).toLocaleDateString('en-GB').replace(/\//g, '-') : "";
+
+                        let ndcdatee = format(printdata.ndcDate);
+                        let recDate =printdata.receivingDate;
+
+                        $("#regNop").text(printdata.registrationNo || "");
+                        $("#sectorp").text(printdata.sector || "");
+                        $("#TransferTypep").text(printdata.transferType || "");
+                        $("#NameOfSellerp").text(printdata.memberName || "");
+                        $("#DealerNamep").text(printdata.dealerName || "");
+                        $("#DealerCodep").text(printdata.dealerCode || "");
+                        $("#ReceivingDatep").text(recDate || "");
+                        $("#Deptimep").text(drpextTime || "");
+                        $("#NdcDatep").text(printdata.ndcClearedOn || "");
+                        $("#Depositorp").text(printdata.depositor || "");
+                        $("#pSlotDate").text(printdata.slotDate || "");
+                        $("#pSlot").text(printdata.slot || "");
+                        printInvoice();
+                    }
+                }
+            });
+        }
+
+        function convertTo12HourFormat(time) {
+           
+            const [hours, minutes, seconds] = time.split(':');
+            const period = hours >= 12 ? 'PM' : 'AM';
+            const adjustedHours = hours % 12 || 12; // Convert 0 to 12
+            return `${adjustedHours}:${minutes} ${period}`;
+        }
+
+
+        function printInvoice() {
+            var printContents = document.getElementById('printdiv').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('printdiv');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+
+
+        function GetPreviousRecords() {
+            $('#proplistFindMode').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllFindModeTransferSet",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "membershipNo", name: "MembershipNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    { data: "status", name: "Status" },
+                    { data: "formattedDateTime", name: "DateTime" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<a class="fa fa-print fa-2x " onclick="Print(' + data.id + ')"></a>' +
+                                   '<a class="fa fa-edit fa-2x" onclick = "SelectSinglePPS(' + data.id + ')" > </a>';
+                        }
+                    }
+                ]
+            });
+        }
+
+        function SelectSinglePPS(id) {
+
+            var url = "/api/TransferSetReceiving/GetTransferSetReceiving?id=" + id;
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#registrationModalFindMode").modal("hide");
+
+                        let result_User = response.data;
+
+                        let slotDate = result_User.slotDate ? result_User.slotDate.split('T')[0] : "";
+                        let effectiveDateTimee = result_User.validateDate
+                            ? result_User.validateDate.split('T')[0]
+                            : "";
+
+                        $("#Id").val(result_User.id);
+                        $("#DocumentNo").val(result_User.id);
+
+                        $("#MembCode").val(result_User.memberProfile?.id ?? "");
+                        $("#MembName").val(result_User.memberProfile?.memberName ?? "");
+
+                        $("#RegistrationNo").val(result_User.stockCreation?.registrationNo ?? "");
+                        $("#PropertyNo").val(result_User.stockCreation?.propertyNo ?? "");
+
+                        $("#ApplyStation").val(result_User.applyStation ?? "");
+                        $("#CNIC").val(result_User.memberProfile?.cnic ?? "");
+
+                        $("#ConstrucationStatus").val(result_User.construcationStatus ?? "");
+                        $("#PossessionStatus").val(result_User.possessionStatus ?? "");
+
+                        $("#Size").val(result_User.size ?? "");
+                        $("#Category").val(result_User.category ?? "");
+                        $("#SetReceivingStatus").val(result_User.setReceivingStatus ?? "");
+                        $("#Block").val(result_User.block ?? "");
+
+                        $("#StockCreationId").val(result_User.stockCreation?.id ?? "");
+                        $("#MemberProfileId").val(result_User.memberProfile?.id ?? "");
+
+                        $("#availableMintues").val(result_User.slotMintues ?? "");
+                        $("#availableHour").val(result_User.slotHour ?? "");
+
+                        $("#date").val(slotDate);
+                        $("#slotDate").val(slotDate);
+                        $("#Day").val(result_User.day ?? "");
+
+                        $("#effectiveDateTime").val(effectiveDateTimee);
+
+                        $("#TransferType").val(result_User.transferType ?? "");
+                        $("#NDCRequestType").val(result_User.ndcRequestType ?? "");
+
+                        $("#propertyTaxYears").val(result_User.propertyTaxYear ?? "");
+
+                        $("#DealerCode").val(result_User.dealerCode ?? "");
+                        $("#DealerName").val(result_User.dealerName ?? "");
+                        $("#EstateName").val(result_User.estateName ?? "");
+
+                        $("#Depositor").val(result_User.depositor ?? "");
+
+                        LoadApprovalHistory(result_User.id);
+                        PropertyDetail(result_User.stockCreation?.id);
+                        ShowAlert(result_User.stockCreation?.id);
+
+                        // ============================
+                        // Attachments
+                        // ============================
+
+                        $("#Atachmenttbody").empty();
+                        $("#Arownumber").val(0);
+
+                        $.each(result_User.attachments || [], function (i, item) {
+
+                            let imagePath = item.document
+                                ? item.document
+                                : "/img/placeholder-photo.svg";
+
+                            let attachmentDate = item.lastModified
+                                ? item.lastModified.split('T')[0]
+                                : "0001-01-01";
+
+                            var rownumber = parseInt($("#Arownumber").val()) + 1;
+                            $("#Arownumber").val(rownumber);
+
+                            var row =
+                                '<tr id="A' + rownumber + '">' +
+                                '<td><input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td>' +
+                                '<input type="file" class="form-control attachmentPath"/>' +
+                                '<input class="form-control CopyToTargetDocument hide" value="' + imagePath + '"/>' +
+                                '</td>' +
+                                '<td><input disabled class="form-control attachmentName" value="' + item.doucmentName + '"/></td>' +
+                                '<td><input type="date" class="form-control attachmentDate" value="' + attachmentDate + '" readonly/></td>' +
+                                '<td><textarea class="form-control remarks">' + (item.remarks ?? '') + '</textarea></td>' +
+                                '<td class="viewAttachment" style="padding-top:10px">' +
+                                '<a><img style="width:100px" src="' + imagePath + '" class="clickme"></a>' +
+                                '</td>' +
+                                '<td style="padding-top:10px">' +
+                                '<a class="btn btn-sm btn-danger disabled">' +
+                                '<span class="append-icon fa fa-trash-o"></span>' +
+                                '</a>' +
+                                '</td>' +
+                                '</tr>';
+
+                            $("#Atachmenttbody").append(row);
+                        });
+
+                    } else {
+                        notification(
+                            "bottomleft",
+                            "error",
+                            "fa fa-exclamation-circle vd_red",
+                            "Error",
+                            response.message
+                        );
+                    }
+                }
+            });
+        }
+
+
+        function GetAllPropertyLists() {
+
+           $('#proplist').DataTable({
+               ajax: {
+                    url: "/api/SP/GetAllTransferSet",
+                   type: "POST",
+                   headers: {
+                       Authorization: `Bearer ${localStorage.getItem("token")}`
+                   },
+               },
+               processing: true,
+               serverSide: true,
+               filter: true,
+               columns: [
+                   {
+                       data: null,
+                       render: function (data, type, row, meta) {
+                           return meta.row + 1;
+                       },
+                       title: "#",
+                   },
+                   { data: "propertyNo", name: "PropertyNo" },
+                   { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "membershipNo", name: "MembershipNo" },
+                   { data: "memberName", name: "MemberName" },
+                   { data: "cnic", name: "CNIC" },
+                   { data: "relationshipWith", name: "RelationshipWith" },
+                   { data: "phase", name: "Phase" },
+                   { data: "block", name: "Block" },
+                   { data: "category", name: "Category" },
+                   { data: "propertyType", name: "PropertyType" },
+                   {
+                       data: null,
+                       render: function (data, type, row) {
+                           return '<a class="btn btn-primary" onclick="SelectRegistration(' + data.id + ')">Select</a>';
+                       }
+                   }
+               ]
+           });
+        }
+        function SelectRegistration(id) {
+
+            var url = "/api/TransferReceiptProcessing/Get?id=" + id + "";
+
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        $("#registrationModal").modal("hide");
+                        var result_User = response.data;
+                        let transferDatee = result_User.transferDate != "" ? (result_User.transferDate).split('T')[0] : "";
+                        let validateDate = result_User.validateDate != "" ? (result_User.validateDate).split('T')[0] : "";
+                        let Selectdateforsloot = result_User.slotDate ? result_User.slotDate.split('T')[0] : "";
+
+                        $("#Ndc1Id").val(result_User.id);
+                        $("#RegistrationNo").val(result_User.registrationNo);
+                        $("#effectiveDateTime").val(validateDate);
+                        $("#PropertyNo").val(result_User.propertyNo);
+                        $("#MembCode").val(result_User.memberProfileId);
+                        $("#MembName").val(result_User.sellerName);
+                        $("#ApplyStation").val(result_User.applyStation);
+                        $("#ConstrucationStatus").val(result_User.constructionStatus);
+                        $("#Category").val(result_User.categoryName);
+                        $("#Block").val(result_User.blockName);
+                        $("#CNIC").val(result_User.cnic);
+                        $("#PossessionStatus").val(result_User.possessionStatus);
+                        $("#StockCreationId").val(result_User.stockCreationId);
+                        $("#MemberProfileId").val(result_User.memberProfileId);
+                        $("#date").val(transferDatee);
+                        $("#availableMintues").val(result_User.slotMintues ? result_User.slotMintues : "");
+                        $("#date").val(result_User.slotDate ? result_User.slotDate.split('T')[0] : "");
+                        $("#Day").val(result_User.day);
+                        $("#slotDate").val(Selectdateforsloot);
+                        $("#availableHour").val(result_User.slotHour ? result_User.slotHour : "");
+                        $("#Size").val(result_User.plotSize);
+                        $("#TransferType").val(result_User.transferType);
+                        $("#NDCRequestType").val(result_User.ndcRequestType);
+                        $("#Day").val(result_User.day);
+                        $("#propertyTaxYears").val(result_User.propertyTaxYear);
+                        $("#DealerCode").val(result_User.dealerCode);
+                        $("#EstateName").val(result_User.estateName);
+                        $("#DealerName").val(result_User.dealerName);
+
+                        $("#Atachmenttbody").empty();
+                        $.each(result_User.transferSetReceivingAttachments, function (i, item) {
+     
+                            let ndcmemberImage = item.document == "" ? "/img/placeholder-photo.svg" : item.document;
+                            let attachmentDate = (item.lastModified).split('T')[0] ?? "0001-01-01";
+                            var rownumber = parseInt($("#Arownumber").val());
+                            var LineId = rownumber;
+                            let existingrows = 2;
+                            rownumber = rownumber + 1;
+                            $("#Arownumber").val(rownumber);
+
+                            var row = '<tr id="A' + rownumber + '">' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td> <input type="file" class="form-control attachmentPath"  /><input  class="form-control CopyToTargetDocument hide"  value="' + ndcmemberImage + '" /></td>' +
+                                '<td> <input disabled class="form-control attachmentName" value="' + item.doucmentName + '" /></td>' +
+                                '<td> <input type="date" class="form-control attachmentDate" value="' + attachmentDate + '" readonly/></td>' +
+                                '<td> <textarea class="form-control remarks">' + item.remarks + ' </textarea></td>' +
+                                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="' + ndcmemberImage + '" class="clickme" ></a></img></td>' +
+                                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmentItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                                '</tr>';
+                            $("#Atachmenttbody").append(row);
+                        });
+
+                       // LoadApprovalHistory(result_User.id);
+                        PropertyDetail(result_User.stockCreationId);
+                        ShowAlert(result_User.stockCreationId);
+                       
+                    }
+                }
+            });
+        }
+
+        function AddAtachmentRow() {
+
+            var rownumber = parseInt($("#Arownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#Arownumber").val(rownumber);
+            var row = '<tr id="A' + rownumber + '">' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input required type="file" name="attachmentName[' + rownumber + '].attachmentPath" class="form-control attachmentPath" /><input  class="form-control CopyToTargetDocument hide" /></td>' +
+                '<td> <input disabled class="form-control attachmentName" /></td>' +
+                '<td> <input type="date" class="form-control attachmentDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" disabled/></td>' +
+                '<td> <textarea  class="form-control remarks" > </textarea></td>' +
+                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmentItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+            $("#Atachmenttbody").append(row);
+        }
+        function DeleteAttachmentItemRow(id) {
+            $('#A' + id).remove();
+            var rownumber = 1;
+            $("#Atachmenttbody tr").each(function () {
+                var row = $(this);
+                row.find(".line").val(parseInt(rownumber));
+                rownumber++;
+            });
+            $("#Arownumber").val(rownumber - 1);
+
+        }
+
+        // image from body
+        $('body').on('change', '.attachmentPath', UploadImageOnServerforAttachmenttbody);
+    
+        function UploadImageOnServerforAttachmenttbody() {
+
+            var row = $(this);
+            var extension = row.parents('tr').find('input[type=file]').val().split('.').pop().toLowerCase();
+
+            if ($.inArray(extension, ['png', 'jpg', 'jpeg']) == -1) {
+                ResponseMessageModal("warning", "Sorry, invalid extension.");
+                var filepath = row.parents('tr').find('input[type=file]').val();
+                row.parents('tr').find('input[type=file]').val("");
+
+                return false;
+            }
+            else {
+                var file = row.parents('td').find('input[type=file]').get(0).files[0];
+                row.parents("tr").find(".attachmentName").val(file.name);
+                if (file) {
+                    var reader = new FileReader();
+                    reader.onload = function () {
+                        row.parents('td').find('.CopyToTargetDocument').val(reader.result);
+                        row.parents('tr').find('.viewAttachment img').attr("src", reader.result);
+                        row.parents('tr').find('input[type=file]').get(0).files[0];
+                    }
+
+                    reader.readAsDataURL(file);
+                }
+            }
+        }
+
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+
+        function Submit() {
+           
+            var methodType = 'POST';
+            var url = "/api/TransferSetReceiving/SaveTransferSetReceiving";
+
+            var file = new Object();
+            var sitePlanAttachmentsArray = new Array();
+
+
+            if ($("#Id").val()) {
+
+                file.Id = parseInt($("#Id").val());
+                methodType = 'PUT';
+                url = "/api/TransferSetReceiving/UpdateTransferSetReceiving"
+            }
+
+            file.Ndc1Id = $("#Ndc1Id").val();
+            file.StockCreationId = $("#StockCreationId").val();
+            file.MemberProfileId = parseInt($('#MemberProfileId').val());
+            file.ConstrucationStatus = $("#ConstrucationStatus").val();
+            file.PossessionStatus = $("#PossessionStatus").val();
+            file.ApplyStation = $('#ApplyStation').val();
+            file.Size = $("#Size").val();
+            file.Category = $("#Category").val();
+            file.Block = $("#Block").val();
+            file.SlotDate = $("#slotDate").val();
+            file.EffectiveDate = $("#effectiveDateTime").val();
+            file.SlotMintues = $("#availableMintues").val();
+            file.NDCRequestType = $("#NDCRequestType").val();
+            file.TransferType = $("#TransferType").val();
+            file.Day = $("#Day").val();
+            file.SlotHour = $("#availableHour").val();
+            file.DealerCode = $("#DealerCode").val();
+            file.SetReceivingStatus = $("#SetReceivingStatus").val();
+            file.EstateName = $("#EstateName").val();
+            file.DealerName = $("#DealerName").val();
+            file.Depositor = $("#Depositor").val();
+            file.CreatedOn = $("docDate").val();
+            file.CreatedBy = $("#User_Id").val();
+            file.ModifiedBy = $("#User_Id").val();
+            file.LastModifiedUserName = $("#User_Name").val();
+
+            $('#Atachmenttbody tr').each(function () {
+
+                var row = $(this);
+                var attachment = new Object();
+                attachment.DoucmentName = row.find('.attachmentName').val();
+                attachment.Document = row.find('.CopyToTargetDocument').val();
+                attachment.Remarks = row.find('.remarks').val();
+
+                sitePlanAttachmentsArray.push(attachment);
+            });
+
+            file.TransferSetReceivingAttachments = sitePlanAttachmentsArray;
+
+            var model = JSON.stringify(file);
+            $('#SubmitMR').prop('disabled', true);
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+                    $('#loader').fadeOut();
+                    if (response.code == 100) {
+                        debugger;
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        $('#SubmitMR').prop('disabled', false);
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'warning',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+    </script>
+}

@@ -1,0 +1,172 @@
+﻿
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">ALERT</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-bell" viewBox="0 0 16 16"><path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2M8 1.918l-.797.161A4 4 0 0 0 4 6c0 .628-.134 2.197-.459 3.742-.16.767-.376 1.566-.663 2.258h10.244c-.287-.692-.502-1.49-.663-2.258C12.134 8.197 12 6.628 12 6a4 4 0 0 0-3.203-3.92zM14.22 12c.223.447.481.801.78 1H1c.299-.199.557-.553.78-1C2.68 10.2 3 6.88 3 6c0-2.42 1.72-4.44 4.005-4.901a1 1 0 1 1 1.99 0A5 5 0 0 1 13 6c0 .88.32 4.2 1.22 6"/></svg></span>
+                    <h1>ALERT</h1>
+                        </div>
+                    </div>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form>
+                        <div class="row">
+                                <div class="col-md-6">
+                                <label for="multi-select-dropdown">Select Receivers</label>
+                                    <select id="my-select" multiple>
+                                        
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="other-dropdown">Alert Type</label>
+                                    <select id="other-dropdown" name="other-dropdown">
+                                        <option value="Non-Critical">Non-Critical</option>
+                                        <option value="Critical">Critical</option>
+                                    </select>
+                                </div>
+                            <br>
+                            <div class="col-md-12">
+                            <label for="narration-field">Narration</label>
+                                    <textarea id="narration-field" name="narration-field" style="height: 200px;"></textarea>
+                            </div>
+                            
+                        </div>
+                        
+                        </form>
+
+                        <div class="col-12" style="float: right;">
+                            <button type="submit" onclick="PostRequest();" class="btn dha_theme_btn" id="sbbtn">
+                                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                            </button>
+                            <button class="btn btn-light" href="javascript:void(0);">
+                                <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<input type="text" id="userid" value="@Context.Session.GetString("ID")" class="hide" />
+<input type="text" id="name" value="@Context.Session.GetString("FullName")" class="hide" />
+<input type="text" id="designation" value="@Context.Session.GetString("desig")" class="hide" />
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+            $('#my-select').select2({
+                data: []
+            });
+
+            // Fetch the data from the API and update the select2 plugin
+            $.get('/api/PMSUser/GetAllPMSUsers', function (response) {
+
+                var result = response.data;
+                var data = result.map(function (item) {
+                    return {
+                        id: item.id,
+                        text: item.emP_FULL_NAME + '-' + item.desiG_DESC 
+                            };
+                });
+
+                // Update the select2 plugin with the new data
+                $('#my-select').select2({
+                    data: data
+                });
+            });
+        });
+
+
+        function PostRequest() {
+
+            var formData = {
+                SelectedUsers: $("#my-select").val(),
+                Narration: $("#narration-field").val(),
+                Type: $("#other-dropdown").val(),
+                Sender: $("#userid").val(),
+                SenderName: $("#name").val(),
+                Designation: $("#designation").val(),
+                CreatedBy: $("#userid").val(),
+                ModifiedBy: $("#userid").val(),
+                LastModifiedUserName: $("#name").val()
+
+            };
+
+            $('#sbbtn').prop('disabled', true); //disble
+            $('#loader').fadeIn();
+            // Send form data via AJAX
+            $.ajax({
+                url: "/api/Notification/AddNotification",
+                type: "POST",
+                data: JSON.stringify(formData),
+                contentType: "application/json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                },
+                error: function (xhr, status, error) {
+                    // Handle error response
+                    console.log("Error submitting form: " + error);
+                }
+            });
+        }
+
+    </script>
+
+}

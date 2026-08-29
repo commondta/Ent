@@ -1,0 +1,313 @@
+﻿@using DataLayer;
+@{
+    ViewBag.Title = "Payroll Formulas";
+}
+
+<!-- cfl Modal -->
+<div id="cflModal" class="modal fade" role="dialog" style="float:none;margin:auto; ">
+    <div class="modal-dialog">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Pay Elements</h4>
+            </div>
+            <div class="modal-body">
+                <table id="cfl-pay-elements-dataTable" class="table table-hover table-responsive" style="margin-top:2%;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Pay Element Code</th>
+                            <th>Description</th>
+                            <th>Type</th>
+                        </tr>
+                    </thead>
+                    <tbody class="select">
+                        @foreach (PayElementsModel PayElementObj in ViewBag.PayElementsCfl)
+                        {
+                            <tr>
+                                <td>@PayElementObj.id</td>
+                                <td>@PayElementObj.PayElementCode</td>
+                                <td>@PayElementObj.Description</td>
+                                <td>@PayElementObj.Type</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                <button type="submit" class="btn btn-primary" data-dismiss="modal" onclick="payElementSelect()">Select</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Content Wrapper -->
+<div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>Payroll Formulas</h1>
+        <ol class="breadcrumb">
+            <li><a href="~/Home/Index">Home</a></li>
+            <li>Compensation &amp; Payroll Setup</li>
+            <li class="active">Payroll Formulas</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Payroll Formulas</h3>
+                <div class="doc-nav">
+                    <button class="btn btn-default" title="First"><i class="fa fa-angle-double-left"></i></button>
+                    <button class="btn btn-default" title="Previous"><i class="fa fa-arrow-left"></i></button>
+                    <button class="btn btn-default" title="Next"><i class="fa fa-arrow-right"></i></button>
+                    <button class="btn btn-default" title="Last"><i class="fa fa-angle-double-right"></i></button>
+                </div>
+
+                <button class="btn" id="new-btn"  data-toggle="tooltip" title="New" onclick="InsertMode('formula-master-parent-form', 'formula-master-child-form', 'formula-master-dataTable')"><i class="fa fa-plus"></i><div class="ripple-container"></div></button>
+                <button class="btn btn-danger hidden" id="cancel-btn">Cancel</button>
+                <button class="btn btn-primary hidden" id="add-btn" onclick="FormulaMasterCreate()">Add</button>
+                <button class="btn btn-primary hidden" id="update-btn" onclick="FormulaMasterUpdate()">Update</button>
+            </div>
+            <div class="box-body">
+                    <div class="row" style="padding: 0 20px 20px 20px;">
+                        <div class="col-sm-4">
+
+                            <form id="formula-master-parent-form">
+                                <div class="row">
+                                    <div class="form-group" style="margin-top: unset;">
+                                        <label for="employee-category" class="col-sm-3 control-label">Employee Category</label>
+                                        <div class="col-sm-8">
+                                            <select id="employee-category" class="form-control" name="EmployeeCategory">
+                                                <option selected="selected" disabled>Select</option>
+                                                @for (int i = 0; i < ViewBag.EmployeeCategories.Length; i++)
+                                                {
+                                                    <option value="@ViewBag.EmployeeCategories[i]">@ViewBag.EmployeeCategories[i]</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row topMargin">
+                                    <div class="form-group">
+                                        <label for="name" class="col-sm-3 control-label">Name</label>
+                                        <div class="col-sm-8">
+                                            <select id="name" class="form-control" name="Name">
+                                                <option selected="selected" disabled>Select</option>
+                                                @for (int i = 0; i < ViewBag.PayElementsCfl.Count; i++)
+                                                {
+                                                    <option value="@(ViewBag.PayElementsCfl[i].PayElementCode + " - " + ViewBag.PayElementsCfl[i].Description)">@(ViewBag.PayElementsCfl[i].PayElementCode + " - " + ViewBag.PayElementsCfl[i].Description)</option>
+                                                }
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding: 0 20px;">
+                        <button type="button" class="btn btn-default" id="addRow-formula-master">Add Row</button>
+                        <form id="formula-master-child-form">
+                            <table id="formula-master-dataTable" class="table table-responsive table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Pay Code</th>
+                                        <th>Amt Higher Limit</th>
+                                        <th>Amt Lower Limit</th>
+                                        <th>Percentage</th>
+                                        <th>Remarks</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </form>
+                    </div>
+            </div>
+        </div>
+    </section>
+    <div id="snackbar"></div>
+</div>
+
+
+<script>
+    var formParent = document.forms['formula-master-parent-form'];
+
+    function create_td(name, value) {
+        var td = document.createElement('td');
+        var input = td.appendChild(document.createElement('input'));
+        input.type = 'text';
+        input.name = name;
+        input.value = value;
+        return td;
+    }
+
+    /*
+
+    Creates a row in tbody like:
+    <tr>
+        <td><input type="text" name="id" readonly /></td>
+        <td><div class="cfl-container"><input type="text" name="PayCode"><span><i class="fa fa-reorder"></i></span></div></td>
+        <td><input type="text" name="AmtHigherLimit" /></td>
+        <td><input type="text" name="AmtLowerLimit" /></td>
+        <td><input type="text" name="Percentages" /></td>
+        <td><input type="text" name="Remarks" /></td>
+    </tr>
+
+    */
+    function CreateRow(id, PayCode, AmtHigherLimit, AmtLowerLimit, Percentages, Remarks) {
+        var td = document.createElement('td');
+        var input = td.appendChild(document.createElement('input'));
+        input.type = 'text';
+        input.name = 'id';
+        input.value = id;
+        input.readOnly = true;
+        var tdCfl = document.createElement('td');
+
+        var divDOM = tdCfl.appendChild(document.createElement('div'));
+        divDOM.className = 'cfl-container';
+        var inputDOM = divDOM.appendChild(document.createElement('input'));
+        inputDOM.type = 'text';
+        inputDOM.name = 'PayCode';
+        inputDOM.value = PayCode;
+        var iDOM = divDOM.appendChild(document.createElement('span')).appendChild(document.createElement('i'));
+        iDOM.className = 'fa fa-reorder';
+
+        var trDOM = document.querySelector("#formula-master-dataTable>tbody").appendChild(document.createElement('tr'));
+
+        var tdList = [
+            td,
+            tdCfl,
+            create_td('AmtHigherLimit', AmtHigherLimit),
+            create_td('AmtLowerLimit', AmtLowerLimit),
+            create_td('Percentages', Percentages),
+            create_td('Remarks', Remarks)
+        ];
+
+        tdList.forEach(function (td) {
+            trDOM.appendChild(td);
+        });
+    }
+
+    function FormulaMasterPopulate(parentObj) {
+        document.querySelector('#formula-master-dataTable>tbody').id = parentObj.id;
+        document.querySelector('#formula-master-dataTable>tbody').innerHTML = '';
+        formParent.elements['EmployeeCategory'].value = parentObj.EmployeeCategory;
+        formParent.elements['Name'].value = parentObj.Name;
+        
+        // Creating child data (rows) in tbody against document's parent
+        for (var p = 0; p < formulaMasterChild.length; p++) {
+            if (parentObj.id == formulaMasterChild[p].ParentID) {
+                CreateRow(formulaMasterChild[p].id,
+                          formulaMasterChild[p].PayCode, 
+                          formulaMasterChild[p].AmtHigherLimit, 
+                          formulaMasterChild[p].AmtLowerLimit, 
+                          formulaMasterChild[p].Percentages, 
+                          formulaMasterChild[p].Remarks);
+            }
+        }
+    }
+
+    function ViewMode() {
+        var newBtnClassList = document.querySelector('#new-btn').classList;
+        if (newBtnClassList.contains('hidden') || !document.querySelector('#update-btn').classList.contains('hidden')) {
+            newBtnClassList.remove('hidden');
+            document.querySelector('#add-btn').classList.add('hidden');
+            document.querySelector('#cancel-btn').classList.add('hidden');
+            document.querySelector('#update-btn').classList.add('hidden');
+        }
+    }
+
+    function ViewModePopulate(formulaMasterIndex) {
+        ViewMode();
+        FormulaMasterPopulate(formulaMasterParent[formulaMasterIndex]);
+    }
+
+    var formulaMasterParent = @Html.Raw(Json.Encode(ViewBag.FormulMasterParent));
+    var formulaMasterChild = @Html.Raw(Json.Encode(ViewBag.FormulMasterChild));
+    FormulaMasterPopulate(formulaMasterParent[0]);
+
+    // Hide already saved "Employee Category"
+    function hideSavedEmpCatgr() {
+        for (var i = 1; i < formParent.elements['EmployeeCategory'].length; i++) {
+            for (var j = 0; j < formulaMasterParent.length; j++) {
+                if (formParent.elements['EmployeeCategory'].options[i].childNodes[0].textContent == formulaMasterParent[j].EmployeeCategory) {
+                    formParent.elements['EmployeeCategory'].options[i].hidden = true;
+                }
+            }
+        }
+    }
+
+    hideSavedEmpCatgr();
+    var i = 0;
+    document.querySelector('button[title="First"]').addEventListener("click", function () {
+        i = 0;
+        FormulaMasterPopulate(formulaMasterParent[i]);
+        ViewMode();
+    });
+    document.querySelector('button[title="Previous"]').addEventListener("click", function () {
+        if(i > 0) {
+            FormulaMasterPopulate(formulaMasterParent[--i]);
+        }
+        ViewMode();
+    });
+    document.querySelector('button[title="Next"]').addEventListener("click", function () {
+        if(i < formulaMasterParent.length - 1) {
+            FormulaMasterPopulate(formulaMasterParent[++i]);
+        }
+        ViewMode();
+    });
+    document.querySelector('button[title="Last"]').addEventListener("click", function () {
+        i = formulaMasterParent.length - 1;
+        FormulaMasterPopulate(formulaMasterParent[i]);
+        ViewMode();
+    });
+    document.querySelector('#cancel-btn').addEventListener("click", function () {
+        ViewModePopulate(i);
+    });
+    document.getElementById('addRow-formula-master').addEventListener("click", function () {
+        CreateRow('', '', '', '', '', '');
+    });
+
+    function setData(childData, parentData) {
+        formulaMasterParent.push(parentData);
+        for (var i = 0; i < childData.length; i++) {
+            formulaMasterChild.push(childData[i]);
+        }
+        hideSavedEmpCatgr();
+        i = formulaMasterParent.length - 1;
+        FormulaMasterPopulate(formulaMasterParent[i]);
+        ViewMode();
+    }
+
+    function updateData(childData, parentData) {
+        // Update Parent Data
+        for (var k = 0; i < formulaMasterParent.length; k++) {
+            if (formulaMasterParent[k].id == parentData.id) {
+                formulaMasterParent[k].EmployeeCategory = parentData.EmployeeCategory;
+                formulaMasterParent[k].Name = parentData.Name;
+                break;
+            }
+        }
+        // Update Child Data
+        for (var l = 0; l < childData.length; l++) {
+            for (var m = 0; m < formulaMasterChild.length; m++) {
+                if(childData[l].id == formulaMasterChild[m].id) {
+                    formulaMasterChild[m].PayCode = childData[l].PayCode;
+                    formulaMasterChild[m].AmtHigherLimit = childData[l].AmtHigherLimit;
+                    formulaMasterChild[m].AmtLowerLimit = childData[l].AmtLowerLimit;
+                    formulaMasterChild[m].Percentages = childData[l].Percentages;
+                    formulaMasterChild[m].Remarks = childData[l].Remarks;
+                }
+            }
+        }
+        ViewMode();
+    }
+</script>

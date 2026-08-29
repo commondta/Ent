@@ -1,0 +1,674 @@
+﻿
+    <!-- Middle Content Start -->
+
+    <div class="vd_content-wrapper">
+        <div class="vd_container">
+            <div class="vd_content clearfix">
+                <div class="vd_head-section clearfix">
+                    <div class="vd_panel-header">
+                        <ul class="breadcrumb">
+                        <li><a href="/Home/index" >Home</a> </li>
+                            <li class="active">Demand Note Approval By Custodian</li>
+                        </ul>
+                        <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                            <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                            <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                            <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- vd_head-section -->
+
+                <div class="vd_title-section clearfix">
+                    <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check2-square" viewBox="0 0 16 16"><path d="M3 14.5A1.5 1.5 0 0 1 1.5 13V3A1.5 1.5 0 0 1 3 1.5h8a.5.5 0 0 1 0 1H3a.5.5 0 0 0-.5.5v10a.5.5 0 0 0 .5.5h10a.5.5 0 0 0 .5-.5V8a.5.5 0 0 1 1 0v5a1.5 1.5 0 0 1-1.5 1.5z"/><path d="m8.354 10.354 7-7a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0"/></svg></span>
+                    <h1>Approval Demand Note </h1>
+               
+                        <div class="vd_panel-menu  hidden-xs">
+                    
+
+                          
+                            <!-- menu -->
+                        </div>
+                        <!-- vd_panel-menu -->
+                    </div>
+                    <!-- vd_panel-header -->
+                </div>
+                <!-- vd_title-section -->
+
+                <div class="vd_content-section clearfix">
+                    <div class="container-fluid">
+                        <div class="card p-3">
+                            <div class="col-md-12">
+                                <div class="">
+                                        <table id="findmodaltable" class="table">
+                                <thead class="bg-theme">
+                                    <tr>
+                              
+                                        <th class="text-white">PMS ID</th>
+                                        <th class="text-white">REQUESTER NAME</th>
+                                        <th class="text-white">DEPARTMENT</th>
+                                        <th class="text-white">REQUIRED DATE</th>
+                                        <th class="text-white">STATUS</th>
+                                        <th class="text-white">ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="findmodaltbody">
+                                </tbody>
+                            </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+                <!-- .vd_content-section -->
+
+            </div>
+            <!-- .vd_content -->
+        </div>
+        <!-- .vd_container -->
+    </div>
+    <!-- .vd_content-wrapper -->
+    <!-- Middle Content End -->
+
+
+
+<!-- /.modal -->
+   <div class="modal" id="ViewRequest" tabindex="-1" role="dialog" aria-labelledby="modaltitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="modaltitle">View Request</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                     <div class="row">
+                                        <div class="col-sm-4 hide">
+                                            <label>ID</label>
+                                            <div>
+                                               <input id="mdnTableId" class="form-control" disabled />
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Status</label>
+                                            <div>
+                                                <select class="js-example-basic-single" name="Status" id="Status" disabled>
+                                                    <option value=""> Select Option </option>
+                                                    <option selected value="Open"> Open</option>
+                                                    <option value="Close">Close </option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Department</label>
+                                            <div>
+                                                <input disabled  name="Deparment" id="Department" class="form-control"/>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4 hide">
+                                            <label>Item Group Code</label>
+                                            <div>
+                                                <select disabled id="ItemGroupCode" name="ItemGroupCode" class="form-control" style="width:100%"></select>
+                                            </div>
+
+                                        </div>                                                                         
+                                          <div class="col-sm-4">
+                                            <label>Item Group Name</label>
+                                            <div>
+                                                <input class="form-control" id="GroupName" disabled />
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Requester Name</label>
+                                            <div>
+                                                <input disabled value="" class="form-control" type="text" name="RequesterName" id="RequesterName" />
+                                            </div>
+
+                                        </div>
+                                       
+                                        <div class="col-sm-4">
+                                            <label>Required Date</label>
+                                            <input class="form-cotrol" readonly type="datetime-local" name="RequiredDate" id="RequiredDate" />
+
+                                        </div>
+                                        <div class="col-sm-4 hide">
+                                            <label>MDN Type</label>
+                                            <div>
+                                                <select disabled class="js-example-basic-single" name="MDNType" id="MDNType">
+                                                    <option value=""> Select Option </option>
+                                                    <option selected value="Item"> Item</option>
+                                                    <option value="Service">Service </option>
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                            </div>
+                                            <div class="col-sm-2">
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="card p-3">
+                                            <div class="col-md-12">
+
+                                                <div class="table-responsive">
+                                                    <table id="DNTable" class="table table-bordered table-hover mb-0">
+                                                        <thead class="bg-theme">
+                                                            <tr>
+                                                                <th style="min-width:80px" class="text-white">#</th>
+                                                                <th style="min-width:200px" class="text-white">Item No</th>
+                                                                <th style="min-width:200px" class="text-white">Item Description</th>
+                                                                <th style="min-width:170px" class="text-white">Required Date</th>
+                                                                <th style="min-width:100px" class="text-white">Required Quantity</th>
+                                                                <th style="min-width:140px" class="text-white">Whse</th>
+                                                                <th style="min-width:160px" class="text-white">Uom Code</th>
+                                                                <th style="min-width:160px" class="text-white">Project</th>
+                                                                <th style="min-width:180px" class="text-white">Info Price</th>               
+                                                                <th style="min-width:180px" class="text-white">Line Total</th>
+                                                                <th style="min-width:180px" class="text-white">Remarks</th>
+                                                                <th style="min-width:180px" class="text-white">Action</th>
+                                                                
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="DNTabletbody">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                </div>
+            </div>
+             <div class="modal-footer background-login">
+                    <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                    <button onclick="ApprovedOrRejectMDN()"  type="button" class="btn btn-primary btn-theme">Apply Approval</button>
+                </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+ <div class="modal" id="modalapproval" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header vd_bg-blue vd_white">
+                    <h4 class="modal-title">Approve / Reject</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <form   class="form-horizontal">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Staus</label>
+                                    <select class="js-example-basic-single form-control" name="ChangeStatus" id="ChangeStatus" style="width:100%">
+                                        
+                                        <option value="true"> Approved </option>
+                                        <option value="false"> Rejected </option>
+                                       
+
+                                    </select>
+                                    <input id="mdnNum" class="form-control hide" />
+                                   
+                                </div>
+                                <div class="col-sm-12">
+                                    <label>Comment</label>
+                                    <textarea id="Comment" rows="3" class="form-control">
+
+                                    </textarea>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+                <div class="modal-footer background-login">
+                    <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                    <button onclick="UpdateAndApproveRequest()" id="SubmitButton" type="button" class="btn btn-primary btn-theme">Apply Approval</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+ <input value="0" id="rownumber" class="hide"/>
+  <input value="@Context.Session.GetString("EMP_CODE")" id="id" class="hide"/>
+
+    @section Scripts {
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+             GetAllItemGroups();
+            GetAllWarehousesData();
+            GetPreviousRecords();
+        });
+          function GetAllWhse(rownum,whse){
+
+              
+                        $("#whse"+rownum).empty();
+                        var row = ' <option value="-1">Select WareHouse</option> ';
+
+                        $("#whse"+rownum).append(row);
+
+                        var relist = WareHouses;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+
+
+                                    var row = ' <option value="' + list.whsCode + '" >'+ list.whsName + '</option> ';
+
+                                    $("#whse"+rownum).append(row);
+
+                                sr++;
+                            }
+                        }
+
+                        $("#whse"+rownum).select2();
+                        if (whse != null && whse != undefined) {
+                             $("#whse" + rownum).select2("val", [whse]);
+                        }
+                     }
+
+        function ApprovedOrRejectMDN() {
+            var id = $("#mdnTableId").val();
+            $("#mdnNum").val(id);
+            $("#modalapproval").modal("show");
+            $("#ViewRequest").modal("hide");
+
+        }
+        function approveMDN() {
+            var id = $("#mdnNum").val();
+            var status = $("#ChangeStatus").val()=="true"?true:false;
+            var Comment = $("#Comment").val();
+            debugger;
+             $.ajax({
+                type: 'GET',
+                url: `/api/DemandNote/ApproveOrRejectByCustodian`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: {id:id,status:status,Comment:Comment},
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                     
+                    if (response.code === 100) {
+                         
+                        $("#modalapproval").modal("hide");
+                        GetPreviousRecords();
+                          Swal.fire({
+                                  icon: 'success',
+                                  title: 'Success',
+                                  text: response.message,
+      
+                            });
+
+                    }
+                    else{
+                         Swal.fire({
+                                  icon: 'error',
+                                  title: 'Error',
+                                  text: response.message,
+      
+                            });
+                    }
+                }
+            });
+        }
+         function GetPreviousRecords() {
+             var id = $("#id").val();
+            $.ajax({
+                type: 'GET',
+                url: `/api/DemandNote/GetAllWithRespectToCustodian`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: {id:id},
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                     
+                    if (response.code === 100) {
+                         
+                        var datatabl = $('#findmodaltable').DataTable();
+                        datatabl.destroy();
+                        $("#findmodaltbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                //var approveOrRejected=list.IsDemandNoteApproved==null?"Requested":
+                                var ApprovedOrRejectStatus = "";
+                                
+                                if (list.isDemandNoteApproved == null && list.isDemandNoteRequested == true && list.dnManagerStatus == true) {
+                                    ApprovedOrRejectStatus = "Requested";
+                                }
+                                else if (list.dnCustodianStatus == true) {
+                                    ApprovedOrRejectStatus = "Approved";
+                                }
+                                else {
+                                    ApprovedOrRejectStatus = "Rejected";
+                                }
+                                var row = '<tr>' +
+                                    '<td>' + list.id + '</td>' +
+                                    '<td>' + list.requesterName + '</td>' +
+                                    '<td>' + list.deparment + '</td>' +
+                                    '<td>' + list.requiredDate + '</td>' +
+                                    '<td>' + ApprovedOrRejectStatus + '</td>' +
+                                    '<td><a onclick="SelectMDN(' + list.id + ')"><i class="fa fa-eye"></i></a></td>' +
+                                    '</tr>';
+                                $("#findmodaltbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#findmodaltable').dataTable();
+                    }
+                }
+            });
+
+        }
+
+
+         var WareHouses;
+       
+           function GetAllWarehousesData(){
+
+              $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetAllWhse`,
+                dataType: "json",
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        WareHouses=   response.data;
+                    }
+                }
+            });
+        }
+
+         function SelectMDN(id) {
+             
+            var url = "/api/DemandNote/Get?id=" + id + "";
+             
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                     
+                    if (response.code === 100) {
+                        var mdnData = response.data;
+                        $("#ViewRequest").modal("show");
+
+                        $("#Status").val(mdnData.status);
+                        $("#mdnTableId").val(mdnData.id);
+                        $("#RequesterName").val(mdnData.requesterName);
+                        
+                        $("#Department").val(mdnData.deparment);
+                        $("#ItemGroupCode").val(mdnData.itemGroupCode).trigger("change");
+                        //$("#ValidUntill").val(mdnData.validUntill);
+                        $("#RequiredDate").val(mdnData.requiredDate);
+                        $("#MDNType").val(mdnData.mdnType);
+                        $("#DNTabletbody").empty();
+
+                         
+                        $.each(mdnData.demandNoteItems, function (index, mdnItem) {
+                            var rownumber = parseInt($("#rownumber").val());
+                            var lineprice = mdnItem.infoPrice;
+                            var linetotal = parseFloat(mdnItem.requiredQuantity) * parseFloat(lineprice);
+                                var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            var sr = index + 1;
+                                $("#rownumber").val(rownumber);
+                            debugger;
+                                var row = '<tr id="L' + rownumber + '" DetailId="0"> ' +
+                                    '<td> <input disabled class="form-control line" value="' + sr + '"/></td>' +
+                                    '<td> <input disabled id="ItemNo' + rownumber + '" value="'+mdnItem.itemNo+'" class="form-control ItemNo" style="width:100%" /></td>' +
+                                    '<td> <input  value="'+mdnItem.description+'"  class="form-control Description" disabled/></td>' +
+                                    '<td> <input disabled  type="text" value="'+mdnItem.requiredDate+'" class="form-control RequiredDate" /></td>' +
+                                    '<td><input type="number" max="'+mdnItem.requiredQuantity+'" name="RequiredQuantity[]" value="'+mdnItem.requiredQuantity+'" class="form-control RequiredQuantity" /></td>' +
+                                    '<td><select disabled id="whse' + rownumber + '" class="form-control whse" style="width:100%"></select></td>' +
+                                    '<td><input value="'+mdnItem.uom+'" disabled id="UomCode' + rownumber + '" class="form-control UomCode" style="width:100%" /></td>' +
+                              
+                                    '<td><input  disabled value="'+mdnItem.prjCode+'" type="text" class="form-control prjCode"  /></td>' +
+                                    '<td><input  value="'+lineprice+'" type="number" class="form-control infoPrice"  /></td>' +
+                                    '<td><input disabled value="'+linetotal+'" type="text" class="form-control lineTotal"  /></td>' +
+                                    '<td><input disabled type="text" class="form-control Remarks" value="'+mdnItem.remarks+'"  /></td>' +
+                                      '<td><input checked type="checkbox" class="isChecked" /> </td>' +
+                                    '</tr>';
+
+                            $("#DNTabletbody").append(row);
+                               GetAllWhse(rownumber,mdnItem.whse)
+            
+                        });
+
+                   
+                  
+
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Lead");
+                         Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Something Went Wrong',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+        
+               function GetAllItemGroups() {
+                
+            $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetAllItemGroups`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    
+                    if (response.code === 100) {
+
+                        $("#ItemGroupCode").empty();
+                        var row = ' <option value="-1">Select Item Group</option> ';
+
+                        $("#ItemGroupCode").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                 
+                              
+                                    var row = ' <option data-custordian="'+list.custodianId+'" value="' + list.id + '" >'+ list.name + '</option> ';
+
+                                    $("#ItemGroupCode").append(row);
+                          
+                                sr++;
+                            }
+                        }
+
+                        $('#ItemGroupCode').select2();
+                    }
+                }
+            });
+        }
+         $('body').on('change', '#ItemGroupCode', SelectGroupName);
+       
+         function SelectGroupName(){
+             var select2row = $(this);
+             
+            var data_Val = $(this).select2('data');
+             var custodianId = data_Val[0].element.attributes['data-custordian'].value;
+            var goupname = data_Val[0].text;
+             $("#GroupName").val(goupname);
+             $("#CustodianId").val(custodianId);
+         }
+         function SetItemName() {
+              var select2row = $(this);
+            var data_Val = $(this).select2('data');
+            var itemName = data_Val[0].text;
+            var itemCode = data_Val[0].id;
+              
+             select2row.parent().parent().find(".Description").val(itemName);
+               $.ajax({
+                type: 'GET',
+                url: `/api/SapIntegration/GetItemDetails`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                 data: { itemCode: itemCode },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                      
+                    if (response.code === 100) {
+                           var relist = response.data;
+                       
+                       select2row.parent().parent().find(".LastPurPrice").val(relist.lastPurPrc);
+                     //  select2row.parent().parent().find(".infoPrice").val(relist.lastPurPrc);
+                       select2row.parent().parent().find(".UomCode").val(relist.uomCode).trigger("change");
+                       select2row.parent().parent().find(".whse").val(relist.dfltWH).trigger("change");
+                    }
+                }
+            });
+
+         }
+        
+
+
+         function UpdateAndApproveRequest() {
+
+            var demandNote = new Object();
+
+            var demandNoteItems = new Array();
+
+            demandNote.Id = $('#mdnTableId').val();
+            demandNote.Status = $('#Status').val();
+            demandNote.RequesterName = $('#RequesterName').val();
+            demandNote.ValidUntill = $('#RequiredDate').val();
+            demandNote.RequiredDate = $('#RequiredDate').val();
+            demandNote.MDNType = $('#MDNType').val();
+            demandNote.Remarks = $('#Remarks').val();
+            demandNote.Deparment = $('#Department').val();
+            demandNote.ItemGroupCode = $('#ItemGroupCode').val();
+            demandNote.CustodianId = $('#CustodianId').val();
+            demandNote.ManagerId = $('#ManagerId').val();
+
+            $('#DNTabletbody tr').each(function () {
+                var row = $(this);
+                var itemArray = new Object();
+                if (row.find('.isChecked').is(":checked") == true) {
+                    itemArray.ItemNo = row.find('.ItemNo').val();
+                itemArray.Description = row.find('.Description').val();
+                itemArray.RequiredDate = row.find('.RequiredDate').val();
+                itemArray.RequiredQuantity = row.find('.RequiredQuantity').val();
+                itemArray.LastPurPrice = row.find('.LastPurPrice').val();
+                itemArray.InfoPrice = row.find('.infoPrice').val();
+                itemArray.PrjCode = row.find('.prjCode').val();
+                itemArray.PrjName = row.find('.prjName').val();
+                itemArray.Whse = row.find('.whse').val();
+                itemArray.Uom = row.find('.UomCode').val();
+                itemArray.Remarks = row.find('.Remarks').val();
+                demandNoteItems.push(itemArray);
+                }
+                
+            });
+
+            demandNote.demandNoteItems = demandNoteItems;
+
+            var model = JSON.stringify(demandNote);
+             
+         //   $('#submmit').prop('disabled', true); //disble
+         
+            $('#loader').fadeIn();
+            NProgress.start();
+            NProgress.set(0.0);
+             if ($("#ChangeStatus").val() == "true") {
+                 $.ajax({
+                     type: 'POST',
+                     url: `/api/DemandNote/UpdateDemandNote`,
+                     contentType: 'application/json; charset=utf-8',
+                     dataType: "json",
+                     headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                     data: model,
+                     success: function(response) {
+                         $('#loader').fadeOut();
+                          NProgress.done();
+                         console.log(response);
+                         if (response.code == 100) {
+
+                             approveMDN();
+                             $('#loader').fadeOut()
+                         }
+                     }
+
+                 });
+             }
+             else {
+                 approveMDN();
+                  $('#loader').fadeOut()
+             }
+            
+                   
+        }
+
+
+
+
+        $('body').on('change', '.infoPrice', calculteLineTotal);
+          $('body').on('change', '.RequiredQuantity', calculteLineTotal);
+
+        function calculteLineTotal(){
+              debugger;
+              var infoprice=   $(this).parent().parent().find(".infoPrice").val();
+              var requiredQty=   $(this).parent().parent().find(".RequiredQuantity").val();
+              var lineTotal;
+              if (infoprice!="" && requiredQty!="")
+              {
+                  lineTotal = infoprice * requiredQty;
+                   $(this).parent().parent().find(".lineTotal").val(lineTotal);
+              }
+              else
+              {
+                    $(this).parent().parent().find(".lineTotal").val(0);
+              }
+             
+          }
+
+
+      </Script>
+  }

@@ -1,0 +1,182 @@
+.sidebar_fix,
+.vd_top-nav {
+    width: 260px;
+}
+.vd_input-wrapper
+{
+    margin-bottom:0.5rem
+}
+.bg_login_page {
+    background: linear-gradient(105deg, #111111 48%, #f9fafb 25%);
+    height: 100vh !important;
+}
+.bg_login_dha {
+    background: linear-gradient(105deg, #111111 48%, #f9fafb 25%);
+    height: 100vh !important;
+}
+.login_box {
+    background-color: #ffff;
+    border-radius: 5px;
+}
+.logo{
+    padding-top : 3rem;
+}
+.d_logo{
+    margin-top:4rem;
+}
+.logo img {
+    width: 30%;
+}
+.panel-body {
+    padding: 0px 30px !important;
+}
+.alert{
+    display : none !important;
+}
+.input_wrapper{
+    display:flex;
+    align-items:center;
+    
+}
+.input_wrapper i{
+    
+}
+.u_dev{
+    display:flex;
+    justify-content:center;
+}
+    .u_dev h4 {
+        font-size: 3.5rem;
+        width: 70%;
+        font-family: slab-serif;
+        font-weight:900;
+    }
+.text_login{
+    font-size : 1.5rem;
+    word-spacing:2px;
+    letter-spacing: 1px;
+}
+.login_input {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1rem;
+    gap: 1rem;
+    border: 1px solid #dfe6e9;
+    padding-left: .7rem;
+    padding-right: .5rem;
+    border-radius: 5px;
+}
+    .login_input .e_input {
+        width: 100%
+    }
+    .login_input .e_input input{
+        border:none;
+    }
+        .login_input .e_input input:focus {
+            outline: none !important;
+            box-shadow:none !important;
+            background:#ffff !important;
+    }
+.inp_icon1 i {
+    color: #111111 !important;
+    font-size:1.5rem;
+}
+.inp_icon2 i {
+    color: #111111 !important;
+    font-size: 2rem;
+    margin-top:3px;
+}
+.proprty_btn {
+    background: #111111 !important;
+    color: #ffff;
+}
+    .proprty_btn:hover {
+        color: #ffff;
+        background-color: #3A3A3A !important;
+    }
+.search_btn{
+    display:flex !important;
+    align-items:center;
+    gap:.5rem;
+}
+.input_div{
+    width:100% !important;
+}
+.down_tab{
+    margin-top:2.3rem !important;
+}
+
+
+  /*All N-Stack Changes*/
+
+.vd_brown {
+    color: #111111;
+}
+
+.dha_theme_btn {
+    background: #111111 !important;
+    color: #ffff;
+}
+
+    .dha_theme_btn:hover {
+        color: #ffff;
+        background-color: #3A3A3A !important;
+    }
+.dClr_icon i{
+    color: #111111 !important;
+}
+.dha_table {
+    background-color: #111111 !important;
+}
+.tab_clr {
+    color: #111111 !important;
+}
+.select2-container--default .select2-results__option--highlighted.select2-results__option--selectable {
+    background-color: #111111 !important;
+    color: white;
+}
+.swal2-styled.swal2-confirm {
+    background-color: #111111 !important;
+}
+    .swal2-styled.swal2-confirm:hover {
+        background-color: #3A3A3A !important;
+    }
+.sub-menu {
+    background-color: #F7F7F7 !important;
+}
+
+.alignment_icon{
+    display:flex !important;
+    justify-content:space-between;
+    width:100%;
+}
+.menu-text {
+    display: block !important;
+}
+@media (max-width: 768px) {
+    .expand_all {
+        display:none;
+    }
+    .logo{
+        display:none
+    }
+    .vd_panel-menu{
+        right:auto !important;
+    }
+    .topNav{
+        display:flex;
+        justify-content:end;
+    }
+    
+    /*.width_set {
+        width: 50%;
+    }*/
+    .mega-ul {
+        display: flex;
+    }
+}
+    @media (max-width: 576px) {
+        .u_dev h4 {
+            width: 100%;
+        }
+    }

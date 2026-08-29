@@ -1,0 +1,247 @@
+﻿@section css{
+
+    <style>
+
+    </style>
+}
+    <div class="vd_content-wrapper">
+        <div class="vd_container">
+            <div class="vd_content clearfix">
+                <div class="vd_head-section clearfix">
+                    <div class="vd_panel-header">
+                        <ul class="breadcrumb">
+                            <li><a href="/Home/index">Home</a> </li>
+                            <li class="active">Commission</li>
+                        </ul>
+                        <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                            <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                            <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                            <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- vd_head-section -->
+
+                <div class="vd_title-section clearfix">
+                    <div class="vd_panel-header">
+                        <h1 style="text-transform:uppercase">Commission</h1>
+
+                        <div class="vd_panel-menu  hidden-xs">
+
+                            <!-- menu -->
+                        </div>
+                        <!-- vd_panel-menu -->
+                    </div>
+                    <!-- vd_panel-header -->
+                </div>
+                <!-- vd_title-section -->
+
+                <div class="vd_content-section clearfix">
+            
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="row">
+                                        <div class="col-sm-9"></div>
+                                        <div class="col-sm-3">
+                                          @*  <a onclick="findmodal()" class="btn btn-primary btn-sm btn-theme" style="float:right"><i class="fa fa-search"></i></a>*@
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-sm-4">
+                                            <label>Type</label>
+                                            <div>
+                                                <select class="js-example-basic-single" name="Type" id="Type">
+                                                    <option value=""> Select Option </option>
+                                                    <option value="Transfer"> Transfer</option>
+                                                    <option value="Booking">Booking </option>
+
+                                                </select>
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Date</label>
+                                            <div>
+                                                 <input type="date" value="" name="Date" id="Date" class="form-control" readonly />
+                                            </div>
+
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>Dealer Code</label>
+                                            <div">
+                                                <input disabled id="DealerCode" name="DealerCode" class="form-control" />
+                                            </div>
+                                 
+                                     
+
+                                    </div>
+                                    <div class="row">
+                                           <div class="col-sm-4">
+                                            <label>Dealer Name</label>
+                                            <div>
+                                                <input disabled id="DealerName" name="DealerName" class="form-control" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                        <div class="row">
+                                            <div class="col-sm-10">
+                                            </div>
+                                            <div class="col-sm-2">
+                                                <a class="btn btn-sm btn-primary btn-theme" style="float:right;margin-right:20px" onclick="AddRow()">
+                                                    Add New Item
+                                                </a>
+                                            </div>
+                                        </div>
+                                
+                                    <div class="row">
+                                        <div class="card p-3">
+                                            <div class="col-md-12">
+
+                                                <div class="table-responsive">
+                                                    <table id="CDTable" class="table table-bordered table-hover mb-0">
+                                                        <thead class="bg-theme">
+                                                            <tr>
+                                                                <th style="min-width:80px" class="text-white">#</th>
+                                                                <th style="min-width:180px" class="text-white">Commission To</th>
+                                                                <th style="min-width:180px" class="text-white">Amount / Percentage</th>
+                                                                <th style="min-width:180px" class="text-white">Amount</th>
+                                                                <th class="text-white">Action</th>
+                                                             
+                                                            </tr>
+                                                        </thead>
+                                                        <tbody id="CDTabletbody">
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>Remarks</label>
+                                            <textarea class="form-control" type="text" rows="3" name="Remarks" id="Remarks"></textarea>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-sm-10">
+
+                                </div>
+                                <div class="col-sm-2">
+                                    <button class="btn btn-sm btn-primary btn-theme" type="submit" style="float:right;" id="submmit">
+                                        Save
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                
+
+
+
+                </div>
+                <!-- .vd_content-section -->
+
+            </div>
+            <!-- .vd_content -->
+        </div>
+        <!-- .vd_container -->
+    </div>
+    <!-- .vd_content-wrapper -->
+    <!-- Middle Content End -->
+    <div class="modal" id="ModalForType" tabindex="-1" role="dialog" aria-labelledby="modaltitle" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header vd_bg-blue vd_white">
+                    <h4 class="modal-title" >Find <span id="modaltitle"></span></h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <table id="ModalForTypetable" class="table">
+                                    <thead class="bg-theme">
+                                        <tr>
+
+                                            <th class="text-white">ID</th>
+                                            <th class="text-white">Dealer Code</th>
+                                            <th class="text-white">Dealer Name</th>
+                                            <th class="text-white">Date</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="ModalForTypetbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+    <input value="0" id="rownumber" class="hide" />
+    <input value="@Context.Session.GetString("ID")" id="userId" class="hide" />
+    @section Scripts {
+        <script>
+            var BookingData;
+            var TransferData;
+            $(document).ready(function() {
+                GetBookingData();
+            });
+             function GetBookingData() {
+                $.ajax({
+                    type: 'GET',
+                    url: `/api/Booking/GetAllBookingDealerAvailable`,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    contentType: 'application/json',
+                    success: function (response) {
+                        if (response.code == 100) {          
+                                BookingData = response.data;//setting the global variable                
+                        }
+                    }
+                });
+             }
+             $('#Type').on('change', function() {
+                 var type = $(this).val();
+                 if (type == "Booking") {
+                     if (BookingData != null && BookingData.length > 0) {
+                            var sr = 1;
+                            for (let list of BookingData) {
+                                var bookingDate = list.createdOn.split("T")[0];
+                                var row = ' <tr> ' +
+                                    ' <td class="Id">' + list.id + '</td> ' +
+                                    ' <td>' + list.dealer.dealerEstateDeatail[0].id + '</td>           ' +
+                                    ' <td>' + list.dealer.dealerEstateDeatail[0].name + '</td>           ' +
+                                    ' <td>' + bookingDate + '</td>       ' +
+                                    '<td><a class="btn btn-primary" onclick="SelectRecord(this)">Select</a></td> </tr>';
+                                $("#ModalForTypetbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#ModalForTypetable').dataTable();
+                 }
+                 else{
+
+                 }
+                 $("#ModalForType").modal("show");
+             });
+
+        </script>
+}
+
+

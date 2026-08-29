@@ -1,0 +1,10 @@
+@* Payroll Management brand mark = the "group of people" silhouette (brand/payroll-mark-generator.py).
+   Model: "light" = white mark (for charcoal grounds) · "dark" = ink mark (for white grounds). Monochrome only. *@
+@{
+    bool light = (Model as string) != "dark";
+    string ink = light ? "#ffffff" : "#111111";
+    string mid = "pm" + Guid.NewGuid().ToString("N").Substring(0, 6);   // mask id, unique per instance
+}
+<svg class="brand-mark" viewBox="40 117 394 245" aria-hidden="true" focusable="false">
+    <defs><mask id="@mid" maskUnits="userSpaceOnUse" x="0" y="0" width="474" height="474"><rect width="474" height="474" fill="#fff"/><circle cx="237" cy="160" r="61" fill="#000"/><path d="M137 362V295c0-22 8-39 24-51 12-9 26-13 42-13h17l17 30 17-30h17c16 0 30 4 42 13 16 12 24 29 24 51v67Z" fill="#000" stroke="#000" stroke-width="28" stroke-linejoin="round"/></mask></defs><g fill="@ink"><g mask="url(#@mid)"><circle cx="113" cy="160" r="43"/><path d="M40 314V263c0-22 8-38 24-50 12-9 26-13 40-13h19c17 0 30 5 41 14 8 6 14 15 18 25V314Z"/><circle cx="361" cy="160" r="43"/><path d="M434 314V263c0-22-8-38-24-50-12-9-26-13-40-13h-19c-17 0-30 5-41 14-8 6-14 15-18 25V314Z"/></g><circle cx="237" cy="160" r="47"/><path d="M137 362V295c0-22 8-39 24-51 12-9 26-13 42-13h17l17 30 17-30h17c16 0 30 4 42 13 16 12 24 29 24 51v67Z"/></g>
+</svg>

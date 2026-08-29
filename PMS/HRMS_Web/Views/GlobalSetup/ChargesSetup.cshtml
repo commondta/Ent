@@ -1,0 +1,1333 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Charges Setup</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>CHARGES SETUP</h1>
+                    <div class="vd_panel-menu  hidden-xs">
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+
+                         <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Charge Setup No.</label>
+
+                                <div class="search_btn">
+                                    <div class="input_div">
+                                            <input type="number" class="form-control" disabled
+                                                   placeholder="" id="Id" />
+                                        </div>
+                                        <div >
+                                        <button data-toggle="modal" data-target="#chargesetupModal" type="button" class="btn dha_theme_btn">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>Charge Group</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="ChargeGroup" id="ChargesGroup">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Description</label>
+                                <div>
+                                    <input type="text" class="form-control"
+                                           placeholder=" " id="description" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                             <div class="col-sm-3">
+                                <label>Phase</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Phase" id="Phase">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Real Estate Type</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="RealEstate" id="RealStateType">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Project</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Project" id="Project">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Block</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Block" id="Block">
+                                    </select>
+                                </div>
+                            </div>
+                            
+                        </div>
+                       
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>Category</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Category" id="Category">
+                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Type</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Type" id="Type">
+                                   </select>
+                                </div>
+                            </div>
+                             <div class="col-sm-3">
+                                <label>Nature</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Nature" id="Nature">
+                                     </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Charges Status</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="ChargesStatus" id="ChargesStatus">
+                                        <option value="-1"> Select Option </option>
+                                        <option value="1">Active</option>
+                                        <option value="2">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+             
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>Construction Status</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="ConstructionStatus" id="ConstructionStatus">
+                                         <option value="Non-Constructed">Non-Constructed</option>
+                                         <option value="Under-Construction">Under-Construction</option>
+                                         <option value="Constructed">Constructed</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Possession Announced</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="PossessionStatus" id="PossessionStatus">
+                                        <option value="false">No</option> 
+                                        <option value="true">Yes</option> 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Grace Period</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="GracePeriod" id="GracePeriod">
+                                        <option value="false">In-Active</option> 
+                                        <option value="true">Active</option> 
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                    <label>Generator Unit Type</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="GeneratorUnitType" id="GeneratorUnitType">
+                                            <option value="GU1">GU1</option>
+                                            <option value="GU2">GU2</option>
+                                            <option value="GU3">GU3</option>
+                                            <option value="GU4">GU4</option>
+                                            <option value="GU5">GU5</option>
+                                        </select>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>NDC Request Type</label>
+                                <select class="js-example-basic-single" id="RequestType" name="RequestType">
+                                    <option value="Premium Transfer"> Premium Transfer</option>
+                                    <option value="Executive Transfer"> Executive Transfer </option>
+                                    <option value="Regular"> Regular </option>
+                                    <option value="Provisional"> Provisional </option>
+                                    <option value="Open NDC"> Open NDC </option>
+                                    <option value="Urgent"> Urgent </option>
+                                    <option value="Legal Heirs NDC"> Legal Heirs NDC </option>
+                                    <option value="Hiba NDC 3"> Hiba NDC</option>
+                                    <option value="Online NDC"> Online NDC </option>
+                                    <option value="Outstation NDC"> Outstation NDC </option>
+                                    <option value="Dealer/Investors">Dealer/Investors</option>
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>NDC Transfer Type</label>
+                                <select class="js-example-basic-single" name="TransferType" id="TransferType">
+                                </select>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>NDC Surrender</label>
+                                <div>
+                                    <select class="js-example-basic-single" id="Processing" name="Processing">
+                                        <option value="0"> No </option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Tax Status</label>
+                                <select class="js-example-basic-single" name="TaxStatus" id="TaxStatus">
+                                    <option value="Non-Filer">Non-Filer</option>
+                                    <option value="Filer">Filer</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>Effective Date From</label>
+                                <div>
+                                    <input type="date" class="form-control"
+                                           placeholder=" " id="EffectiveDate" />
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Effective Date To</label>
+                                <div>
+                                    <input type="date" class="form-control"
+                                           placeholder=" " id="ToDate" />
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Registry Verification</label>
+                                <div>
+                                    <select class="js-example-basic-single" id="RegistryVerification" name="RegistryVerification">
+                                        <option value="0"> No </option>
+                                        <option value="1">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>FBR TAX 236-C APPLICABLE</label>
+                                <select class="js-example-basic-single" name="FBR236C" id="FBR236C">
+                                     <option value="0"> No </option>
+                                     <option value="1">Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>Request Type</label>
+                                <div>
+                                    <select class="js-example-basic-single" id="FileRequestType" name="FileRequestType">
+                                        <option value="Documentation">Documentation</option>
+                                        <option value="Duplication">Duplication</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Sector</label>
+                                <div>
+                                    <select class="form-control" name="Prefix" id="prefixPropertyNo">
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <label>Redesign</label>
+                                <div>
+                                    <select class="js-example-basic-single" id="Redesign" name="Redesign">
+                                        <option value="No">No</option>
+                                        <option value="Yes">Yes</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div >
+                            <div class="card p-3" >
+                                <div >
+                                    <div class="menu" style="float: right; margin-bottom: .5rem;">
+
+                                        <a class="btn btn-primary btn-sm btn-theme" onclick="AddRow()">Add New</a>
+                                        <input type="text" id="rownumber" value="0" class="hide" />
+                                    </div>
+                                   
+                                   
+                                    <div class="table-responsive">
+                                        <table id="ChargesSetup" class="table table-bordered table-hover mb-0">
+                                            <thead class="bg-theme">
+                                                <tr>
+                                                    <th style="width: 90px; text-align: center;" class="text-white">#</th>
+                                                    <th style="min-width:130px" class="text-white hide">Id</th>
+                                                    <th style="min-width:130px; text-align: center;" class="text-white">Charges Type</th>
+                                                    <th style="min-width:230px; text-align: center;" class="text-white hide">Description</th>
+                                                    <th style="min-width:230px; text-align: center;" class="text-white hide">Sap Account</th>
+                                                    <th style="min-width:230px; text-align: center;" class="text-white">Rate</th>
+                                                    <th style="min-width:130px; text-align: center;" class="text-white">Percentage</th>
+                                                    <th class="text-white" style="text-align: center;">Effective From</th>
+                                                    <th class="text-white" style="text-align: center;">Effective To</th>
+                                                    <th style="min-width:130px; text-align: center;" class="text-white">Sales Tax</th>
+                                                    <th style="min-width:130px; text-align: center;" class="text-white">WH Tax</th>
+                                                    <th style="min-width:130px; text-align: center;" class="text-white">Multiply By Size</th>
+                                                    <th style="min-width:130px; text-align: center;" class="text-white">Yearly</th>
+                                                    <th class="text-white" style="text-align: center;">Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="ChargesSetuptbody">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <label>Remarks</label>
+                                <div>
+                                    <textarea type="text" class="form-control"
+                                              placeholder=" " id="Remarks"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                        <br />
+                       
+                            @*<div class="col-sm-12" style="margin-top:10px">
+                            <div>*@
+                            <div  style="float: right;">
+                                <button onclick="SubmitRequest()" class="btn dha_theme_btn" href="javascript:void(0);" id="SubmitR">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                            </div>
+
+                       
+                        @*   </div>*@
+                        <br>
+
+                        <br>
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+@*chargeupdatemodel*@
+<div class="modal" id="chargesetupModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Charge Setup.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="chargesetuplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Construction Status</th>
+                                            <th class="text-white">Desription</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Chargesetuptbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+@*chargeupdatemodel*@
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+<input class="hide" value="0" />
+
+@section Scripts {
+
+    <script>
+
+        $(document).ready(function () {
+            "use strict";
+            GetAllChargesGroup();
+            GetPreviousRecords();
+
+            $("#ChargesStatus").select2();
+            $("#ConstructionStatus").select2();
+            $("#PossessionStatus").select2();
+            $("#GracePeriod").select2();
+
+            // casecading property selection
+
+            GetAllPhases();
+            GetAllBlocks();
+            GetAllTypes();
+            GetAllProjects();
+            GetAllRealEstate();
+            GetAllCategories();
+            GetAllNatures();
+            GetAllSector();
+            GetAllNDCTransferTypes();
+        });
+
+        function GetAllNDCTransferTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/TransferType/GetAll`,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#TransferType").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#TransferType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#TransferType").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#TransferType').select2();
+                    }
+                }
+            });
+        }
+
+        $('#RealStateType').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetAllCategories(value);
+            GetAllNatures(value);
+            GetAllProjects(value);
+        });
+
+        $('#Phase').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetAllRealEstate(value);
+        });
+
+        function GetAllTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PropertyType/GetAllPropertyTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Type").empty();
+                        var row = ' <option value="">-- Select Type --</option> ';
+
+                        $("#Type").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Type").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Type').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllSector() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Sector/GetAllSectors`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#prefixPropertyNo").empty();
+                        var row = ' <option value="">-- Select Sector --</option> ';
+
+                        $("#prefixPropertyNo").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#prefixPropertyNo").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#prefixPropertyNo').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllBlocks() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Block/GetAllBlocks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Block").empty();
+                        var row = ' <option value="">-- Select Block --</option> ';
+
+                        $("#Block").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Block").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Block').select2();
+                    }
+                }
+            });
+
+
+        }
+
+        function GetAllCategories(id , real) {
+
+            var url = "/api/StockCreation/GetCategoryDropdownByRealEstateId?realEstateId=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                data: id,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Category").empty();
+                        var row = ' <option value="-1">-- Select Category --</option> ';
+
+                        $("#Category").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Category").append(row);
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Category').select2();
+                         if (real != undefined && real != null) {
+                                
+                                $('#Category').select2('val', [real]);
+                          }
+                    }
+                }
+            });
+
+
+        }
+
+        function GetAllNatures(id , real) {
+
+            var url = "/api/StockCreation/GetNatureDropdownByRealEstateId?realEstateId=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: id,
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Nature").empty();
+                        var row = ' <option value="-1">-- Select Nature --</option> ';
+
+                        $("#Nature").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+                                $("#Nature").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Nature').select2();
+                         if (real != undefined && real != null) {
+                                
+                                $('#Nature').select2('val', [real]);
+                          }
+                    }
+                }
+            });
+        }
+
+        function GetAllPhases() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Phase/GetAllPhases`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Phase").empty();
+                        var row = ' <option value="-1">-- Select Phase --</option> ';
+
+                        $("#Phase").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Phase").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Phase').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllRealEstate(id) {
+            
+
+            $.ajax({
+
+                type: 'GET',
+                url: `/api/RealEstate/GetRealEstatesByPhaseId`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#RealStateType").empty();
+                        var row = ' <option value="-1">-- Select Real State Type --</option> ';
+
+                        $("#RealStateType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#RealStateType").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#RealStateType').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllProjects(id , real) {
+
+            var realEstateId = id;
+            var url = "/api/StockCreation/GetProjectDropdownByRealEstateId?realEstateId=" + id + "";
+
+            
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    
+                    if (response.code == 100) {
+
+                        $("#Project").empty();
+                        var row = ' <option value="-1">-- Select Project --</option> ';
+
+                        $("#Project").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Project").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Project').select2();
+                        if (real != undefined && real != null) {
+                                
+                                $('#Project').select2('val', [real]);
+                          }
+                    }
+                }
+            });
+
+
+        }
+
+        function GetPreviousRecords() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/GlobalChargesSetup/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        
+                        $("#Chargesetuptbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + list.id + '</td> ' +
+                                    ' <td>' + list.constructionStatus + '</td>           ' +
+                                    ' <td>' + list.description + '</td>           ' +
+
+                                    '<td><a class="fa fa-edit fa-2x" onclick="SelectSinglePPS(' + list.id + ')"></a>' +
+                                    '<a class="fa fa-trash-o fa-2x text-danger hide" onclick="DeleteSingleChargeSetup(' + list.id + ')"></a></td> </tr>';
+                                //</tr>';
+                                $("#Chargesetuptbody").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#chargesetuplist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function DeleteSingleChargeSetup(id) {
+
+            var url = "/api/GlobalChargesSetup/DeleteGlobalChargeSetup?id=" + id + "";
+            
+            $.ajax({
+                type: 'Delete',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+
+                        notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+                        $("#chargesetupModal").modal("hide");
+                    }
+
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Something went wrong");
+                        // window.alert(response.message);
+                    }
+                }
+            });
+        }
+
+        function SelectSinglePPS(id) {
+            
+            var url = "/api/GlobalChargesSetup/Get?id=" + id + "";
+
+            
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+          
+                    if (response.code === 100) {
+
+                        let result_User = response.data;
+
+                        let registryVerification = result_User.registryVerification == true ? "1" : "0";
+                        let fbR236C = result_User.fbR236C == true ? "1" : "0";
+                        let ndcProcessing = result_User.ndcProcessing == true ? "1" : "0";
+                        let pos = result_User.possessionStatus == true ? "true" : "false";
+                        let gracePeriod = result_User.gracePeriod == true ? "true" : "false";                      
+                        let EffectiveDatee = (result_User.effectiveDate).split('T')[0] ?? "N/A";
+                        let ToDate = (result_User.toDate).split('T')[0] ?? "N/A";
+
+                        $("#Id").val(result_User.id);
+                        $("#description").val(result_User.description);
+                        $("#GeneratorUnitType").val(result_User.generatorUnitType);
+                        $("#GeneratorUnitType").trigger('change');
+                        $("#ChargesGroup").val(result_User.globalChargeGroupId);
+                        $("#ChargesGroup").trigger('change');
+                        $("#Phase").val(result_User.phaseId);
+                        $("#Phase").trigger('change');
+                        GetAllRealEstate(result_User.phaseId, result_User.realStateTypeId);
+                        $("#RealStateType").val(result_User.realStateTypeId);
+                        $("#RealStateType").trigger('change');
+                        GetAllProjects(result_User.realStateTypeId, result_User.projectId);
+                        GetAllCategories(result_User.realStateTypeId, result_User.categoryId);
+                        GetAllNatures(result_User.realStateTypeId, result_User.natureId);
+                        
+                        $("#Block").val(result_User.blockId);
+                        $("#Block").trigger('change');
+                         $("#Phase").val(result_User.phaseId);
+                        $("#Phase").trigger('change');
+                        $("#Type").val(result_User.propertyTypeId);
+                        $("#Type").trigger('change');
+                   
+                        $("#ChargesStatus").val(result_User.chargeStatus);
+                        $("#ChargesStatus").trigger('change');
+                        $("#ConstructionStatus").val(result_User.constructionStatus);
+                        $("#ConstructionStatus").trigger('change');
+                        $("#RequestType").val(result_User.ndcRequestType);
+                        $("#RequestType").trigger('change');
+                        $("#TransferType").val(result_User.ndcTransferType);
+                        $("#TransferType").trigger('change');
+                        $("#prefixPropertyNo").val(result_User.sector);
+                        $("#prefixPropertyNo").trigger('change');
+                        $("#Processing").val(ndcProcessing);
+                        $("#Processing").trigger('change');
+                        $("#RegistryVerification").val(registryVerification);
+                        $("#RegistryVerification").trigger('change');
+                        $("#FBR236C").val(fbR236C);
+                        $("#FBR236C").trigger('change');
+                        $("#ConstructionStatus").trigger('change');
+                        debugger;
+                        $("#GracePeriod").val(gracePeriod);
+                        $("#PossessionStatus").val(pos);
+                        $("#GracePeriod").trigger("change");
+                        $("#PossessionStatus").trigger("change");
+                        $("#EffectiveDate").val(EffectiveDatee);
+                        $("#ToDate").val(ToDate);
+                        $("#Redesign").val(result_User.redesign);
+                        $("#Redesign").trigger('change');
+                        $("#FileRequestType").val(result_User.fileRequestType);
+                        $("#FileRequestType").trigger('change');
+
+                        $("#ChargesSetuptbody").empty();
+
+                        $.each(result_User.globalChargeDetail, function (i, item) {
+                            
+                            let saleTax = item.status==true?"checked":"";
+                            let multiplyBySize = item.multiplyBySize == true ? "checked" : "";
+                            let wHStatus = item.whStatus == true ? "checked" : "";
+                            let yearly = item.yearly == true ? "checked" : "";
+                            let effectiveFrom = (item.effectiveFrom).split('T')[0] ?? "";
+                            let effectiveTo = (item.effectiveTo).split('T')[0] ?? "";
+
+                            var rownumber = parseInt($("#rownumber").val());
+                            var LineId = rownumber;
+                            rownumber = rownumber + 1;
+                            $("#rownumber").val(rownumber);
+
+                            var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                                '<td class="hide"> <input disabled class="form-control id" value="' + item.id + '"/></td>' +
+                                '<td> <select id="ChargesType' + rownumber + '" class="form-control ChargesType" style="width:100%" /></td>' +
+                                '<td class="hide"> <input  class="form-control Description"  value="' + item.description + '" /></td>' +
+                                '<td class="hide"> <input  class="form-control SapAccount"  value="' + item.sapAccount + '" /></td>' +
+                                '<td> <input type="number" class="form-control Rate" value="' + item.rate + '"   /></td>' +
+                                '<td> <input type="number" class="form-control Percentage" value="' + item.percentage + '"   /></td>' +
+                                '<td> <input  type="date"  class="form-control EffectiveFrom" value="' + effectiveFrom + '"/></td>' +
+                                '<td> <input  type="date"  class="form-control EffectiveTo" value="' + effectiveTo + '" /></td>' +
+                                '<td> <input '+saleTax+' type="checkbox" class="checkboxfield ActiveInactive" /></td>' +
+                                '<td> <input '+wHStatus+' type="checkbox" class="checkboxfield WHStatus" /></td>' +
+                                '<td> <input ' + multiplyBySize + ' type="checkbox" class="checkboxfield MultiplyBySize" /></td>' +
+                                '<td> <input ' + yearly + ' type="checkbox" class="checkboxfield Yearly" /></td>' +
+
+                                '<td style="padding-top:10px"><a class="fa fa-trash-o fa-2x text-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"></a> </td>' +
+                                '</tr>';
+
+
+                            $("#ChargesSetuptbody").append(row);
+                            ChargeGroupType(rownumber, item.chargesGroup,item.chargeType)
+
+                        });
+
+
+                        $("#chargesetupModal").modal("hide");
+
+                    }
+
+                    else {
+
+
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+                  }
+                }
+            });
+
+        }
+
+        function AddRow() {
+            var chargesGroup = $("#ChargesGroup").val();
+            if (chargesGroup != "-1" || chargesGroup != -1) {
+                var rownumber = parseInt($("#rownumber").val());
+                var LineId = rownumber;
+                rownumber = rownumber + 1;
+                $("#rownumber").val(rownumber);
+
+
+                var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                    '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                    '<td class="hide"> <input disabled class="form-control id" value="0"/></td>' +
+                    '<td> <select id="ChargesType' + rownumber + '" class="form-control ChargesType" style="width:100%" /></td>' +
+                    '<td class="hide"> <input  class="form-control Description" /></td>' +
+                    '<td class="hide"> <input  class="form-control SapAccount" /></td>' +
+                    '<td> <input type="number" class="form-control Rate"/></td>' +
+                    '<td> <input type="number" class="form-control Percentage" value="0"/></td>' +
+                    '<td> <input  type="date"  class="form-control EffectiveFrom" /></td>' +
+                    '<td> <input  type="date"  class="form-control EffectiveTo" /></td>' +
+                    '<td> <input type="checkbox" class="checkboxfield  ActiveInactive" /></td>' +
+                    '<td> <input type="checkbox" class="checkboxfield  WHStatus" /></td>' +
+                    '<td> <input type="checkbox" class=" checkboxfield  MultiplyBySize" /></td>' +
+                    '<td> <input type="checkbox" class=" checkboxfield  Yearly" /></td>' +
+
+                    '<td style="padding-top:10px"><a class="fa fa-trash-o fa-2x text-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"></a> </td>' +
+                    '</tr>';
+
+
+                $("#ChargesSetuptbody").append(row);
+                ChargeGroupType(rownumber, chargesGroup)
+            }
+            else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Error',
+                    text: 'PLease Fill Header Details',
+                     allowOutsideClick: false,
+                      allowEscapeKey: false
+                });
+            }
+
+
+
+        }
+
+        function DeleteItemRow(id) {
+            $('#' + id).remove();
+        }
+
+        function GetAllChargesGroup() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/GlobalSetup/GetGlobalChargeGroup`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#ChargesGroup").empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#ChargesGroup").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.chargeGroupName + '</option> ';
+
+                                $("#ChargesGroup").append(row);
+
+
+                                sr++;
+
+                            }
+                            $('#ChargesGroup').select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function ChargeGroupType(rowno, groupid,chargetype) {
+
+            if(groupid==null || groupid==""){
+                groupid=$("#ChargesGroup").val()
+            }
+            $.ajax({
+                type: 'GET',
+                url: `/api/ChargeGroupType/GetAllChargeGroupTypesByChargeSetup`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: groupid },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    
+                    if (response.code == 100) {
+
+                        $("#ChargesType" + rowno).empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#ChargesType" + rowno).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option   data-sapAcc="' + list.sapAccount + '"    value="' + list.id + '" >' + list.chargeTypeName + '</option> ';
+
+                                $("#ChargesType" + rowno).append(row);
+
+                                sr++;
+                            }
+                            $('#ChargesType' + rowno).select2();
+                            if(chargetype!=null && chargetype!=undefined){
+                                  $('#ChargesType' + rowno).select2('val',[chargetype]);
+                            }
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function SubmitRequest() {
+
+
+            if ($("#EffectiveDate").val() != "" && $("#EffectiveDate").val() != null) {
+
+                
+                var methodType = 'POST';
+                var url = "/api/GlobalChargesSetup/AddGlobalChargeSetup";
+                var GlobalChargeDetailarr = new Array();
+                var GlobalChargeSetup = new Object();
+
+                 if ($("#Id").val()) {
+                    GlobalChargeSetup.Id = parseInt($("#Id").val());
+                     
+                    methodType = 'POST';
+                    url = "/api/GlobalChargesSetup/UpdateGlobalChargeSetup"
+                }
+
+                //set values
+                let phaseId = $("#Phase").val() == "" ? null : $("#Phase").val();
+                let RealStateTypeId = $("#RealStateType").val() == "" ? null : $("#RealStateType").val();
+                let ProjectId = $("#Project").val() == "" ? null : $("#Project").val();
+                let BlockId = $("#Block").val() == "" ? null : $("#Block").val();
+                let NatureId = $("#Nature").val() == "" ? null : $("#Nature").val();
+                let CategoryId = $("#Category").val() == "" ? null : $("#Category").val();
+                let TypeId = $("#Type").val() == "" ? null : $("#Type").val();
+                let possessionStatus = $("#PossessionStatus").val() == "true" ? true : false;
+                let gracePeriod = $("#GracePeriod").val() == "true" ? true : false;
+                let processing = $('#Processing').val() == 0 ? false : true;
+                let fBR236C = $('#FBR236C').val() == 0 ? false : true;
+                let registryVerification = $('#RegistryVerification').val() == 0 ? false : true;
+
+                GlobalChargeSetup.ChargeStatus = $("#ChargesStatus").val();
+                GlobalChargeSetup.ConstructionStatus = $("#ConstructionStatus").val();
+                GlobalChargeSetup.PossessionStatus = possessionStatus;
+                GlobalChargeSetup.GracePeriod = gracePeriod;
+                GlobalChargeSetup.EffectiveDate = $("#EffectiveDate").val();
+                GlobalChargeSetup.ToDate = $("#ToDate").val();
+                GlobalChargeSetup.Description = $("#description").val();
+                GlobalChargeSetup.GeneratorUnitType = $("#GeneratorUnitType").val();
+                GlobalChargeSetup.TaxStatus = $("#TaxStatus").val();
+                GlobalChargeSetup.NDCRequestType = $("#RequestType").val();
+                GlobalChargeSetup.NDCTransferType = $("#TransferType").val();
+                GlobalChargeSetup.Redesign = $("#Redesign").val();
+                GlobalChargeSetup.FileRequestType = $("#FileRequestType").val();
+                GlobalChargeSetup.NDCProcessing = processing;
+                GlobalChargeSetup.FBR236C = fBR236C;
+                GlobalChargeSetup.RegistryVerification = registryVerification;
+                GlobalChargeSetup.GlobalChargeGroupId = $("#ChargesGroup").val();
+                GlobalChargeSetup.ModifiedBy = $("#User_Id").val();
+                GlobalChargeSetup.CreatedBy = $("#User_Id").val();
+                GlobalChargeSetup.LastModifiedUserName = $("#User_Name").val();
+                GlobalChargeSetup.RealStateTypeId = RealStateTypeId;
+                GlobalChargeSetup.ProjectId = ProjectId;
+                GlobalChargeSetup.PhaseId = phaseId;
+                GlobalChargeSetup.BlockId = BlockId;
+                GlobalChargeSetup.CategoryId = CategoryId;
+                GlobalChargeSetup.PropertyTypeId = TypeId;
+                GlobalChargeSetup.NatureId = NatureId;
+                GlobalChargeSetup.Sector = $("#prefixPropertyNo").val();
+
+                $("#ChargesSetuptbody tr").each(function () {
+                    var row = $(this);
+
+                    var saleTax = row.find('.ActiveInactive').is(":checked");
+                    var statusforSize = row.find('.MultiplyBySize').is(":checked");
+                    var wHStatus = row.find('.WHStatus').is(":checked");
+                    var yearly = row.find('.Yearly').is(":checked");
+
+                    var GlobalChargeDetail = new Object();
+
+                        GlobalChargeDetail.Id = row.find(".id").val(),
+                        GlobalChargeDetail.ChargeType = row.find(".ChargesType").val(),
+                        GlobalChargeDetail.Description = row.find(".Description").val(),
+                        GlobalChargeDetail.SapAccount = row.find(".SapAccount").val(),
+                        GlobalChargeDetail.Rate = row.find(".Rate").val(),
+                        GlobalChargeDetail.Percentage = row.find(".Percentage").val(),
+                        GlobalChargeDetail.EffectiveFrom = row.find(".EffectiveFrom").val(),
+                        GlobalChargeDetail.EffectiveTo = row.find(".EffectiveTo").val(),
+                        GlobalChargeDetail.Status = saleTax,
+                        GlobalChargeDetail.WHStatus = wHStatus,
+                        GlobalChargeDetail.MultiplyBySize = statusforSize,
+                        GlobalChargeDetail.Yearly = yearly,
+                        GlobalChargeDetailarr.push(GlobalChargeDetail);
+                });
+                GlobalChargeSetup.GlobalChargeDetail = GlobalChargeDetailarr;
+                var ModelData = JSON.stringify(GlobalChargeSetup);
+                
+                $('#SubmitR').prop('disabled', true); //disble
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: methodType,
+                    url: url,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    processData: false,
+                    dataType: "json",
+                    async: false,
+                    data: ModelData,
+                    success: function (response) {
+                        
+                        $('#loader').fadeOut();
+                        console.log(response);
+                        if (response.code == 100) {
+                             Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                            empty();
+
+                        }
+                        else {
+                            //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "SOmething Went Wrong");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'SOmething Went Wrong',
+                                    allowOutsideClick: false,
+                                    allowEscapeKey: false
+                            });
+                        }
+                    }
+
+                });
+                
+                        $('#SubmitR').prop('disabled', false); //enable
+
+
+            }
+            else {
+                //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "PLease Fill all Fields");
+               
+                Swal.fire({
+                    icon: 'warning',
+                    title: 'Warning',
+                    text: 'Please Fill all Fields',
+                     allowOutsideClick: false,
+                      allowEscapeKey: false
+                });
+            }
+        }
+
+        $('body').on('select2:select', '.ChargesType', Setcode);
+
+        function Setcode() {
+            
+            var data_arr = $(this).parents('tr').find('.ChargesType').select2('data');
+
+            var chargecodetext = data_arr[0].text;
+            var sapAccount = data_arr[0].element.attributes['data-sapAcc'].value;
+          
+            $(this).parents('tr').find('.Description').val(chargecodetext);
+            $(this).parents('tr').find('.SapAccount').val(sapAccount);
+
+        }
+
+        function empty() {
+
+            $("#Id").val("");
+            $("#ChargesStatus").val("-1");
+            $("#ChargesStatus").trigger("change");
+            $("#ConstructionStatus").val("-1");
+            $("#ConstructionStatus").trigger("change");
+            $("#PossessionStatus").val("-1");
+            $("#PossessionStatus").trigger("change");
+            $("#EffectiveDate").val("");
+            $("#ToDate").val("");
+            $("#PayableTo").val("-1");
+            $("#PayableTo").trigger("change");
+            $("#ChargesGroup").val("-1");
+            $("#ChargesGroup").trigger("change");
+            $("#RealStateType").val("-1");
+            $("#RealStateType").trigger("change");
+            $("#Project").val("-1");
+            $("#Project").trigger("change");
+            $("#Phase").val("-1");
+            $("#Phase").trigger("change");
+            $("#Block").val("-1");
+            $("#Block").trigger("change");
+            $("#Category").val("-1");
+            $("#Category").trigger("change");
+            $("#Type").val("-1");
+            $("#Type").trigger("change");
+            $("#Nature").val("-1");
+            $("#Nature").trigger("change");
+            $("#ChargesSetuptbody").empty();
+        }
+
+    </script>
+ }

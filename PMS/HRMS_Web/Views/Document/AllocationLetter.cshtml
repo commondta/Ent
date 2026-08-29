@@ -1,0 +1,428 @@
+﻿<style>
+    .vd_panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+
+    #propertyModal {
+        margin-left: auto;
+    }
+
+    .dha_table {
+        background-color: #111111 !important;
+    }
+
+    .tab_clr {
+        color: #111111 !important;
+    }
+</style>
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Property List</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/></svg></span>
+                    <h1>PROPERTY LIST </h1>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                            @*
+                            <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>
+                            *@
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+
+                        <!-- First Row -->
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>Allotment Date</label>
+                                <input type="date" class="form-control" id="AllotmentDate"
+                                       value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label>Sale Person</label>
+                                <input type="text" class="form-control" id="salePerson"
+                                        />
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="mt-2" style="max-width: 120px; max-height: 120px;">
+                                    <img id="docImagePreview" src="#" alt="Image Preview"
+                                         class="img-fluid d-none" />
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input"
+                                           id="docImageUpload" accept="image/*">
+                                    <label class="custom-file-label"
+                                           for="docImageUpload">Choose file</label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Table Section -->
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <table id="proplistPP"
+                                       class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Registration No.</th>
+                                            <th class="text-white">Member Name</th>
+                                            <th class="text-white">CNIC</th>
+                                            <th class="text-white">Relationship With</th>
+                                            <th class="text-white">Phase</th>
+                                            <th class="text-white">Block</th>
+                                            <th class="text-white">Category</th>
+                                            <th class="text-white">Property Type</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="PropertytbodyPP"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+
+<div class="hide">
+    <div id="PrintLetterdiv" class="container">
+        <partial name="~/Views/PartialPage/_allocationLetter.cshtml" />
+    </div>
+</div>
+@section Scripts {
+    <script src="~/js/qrcode.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+            GetAllPropertyLists();
+
+        });
+
+        function GetAllPropertyLists() {
+
+            $('#proplistPP').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllProprtties",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<a class="btn btn-primary" onclick="Print(' + data.id + ')">Select</a>';
+                        }
+                    }
+                ]
+            });
+        }
+
+
+        function safeFormatDate(date) {
+            if (!date) return "";
+            const d = (date instanceof Date) ? date : new Date(date);
+            if (isNaN(d.getTime())) return ""; // invalid date fallback
+            return formatDate(d); // your existing formatDate function
+        }
+
+        function Print(id) {
+           
+
+            const url = "/api/Document/PrintDuplicateAllocationLetter?Id=" + id;
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+                    if (response.code === 100 && response.data) {
+                        const printdata = response.data;
+                        const stock = printdata.stockCreation || {};
+                        const member = printdata.memberProfile || {};
+
+                        // Extract and format completion date
+                        const completionDate = printdata.createdOn ? new Date(printdata.createdOn) : null;
+                        const formattedCompletionDate = safeFormatDate(completionDate);
+
+                        var detailsstring = "";
+                        $(".pmemberNameAndDetails").text("");
+
+                        var count = stock.memberNames.length;
+
+                        $.each(stock.memberNames, function (i, item) {
+                            var comma = count - 1 == i ? "" : ",";
+                            detailsstring += item.memeberName + " " +
+                                item.cnic + " " +
+                                item.relationName + " " +
+                                item.relationhipwith + comma + " ";
+                        });
+
+                        var wrappedDetails = wrapTextWithoutCuttingWords(detailsstring, 50);
+
+                        if (member?.currentAddress) {
+                            wrappedDetails += "<br>" +
+                                wrapTextWithoutCuttingWords(member.currentAddress, 50);
+                        }
+
+                        if (member?.mobile) {
+                            wrappedDetails += "<br>" +
+                                wrapTextWithoutCuttingWords(member.mobile, 50);
+                        }
+
+                        /* 🔹 Remove empty rows */
+                        wrappedDetails = wrappedDetails
+                            .split("<br>")
+                            .map(line => line.trim())
+                            .filter(line => line !== "")
+                            .join("<br>");
+
+
+                        if (count < 2) {
+                            $('.messcountmembersdiv').hide();
+                            $('.lesscountmembersdiv').show();
+                            $('.lesscountmembersdiv')
+                                .find('.pmemberNameAndDetails')
+                                .html(wrappedDetails);
+                        } else {
+                            $('.lesscountmembersdiv').hide();
+                            $('.messcountmembersdiv').show();
+                            $('.messcountmembersdiv')
+                                .find('.pmemberNameAndDetails')
+                                .html(wrappedDetails);
+                        }
+
+                        // Fill all fields with PP postfix
+                        $("#photoImage").attr("src", printdata.imageURL || "");
+                        $("#RefNoPP").text(stock.registrationNo || "");
+                        $("#MemberPrefixPP").text(member.honorificsName || "");
+                        $(".pSignatoryRank").text(stock.allocationSignatoryRank || "");
+                        $(".pSignatoryName").text(stock.allocationSignatoryName || "");
+                        $(".pSignatoryDesignation").text(stock.allocationSignatoryDesignation || "");
+                        $("#MobilePP").text(member.mobileNo || "");
+                        $("#AddressPP").html(wrapTextWithoutCuttingWords(member.permanentAddress, 50) || "");
+                        $(".CaseNoPP").text(stock.caseCode || "");
+                        $("#PhaseNamePP").text(stock.phaseName);
+                        $("#SqryardPP").text(stock.actualSize);
+                        $("#CategoryPP").text(stock.categoryName);
+                        $("#PhasePP").text(stock.prefixProperty || "");
+
+                        const salePerson = $("#salePerson").val();
+
+                        $("#MemberInfoPP").text(
+                            (salePerson || "").trim() || stock.sellerName || ""
+                        );
+
+                        $("#DeedNoPP").text(stock.saleDeedNo || "");
+                        $("#DeedDatePP").text(safeFormatDate(stock.saleDeedDate));
+                        $("#MouzaPP").text(stock.mouza || "");
+                        $(".AllocationNoPP").text(stock.allocationNo || "");
+
+                        $("#Fee1PP").text((stock.membershipFee || 0).toLocaleString());
+                        $("#Fee2PP").text((stock.miscCharges || 0).toLocaleString());
+
+                        let total = (stock.membershipFee || 0) + (stock.miscCharges || 0);
+                        $("#TotalPP").text(total.toLocaleString());
+
+
+                        $("#OwnerNamePP").text(member.memberName || "");
+                        $("#OwnerCnicPP").text(member.cnic || "");
+                        $("#ContactNoPP").text(member.mobile || "");
+
+                        let collectionDate = "";
+                        if (completionDate) {
+                            const newDate = addWorkingDays(completionDate, 3);
+                            collectionDate = safeFormatDate(newDate);
+                        }
+                        $("#CompletionDatePP").text(formattedCompletionDate);
+                        $("#CollectionDatePP").text(collectionDate);
+
+                        var selectedFile = $('#docImageUpload')[0].files[0];
+
+                        if (selectedFile) {
+
+                            var reader = new FileReader();
+
+                            reader.onload = function (e) {
+                                $("#photoImage").attr("src", e.target.result);
+                            };
+
+                            reader.readAsDataURL(selectedFile);
+
+                        } else {
+
+                            $("#photoImage").attr("src", printdata.imageURL || stock.imageURL);
+                        }
+
+                        PrintLetterInvoice();
+                    } else {
+                        alert("Unable to fetch certificate details. Please try again.");
+                    }
+                },
+                error: function (xhr) {
+                    console.error("Error fetching certificate data:", xhr);
+                    alert("An error occurred while fetching certificate details.");
+                }
+            });
+        }
+
+        function wrapTextWithoutCuttingWords(text, limit = 20) {
+            let words = text.split(" ");
+            let result = "";
+            let line = "";
+
+            for (let w of words) {
+                if ((line + w).length <= limit) {
+                    line += (line ? " " : "") + w;
+                } else {
+                    result += line + "<br>";
+                    line = w;
+                }
+            }
+            result += line;
+            return result;
+        }
+
+
+        /* ✅ Helper: Format date as DD-MM-YYYY */
+        function formatDate(date) {
+            const day = String(date.getDate()).padStart(2, '0');
+            const month = String(date.getMonth() + 1).padStart(2, '0');
+            const year = date.getFullYear();
+            return `${day}-${month}-${year}`;
+        }
+
+        /* ✅ Helper: Add working days (skip Sat/Sun) */
+        function addWorkingDays(startDate, daysToAdd) {
+            const date = new Date(startDate);
+            let addedDays = 0;
+
+            while (addedDays < daysToAdd) {
+                date.setDate(date.getDate() + 1);
+                const dayOfWeek = date.getDay();
+                // Skip Saturday (6) and Sunday (0)
+                if (dayOfWeek !== 6 && dayOfWeek !== 0) {
+                    addedDays++;
+                }
+            }
+
+            return date;
+        }
+
+
+
+        function convertTo12HourFormat(time) {
+
+            const [hours, minutes, seconds] = time.split(':');
+            const period = hours >= 12 ? 'PM' : 'AM';
+            const adjustedHours = hours % 12 || 12; // Convert 0 to 12
+            return `${adjustedHours}:${minutes} ${period}`;
+        }
+
+
+        function PrintLetterInvoice() {
+            var printContents = document.getElementById('PrintLetterdiv').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('PrintLetterdiv');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+
+        $('#docImageUpload').on('change', function (e) {
+            const file = e.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#docImagePreview')
+                        .attr('src', e.target.result)
+                        .removeClass('d-none');
+                };
+
+                reader.readAsDataURL(file);
+                $('.custom-file-label').text(file.name);
+            } else {
+                $('#docImagePreview').addClass('d-none').attr('src', '#');
+                $('.custom-file-label').text('Choose file');
+            }
+        });
+    </script>
+}
+

@@ -1,0 +1,256 @@
+﻿@* <!-- Combined Property + History Modal -->
+<div class="modal fade" id="propertyHistoryModal" tabindex="-1" role="dialog" aria-labelledby="propertyHistoryLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="propertyHistoryLabel">
+                    <i class="fa fa-home"></i> Property Detail & Approval History
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span>&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <!-- PROPERTY DETAILS SECTION -->
+                <h5 class="mb-3"><i class="fa fa-building"></i> Property Information</h5>
+                <form class="form-horizontal">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-4 text-center">
+                                <label>CNIC Front</label>
+                                <img id="CNICFrontP" class="img-thumbnail w-100" />
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <label>CNIC Back</label>
+                                <img id="CNICBackP" class="img-thumbnail w-100" />
+                            </div>
+                            <div class="col-sm-4 text-center">
+                                <label>Member Image</label>
+                                <img id="PropertyImageP" class="img-thumbnail w-100" />
+                            </div>
+                        </div>
+                        <hr />
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <label>Registration #</label>
+                                <input class="form-control" id="RegistrationNoP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Property #</label>
+                                <input class="form-control" id="PropertyNoP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Actual Size</label>
+                                <input class="form-control" id="ActualSizeP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Actual Size Unit</label>
+                                <input class="form-control" id="ActualSizeUnitP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Covered Area</label>
+                                <input class="form-control" id="CoveredAreaP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Construction Status</label>
+                                <input class="form-control" id="ConstructionStatusP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Possession Status</label>
+                                <input class="form-control" id="PossessionStatusP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Member Name</label>
+                                <input class="form-control" id="MemberNameP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>CNIC</label>
+                                <input class="form-control" id="CnicP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Phase</label>
+                                <input class="form-control" id="PhaseP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Project</label>
+                                <input class="form-control" id="ProjectP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Real Estate</label>
+                                <input class="form-control" id="RealEstateP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Block</label>
+                                <input class="form-control" id="BlockP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Category</label>
+                                <input class="form-control" id="CategoryP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Property Type</label>
+                                <input class="form-control" id="PropertyTypeP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Nature</label>
+                                <input class="form-control" id="NatureP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Floor</label>
+                                <input class="form-control" id="FloorP" disabled />
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Property Status</label>
+                                <input class="form-control" id="PropertyStatusP" disabled />
+                            </div>
+                        </div>
+                    </div>
+                </form>
+
+                <hr />
+
+                <!-- APPROVAL HISTORY SECTION -->
+                <h5 class="mb-3"><i class="fa fa-history"></i> Approval History</h5>
+                <table class="table table-bordered table-striped" id="approvalTable">
+                    <thead>
+                        <tr>
+                            <th>User Designation</th>
+                            <th>Assigned Date</th>
+                            <th>Action Date</th>
+                            <th>Approval Status</th>
+                            <th>Comment</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="printPropertyHistory()">
+                    <i class="fa fa-print"></i> Print
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function viewPropertyAndHistory(id, approvalUiId = null, stockId = null) {
+        // Load property details first
+        $.ajax({
+            type: 'GET',
+            url: `/api/SP/GetSingleProperty`,
+            dataType: "json",
+            headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+            data: { id: stockId },
+            success: function (response) {
+                if (response.code === 100) {
+                    const r = response.data;
+
+                    // Populate property details
+                    $("#RegistrationNoP").val(r.registrationNo);
+                    $("#PropertyNoP").val(r.propertyNo);
+                    $("#ActualSizeP").val(r.actualSize);
+                    $("#ActualSizeUnitP").val(r.actualSizeUnit);
+                    $("#CoveredAreaP").val(r.coveredArea);
+                    $("#ConstructionStatusP").val(r.constracutionStatus);
+                    $("#PossessionStatusP").val(r.possessionStatus);
+                    $("#MemberNameP").val(r.memberName);
+                    $("#CnicP").val(r.cnic);
+                    $("#PhaseP").val(r.phase);
+                    $("#ProjectP").val(r.project);
+                    $("#RealEstateP").val(r.realEstate);
+                    $("#BlockP").val(r.block);
+                    $("#CategoryP").val(r.category);
+                    $("#PropertyTypeP").val(r.propertyType);
+                    $("#NatureP").val(r.nature);
+                    $("#FloorP").val(r.floor);
+                    $("#PropertyStatusP").val(r.propertyStatus);
+                    $("#PropertyImageP").attr("src", r.imageURL);
+                    $("#CNICFrontP").attr("src", r.cnicFrontURL);
+                    $("#CNICBackP").attr("src", r.cnicBackURL);
+
+                    // Load approval history next
+                    loadApprovalHistoryTable(id, approvalUiId);
+
+                } else {
+                    notification("topright", "error", "fa fa-exclamation-circle vd_red", "Error", response.message);
+                }
+            }
+        });
+    }
+
+    // Open main-modal when button is clicked
+    $('#openDetailModal').click(function () {
+        // Open main-modal
+        $('#propertyHistoryModal').modal('show');
+
+    });
+
+    function loadApprovalHistoryTable(id, approvalUiId) {
+        $('#approvalTable tbody').empty();
+        $.getJSON(`/api/Filter/GetFilterListForApprovalHistoryById?id=${id}&approvalUiId=${approvalUiId}`, function (response) {
+            $.each(response.data, function (key, value) {
+                const assignedDateTime = value.assignedDateTime ? moment(value.assignedDateTime).format('DD-MM-YYYY, h:mmA') : "N/A";
+                const actionDateTime = value.actionDateTime ? moment(value.actionDateTime).format('DD-MM-YYYY, h:mmA') : "N/A";
+                const comment = value.lastActionComment || "N/A";
+
+                const row = `<tr>
+                        <td>${value.userDesignation}</td>
+                        <td>${assignedDateTime}</td>
+                        <td>${actionDateTime}</td>
+                        <td>${value.approvalStatus}</td>
+                        <td>${comment}</td>
+                    </tr>`;
+                $('#approvalTable tbody').append(row);
+            });
+        });
+    }
+
+    // PRINT FUNCTION
+    function printPropertyHistory() {
+        const modalContent = document.querySelector("#propertyHistoryModal .modal-body").cloneNode(true);
+        const printWindow = window.open('', '', 'width=1000,height=800');
+
+        printWindow.document.write(`
+            <html>
+            <head>
+                <title>Property Detail & Approval History</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; color: #000; }
+                    h4, h5 { color: #004085; }
+                    .table { border-collapse: collapse; width: 100%; }
+                    .table th, .table td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+                    .img-thumbnail { max-width: 180px; height: auto; border: 1px solid #ccc; margin: 5px; }
+                    hr { border-top: 2px solid #007bff; }
+                    label { font-weight: bold; }
+                    input.form-control { border: none; border-bottom: 1px solid #ddd; }
+                    @@media print {
+                        @@page { size: landscape; margin: 15mm; }
+                        .img-thumbnail { max-width: 150px; }
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="text-center mb-4">
+                    <img src="/images/company-logo.png" style="height:60px;" alt="Company Logo" />
+                    <h4>Property Detail & Approval History</h4>
+                    <small>Printed on: ${new Date().toLocaleString()}</small>
+                </div>
+                ${modalContent.innerHTML}
+                <script>
+                    window.onload = function() {
+                        window.print();
+                        window.onafterprint = function() { window.close(); };
+                    }
+                <\/script>
+            </body>
+            </html>
+        `);
+        printWindow.document.close();
+    }
+</script>
+
+ *@

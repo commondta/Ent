@@ -1,0 +1,481 @@
+﻿@section css {
+    <link media="print" rel="stylesheet" href="~/bootstrap/bootstrapcss.css">
+    <style>
+        .vd_panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #propertyModal {
+            margin-left: auto;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 250px;
+        }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                margin: 2px;
+                box-sizing: border-box;
+                flex: 1 1 calc(25% - 4px);
+            }
+
+        .cards_style {
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .img_input {
+            position: relative;
+            top: 8.5rem
+        }
+    </style>
+}
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Property List</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-file-earmark-text" viewBox="0 0 16 16"><path d="M5.5 7a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1zM5 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5m0 2a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 0 1h-2a.5.5 0 0 1-.5-.5"/><path d="M9.5 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.5zm0 1v2A1.5 1.5 0 0 0 11 4.5h2V14a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1z"/></svg></span>
+                    <h1>PROPERTY LIST </h1>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                            @*
+                            <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>
+                            *@
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+
+                        <!-- First Row -->
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <label>Allotment Date</label>
+                                <input type="date" class="form-control" id="AllotmentDate"
+                                       value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            </div>
+
+                            <div class="col-sm-4">
+                                <label>Document Date</label>
+                                <input type="date" class="form-control" id="DocDate"
+                                       value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                            </div>
+
+                            <div class="col-sm-4">
+                                <div class="mt-2" style="max-width: 120px; max-height: 120px;">
+                                    <img id="docImagePreview" src="#" alt="Image Preview"
+                                         class="img-fluid d-none" />
+                                </div>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input"
+                                           id="docImageUpload" accept="image/*">
+                                    <label class="custom-file-label"
+                                           for="docImageUpload">Choose file</label>
+                                </div>
+                            </div>
+
+                        </div>
+                        
+                        <div class="row mt-3">
+                            <div class="col-sm-12">
+                                <label>Buyer & Joint Members Names</label>
+                                <textarea class="form-control" id="BuyerNames" name="BuyerNames"
+                                          rows="4"
+                                          placeholder="Enter Buyer and Joint Members Names"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- Table Section -->
+                        <div class="row mt-4">
+                            <div class="col-md-12">
+                                <table id="proplistPP"
+                                       class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Registration No.</th>
+                                            <th class="text-white">Member Name</th>
+                                            <th class="text-white">CNIC</th>
+                                            <th class="text-white">Relationship With</th>
+                                            <th class="text-white">Phase</th>
+                                            <th class="text-white">Block</th>
+                                            <th class="text-white">Category</th>
+                                            <th class="text-white">Property Type</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="PropertytbodyPP"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+
+<div class="hide">
+    <div id="printdivallotmentLetterPlot" class="container">
+        <partial name="~/Views/PartialPage/_allotmentLetterPlot.cshtml" />
+    </div>
+</div>
+@section Scripts {
+    <script src="~/js/qrcode.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+            GetAllPropertyLists();
+            GetAllNDCTransferTypes();
+
+        });
+
+        function GetAllNDCTransferTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/TransferType/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Transfer").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Transfer").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Transfer").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Transfer').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllPropertyLists() {
+
+            $('#proplistPP').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllProprtties",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<a class="btn btn-primary" onclick="Print(' + data.id + ')">Select</a>';
+                        }
+                    }
+                ]
+            });
+        }
+
+        function Print(id) {
+
+            var methodType = 'GET';
+            var url = "/api/Document/GetAllotmentLetter?Id=" + id + "";
+
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+
+                success: function (response) {
+
+                    var printdata = response;
+
+                    $(".ppropertyNo").text(printdata.propertyNo);
+                    $(".pregistrationNo").text(printdata.registrationNo);
+
+                    var buyerDetails = $("#BuyerNames").val() === ""
+                        ? printdata.buyerWithJointMembers
+                        : $("#BuyerNames").val();
+
+                    var sellerDetails = printdata.sellerWithJointMembers;
+
+                    $(".pmemberNameAndDetails").empty();
+                    $('.messcountmembersdiv').hide();
+                    $('.lesscountmembersdiv').show();
+                    $('.lesscountmembersdiv').find('.pmemberNameAndDetails').text(buyerDetails);
+
+                    $(".ppermanentAddress").text(printdata.permanentAddress);
+                    $(".pblock").text(printdata.block);
+                    $(".pbuyerPhone").text(printdata.buyerPhone);
+
+                    $(".proptype").text(printdata.realEstateType);
+                    $(".ptype").text(printdata.type + " " + printdata.realEstateType);
+
+                    $(".parea").text(printdata.area + " " + printdata.unitArea);
+                    $(".psqryard").text(printdata.area);
+                    $(".pcategory").text(printdata.category);
+                    $(".pcnic").text(printdata.buyerCnic);
+                    $(".pllot").text(printdata.nature);
+                    $(".InternalNo").text(printdata.internalNo);
+                    $(".psector").text(printdata.sectorName);
+                    $(".pphase").text(printdata.phase);
+                    $(".ptitle").text(printdata.title);
+                    $(".pPlotNo").text(printdata.plotNo);
+                    $(".pSignatoryRank").text(printdata.signatoryRank);
+                    $(".pSignatoryDesignation").text(printdata.signatoryDesignation);
+                    $(".pSignatoryName").text(printdata.signatoryName);
+                    $(".pbuyerDetail").text(sellerDetails);
+
+                    $("#SellerNames").val(sellerDetails);
+                    $("#BuyerNames").val(buyerDetails);
+
+                    $(".villaAndPlotOnly").show();
+                    $(".plotOnly").show();
+
+                    // Default = Plot
+                    $(".plotOnly").show();
+                    $(".villaOnly").hide();
+
+                    if (printdata.realEstateType) {
+
+                        var type = printdata.realEstateType.toLowerCase();
+
+                         if (type.includes("villa")) {
+
+                            // Villa => points 1,2,3,4,5 (villa text)
+                            $(".plotOnly").hide();
+                            $(".villaOnly").show();
+
+                        } else {
+
+                            // Plot => points 1,2,3,4,5,6 (plot text)
+                            $(".plotOnly").show();
+                            $(".villaOnly").hide();
+                        }
+                    }
+
+                    printdata.letterDate = $("#DocDate").val();
+
+                    var date = new Date(printdata.letterDate);
+                    var options = {day: 'numeric', month: 'short', year: 'numeric' };
+                    $(".pppdate").text(date.toLocaleDateString('en-GB', options));
+
+                    var allotmentDate = new Date($("#AllotmentDate").val());
+                    var allotmentOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+                    $(".ppdate").text(allotmentDate.toLocaleDateString('en-GB', allotmentOptions));
+
+                    $(".qrcode").empty();
+                    $(".imgContainerForPrint").empty();
+
+                    var RegistrationNo = printdata.propertyNo;
+                    let udno = printdata.block;
+
+                    var qrcodeContent = "BWP" + "/" + RegistrationNo + "/" + udno;
+
+                    $(".RefNum").text(qrcodeContent);
+
+                    $(".qrcode").each(function () {
+                        $(this).empty();
+                        new QRCode(this, {
+                            text: qrcodeContent,
+                            width: 90,
+                            height: 90
+                        });
+                    });
+
+                    var selectedFile = $('#docImageUpload')[0].files[0];
+
+                    if (selectedFile) {
+                        var reader = new FileReader();
+
+                        reader.onload = function (e) {
+                            var row = '<img style="width:100%;height:100%;margin:0px;" src="' + e.target.result + '" />';
+                            $(".imgContainerForPrint").append(row);
+                        };
+
+                        reader.readAsDataURL(selectedFile);
+
+                    } else if (printdata.imageUrl && printdata.imageUrl !== "") {
+
+                        var row = '<img style="width:100%;height:100%;margin:0px;" src="' + printdata.imageUrl + '" />';
+                        $(".imgContainerForPrint").append(row);
+                    }
+
+                    $(".ptext").text("purchased");
+                    $(".pPropertyNo").text(printdata.propertyNo);
+
+                    printInvoice("printdivallotmentLetterPlot");
+
+                },
+
+                error: function (xhr) {
+
+                    if (xhr.status === 404) {
+                        alert(xhr.responseText || "No record found. Please wait for letter print approval.");
+                    }
+                    else if (xhr.status === 401) {
+                        alert("Unauthorized access. Please log in again.");
+                    }
+                    else {
+                        alert("An error occurred while fetching print data. Please try again later.");
+                    }
+                }
+            });
+        }
+
+        function CompletedTransferPrint(id) {
+
+            var methodType = 'GET';
+            var url = "/api/TransferHistery/GetOwnershipAgreement?Id=" + id + "";
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+
+                    var printdata = response;
+                    $("#printNoOfDays").text();
+                    $("#printReferenceNo").text(printdata.registrationNo);
+                    $("#printplotNo").text(printdata.propertyNo);
+                    $("#printName").text(printdata.buyerName);
+                    $("#printCNICNo").text(printdata.buyerCnic);
+                    $("#printSec").text(printdata.sectorName);
+                    $("#printDate").text(printdata.docDate.split("T")[0]);
+
+                    printCompletedTransfersInvoice();
+                }
+            });
+        }
+
+        function printCompletedTransfersInvoice() {
+            var printContents = document.getElementById('printdivForTransferCompletionCertificate').innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById('printdivForTransferCompletionCertificate');
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+
+
+        function printInvoice(transferType) {
+            var printContents = document.getElementById(transferType).innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById(transferType);
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+
+        $('#docImageUpload').on('change', function (e) {
+            const file = e.target.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#docImagePreview')
+                        .attr('src', e.target.result)
+                        .removeClass('d-none');
+                };
+
+                reader.readAsDataURL(file);
+                $('.custom-file-label').text(file.name);
+            } else {
+                $('#docImagePreview').addClass('d-none').attr('src', '#');
+                $('.custom-file-label').text('Choose file');
+            }
+        });
+    </script>
+}
+

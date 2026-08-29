@@ -1,0 +1,338 @@
+﻿<style>
+
+    .srchbtn:hover {
+        background: #005A7F;
+        color: white;
+    }
+</style>
+
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Sur Charge Setup</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cash-coin" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M11 15a4 4 0 1 0 0-8 4 4 0 0 0 0 8m5-4a5 5 0 1 1-10 0 5 5 0 0 1 10 0"/><path d="M9.438 11.944c.047.596.518 1.06 1.363 1.116v.44h.375v-.443c.875-.061 1.386-.529 1.386-1.207 0-.618-.39-.936-1.09-1.1l-.296-.07v-1.2c.376.043.614.248.671.532h.658c-.047-.575-.54-1.024-1.329-1.073V8.5h-.375v.45c-.747.073-1.255.522-1.255 1.158 0 .562.378.92 1.007 1.066l.248.061v1.272c-.384-.058-.639-.27-.696-.563h-.668zm1.36-1.354c-.369-.085-.569-.26-.569-.522 0-.294.216-.514.572-.578v1.1zm.432.746c.449.104.655.272.655.569 0 .339-.257.571-.709.614v-1.195z"/><path d="M1 0a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h4.083q.088-.517.258-1H3a2 2 0 0 0-2-2V3a2 2 0 0 0 2-2h10a2 2 0 0 0 2 2v3.528c.38.34.717.728 1 1.154V1a1 1 0 0 0-1-1z"/><path d="M9.998 5.083 10 5a2 2 0 1 0-3.132 1.65 6 6 0 0 1 3.13-1.567"/></svg></span>
+                    <h1>SUR CHARGE SETUP</h1>
+                        </div>
+                    </div>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        @*<form class="custom-validation" action="#" role="form" id="GracePeriod">*@
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <label>KIBOR</label>
+                                    <div>
+                                        <input type="number" class="form-control" min="0" oninput="updateTotalSurcharge()"
+                                               placeholder=" " name="KIBOR" id="KIBOR" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Addition</label>
+                                    <div>
+                                        <input type="number" class="form-control" min="0" oninput="updateTotalSurcharge()"
+                                               placeholder=" " name="Addition" id="Addition" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Total Sur Charge</label>
+                                    <div>
+                                        <input type="number" class="form-control" min="0" placeholder=" "
+                                               name="TotalSurCharge" id="TotalSurCharge" disabled />
+                                    </div>
+                                </div>
+                                
+                                <div class="col-sm-4">
+                                    <label>From Date</label>
+                                    <input type="date" id="FromDate" class="form-control" />
+                                </div>
+                                
+                                <div class="col-sm-4">
+                                    <label>To Date</label>
+                                    <input type="date" id="ToDate" class="form-control" />
+                                </div>
+                                <div class="col-sm-4">
+                                    <label>Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Status" id="Status">
+                                            <option value="1"> Active </option>
+                                            <option value="0"> Inactive </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn dha_theme_btn" style="margin-right:4px;" onclick="PostRequest()">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                            </div>
+                       @* </form>*@
+                           @*  <div class="row">
+                                <a style="float:right" class="btn btn-primary btn-sm" onclick="AddRow()">Add Row</a>
+                            </div>
+                           *@
+                    </div>
+                    </br>
+                    <div class="row">
+                        <table class="table table-hower" id="surcharge">
+                            <thead class="bg-theme">
+                                <tr>
+                                    <th class="text-white">
+                                        #
+                                    </th>
+                                    <th class="text-white">
+                                        KIBOR
+                                    </th>
+                                    <th class="text-white">
+                                        Addition
+                                    </th>
+                                    <th class="text-white">
+                                        Total Sur Charge
+                                    </th>
+                                    <th class="text-white">
+                                        From Date
+                                    </th>
+                                    <th class="text-white">
+                                        To Date
+                                    </th>
+                                    <th class="text-white">
+                                        Is Active
+                                    </th>
+                                    <th class="text-white">
+                                        Action
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbodyTag">
+                            </tbody>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<input type="number" id="Id" class="hide" />
+<input type="number" id="RowNumber" value="0" class="hide" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+@section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            //"use strict";
+
+            GetSurchargeSetup();
+        });
+
+        function updateTotalSurcharge() {
+            var kibor = parseFloat($('#KIBOR').val()) || 0;
+            var addition = parseFloat($('#Addition').val()) || 0;
+
+            var totalSurcharge = kibor + addition;
+            $('#TotalSurCharge').val(totalSurcharge);
+        }
+     
+        function GetSurchargeSetup() {
+            
+            $.ajax({
+                type: 'GET',
+                url: `/api/SurchargeSetup/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    
+                    if (response.code == 100) {
+
+                        var datatabl = $('#surcharge').DataTable();
+                        datatabl.destroy();
+
+                        $("#tbodyTag").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+
+                                let fromDate = moment(list.fromDate).format('DD-MM-YYYY');
+                                let toDate = moment(list.toDate).format('DD-MM-YYYY');
+                                let lastModified = moment(list.lastModified).format('DD-MM-YYYY');
+                                let status = list.isActive == true ? "Active" : "InActive";
+                                var row = '<tr>' +
+                                    '<td>' + sr + '</td>' +
+                                    '<td>' + list.kibor + '</td>' +
+                                    '<td>' + list.addition + '</td>' +
+                                    '<td>' + list.totalSurCharge + '</td>' +
+                                    '<td>' + fromDate + '</td>' +
+                                    '<td>' + toDate + '</td>' +
+                                    '<td>' + status + '</td>' +
+                                    '<td><a class="fa fa-edit fa-2x" onclick="SelectSurcharge(' + list.id + ')"></a>' +
+                                    '</td>' +
+
+                                    '</tr>';
+                                $("#tbodyTag").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#surcharge').dataTable();
+                    }
+
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+
+        function SelectSurcharge(id) {
+
+            var url = "/api/SurchargeSetup/Get?id=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 100) {
+                        var data = response.data;
+                        let status = data.isActive == true ? "1" : "0";
+                        let fromDate = (data.fromDate).split('T')[0];
+                        let toDate = (data.toDate).split('T')[0];
+
+                        $("#Id").val(data.id);
+                        $("#FromDate").val(fromDate);
+                        $("#ToDate").val(toDate);
+                        $("#Status").val(status);
+                        $("#TotalSurCharge").val(data.totalSurCharge);
+                        $("#Addition").val(data.addition);
+                        $("#KIBOR").val(data.kibor);
+                    }
+
+                    else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Lead',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        function PostRequest() {
+
+            var methodType = 'POST';
+            var url = "/api/SurchargeSetup/AddSurchargeSetup";
+
+            var Operation = new Object();
+
+            Operation.KIBOR = parseFloat($('#KIBOR').val()) || 0;
+            Operation.Addition = parseFloat($('#Addition').val()) || 0;
+
+            let status = $("#Status").val() == 1 ? true : false;
+            var sum = Operation.KIBOR + Operation.Addition;
+
+            $('#TotalSurCharge').val(sum);
+            Operation.TotalSurCharge = sum;
+            Operation.FromDate = $("#FromDate").val();
+            Operation.ToDate = $("#ToDate").val();
+            Operation.IsActive = status;
+            Operation.ModifiedBy = $("#User_Id").val();
+            Operation.CreatedBy = $("#User_Id").val();
+            Operation.LastModifiedUserName = $("#User_Name").val();
+
+
+            if ($("#Id").val()) {
+
+                Operation.Id = parseInt($("#Id").val());
+                methodType = 'POST';
+                url = "/api/SurchargeSetup/UpdateSurchargeSetup"
+            }
+
+            var model = JSON.stringify(Operation);
+            debugger;
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                }
+            });
+        }
+
+    </script>
+ }

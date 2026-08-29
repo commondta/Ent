@@ -1,0 +1,2079 @@
+[
+  {
+    "type": "Module",
+    "path": "Administration",
+    "parentPath": "",
+    "display": "Administration",
+    "seq": 6
+  },
+  {
+    "type": "Module",
+    "path": "Business Analytics",
+    "parentPath": "",
+    "display": "Business Analytics",
+    "seq": 5
+  },
+  {
+    "type": "Module",
+    "path": "Financial Operations",
+    "parentPath": "",
+    "display": "Financial Operations",
+    "seq": 4
+  },
+  {
+    "type": "Module",
+    "path": "Property Business Operations",
+    "parentPath": "",
+    "display": "Estate Operations",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Analytics Development",
+    "parentPath": "Administration",
+    "display": "Analytics Development",
+    "seq": 5
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Implementation Center",
+    "parentPath": "Administration",
+    "display": "Implementation Center",
+    "seq": 3
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Organizational Governance",
+    "parentPath": "Administration",
+    "display": "Organizational Governance",
+    "seq": 4
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup",
+    "parentPath": "Administration",
+    "display": "Setup",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Administration/System Configuration",
+    "parentPath": "Administration",
+    "display": "System Configuration",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Business Analytics/File & Record Reports",
+    "parentPath": "Business Analytics",
+    "display": "File & Record Reports",
+    "seq": 4
+  },
+  {
+    "type": "Group",
+    "path": "Business Analytics/Performance Insights",
+    "parentPath": "Business Analytics",
+    "display": "Performance Insights",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Business Analytics/Property Operation Reports",
+    "parentPath": "Business Analytics",
+    "display": "Property Operation Reports",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Business Analytics/Stakeholder Analysis Reports",
+    "parentPath": "Business Analytics",
+    "display": "Stakeholder Analysis Reports",
+    "seq": 3
+  },
+  {
+    "type": "Group",
+    "path": "Financial Operations/Financial Scheduling",
+    "parentPath": "Financial Operations",
+    "display": "Financial Scheduling",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Financial Operations/Financial Transactions",
+    "parentPath": "Financial Operations",
+    "display": "Financial Transactions",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Biometric Management",
+    "parentPath": "Property Business Operations",
+    "display": "Biometric Management",
+    "seq": 7
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Brand & Marketing",
+    "parentPath": "Property Business Operations",
+    "display": "Brand & Marketing",
+    "seq": 5
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Commercial Deal Management",
+    "parentPath": "Property Business Operations",
+    "display": "Commercial Deal Management",
+    "seq": 4
+  },
+  {
+    "type": "Module",
+    "path": "Construction & Development",
+    "parentPath": "",
+    "display": "Construction & Development",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Legal & Litigation Management",
+    "parentPath": "Property Business Operations",
+    "display": "Legal & Litigation Management",
+    "seq": 3
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Property Lifecycle & Services",
+    "parentPath": "Property Business Operations",
+    "display": "Property Lifecycle & Services",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Records & File Management",
+    "parentPath": "Property Business Operations",
+    "display": "Records & File Management",
+    "seq": 6
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Stakeholder Management",
+    "parentPath": "Property Business Operations",
+    "display": "Stakeholder Management",
+    "seq": 2
+  },
+  {
+    "type": "Module",
+    "path": "Utilities Management",
+    "parentPath": "",
+    "display": "Utilities Management",
+    "seq": 3
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Implementation Center/Credentials & API Configuration",
+    "parentPath": "Administration/Implementation Center",
+    "display": "Credentials & API Configuration",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Implementation Center/Data Migration Management",
+    "parentPath": "Administration/Implementation Center",
+    "display": "Data Migration Management",
+    "seq": 3
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Implementation Center/ERP Integration",
+    "parentPath": "Administration/Implementation Center",
+    "display": "ERP Integration",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Organizational Governance/Approval Matrix",
+    "parentPath": "Administration/Organizational Governance",
+    "display": "Approval Matrix",
+    "seq": 3
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Organizational Governance/Authorization",
+    "parentPath": "Administration/Organizational Governance",
+    "display": "Authorization",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Organizational Governance/Users",
+    "parentPath": "Administration/Organizational Governance",
+    "display": "Users",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Alerts & Controls",
+    "parentPath": "Administration/Setup",
+    "display": "Alerts & Controls",
+    "seq": 6
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Biometric Configuration",
+    "parentPath": "Administration/Setup",
+    "display": "Biometric Configuration",
+    "seq": 8
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Finance Setup",
+    "parentPath": "Administration/Setup",
+    "display": "Finance Setup",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Litigation Configurations",
+    "parentPath": "Administration/Setup",
+    "display": "Litigation Configurations",
+    "seq": 5
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Property Setup",
+    "parentPath": "Administration/Setup",
+    "display": "Property Setup",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Stakeholder Management",
+    "parentPath": "Administration/Setup",
+    "display": "Stakeholder Management",
+    "seq": 3
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Utilities Configuration",
+    "parentPath": "Administration/Setup",
+    "display": "Utilities Configuration",
+    "seq": 4
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Violation Configurations",
+    "parentPath": "Administration/Setup",
+    "display": "Violation Configurations",
+    "seq": 7
+  },
+  {
+    "type": "Group",
+    "path": "Administration/System Configuration/System Structure",
+    "parentPath": "Administration/System Configuration",
+    "display": "System Structure",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Property Lifecycle & Services/Booking & Allocation",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Booking & Allocation",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "NDC & Transfer Services",
+    "seq": 3
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Property Lifecycle & Services/Property Cards",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Property Cards",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Records & Communications",
+    "seq": 4
+  },
+  {
+    "type": "Group",
+    "path": "Utilities Management/Meter Operations",
+    "parentPath": "Utilities Management",
+    "display": "Meter Operations",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Utilities Management/Utility Billing",
+    "parentPath": "Utilities Management",
+    "display": "Utility Billing",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Finance Setup/Billing Configuration",
+    "parentPath": "Administration/Setup/Finance Setup",
+    "display": "Billing Configuration",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Finance Setup/Revenue Configuration",
+    "parentPath": "Administration/Setup/Finance Setup",
+    "display": "Revenue Configuration",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Property Setup/Transfer Planning & Scheduling",
+    "parentPath": "Administration/Setup/Property Setup",
+    "display": "Transfer Planning & Scheduling",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "parentPath": "Administration/Setup/Property Setup",
+    "display": "Urban Planning & Development",
+    "seq": 2
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications",
+    "display": "Customer Intimations",
+    "seq": 1
+  },
+  {
+    "type": "Group",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Plot Identification",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications",
+    "display": "Plot Identification",
+    "seq": 2
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Performance Insights/Inventory Overview",
+    "parentPath": "Business Analytics/Performance Insights",
+    "display": "Inventory Overview",
+    "legacyName": "Inventory Dashboard",
+    "permissionKey": "Inventory Dashboard",
+    "route": "Dashboard/InventoryDashboard",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Performance Insights/Allocation Overview",
+    "parentPath": "Business Analytics/Performance Insights",
+    "display": "Allocation Overview",
+    "legacyName": "Alloted Inventory Dashboard",
+    "permissionKey": "Alloted Inventory Dashboard",
+    "route": "Dashboard/AllotedInventoryDashboard",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Performance Insights/Availabile Property Overview",
+    "parentPath": "Business Analytics/Performance Insights",
+    "display": "Availabile Property Overview",
+    "legacyName": "Available Inventory Dashboard",
+    "permissionKey": "Available Inventory Dashboard",
+    "route": "Dashboard/AvailableInventoryDashboard",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Performance Insights/Sales Performance",
+    "parentPath": "Business Analytics/Performance Insights",
+    "display": "Sales Performance",
+    "legacyName": "Allocation & Sales Dashboard",
+    "permissionKey": "Sales Dashboard",
+    "route": "Dashboard/SalesDashboard",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Performance Insights/NDC Performance",
+    "parentPath": "Business Analytics/Performance Insights",
+    "display": "NDC Performance",
+    "legacyName": "NDC Dashboard",
+    "permissionKey": "NDC Dashboard",
+    "route": "Dashboard/NDCDashboard",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Performance Insights/Transfer Activity",
+    "parentPath": "Business Analytics/Performance Insights",
+    "display": "Transfer Activity",
+    "legacyName": "Transfer Dashboard",
+    "permissionKey": "Transfer Dashboard",
+    "route": "Dashboard/TransferDashboard",
+    "seq": 600
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Performance Insights/Member Insights",
+    "parentPath": "Business Analytics/Performance Insights",
+    "display": "Member Insights",
+    "legacyName": "Member Dashboard",
+    "permissionKey": "Member Dashboard",
+    "route": "Dashboard/MemberDashboard",
+    "seq": 700
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Biometric Management/Fingerprint Enrollment",
+    "parentPath": "Property Business Operations/Biometric Management",
+    "display": "Fingerprint Enrollment",
+    "legacyName": "Enroll Fingerprint",
+    "permissionKey": "Enroll Fingerprint",
+    "route": "FingerPrint/FingerPrint",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Biometric Management/Fingerprint Verification",
+    "parentPath": "Property Business Operations/Biometric Management",
+    "display": "Fingerprint Verification",
+    "legacyName": "Verify Fingerprint",
+    "permissionKey": "Verify Fingerprint",
+    "route": "FingerPrint/VerifyFingerPrint",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Biometric Management/Verification Types",
+    "parentPath": "Property Business Operations/Biometric Management",
+    "display": "Verification Types",
+    "legacyName": "Verification Type",
+    "permissionKey": "Verification Type",
+    "route": "Home/VerificationType",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Property Cards/Property Generation",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Property Cards",
+    "display": "Property Generation",
+    "legacyName": "Stock Creation",
+    "permissionKey": "Stock Creation",
+    "route": "Home/StockCreation",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Stakeholder Management/Member Profiling",
+    "parentPath": "Property Business Operations/Stakeholder Management",
+    "display": "Member Profiling",
+    "legacyName": "Member Profile",
+    "permissionKey": "Member Profile",
+    "route": "Sales/MemberProfile",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Booking & Allocation/Property Assignment",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Booking & Allocation",
+    "display": "Property Assignment",
+    "legacyName": "Property Binding",
+    "permissionKey": "Property Binding",
+    "route": "Home/PropertyBinding",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Financial Operations/Financial Scheduling/Financial Schedule Definition",
+    "parentPath": "Financial Operations/Financial Scheduling",
+    "display": "Financial Schedule Definition",
+    "legacyName": "Payment Plan Setup",
+    "permissionKey": "Payment Plan Setup",
+    "route": "Sales/PaymentPlanSetup",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Booking & Allocation/Property Reservation",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Booking & Allocation",
+    "display": "Property Reservation",
+    "legacyName": "Pre Booking",
+    "permissionKey": "Pre Booking",
+    "route": "Sales/PreSaleApproval",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Booking & Allocation/Property Allocation",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Booking & Allocation",
+    "display": "Property Allocation",
+    "legacyName": "Booking Confirmation",
+    "permissionKey": "Booking Confirmation",
+    "route": "Sales/BookingForm",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Financial Operations/Financial Scheduling/Financial Schedule Assignment",
+    "parentPath": "Financial Operations/Financial Scheduling",
+    "display": "Financial Schedule Assignment",
+    "legacyName": "Payment Plan Binding",
+    "permissionKey": "Payment Plan Binding",
+    "route": "Sales/PaymentPlanBinding",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services/NDC Request – Member",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services",
+    "display": "NDC Request – Member",
+    "legacyName": "Member Request For NDC",
+    "permissionKey": "Member Request For NDC",
+    "route": "Operations/MemberNDC",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services/NDC Request – Dealer",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services",
+    "display": "NDC Request – Dealer",
+    "legacyName": "Dealer Request For NDC",
+    "permissionKey": "Dealer Request For NDC",
+    "route": "Operations/DealerNDC",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services/NDC Issuance",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services",
+    "display": "NDC Issuance",
+    "legacyName": "NDC-1",
+    "permissionKey": "NDC-1",
+    "route": "Operations/NDC1",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services/Transfer Case Intake",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services",
+    "display": "Transfer Case Intake",
+    "legacyName": "Transfer Set Receiving",
+    "permissionKey": "Transfer Set Receiving",
+    "route": "Operations/TransferSetReceiving",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services/Transfer Case Registration",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services",
+    "display": "Transfer Case Registration",
+    "legacyName": "Transfer Receipt Form",
+    "permissionKey": "Transfer Receipt Form",
+    "route": "GovtTaxes/TransferReceiptProcessing",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services/Property Transfer",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services",
+    "display": "Property Transfer",
+    "legacyName": "Transfer Form",
+    "permissionKey": "Transfer Form",
+    "route": "Operations/Transfer",
+    "seq": 600
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services/Property Amalgamation",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/NDC & Transfer Services",
+    "display": "Property Amalgamation",
+    "legacyName": "Amalgamation",
+    "permissionKey": "Amalgamation",
+    "route": "Operations/Amalgamation",
+    "seq": 700
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Stakeholder Management/Dealer Profiling",
+    "parentPath": "Property Business Operations/Stakeholder Management",
+    "display": "Dealer Profiling",
+    "legacyName": "Dealer Profile",
+    "permissionKey": "Dealer Profile",
+    "route": "Sales/DealerProfile",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Dealer Advance Application",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Dealer Advance Application",
+    "legacyName": "Advance Applictaion On Plot",
+    "permissionKey": "Advance Applictaion On Plot",
+    "route": "Sales/AdvanceApp",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/File Doc/Dup Request",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "File Doc/Dup Request",
+    "legacyName": "File Doc/Dup Request",
+    "permissionKey": "File Doc/Dup Request",
+    "route": "Operations/FileRequest",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/File Verification Request",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "File Verification Request",
+    "legacyName": "File Verification Request",
+    "permissionKey": "File Verification Request",
+    "route": "Operations/FileVerificationRequest",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/File Verification NDC1",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "File Verification NDC1",
+    "legacyName": "File Verification NDC1",
+    "permissionKey": "File Verification NDC1",
+    "route": "Operations/FileVerificationNDC1",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Client File Receiving",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Client File Receiving",
+    "legacyName": "Client File Receiving",
+    "permissionKey": "Client File Receiving",
+    "route": "Operations/ClientFileReceiving",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Change Of Plot",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Change Of Plot",
+    "legacyName": "Change Of Plot",
+    "permissionKey": "Change Of Plot",
+    "route": "Operations/COP",
+    "seq": 600
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Renumber",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Renumber",
+    "legacyName": "Renumber",
+    "permissionKey": "Renumber",
+    "route": "Operations/ReNumber",
+    "seq": 700
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Deallocation",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Deallocation",
+    "legacyName": "Deallocation",
+    "permissionKey": "Deallocation",
+    "route": "Operations/DeAllocation",
+    "seq": 800
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Repurchase/Refund/Cancellation",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Repurchase/Refund/Cancellation",
+    "legacyName": "Repurchase/Refund/Cancellation",
+    "permissionKey": "Repurchase/Refund/Cancellation",
+    "route": "Operations/RePurchase",
+    "seq": 900
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Surrender Form",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Surrender Form",
+    "legacyName": "Surrender Form",
+    "permissionKey": "Surrender Form",
+    "route": "Operations/Surrender",
+    "seq": 1000
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Re-Surrender Form",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Re-Surrender Form",
+    "legacyName": "Re-Surrender Form",
+    "permissionKey": "Re-Surrender Form",
+    "route": "Operations/ReSurrender",
+    "seq": 1100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Surcharge Setup",
+    "parentPath": "Administration/Setup/Finance Setup",
+    "display": "Surcharge Setup",
+    "legacyName": "Surcharge Setup",
+    "permissionKey": "Surcharge Setup",
+    "route": "Home/SurchargeSetup",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Phase Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Phase Definition",
+    "legacyName": "Phase Definition",
+    "permissionKey": "Phase Definition",
+    "route": "Home/PhaseDef",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Real Estate Type Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Real Estate Type Definition",
+    "legacyName": "Real Estate Type Definition",
+    "permissionKey": "Real Estate Type Definition",
+    "route": "Home/RealEstate",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Project Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Project Definition",
+    "legacyName": "Project Definition",
+    "permissionKey": "Project Definition",
+    "route": "Home/Project",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Block Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Block Definition",
+    "legacyName": "Block Definition",
+    "permissionKey": "Block Definition",
+    "route": "Home/Block",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Stakeholder Management/Force Definition",
+    "parentPath": "Administration/Setup/Stakeholder Management",
+    "display": "Force Definition",
+    "legacyName": "Force Definition",
+    "permissionKey": "Force Definition",
+    "route": "Home/Force",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Stakeholder Management/Rank Definition",
+    "parentPath": "Administration/Setup/Stakeholder Management",
+    "display": "Rank Definition",
+    "legacyName": "Rank Definition",
+    "permissionKey": "Rank Definition",
+    "route": "Home/Rank",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Stakeholder Management/Member Category Definition",
+    "parentPath": "Administration/Setup/Stakeholder Management",
+    "display": "Member Category Definition",
+    "legacyName": "Member Category Definition",
+    "permissionKey": "Member Category Definition",
+    "route": "Home/MemberCategory",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Category Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Category Definition",
+    "legacyName": "Category Definition",
+    "permissionKey": "Category Definition",
+    "route": "Home/Category",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/UOM Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "UOM Definition",
+    "legacyName": "UOM Definition",
+    "permissionKey": "UOM Definition",
+    "route": "Home/UOMDef",
+    "seq": 600
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Payment Plan Type",
+    "parentPath": "Administration/Setup/Finance Setup",
+    "display": "Payment Plan Type",
+    "legacyName": "Payment Plan Type",
+    "permissionKey": "Payment Plan Type",
+    "route": "Sales/PaymentPlanType",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Property Type Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Property Type Definition",
+    "legacyName": "Property Type Definition",
+    "permissionKey": "Property Type Definition",
+    "route": "Home/PropertyType",
+    "seq": 700
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Property Nature Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Property Nature Definition",
+    "legacyName": "Property Nature Definition",
+    "permissionKey": "Property Nature Definition",
+    "route": "Home/Nature",
+    "seq": 800
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Prefix Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Prefix Definition",
+    "legacyName": "Prefix Definition",
+    "permissionKey": "Prefix Definition",
+    "route": "Home/Prefix",
+    "seq": 900
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Postfix Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Postfix Definition",
+    "legacyName": "Postfix Definition",
+    "permissionKey": "Postfix Definition",
+    "route": "Home/Postfix",
+    "seq": 1000
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Quota Definition",
+    "parentPath": "Administration/Setup/Property Setup",
+    "display": "Quota Definition",
+    "legacyName": "Quota Definition",
+    "permissionKey": "Quota Definition",
+    "route": "Home/Quota",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Almt Definition",
+    "parentPath": "Administration/Setup/Property Setup",
+    "display": "Almt Definition",
+    "legacyName": "Almt Definition",
+    "permissionKey": "Almt Definition",
+    "route": "Home/Almt",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Transfer Type",
+    "parentPath": "Administration/Setup/Property Setup",
+    "display": "Transfer Type",
+    "legacyName": "Transfer Type",
+    "permissionKey": "Transfer Type",
+    "route": "Operations/TransferType",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Tax Type",
+    "parentPath": "Administration/Setup/Finance Setup",
+    "display": "Tax Type",
+    "legacyName": "Tax Type",
+    "permissionKey": "Tax Type",
+    "route": "Operations/TaxType",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Property Cards/Property Register",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Property Cards",
+    "display": "Property Register",
+    "legacyName": "Property List",
+    "permissionKey": "Property List",
+    "route": "Home/propertyList",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Property Cards/Reference No. Profile",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Property Cards",
+    "display": "Reference No. Profile",
+    "legacyName": "Registration No. Profile",
+    "permissionKey": "Registration No. Profile",
+    "route": "Home/RegistrationNoProfile",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Property Cards/Property Profile",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Property Cards",
+    "display": "Property Profile",
+    "legacyName": "Property Profile",
+    "permissionKey": "Property Profile",
+    "route": "Home/PropertyProfile",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Stakeholder Management/Dealer Designation",
+    "parentPath": "Property Business Operations/Stakeholder Management",
+    "display": "Dealer Designation",
+    "legacyName": "Dealer Designation",
+    "permissionKey": "Dealer Designation",
+    "route": "Sales/DealerDesignation",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Revenue Configuration/Revenue Group",
+    "parentPath": "Administration/Setup/Finance Setup/Revenue Configuration",
+    "display": "Revenue Group",
+    "legacyName": "Charges Group",
+    "permissionKey": "Charges Group",
+    "route": "Globalsetup/ChargesGroup",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Revenue Configuration/Revenue Type",
+    "parentPath": "Administration/Setup/Finance Setup/Revenue Configuration",
+    "display": "Revenue Type",
+    "legacyName": "Charges Type",
+    "permissionKey": "Charges Type",
+    "route": "Globalsetup/ChargesType",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Revenue Configuration/Revenue Rules",
+    "parentPath": "Administration/Setup/Finance Setup/Revenue Configuration",
+    "display": "Revenue Rules",
+    "legacyName": "Charges Setup",
+    "permissionKey": "Charges Setup",
+    "route": "Globalsetup/ChargesSetup",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Revenue Configuration/Revenue Incorporation Setup",
+    "parentPath": "Administration/Setup/Finance Setup/Revenue Configuration",
+    "display": "Revenue Incorporation Setup",
+    "legacyName": "Charges Incorporation Setup",
+    "permissionKey": "Charges Incorporation Setup",
+    "route": "Globalsetup/ChargesGroupFormTest",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Billing Configuration/Property Billing Policy",
+    "parentPath": "Administration/Setup/Finance Setup/Billing Configuration",
+    "display": "Property Billing Policy",
+    "legacyName": "Property Billing Setup",
+    "permissionKey": "Property Billing Setup",
+    "route": "Billing/FixedBillGenerationPropertyWise",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Billing Configuration/Grace Period Policy",
+    "parentPath": "Administration/Setup/Finance Setup/Billing Configuration",
+    "display": "Grace Period Policy",
+    "legacyName": "Grace Period Setup",
+    "permissionKey": "Grace Period Setup",
+    "route": "Billing/GracePeriodSetup",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Billing Configuration/Sales Tax Rules",
+    "parentPath": "Administration/Setup/Finance Setup/Billing Configuration",
+    "display": "Sales Tax Rules",
+    "legacyName": "Sales Tax Setup",
+    "permissionKey": "Sale Tax Setup",
+    "route": "Billing/SaleTax",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Billing Configuration/Withholding Tax Rules",
+    "parentPath": "Administration/Setup/Finance Setup/Billing Configuration",
+    "display": "Withholding Tax Rules",
+    "legacyName": "W.Holding Tax Setup",
+    "permissionKey": "WithHolding Tax Setup",
+    "route": "Billing/WithHoldingTax",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Possession Application",
+    "parentPath": "Construction & Development",
+    "display": "Possession Application",
+    "legacyName": "Possession Application",
+    "permissionKey": "Possession Announcement",
+    "route": "Home/PossessionAnnouncement",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Drawing Scrutiny Charges",
+    "parentPath": "Construction & Development",
+    "display": "Drawing Scrutiny Charges",
+    "legacyName": "Drawing Scrutiny Charges",
+    "permissionKey": "Demarcation Request Form",
+    "route": "Home/DemarcationRequest",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Clearance Form",
+    "parentPath": "Construction & Development",
+    "display": "Clearance Form",
+    "legacyName": "Clearance Form",
+    "permissionKey": "Clearance Form",
+    "route": "Home/ClearanceForm",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Map Approval",
+    "parentPath": "Construction & Development",
+    "display": "Map Approval",
+    "legacyName": "Map Approval",
+    "permissionKey": "Map Approval",
+    "route": "Home/MapApproval",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Demarcation Form",
+    "parentPath": "Construction & Development",
+    "display": "Demarcation Form",
+    "legacyName": "Demarcation Form",
+    "permissionKey": "Demarcation Form",
+    "route": "Home/Demarcation",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Construction Security Form",
+    "parentPath": "Construction & Development",
+    "display": "Construction Security Form",
+    "legacyName": "Construction Security Form",
+    "permissionKey": "Construction Security Form",
+    "route": "Home/ConstructionSecurity",
+    "seq": 600
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Construction Monitoring Form",
+    "parentPath": "Construction & Development",
+    "display": "Construction Monitoring Form",
+    "legacyName": "Construction Monitoring Form",
+    "permissionKey": "Construction Monitoring Form",
+    "route": "Home/ConstructionM",
+    "seq": 700
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Material Testing Form",
+    "parentPath": "Construction & Development",
+    "display": "Material Testing Form",
+    "legacyName": "Meterial Testing Form",
+    "permissionKey": "Meterial Testing Form",
+    "route": "Home/MeterialTesting",
+    "seq": 800
+  },
+  {
+    "type": "Form",
+    "path": "Financial Operations/Financial Transactions/Account Adjustment",
+    "parentPath": "Financial Operations/Financial Transactions",
+    "display": "Account Adjustment",
+    "legacyName": "General Adjustment",
+    "permissionKey": "General Adjustment",
+    "route": "GenralAdjustment/GenralAdjustment",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Financial Operations/Financial Transactions/Member Billing",
+    "parentPath": "Financial Operations/Financial Transactions",
+    "display": "Member Billing",
+    "legacyName": "Stand Alone Invoice",
+    "permissionKey": "Stand Alone Invoice",
+    "route": "GenralAdjustment/StandAlone",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Financial Operations/Property Tax Assessment",
+    "parentPath": "Financial Operations",
+    "display": "Property Tax Assessment",
+    "legacyName": "Transfer Tax Estimations",
+    "permissionKey": "Transfer Tax Estimations",
+    "route": "Operations/TransferTaxEstimation",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Brand & Marketing/Promotions",
+    "parentPath": "Property Business Operations/Brand & Marketing",
+    "display": "Promotions",
+    "legacyName": "Promotions",
+    "permissionKey": "Promotions",
+    "route": "Promotion/Promotions",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Brand & Marketing/Assets/Media",
+    "parentPath": "Property Business Operations/Brand & Marketing",
+    "display": "Assets/Media",
+    "legacyName": "Assets/Media",
+    "permissionKey": "Banners",
+    "route": "Promotion/Banners",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Ownership Agreement",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications",
+    "display": "Ownership Agreement",
+    "legacyName": "Ownership Agreement",
+    "permissionKey": "Ownership Agreement",
+    "route": "Document/OwnershipAgreement",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Allotment Letter",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications",
+    "display": "Allotment Letter",
+    "legacyName": "Allotment Letter",
+    "permissionKey": "Allotment Letter",
+    "route": "Document/AllotmentLetter",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Allocation Letter",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications",
+    "display": "Allocation Letter",
+    "legacyName": "Allocation Letter",
+    "permissionKey": "Allocation Letter",
+    "route": "Document/AllocationLetter",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations/Defense Gardenia",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations",
+    "display": "Defense Gardenia",
+    "legacyName": "Defense Gardenia",
+    "permissionKey": "Defense Gardenia",
+    "route": "Document/DefenseGardenia",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations/Direct Sale",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations",
+    "display": "Direct Sale",
+    "legacyName": "Direct Sale",
+    "permissionKey": "Direct Sale",
+    "route": "Document/DirectSale",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations/Svc Benefit 13",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations",
+    "display": "Svc Benefit 13",
+    "legacyName": "Svc Benefit 13",
+    "permissionKey": "Svc Benefit 13",
+    "route": "Document/SvcBenefit13",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations/Svc Benefit 14",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations",
+    "display": "Svc Benefit 14",
+    "legacyName": "Svc Benefit 14",
+    "permissionKey": "Svc Benefit 14",
+    "route": "Document/SvcBenefit14",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations/Orchard Enclave",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations",
+    "display": "Orchard Enclave",
+    "legacyName": "Orchard Enclave",
+    "permissionKey": "Orchard Enclave",
+    "route": "Document/OrchardEnclave",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations/Privilidge Allotment",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations",
+    "display": "Privilidge Allotment",
+    "legacyName": "Privilidge Allotment",
+    "permissionKey": "Privilidge Allotment",
+    "route": "Document/PrivilidgeAllotment",
+    "seq": 600
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations/Additional Allotment",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations",
+    "display": "Additional Allotment",
+    "legacyName": "Additional Allotment",
+    "permissionKey": "Additional Allotment",
+    "route": "Document/AdditionalAllotment",
+    "seq": 700
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations/First Intimation Letter",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Customer Intimations",
+    "display": "First Intimation Letter",
+    "legacyName": "First Intimation Letter",
+    "permissionKey": "First Intimation Letter",
+    "route": "Document/FirstIntimationLetter",
+    "seq": 800
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Plot Identification/General Letter",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Plot Identification",
+    "display": "General Letter",
+    "legacyName": "General Letter",
+    "permissionKey": "General Letter",
+    "route": "Document/IntimationLetter",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Plot Identification/Svc Benefit",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Plot Identification",
+    "display": "Svc Benefit",
+    "legacyName": "Svc Benefit",
+    "permissionKey": "Svc Benefit Plot No",
+    "route": "Document/SvcBenefitPlotNo",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Plot Identification/Orchard Enclave",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Records & Communications/Plot Identification",
+    "display": "Orchard Enclave",
+    "legacyName": "Orchard Enclave",
+    "permissionKey": "Orchard Enclave",
+    "route": "Document/OrchardEnclave",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Financial Operations/Property Financial Statement",
+    "parentPath": "Financial Operations",
+    "display": "Property Financial Statement",
+    "legacyName": "Clearance",
+    "permissionKey": "Clearance",
+    "route": "Home/Clearance",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Alerts & Controls/Access Notification/Form Watcher",
+    "parentPath": "Administration/Setup/Alerts & Controls",
+    "display": "Access Notification/Form Watcher",
+    "legacyName": "Form Alert",
+    "permissionKey": "Form Alert",
+    "route": "Notification/FormAlerts",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Alerts & Controls/Business Hold Definition",
+    "parentPath": "Administration/Setup/Alerts & Controls",
+    "display": "Business Hold Definition",
+    "legacyName": "SoftLock Name",
+    "permissionKey": "SoftLock Name",
+    "route": "Notification/SoftLockName",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Alerts & Controls/Caution Definition",
+    "parentPath": "Administration/Setup/Alerts & Controls",
+    "display": "Caution Definition",
+    "legacyName": "Alert Name",
+    "permissionKey": "Alert Name",
+    "route": "Notification/AlertName",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Commercial Deal Management/Deal",
+    "parentPath": "Property Business Operations/Commercial Deal Management",
+    "display": "Deal",
+    "legacyName": "Deal",
+    "permissionKey": "Deal",
+    "route": "Deal/Deals",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Commercial Deal Management/Bulk Deal",
+    "parentPath": "Property Business Operations/Commercial Deal Management",
+    "display": "Bulk Deal",
+    "legacyName": "Bulk Deal",
+    "permissionKey": "Bulk Deal",
+    "route": "Deal/BulkDeal",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Utilities Configuration/Meter Type",
+    "parentPath": "Administration/Setup/Utilities Configuration",
+    "display": "Meter Type",
+    "legacyName": "Meter Type",
+    "permissionKey": "Meter Type",
+    "route": "Billing/MeterType",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Utilities Configuration/Meter Phase",
+    "parentPath": "Administration/Setup/Utilities Configuration",
+    "display": "Meter Phase",
+    "legacyName": "Meter Phase",
+    "permissionKey": "Meter Phase",
+    "route": "Billing/MeterPhase",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Utilities Configuration/Meter Phase Wise Rates",
+    "parentPath": "Administration/Setup/Utilities Configuration",
+    "display": "Meter Phase Wise Rates",
+    "legacyName": "Meter Phase Wise Rates",
+    "permissionKey": "Meter Phase Wise Rates",
+    "route": "Billing/MeterPhaseWiseRate",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Utilities Configuration/Meter Status",
+    "parentPath": "Administration/Setup/Utilities Configuration",
+    "display": "Meter Status",
+    "legacyName": "Meter Status",
+    "permissionKey": "Meter Status",
+    "route": "Billing/MeterStatus",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Utilities Configuration/Reading Officer",
+    "parentPath": "Administration/Setup/Utilities Configuration",
+    "display": "Reading Officer",
+    "legacyName": "Reading Officer",
+    "permissionKey": "Reading Officer",
+    "route": "Billing/ReadingOfficer",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Utilities Management/Meter Operations/Meter Installation",
+    "parentPath": "Utilities Management/Meter Operations",
+    "display": "Meter Installation",
+    "legacyName": "Meter Installation",
+    "permissionKey": "Meter Installation",
+    "route": "Billing/MeterInstallation",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Utilities Management/Meter Operations/Meter Reading",
+    "parentPath": "Utilities Management/Meter Operations",
+    "display": "Meter Reading",
+    "legacyName": "Meter Reading",
+    "permissionKey": "Meter Reading",
+    "route": "Billing/MeterReading",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Utilities Management/Utility Billing/Meter Bill Generation",
+    "parentPath": "Utilities Management/Utility Billing",
+    "display": "Meter Bill Generation",
+    "legacyName": "Meter Bill Generation",
+    "permissionKey": "Meter Bill Generation",
+    "route": "Billing/MeterBillGeneration",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Utilities Management/Utility Billing/Meter Bill Generation One Go",
+    "parentPath": "Utilities Management/Utility Billing",
+    "display": "Meter Bill Generation One Go",
+    "legacyName": "Meter Bill Generation One Go",
+    "permissionKey": "Meter Bill Generation One Go",
+    "route": "Billing/MeterBillGenerationOneGo",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Utilities Management/Utility Billing/Fixed Charges Bill Generation",
+    "parentPath": "Utilities Management/Utility Billing",
+    "display": "Fixed Charges Bill Generation",
+    "legacyName": "Fixed Charges Bill Generation",
+    "permissionKey": "Fixed Charges Bill Generation",
+    "route": "Billing/FixedChargeGeneration",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Utilities Management/Utility Billing/Individual Bill Generation",
+    "parentPath": "Utilities Management/Utility Billing",
+    "display": "Individual Bill Generation",
+    "legacyName": "Individual Bill Generation",
+    "permissionKey": "Individual Bill Generation",
+    "route": "Billing/IndividualBill",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Utilities Management/Utility Billing/Monthly Bill Generation",
+    "parentPath": "Utilities Management/Utility Billing",
+    "display": "Monthly Bill Generation",
+    "legacyName": "Monthly Bill Generation",
+    "permissionKey": "Monthly Bill Generation",
+    "route": "Billing/MonthlyBillGeneration",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Utilities Management/Utility Billing/Monthly Invoices Backlog",
+    "parentPath": "Utilities Management/Utility Billing",
+    "display": "Monthly Invoices Backlog",
+    "legacyName": "Monthly Invoices Backlog",
+    "permissionKey": "Monthly Invoices Backlog",
+    "route": "Billing/MonthlyBillGenerationBackLog",
+    "seq": 600
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Litigation Configurations/Case Category",
+    "parentPath": "Administration/Setup/Litigation Configurations",
+    "display": "Case Category",
+    "legacyName": "Case Category",
+    "permissionKey": "Case Category",
+    "route": "Litigation/CaseCategory",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Litigation Configurations/Case Type",
+    "parentPath": "Administration/Setup/Litigation Configurations",
+    "display": "Case Type",
+    "legacyName": "Case Type",
+    "permissionKey": "Case Type",
+    "route": "Litigation/CaseType",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Legal & Litigation Management/Lawyer Data",
+    "parentPath": "Property Business Operations/Legal & Litigation Management",
+    "display": "Lawyer Data",
+    "legacyName": "Lawyer Data",
+    "permissionKey": "Lawyer Data",
+    "route": "Litigation/LawyerData",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Legal & Litigation Management/Case Profile",
+    "parentPath": "Property Business Operations/Legal & Litigation Management",
+    "display": "Case Profile",
+    "legacyName": "Case Profile",
+    "permissionKey": "Case Profile",
+    "route": "Litigation/CaseProfile",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/System Configuration/System Structure/Forms Mapping",
+    "parentPath": "Administration/System Configuration/System Structure",
+    "display": "Forms Mapping",
+    "legacyName": "Permission Form",
+    "permissionKey": "Permission Form",
+    "route": "PermissionSetup/PermissionForm",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/System Configuration/System Structure/Modules Organization",
+    "parentPath": "Administration/System Configuration/System Structure",
+    "display": "Modules Organization",
+    "legacyName": "Approval UI Setup",
+    "permissionKey": "Approval UI Setup",
+    "route": "PermissionSetup/ApprovalUISetup",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Records & File Management/Record Room File Moving",
+    "parentPath": "Property Business Operations/Records & File Management",
+    "display": "Record Room File Moving",
+    "legacyName": "Record Room File Moving",
+    "permissionKey": "Record Room File Moving",
+    "route": "StoreRoomFileMoving/StoreRoomFileMoving",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Records & File Management/File Location",
+    "parentPath": "Property Business Operations/Records & File Management",
+    "display": "File Location",
+    "legacyName": "File Location",
+    "permissionKey": "File Location",
+    "route": "StoreRoomFileMoving/FileLocationAssignment",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Analytics Development/Reports Builder",
+    "parentPath": "Administration/Analytics Development",
+    "display": "Reports Builder",
+    "legacyName": "Dynamic Query",
+    "permissionKey": "Dynamic Report Builder",
+    "route": "DynamicQuery/Index",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Reports Library",
+    "parentPath": "Business Analytics",
+    "display": "Reports Library",
+    "legacyName": "Dynamic Report",
+    "permissionKey": "Dynamic Report Viewer",
+    "route": "DynamicQuery/DynamicReport",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Property Operation Reports/NDC Status",
+    "parentPath": "Business Analytics/Property Operation Reports",
+    "display": "NDC Status",
+    "legacyName": "NDC State Report",
+    "permissionKey": "NDC State Report",
+    "route": "Reports/NdcStateReport",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Property Operation Reports/Transfer Intake Register",
+    "parentPath": "Business Analytics/Property Operation Reports",
+    "display": "Transfer Intake Register",
+    "legacyName": "Transfer Set Receiving Report",
+    "permissionKey": "Transfer Set Receiving Report",
+    "route": "Reports/TransferSetReceivingReport",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Property Operation Reports/Tax Statement",
+    "parentPath": "Business Analytics/Property Operation Reports",
+    "display": "Tax Statement",
+    "legacyName": "Tax Report",
+    "permissionKey": "Tax Report",
+    "route": "Reports/TaxReport",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Property Operation Reports/Transfer Register",
+    "parentPath": "Business Analytics/Property Operation Reports",
+    "display": "Transfer Register",
+    "legacyName": "Transfer Report",
+    "permissionKey": "Transfer Report",
+    "route": "Reports/TransferReport",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Property Operation Reports/Transfer Revenue Report",
+    "parentPath": "Business Analytics/Property Operation Reports",
+    "display": "Transfer Revenue Report",
+    "legacyName": "Transfer Revenue Report",
+    "permissionKey": "Transfer Revenue Report",
+    "route": "Reports/TransferRevenueReport",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/File & Record Reports/Record Room Files Report",
+    "parentPath": "Business Analytics/File & Record Reports",
+    "display": "Record Room Files Report",
+    "legacyName": "Record Room Files Report",
+    "permissionKey": "Record Room Files Report",
+    "route": "Reports/RecordRoomReport",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/File & Record Reports/File Movement Report",
+    "parentPath": "Business Analytics/File & Record Reports",
+    "display": "File Movement Report",
+    "legacyName": "Files IN/OUT Report",
+    "permissionKey": "Files IN/OUT Report",
+    "route": "Reports/FileInOutReport",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/File & Record Reports/Cancellation & Restoration Report",
+    "parentPath": "Business Analytics/File & Record Reports",
+    "display": "Cancellation & Restoration Report",
+    "legacyName": "Cancel/ReStoration Report",
+    "permissionKey": "Cancel/ReStoration Report",
+    "route": "Reports/CancelReStrotionReport",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/File & Record Reports/Property Allocation Report",
+    "parentPath": "Business Analytics/File & Record Reports",
+    "display": "Property Allocation Report",
+    "legacyName": "Allocation Report",
+    "permissionKey": "Allocation Report",
+    "route": "Reports/AllocationReport",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/File & Record Reports/Caution Report",
+    "parentPath": "Business Analytics/File & Record Reports",
+    "display": "Caution Report",
+    "legacyName": "Caution Report",
+    "permissionKey": "Caution Report",
+    "route": "Reports/CautionReport",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Stakeholder Analysis Reports/Member Report",
+    "parentPath": "Business Analytics/Stakeholder Analysis Reports",
+    "display": "Member Report",
+    "legacyName": "Member Report",
+    "permissionKey": "Member Report",
+    "route": "Reports/MemberReport",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Business Analytics/Stakeholder Analysis Reports/Dealer Report",
+    "parentPath": "Business Analytics/Stakeholder Analysis Reports",
+    "display": "Dealer Report",
+    "legacyName": "Dealer Report",
+    "permissionKey": "Dealer Report",
+    "route": "Reports/DealerReport",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Biometric Configuration/Bio-Meteric",
+    "parentPath": "Administration/Setup/Biometric Configuration",
+    "display": "Bio-Meteric",
+    "legacyName": "Finger Print",
+    "permissionKey": "Finger Print",
+    "route": "Home/FingurePrint",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Floor Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Floor Definition",
+    "legacyName": "Floor Definition",
+    "permissionKey": "Floor Definition",
+    "route": "Home/Floor",
+    "seq": 1100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Features Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Features Definition",
+    "legacyName": "Features Definition",
+    "permissionKey": "Features Definition",
+    "route": "Home/FeaturesDef",
+    "seq": 1200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Finishes Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Finishes Definition",
+    "legacyName": "Finishes Definition",
+    "permissionKey": "Finishes Definition",
+    "route": "Home/Finishes",
+    "seq": 1300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Construction Stage Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Construction Stage Definition",
+    "legacyName": "Construction Stage Definition",
+    "permissionKey": "Construction Stage Definition",
+    "route": "Home/ConstructionStage",
+    "seq": 1400
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Sector Definition",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Sector Definition",
+    "legacyName": "Sector Definition",
+    "permissionKey": "Sector Definition",
+    "route": "Home/Sector",
+    "seq": 1500
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Property Status Setup",
+    "parentPath": "Administration/Setup/Property Setup",
+    "display": "Property Status Setup",
+    "legacyName": "Stock Creation Setup",
+    "permissionKey": "Stock Creation Setup",
+    "route": "Home/StockCreationSetup",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Property Cards/Property Master",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Property Cards",
+    "display": "Property Master",
+    "legacyName": "Property Setup",
+    "permissionKey": "Property Setup",
+    "route": "Home/PropertySetup",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Stakeholder Management/Social Status Definition",
+    "parentPath": "Administration/Setup/Stakeholder Management",
+    "display": "Social Status Definition",
+    "legacyName": "Social Status Definition",
+    "permissionKey": "Social Status Definition",
+    "route": "Home/SocialStatus",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Lead Generation Form",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services",
+    "display": "Lead Generation Form",
+    "legacyName": "Lead Generation Form",
+    "permissionKey": "Lead Generation Form",
+    "route": "Sales/LeadGeneration",
+    "seq": 1200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Stakeholder Management/Dealer Category",
+    "parentPath": "Administration/Setup/Stakeholder Management",
+    "display": "Dealer Category",
+    "legacyName": "Dealer Category",
+    "permissionKey": "Dealer Category",
+    "route": "Sales/DealerCategory",
+    "seq": 500
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Litigation Configurations/Forum",
+    "parentPath": "Administration/Setup/Litigation Configurations",
+    "display": "Forum",
+    "legacyName": "Forum",
+    "permissionKey": "Forum",
+    "route": "Litigation/ForumSetup",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Violation Configurations/Violation Group",
+    "parentPath": "Administration/Setup/Violation Configurations",
+    "display": "Violation Group",
+    "legacyName": "Violation Group",
+    "permissionKey": "Violation Group",
+    "route": "Globalsetup/ViolationGroup",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Violation Configurations/Violation Type",
+    "parentPath": "Administration/Setup/Violation Configurations",
+    "display": "Violation Type",
+    "legacyName": "Violation Type",
+    "permissionKey": "Violation Type",
+    "route": "Globalsetup/ViolationType",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Implementation Center/ERP Integration/Operations",
+    "parentPath": "Administration/Implementation Center/ERP Integration",
+    "display": "Operations",
+    "legacyName": "Operations",
+    "permissionKey": "Operations",
+    "route": "SAPDataBaseIntegration/SAPOperations",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Implementation Center/ERP Integration/Billing",
+    "parentPath": "Administration/Implementation Center/ERP Integration",
+    "display": "Billing",
+    "legacyName": "Billing",
+    "permissionKey": "Billing",
+    "route": "SAPDataBaseIntegration/SAPBilling",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Implementation Center/ERP Integration/GL Determination",
+    "parentPath": "Administration/Implementation Center/ERP Integration",
+    "display": "GL Determination",
+    "legacyName": "GL Determination",
+    "permissionKey": "GL Determination",
+    "route": "SAPDataBaseIntegration/GLDetermination",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Implementation Center/Credentials & API Configuration/Credentials Config",
+    "parentPath": "Administration/Implementation Center/Credentials & API Configuration",
+    "display": "Credentials Config",
+    "legacyName": "Credentials Config",
+    "permissionKey": "Credentials Config",
+    "route": "CredentialConfig/index",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Implementation Center/Data Migration Management/Data Migration Assistant",
+    "parentPath": "Administration/Implementation Center/Data Migration Management",
+    "display": "Data Migration Assistant",
+    "legacyName": "Table Uploader",
+    "permissionKey": "Table Uploader",
+    "route": "Uploader/index",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Transfer Planning & Scheduling/Week Schedule Regular Transfer",
+    "parentPath": "Administration/Setup/Property Setup/Transfer Planning & Scheduling",
+    "display": "Week Schedule Regular Transfer",
+    "legacyName": "Week Schedule Regular Transfer",
+    "permissionKey": "Week Schedule Regular Transfer",
+    "route": "Calendar/WeekSchedule",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Transfer Planning & Scheduling/Week Schedule Executive Transfer",
+    "parentPath": "Administration/Setup/Property Setup/Transfer Planning & Scheduling",
+    "display": "Week Schedule Executive Transfer",
+    "legacyName": "Week Schedule Executive Transfer",
+    "permissionKey": "Week Schedule Executive Transfer",
+    "route": "Calendar/WeekScheduleExective",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Organizational Governance/Authorization/Role Permission",
+    "parentPath": "Administration/Organizational Governance/Authorization",
+    "display": "Role Permission",
+    "legacyName": "Role Permisison",
+    "permissionKey": "Role Permisison",
+    "route": "Approval/Permission",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Organizational Governance/Authorization/User Permission",
+    "parentPath": "Administration/Organizational Governance/Authorization",
+    "display": "User Permission",
+    "legacyName": "User Permisison",
+    "permissionKey": "User Permisison",
+    "route": "UserPermissionMapping/index",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Organizational Governance/Approval Matrix/Approval Tree",
+    "parentPath": "Administration/Organizational Governance/Approval Matrix",
+    "display": "Approval Tree",
+    "legacyName": "Approval Tree",
+    "permissionKey": "Approval Tree",
+    "route": "Approval/index",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Organizational Governance/Approval Matrix/Approval Setup",
+    "parentPath": "Administration/Organizational Governance/Approval Matrix",
+    "display": "Approval Setup",
+    "legacyName": "Approval Setup",
+    "permissionKey": "Approval Setup",
+    "route": "Approval/ApprovalSetup",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Organizational Governance/Users/Departments",
+    "parentPath": "Administration/Organizational Governance/Users",
+    "display": "Departments",
+    "legacyName": "Departments",
+    "permissionKey": "Departments",
+    "route": "PMSUser/Department",
+    "seq": 100
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Organizational Governance/Users/Users",
+    "parentPath": "Administration/Organizational Governance/Users",
+    "display": "Users",
+    "legacyName": "Users",
+    "permissionKey": "Users",
+    "route": "PMSUser/PMSUser",
+    "seq": 200
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Stakeholder Management/Know Your Customer",
+    "parentPath": "Property Business Operations/Stakeholder Management",
+    "display": "Know Your Customer",
+    "legacyName": "Know Your Customer",
+    "permissionKey": "Know Your Customer",
+    "route": "Sales/KYCForm",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Commercial Deal Management/Deal Merger",
+    "parentPath": "Property Business Operations/Commercial Deal Management",
+    "display": "Deal Merger",
+    "legacyName": "Deal Merger",
+    "permissionKey": "Deal Merger",
+    "route": "Sales/DealMerger",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Commercial Deal Management/Dealer Reservation",
+    "parentPath": "Property Business Operations/Commercial Deal Management",
+    "display": "Dealer Reservation",
+    "legacyName": "Dealer Reservation",
+    "permissionKey": "Dealer Reservation",
+    "route": "Sales/DealerReservation",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Property Business Operations/Property Lifecycle & Services/Booking & Allocation/Booking Backlog",
+    "parentPath": "Property Business Operations/Property Lifecycle & Services/Booking & Allocation",
+    "display": "Booking Backlog",
+    "legacyName": "Booking Backlog",
+    "permissionKey": "Booking Backlog",
+    "route": "Sales/BookingBacklog",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Map Design",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Map Design",
+    "legacyName": "Map Design",
+    "permissionKey": "Map Design",
+    "route": "Home/MapDesign",
+    "seq": 1600
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Re-Design Request",
+    "parentPath": "Construction & Development",
+    "display": "Re-Design Request",
+    "legacyName": "Re-Design",
+    "permissionKey": "Re-Design",
+    "route": "Home/ReDesign",
+    "seq": 900
+  },
+  {
+    "type": "Form",
+    "path": "Financial Operations/Purchase Request",
+    "parentPath": "Financial Operations",
+    "display": "Purchase Request",
+    "legacyName": "Purchase Request",
+    "permissionKey": "Purchase Request",
+    "route": "DemandNote/PurchaseRequest",
+    "seq": 300
+  },
+  {
+    "type": "Form",
+    "path": "Construction & Development/Demarcation Charges",
+    "parentPath": "Construction & Development",
+    "display": "Demarcation Charges",
+    "legacyName": "Demarcation Charges",
+    "permissionKey": "Demarcation Charges",
+    "route": "Home/DemarcationCharges",
+    "seq": 1000
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Finance Setup/Form Wise Charges",
+    "parentPath": "Administration/Setup/Finance Setup",
+    "display": "Form Wise Charges",
+    "legacyName": "Charges Group Form",
+    "permissionKey": "Charges Group Form",
+    "route": "GlobalSetup/ChargesGroupForm",
+    "seq": 400
+  },
+  {
+    "type": "Form",
+    "path": "Administration/Setup/Property Setup/Urban Planning & Development/Unit of Measure",
+    "parentPath": "Administration/Setup/Property Setup/Urban Planning & Development",
+    "display": "Unit of Measure",
+    "legacyName": "Unit of Measure",
+    "permissionKey": "Unit of Measure",
+    "route": "Home/Unitofmeasure",
+    "seq": 1700
+  }
+]

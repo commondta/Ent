@@ -1,0 +1,209 @@
+﻿<style>
+    .srchbtn:hover {
+        background: #005A7F;
+        color: white;
+    }
+</style>
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active">Credential Config</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs">
+                        <div data-action="remove-navbar" class="remove-navbar-button menu"><i class="fa fa-arrows-h"></i></div>
+                        <div data-action="remove-header" class="remove-header-button menu"><i class="fa fa-arrows-v"></i></div>
+                        <div data-action="fullscreen" class="fullscreen-button menu"><i class="glyphicon glyphicon-fullscreen"></i></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-gear" viewBox="0 0 16 16"><path d="M8 4.754a3.246 3.246 0 1 0 0 6.492 3.246 3.246 0 0 0 0-6.492M5.754 8a2.246 2.246 0 1 1 4.492 0 2.246 2.246 0 0 1-4.492 0"/><path d="M9.796 1.343c-.527-1.79-3.065-1.79-3.592 0l-.094.319a.873.873 0 0 1-1.255.52l-.292-.16c-1.64-.892-3.433.902-2.54 2.541l.159.292a.873.873 0 0 1-.52 1.255l-.319.094c-1.79.527-1.79 3.065 0 3.592l.319.094a.873.873 0 0 1 .52 1.255l-.16.292c-.892 1.64.901 3.434 2.541 2.54l.292-.159a.873.873 0 0 1 1.255.52l.094.319c.527 1.79 3.065 1.79 3.592 0l.094-.319a.873.873 0 0 1 1.255-.52l.292.16c1.64.893 3.434-.902 2.54-2.541l-.159-.292a.873.873 0 0 1 .52-1.255l.319-.094c1.79-.527 1.79-3.065 0-3.592l-.319-.094a.873.873 0 0 1-.52-1.255l.16-.292c.893-1.64-.902-3.433-2.541-2.54l-.292.159a.873.873 0 0 1-1.255-.52zm-2.633.283c.246-.835 1.428-.835 1.674 0l.094.319a1.873 1.873 0 0 0 2.693 1.115l.291-.16c.764-.415 1.6.42 1.184 1.185l-.159.292a1.873 1.873 0 0 0 1.116 2.692l.318.094c.835.246.835 1.428 0 1.674l-.319.094a1.873 1.873 0 0 0-1.115 2.693l.16.291c.415.764-.42 1.6-1.185 1.184l-.291-.159a1.873 1.873 0 0 0-2.693 1.116l-.094.318c-.246.835-1.428.835-1.674 0l-.094-.319a1.873 1.873 0 0 0-2.692-1.115l-.292.16c-.764.415-1.6-.42-1.184-1.185l.159-.291A1.873 1.873 0 0 0 1.945 8.93l-.319-.094c-.835-.246-.835-1.428 0-1.674l.319-.094A1.873 1.873 0 0 0 3.06 4.377l-.16-.292c-.415-.764.42-1.6 1.185-1.184l.292.159a1.873 1.873 0 0 0 2.692-1.115z"/></svg></span>
+                    <h1>CREDENTIAL CONFIGURATION</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form id="CredentialConfigForm" class="custom-validation" role="form" novalidate>
+                            <!-- SMTP Section -->
+                            <h4><strong>SMTP Configuration</strong></h4>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>SMTP Host</label>
+                                    <input type="text" class="form-control" id="SmtpHost" required />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>SMTP Port</label>
+                                    <input type="number" class="form-control" id="SmtpPort" required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>SMTP Username</label>
+                                    <input type="text" class="form-control" id="SmtpUsername" required />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>SMTP Password</label>
+                                    <input type="password" class="form-control" id="SmtpPassword" required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Encryption Type</label>
+                                    <input type="text" class="form-control" id="SmtpEncryptionType" required />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>From Email</label>
+                                    <input type="email" class="form-control" id="FromEmail" required />
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <!-- Telecard Section -->
+                            <h4><strong>Telecard SMS Configuration</strong></h4>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>API Username</label>
+                                    <input type="text" class="form-control" id="TelecardApiUsername" required />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>API Password</label>
+                                    <input type="password" class="form-control" id="TelecardPassword" required />
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Sender Mask</label>
+                                    <input type="text" class="form-control" id="SenderMask" required />
+                                </div>
+                            </div>
+
+                            <br />
+
+                            <!-- Dealer API Section -->
+                            <h4><strong>Dealer API Credentials</strong></h4>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>API Username</label>
+                                    <input type="text" class="form-control" id="DealerApiUsername" required />
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>API Password</label>
+                                    <input type="password" class="form-control" id="DealerApiPassword" required />
+                                </div>
+                            </div>
+
+                            <br />
+                            <div class="col-12 text-end">
+                                <button type="button" class="btn dha_theme_btn" onclick="PostCredentialConfig()">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span> Save
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Hidden Fields -->
+<input type="number" id="Id" class="hide" value="0" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            GetCredentialConfig();
+        });
+
+        function GetCredentialConfig() {
+            $.ajax({
+                type: 'GET',
+                url: '/api/CredentialConfig/Get',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 100) {
+                        let data = response.data;
+
+                        $('#Id').val(data.id);
+                        $('#SmtpHost').val(data.smtpHost);
+                        $('#SmtpPort').val(data.smtpPort);
+                        $('#SmtpUsername').val(data.smtpUsername);
+                        $('#SmtpPassword').val(data.smtpPassword);
+                        $('#SmtpEncryptionType').val(data.smtpEncryptionType);
+                        $('#FromEmail').val(data.fromEmail);
+
+                        $('#TelecardApiUsername').val(data.telecardApiUsername);
+                        $('#TelecardPassword').val(data.telecardPassword);
+                        $('#SenderMask').val(data.senderMask);
+
+                        $('#DealerApiUsername').val(data.dealerApiUsername);
+                        $('#DealerApiPassword').val(data.dealerApiPassword);
+                    } else {
+                        Swal.fire("Error", response.message, "error");
+                    }
+                }
+            });
+        }
+
+        function PostCredentialConfig() {
+            const form = $('#CredentialConfigForm')[0];
+
+            if (!form.checkValidity()) {
+                form.reportValidity(); // show built-in browser validation
+                return;
+            }
+
+            let config = {
+                Id: $('#Id').val(),
+                SmtpHost: $('#SmtpHost').val(),
+                SmtpPort: $('#SmtpPort').val(),
+                SmtpUsername: $('#SmtpUsername').val(),
+                SmtpPassword: $('#SmtpPassword').val(),
+                SmtpEncryptionType: $('#SmtpEncryptionType').val(),
+                FromEmail: $('#FromEmail').val(),
+
+                TelecardApiUsername: $('#TelecardApiUsername').val(),
+                TelecardPassword: $('#TelecardPassword').val(),
+                SenderMask: $('#SenderMask').val(),
+
+                DealerApiUsername: $('#DealerApiUsername').val(),
+                DealerApiPassword: $('#DealerApiPassword').val(),
+
+                ModifiedBy: $('#User_Id').val(),
+                LastModifiedUserName: $('#User_Name').val()
+            };
+
+            $.ajax({
+                type: 'POST',
+                url: '/api/CredentialConfig/Save',
+                contentType: 'application/json',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: JSON.stringify(config),
+                success: function (response) {
+                    if (response.code === 100) {
+                        Swal.fire("Success", response.message, "success").then(() => location.reload());
+                    } else {
+                        Swal.fire("Error", response.message, "error");
+                    }
+                }
+            });
+        }
+    </script>
+}

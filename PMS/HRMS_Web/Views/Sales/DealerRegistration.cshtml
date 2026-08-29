@@ -1,0 +1,383 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Dealer Registration</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-people" viewBox="0 0 16 16"><path d="M15 14s1 0 1-1-1-4-5-4-5 3-5 4 1 1 1 1zm-7.978-1L7 12.996c.001-.264.167-1.03.76-1.72C8.312 10.629 9.282 10 11 10c1.717 0 2.687.63 3.24 1.276.593.69.758 1.457.76 1.72l-.008.002-.014.002zM11 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4m3-2a3 3 0 1 1-6 0 3 3 0 0 1 6 0M6.936 9.28a6 6 0 0 0-1.23-.247A7 7 0 0 0 5 9c-4 0-5 3-5 4q0 1 1 1h4.216A2.24 2.24 0 0 1 5 13c0-1.01.377-2.042 1.09-2.904.243-.294.526-.569.846-.816M4.92 10A5.5 5.5 0 0 0 4 13H1c0-.26.164-1.03.76-1.724.545-.636 1.492-1.256 3.16-1.275ZM1.5 5.5a3 3 0 1 1 6 0 3 3 0 0 1-6 0m3-2a2 2 0 1 0 0 4 2 2 0 0 0 0-4"/></svg></span>
+                    <h1>DEALER REGISTRATION </h1>
+                        </div>
+                          <div class="col-sm-6" style="text-align:center;">
+                            <p><img id="PreviewUrl" width="150px; height:120px" src="/img/placeholder-photo.svg" /></p>
+
+                              <button class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);">
+                                   Take Picture
+                                </button>
+                        </div>
+                        
+                    </div>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="DealerRegistration">
+                          
+                               
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Serial No.</label>
+                                    <div>                                     
+                                       <input type="text" class="form-control"
+                                             placeholder=" " id="SerialNo"/>                                     
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Renewal Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder=" " id="RenewalDate" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>CNIC</label>
+                                    <div>                                      
+                                        <input type="text" class="form-control"
+                                               placeholder="" id="cnic" />
+                                      
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Registration Fee</label>
+                                    <div>
+                                         <select class="js-example-basic-single" name="RegistrationFee">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="1"> Paid </option>
+                                            <option value="2"> Unpaid </option>
+                                           
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Dealer Category</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="DealerCategory">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="1"> Gold</option>
+                                            <option value="2"> Silver </option>
+                                            <option value="3"> Platinum </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Document Status</label>
+                                    <div>
+                                         <select class="js-example-basic-single" name="DocStatus">
+                                            <option value="-1"> Select Option </option>
+                                            <option value="1"> Active </option>
+                                            <option value="2"> Draft </option>
+                                          
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Nationality</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="nationality">
+                                            <option value="-1"> Select Option </option>
+                                            @*   <option value="1"> Completed </option>
+                                            <option value="2"> Not Started Yet </option>
+                                            <option value="3"> Under Construction </option>*@
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Country</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="country" />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>City</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="city" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Estate Name</label>
+                                    <div>
+                                       
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="EstateName"/>
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Estate Address</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="EstateAddress" />
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Principal Estate Owner</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PEOwner" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Residential Address (Principal Estate Owner)</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="ResAddress" />
+                                    </div>
+                                </div>
+                            </div>
+                           
+                            <br>
+                            <br>
+
+
+                            <ul class="nav nav-pills widget">
+                                <li class="active"><a href="#EstateDetail" data-toggle="tab">Estate Details</a></li>
+                                <li><a href="#Attachments" data-toggle="tab">Attachments</a></li>
+                                <li><a href="#LoginDetails" data-toggle="tab">Login Details</a></li>
+                            </ul>
+                            <br />
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane active" id="EstateDetail">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddRow()">Add New</a>
+                                                <input type="text" id="rownumber" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="EstateDetail" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Designation</th>
+                                                            <th class="text-white">Name</th>
+                                                            <th class="text-white">CNIC</th>
+                                                            <th class="text-white">Mobile No.</th>
+                                                            <th class="text-white">Telephone No.</th>
+                                                            <th class="text-white">Email Address</th>
+                                                            <th class="text-white">Address</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white" style="width:170px;">Picture</th>
+                                                            <th class="text-white">Status</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="EstateDetailtbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane" id="Attachments">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddAttachmentRow()">Add New</a>
+                                                <input type="text" id="rownumber1" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="table-responsive">
+                                                <table id="Attachments" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Attachment Name</th>
+                                                            <th class="text-white">Attachment</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">View Attachment</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="Attachmentstbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="tab-pane" id="LoginDetails">
+                                    <div class="row">
+                                        <div class="col-sm-6">
+                                            <label>User Name</label>
+                                            <div>
+                                                <input type="text" class="form-control"
+                                                       placeholder=" " id="UserName" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <label>Password</label>
+                                            <div>
+                                                <input type="text" class="form-control"
+                                                       placeholder=" " id="Password" />
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                         
+                            </div>
+                        </form>
+                        <br>
+
+                        <div class="col-12" style="float: right;">
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn vd_btn vd_black" href="javascript:void(0);">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+
+
+@section Scripts {
+
+    <script>
+        function AddRow() {
+
+
+            var rownumber = parseInt($("#rownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumber").val(rownumber);
+
+
+            var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <input  class="form-control Designation" /></td>' +
+                '<td> <input  class="form-control Name" /></td>' +
+                '<td> <input  class="form-control CNIC" /></td>' +
+                '<td> <input  class="form-control MobileNo." /></td>' +
+                '<td> <input  class="form-control TelephoneNo." /></td>' +
+                '<td> <input  class="form-control EmailAddress" /></td>' +
+                '<td> <textarea  class="form-control Address" ></textarea></td>' +
+                '<td> <textarea  class="form-control Remarks" ></textarea></td>' +
+                '<td> <input type="file" class="form-control Picture" /></td>' +
+                '<td> <input type= "checkbox" class="form-control Status" /></td>' +
+
+                 '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+      
+                '</tr>';
+
+
+            $("#EstateDetailtbody").append(row);
+
+
+        }
+
+        function DeleteItemRow(id) {
+            $('#' + id).remove();
+        }
+    </script>
+
+    <script>
+        function AddAttachmentRow() {
+
+
+            var rownumber1 = parseInt($("#rownumber1").val());
+            var LineId = rownumber1;
+            rownumber1 = rownumber1 + 1;
+            $("#rownumber1").val(rownumber1);
+
+
+            var row = '<tr id="' + rownumber1 + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber1 + '"/></td>' +
+                '<td> <input  class="form-control AttachmentName" /></td>' +
+                '<td> <input type="file"  class="form-control Attachment" /></td>' +
+                '<td> <textarea  class="form-control Remarks" ></textarea></td>' +
+                '<td class="viewAttachment" style="padding-top:10px"><a><img style="width:100px" src="/img/placeholder-photo.svg" class="clickme" ></a></img></td>' +
+
+
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteAttachmentRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+
+                '</tr>';
+
+
+            $("#Attachmentstbody").append(row);
+
+
+        }
+
+        function DeleteAttachmentRow(id) {
+            $('#' + id).remove();
+        }
+    </script>
+
+ }

@@ -1,0 +1,284 @@
+﻿<style>
+
+    .boldtext {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .f14 {
+        font-size: 20px;
+    }
+
+    .bg-custom {
+        background: lightgrey !important;
+        color: black !important;
+    }
+</style>
+
+<div class="container mt-5">
+    <div class="row mt-5">
+        <div class="col-12 text-center">
+            <h2 style="font-weight:800; font-size:22px">
+                N-Stack Developers
+            </h2>
+            <h2 style="font-weight:800;font-size:22px">
+                N-Stack Housing Scheme
+            </h2>
+            <h3 style="font-weight:800;font-size:21px">
+                Plot <span id="PDocType"></span> Document
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <div class="row mt-5">
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col-6">
+                            <label class="boldtext">Doc Num</label>
+                        </div>
+
+                        <div class="col-6 text-center" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PDocNum"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <label class="boldtext">Doc Date</label>
+                        </div>
+
+                        <div class="col-6 text-center" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PDocDate"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-4">
+                    <div class="row">
+                        <div class="col-6 text-center">
+                            <label class="boldtext">Ref No</label>
+                        </div>
+
+                        <div class="col-6 text-center" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PRefNo">T-2156</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-3">
+                    <div class="row">
+                        <div class="col-6 ">
+                            <label class="boldtext">Reg No</label>
+                        </div>
+
+                        <div class="col-6 text-center" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PRegNo"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="row mt-3 mb-3">
+                <div class="col-4 bg-custom" style="background:lightgrey !important;color:black !important;">
+                    <div>
+                        <span class="boldtext">   Member Information</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="border: 1px solid;padding-bottom:10px;">
+
+                <div class="col-12">
+                    <div class="row">
+                        <div class="col-3">
+                            <label class="boldtext">Member Name</label>
+                        </div>
+
+                        <div class="col-8 text-center" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PMemberName">xxxxxx</span>
+                        </div>
+                        <div class="col-3">
+                            <label class="boldtext">Fath/Husb Name</label>
+                        </div>
+
+                        <div class="col-8 text-center" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PFatherName"> xxxxxx</span>
+                        </div>
+
+                        <div class="col-3">
+                            <label class="boldtext">Member Cnic</label>
+                        </div>
+
+                        <div class="col-8 text-center" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PCNIC">xxxxxxxxxxxxxx</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-4" style="background:lightgrey !important;color:black !important">
+                    <div>
+                        <span class="boldtext">   Package Detail</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-3">
+                <div class="col-12">
+                    <table class="table table-bordered" style="border: 1.5px solid">
+                        <thead style="padding:2px">
+                            <tr>
+                                <th class="text-center f14">
+                                    Block
+                                </th>
+
+                                <th class="text-center f14">
+                                    Plot No
+                                </th>
+
+                                <th class="text-center f14">
+                                    Plot Size
+                                </th>
+
+                                <th class="text-right f14">
+                                    Booking Price
+                                </th>
+
+                                <th class="text-right f14">
+                                    Recieved Amount
+                                </th>
+
+                                <th class="text-center f14">
+                                    Balance Amount
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody id="prindtbody">
+                            <tr style="border: 1.5px solid">
+                                <td class="text-center f14"><span id="pBlock"></span></td>
+                                <td class="text-center f14"><span id="pPlotNo"></span></td>
+                                <td class="text-center f14"><span id="pPlotSize"></span></td>
+                                <td class="text-right f14"><span id="pBookingPrice"></span></td>
+                                <td class="text-right f14"><span id="pRecievedAmount"></span></td>
+                                <td class="text-center f14"><span id="pBalanceAmount"></span></td>
+                            </tr>
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+
+            <div class="row mt-5 pt-5">
+
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-6">
+                            <label id="label1stamount" class="boldtext">Market Value</label>
+                        </div>
+
+                        <div class="col-6 text-right" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PmarketValue">xxxx</span>
+                        </div>
+                        <div class="col-6">
+                            <label id="label2stamount" class="boldtext">Purchase Value / Refund Value</label>
+                        </div>
+
+                        <div class="col-6 text-right" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PpurchaseRefundValue"> xxx</span>
+                        </div>
+
+                        <div class="col-6">
+                            <label id="label3rdamount" class="boldtext">Diff Refund Amount</label>
+                        </div>
+
+                        <div class="col-6 text-right" style="border-bottom:1px solid">
+                            <span class="boldtext" id="PnetProfitLoss">xxxx</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5 mb-3">
+                <div class="col-4 bg-custom" style="background:lightgrey !important;color:black !important;">
+                    <div>
+                        <span class="boldtext ">    Remarks</span>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5 pt-5 pb-5" style="border: 1px solid;min-height: 50px;">
+                <span id="PRemarks"></span>
+
+            </div>
+
+
+            <div class="row mt-5 pt-5">
+                <div class="col-7">
+                    <div class="row" style="margin-top:100px">
+                        <div class="col-10">
+                            <div class="row">
+                                <div class="col-5">
+                                    <label class=" " style="font-size:18px ;font-weight: 500">Prepared By</label>
+                                </div>
+
+                                <div class="col-7 text-center mt-5" style="border-top: 1px solid #000;">
+                                    <p class=" " style="font-size:18px ;font-weight: 500"> Xyz Person<br>Sr. Manager S&V</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-5">
+                    <div class="row">
+                        <div class="col-4">
+                            <label class=" " style="font-size:18px ;font-weight: 500">Committe Members</label>
+                        </div>
+                        <div class="col-8" style="border-bottom: 1px solid #000;">
+                            <label class="boldtext">1. </label>
+                        </div>
+                        <div class="col-4">
+                        </div>
+                        <div class="col-8 text-center ">
+                            <p class=" " style="font-size:18px ;font-weight: 500 "> Xyz Person<br>DY GM Sales and Marketing</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mt-5 ">
+                        </div>
+                        <div class="col-8" style="border-bottom: 1px solid #000;">
+                            <label class="boldtext">2. </label>
+                        </div>
+                        <div class="col-4 mt-5 ">
+                        </div>
+                        <div class="col-8 text-center">
+                            <p class=" " style="font-size:18px ;font-weight: 500"> Xyz Person<br>PS Chairman</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-4 mt-5 ">
+                        </div>
+                        <div class="col-8" style="border-bottom: 1px solid #000;">
+                            <label class="boldtext">3. </label>
+                        </div>
+                        <div class="col-4 mt-5 ">
+                        </div>
+                        <div class="col-8 text-center">
+                            <p class=" mb-5 " style="font-size:18px ;font-weight: 500"> Xyz Person<br>GM OPS N-Stack</p>
+                        </div>
+
+                        <div class="col-4 mt-2">
+                            <label class=" " style="font-size:18px ;font-weight: 500">Approved By</label>
+                        </div>
+
+                        <div class="col-8 text-center mt-4" style="border-top: 1px solid #000;">
+                            <p class=" " style="font-size:18px ;font-weight: 500"> Xyz Person<br>MD N-Stack Developers</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>

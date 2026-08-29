@@ -1,0 +1,388 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Property List Definition</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/></svg></span>
+                    <h1>PROPERTY LIST DEFINITION</h1>                   
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+@*
+                            <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>
+*@
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+
+                        <div >
+                            <div class="">
+                                <table id="proplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Phase</th>
+                                            <th class="text-white">Real Estate Type</th>
+                                            <th class="text-white">Project</th>
+                                            <th class="text-white">Block</th>
+                                            <th class="text-white">Category</th>
+                                            <th class="text-white">Nature</th>
+                                    
+
+                                            <th class="text-white">Status</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+
+
+
+<div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="myModalLabel">View Property</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <form class="form-horizontal">
+
+                    <div class="container">
+                        <div class="row">
+                            
+                            <div class="col-sm-6">
+                                <label>Reference #</label>
+                                <div>
+                                    <input class="form-control" id="RegistrationNo" disabled/>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Property #</label>
+                                <div>
+                                    <input class="form-control" id="PropertyNo"  disabled />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Real Estate Type</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="realstate" id="RealStateType" disabled>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Project</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Project" id="Project" disabled>
+                                    
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <label>Phase</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Phase" id="Phase" disabled>
+                                        <option value="-1"> Select Option </option>                                   
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Block</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Block" id="Block" disabled>
+                                        <option value="-1"> Select Option </option>
+                                        @*   <option value="1"> Draft  </option>
+                                        <option value="2"> Approved </option>*@
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Category</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Category" id="Category" disabled>
+                                        <option value="-1"> Select Option </option>
+                                        </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Type</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Type" id="Type" disabled>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Nature</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Nature" id="Nature" disabled>
+                                        <option value="-1"> Select Option </option>                                     
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Finishing</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Finishing" id="Finishing" disabled>
+                                        <option value="-1"> Select Option </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>User</label>
+                                <div>
+                                    <input type="text" class="form-control" disabled
+                                           placeholder=" " id="User" />
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <label>Floor</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Floor" id="Floor" disabled>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-12">
+                                <div class="row">
+
+                                    <div class="col-sm-6">
+                                        <label>Actual Size</label>
+                                        <div>
+                                            <input type="text" class="form-control" placeholder=" " id="ActualSize" disabled/>
+                                        </div>
+                                    </div>
+                                    
+                                <div class="col-sm-6">
+                                <label>Status</label>
+                                <div>
+                                    <select class="js-example-basic-single" name="Status" id="Status" disabled>
+                                        <option value="-1"> Select Option </option>
+                                        <option value="Draft"> Draft  </option>
+                                        <option value="Approved"> Approved </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+
+                </form>
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                @*<button type="button" onclick="SaveProperty()" class="btn btn-primary btn-theme">Save</button>*@
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
+
+<div class="modal" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                <a  class="close" data-dismiss="modal">&times;</a>
+                
+            </div>
+            <div class="modal-body">
+               <p>Are You sure you want to permanently delete the Property Definition?</p>
+               <input class="hide" id="DeleteID"/>
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                <button onclick="DeleteBlock()" type="button" class="btn btn-primary ">Yes</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+@section Scripts {
+    <script src="~/js/viewprperty.js"></script>
+<script type="text/javascript">
+                   $(document).ready(function () {
+                       "use strict";
+            GetAllPropertyLists()
+
+            GetAllBlocks();
+            GetAllSizes();
+            GetAllCategories();
+            GetAllNatures();
+            GetAllPhases();
+            GetAllFinishing();
+            GetAllRealEstate();
+            GetAllProjects();
+    
+            GetAllFloor();
+            GetAllTypes();
+
+                   });
+
+
+
+        function GetAllPropertyLists() {
+         
+        $.ajax({
+            type: 'GET',
+            url: `/api/Property/GetAllPropertyLists`,
+            dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+            async: false,
+            contentType: 'application/json',
+            success: function (response) {
+
+                if (response.code === 0) {
+                     
+                     $("#Propertytbody").empty();
+                    var relist = response.data;
+                    if (relist != null && relist.length > 0) {
+                        var sr = 1;
+                        for (let list of relist) {
+                            var row = ' <tr> ' +
+                                ' <td>' + sr + '</td> ' +
+                                ' <td>' + list.propertyNo + '</td>           ' +
+                                ' <td>' + list.registrationNo + '</td>           ' +
+                                ' <td>' + list.phaseName + '</td>       ' +
+                                ' <td>' + list.realStateTypeName + '</td>       ' +
+                                ' <td>' + list.projectName + '</td>       ' +
+                                ' <td>' + list.blockName + '</td>       ' +
+                                ' <td>' + list.categoryName + '</td>       ' +
+                                ' <td>' + list.natureName + '</td>       ' +
+                            
+                                ' <td>' + list.status + '</td>    ' +
+                                '<td><a class="btn btn-primary" onclick="EditProperty(' + list.id + ')"><i class="fa fa-eye"> </i></a></tr>';
+                             //  </tr>';
+                            $("#Propertytbody").append(row);
+
+
+                            sr++;
+
+                        }
+                    }
+
+                    $('#proplist').dataTable();
+                }
+            }
+        });
+
+
+    }
+
+     
+
+        function EditProperty(id){
+             
+             $.ajax({
+                    type: 'GET',
+                    url: `/api/Property/GetSingleProperty`,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    data: { id: id },
+                    async: false,
+                    contentType: 'application/json',
+                    success: function (response) {
+                        if (response.code === 0) {
+                            var result_User = response.data;
+                                    $("#RegistrationNo").val(result_User.registrationNo);
+                                    $("#PropertyNo").val(result_User.propertyNo);
+                                    $('#RealStateType').val(result_User.realStateType);
+                                    $('#Phase').val(result_User.phase);
+                                    $('#Category').val(result_User.category);
+                                    $('#Type').val(result_User.type);
+                                    $('#Nature').val(result_User.nature);
+                                    $('#Finishing').val(result_User.finishing);
+                                    $('#User').val(result_User.user);
+                                    $('#Floor').val(result_User.floor);
+                                    $('#ActualSize').val(result_User.actualSize);
+                                    $('#ActualSizeUnit').val(result_User.actualSizeUnit);
+                                    $('#Project').val(result_User.project);
+                                    $('#Block').val(result_User.block);
+                                    $('#StandardSize').val(result_User.standardSize);
+                                    $('#StandardSizeUnit').val(result_User.standardSizeUnit);
+                                    $('#Status').val(result_User.status);
+                       
+                    
+               
+                             $("#myModal").modal("show");
+                        }
+
+                        else {
+                             notification("topright","error","fa fa-exclamation-circle vd_red","Error",response.message);
+                           // window.alert(response.message);
+                        }
+                     }
+              });
+        }
+
+
+
+
+</script>
+
+
+                }

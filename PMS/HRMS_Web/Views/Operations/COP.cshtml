@@ -1,0 +1,1049 @@
+﻿
+@section css{
+
+    <link media="print" rel="stylesheet" href="~/bootstrap/bootstrapcss.css">
+    <style>
+        .vd_panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #propertyModal {
+            margin-left: auto;
+        }
+    </style>
+}
+
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Change of Plot</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-shuffle" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 3.5A.5.5 0 0 1 .5 3H1c2.202 0 3.827 1.24 4.874 2.418.49.552.865 1.102 1.126 1.532.26-.43.636-.98 1.126-1.532C9.173 4.24 10.798 3 13 3v1c-1.798 0-3.173 1.01-4.126 2.082A9.6 9.6 0 0 0 7.556 8a9.6 9.6 0 0 0 1.317 1.918C9.828 10.99 11.204 12 13 12v1c-2.202 0-3.827-1.24-4.874-2.418A10.6 10.6 0 0 1 7 9.05c-.26.43-.636.98-1.126 1.532C4.827 11.76 3.202 13 1 13H.5a.5.5 0 0 1 0-1H1c1.798 0 3.173-1.01 4.126-2.082A9.6 9.6 0 0 0 6.444 8a9.6 9.6 0 0 0-1.317-1.918C4.172 5.01 2.796 4 1 4H.5a.5.5 0 0 1-.5-.5"/><path d="M13 5.466V1.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192m0 9v-3.932a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384l-2.36 1.966a.25.25 0 0 1-.41-.192"/></svg></span>
+                    <h1>CHANGE OF PLOT</h1>
+                    <button id="propertyModal" class="btn dha_theme_btn">Property Detail</button>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="row">
+                            <div class="col-sm-3">
+                                <label>COP Document No.</label>
+                                <div class="search_btn">
+                                    <div class="input_div">
+                                        <input type="number" class="form-control" disabled
+                                               placeholder="" id="Doc" />
+                                    </div>
+                                    <div>
+                                        <button data-toggle="modal" data-target="#registrationModal" type="button" class="btn dha_theme_btn">
+                                            <i class="fa fa-search"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <form class="custom-validation" action="#" role="form" id="MemberNDC">
+                            <div style="position: relative; display: flex; align-items: center;">
+                                <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;" />
+                                <span style="margin-left: 10px; padding: 5px 10px; background-color: #111111; color: #fff; border-radius: 4px; cursor: pointer;">Current Property</span>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Reference No. <small style="color:red">*</small> </label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input style="" type="text" class="form-control" readonly name="RegNoA"
+                                                   placeholder="" id="RegNoA" />
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#propModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PropertyNoA" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Code</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberCodeA" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberNameA" name="MemberNameA" readonly />
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="BlockA" id="BlockA" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CategoryA" id="CategoryA" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="SizeA" id="SizeA" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PossessionStatusA" id="PossessionStatusA" readonly />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="ConstrucationStatusA" id="ConstrucationStatusA" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Dealer</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="dealerA" id="dealerA" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Booking Date</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="BookingDateA" id="BookingDateA" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Market Value</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder=" " value="0" name="CurrentPropertyMarketValue" id="CurrentPropertyMarketValue" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div style="position: relative; display: flex; align-items: center;"> 
+                                <hr style="flex-grow: 1; border: none; height: 1px; background-color: #111111;" />
+                                <span style="margin-left: 10px; padding: 5px 10px; background-color: #111111; color: #fff; border-radius: 4px; cursor: pointer;">Proposed Property</span>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Reference No. <small style="color:red">*</small></label>
+                                    <div class="search_btn">
+                                        <div class="input_div">
+                                            <input style="" type="text" class="form-control" readonly name="RegNoB"
+                                                   placeholder="" id="RegNoB" />
+                                        </div>
+                                        <div>
+                                            <button data-toggle="modal" data-target="#propModal" type="button" class="btn btn-sm dha_theme_btn">
+                                                search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Property No.</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="PropertyNoB" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Code</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberCodeB" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Member Name <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="MemberNameB" name="MemberNameB" readonly />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Block</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="BlockB" id="BlockB" disabled />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Category</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="CategoryB" id="CategoryB" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Size</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="SizeB" id="SizeB" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Possession Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="PossessionStatusB" id="PossessionStatusB" readonly />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Construction Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="ConstrucationStatusB" id="ConstrucationStatusB" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Dealer</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="dealerB" id="dealerB" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Booking Date</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " name="BookingDateB" id="BookingDateB" readonly />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Market Value</label>
+                                    <div>
+                                        <input type="number" class="form-control"
+                                               placeholder=" " value="0" name="ProposedPropertyMarketValue" id="ProposedPropertyMarketValue" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label for="COPDate">COP Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" id="COPDate" name="COPDate" value="@DateTime.Now.ToString("yyyy-MM-dd")" />
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <label>Remarks</label>
+                                    <div>
+                                        <textarea type="text" class="form-control" id="Remarks" name="Remarks"
+                                                  placeholder=" "></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12" style="float: right; margin-top: 1rem;">
+                                <button type="submit" class="btn dha_theme_btn" id="Submitp">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </button>
+                            </div>
+                        </form>
+                       
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+
+
+<div class="modal" id="registrationModalB" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select COP With Property.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="registrationListB" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Registration No.</th>
+                                            <th class="text-white">CNIC</th>
+                                            <th class="text-white">MemberName</th>
+                                            <th class="text-white">Category</th>
+                                            <th class="text-white">Block</th>
+                                            <th class="text-white">Type</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="registrationtbodyB">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+@*Documentmodel*@
+<div class="modal" id="requestmodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Request.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="requestlist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Current Reference No.</th>
+                                            <th class="text-white">Current Property No.</th>
+                                            <th class="text-white">Proposed Reference No.</th>
+                                            <th class="text-white">Proposed Property No.</th>
+                                            <th class="text-white">DateTime</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="requesttbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+<partial name="~/Views/PartialPage/viewStock.cshtml" />
+<div class="hide">
+    <div id="printdiv">
+         <partial name="~/Views/PartialPage/_ChangeOfPlot.cshtml" />
+    </div>
+   
+</div>
+<partial name="~/Views/PartialPage/SearchPropertyModal.cshtml" />
+<partial name="~/Views/PartialPage/_alert.cshtml" />
+<input type="number" id="StockIdA" value="" class="hide" />
+<input type="number" id="StockIdB" value="" class="hide" />
+<input type="number" id="Id" value="" class="hide" />
+@section Scripts
+    {
+    <script>
+        $(document).ready(function () {
+            "use strict";
+
+            $("#MemberNDC").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    MemberNameA: {
+
+                        required: true
+                    },
+                    MemberNameB: {
+
+                        required: true
+                    },
+                    RegNoA: {
+
+                        required: true
+                    },
+                    RegNoB: {
+
+                        required: true
+                    },
+                },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+                }
+            });
+            
+            $('#Submitp').prop('disabled', false);
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        var propertyListsA = null;
+        var propertyListsB = null;
+
+        $(document).ready(function () {
+            "use strict";
+            if (propertyListsA == null) {
+                GetAllPropertiesListsA();
+            } else {
+                processResponseA(propertyListsA);
+            }
+
+            if (propertyListsB == null) {
+                GetAllPropertiesListsB();
+            } else {
+                processResponseB(propertyListsB);
+            }
+
+            GetPreviousRecords();
+        });
+
+        function refreshPage() {
+            location.reload();
+        }
+
+        // Select A property
+        function GetAllPropertiesListsA() {
+
+            $('#proplist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllProprtties",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "PropertyNo" },
+                    { data: "registrationNo", name: "RegistrationNo" },
+                    { data: "memberName", name: "MemberName" },
+                    { data: "cnic", name: "CNIC" },
+                    { data: "relationshipWith", name: "RelationshipWith" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "PropertyType" },
+                    {
+                        data: null,
+                        render: function (data, type, row) {
+                            return '<a class="btn btn-primary" onclick="SelectRegistrationA(' + data.id + ')">Select</a>';
+                        }
+                    }
+                ]
+            });
+        }
+
+        function SelectRegistrationA(id) {
+
+            var url = "/api/COP/GetFilterProperty?id=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        // set values
+                        let possessionstatus = result_User.possessionStatus == true ? "Yes" : "No";
+                        let bookingDate = moment(result_User.bookingDate).format('DD-MM-YYYY');
+
+                        $("#Id").val(result_User.id);
+                        $("#DealerA").val(result_User.estateName);
+                        $("#BookingDateA").val(bookingDate);
+                        $("#RegNoA").val(result_User.registrationNo);
+                        $("#PropertyNoA").val(result_User.propertyNo);
+                        $("#MemberCodeA").val(result_User.memberCode);
+                        $("#MemberNameA").val(result_User.memberName);
+                        $("#ConstrucationStatusA").val(result_User.constracutionStatus);
+                        $("#PossessionStatusA").val(possessionstatus);
+                        $("#SizeA").val(result_User.actualSize);
+                        $("#CategoryA").val(result_User.categoryName);
+                        $("#BlockA").val(result_User.blockName);
+
+                        $("#StockIdA").val(result_User.id);
+                        PropertyDetail(result_User.id);
+                        ShowAlert(result_User.id);
+                        $("#registrationModal").modal("hide");
+                    }
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", "Problem Finding Registration Number");
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        // Select B property
+        function GetAllPropertiesListsB() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/COP/GetPropertiesForCOP`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        propertyListsB = response.data;
+                        processResponseB(propertyListsB);
+                    }
+                }
+            });
+        }
+
+        function processResponseB(responseData) {
+            $("#registrationtbodyB").empty();
+            var relist = responseData;
+            if (relist != null && relist.length > 0) {
+                var sr = 1;
+                for (let list of relist) {
+                    var row = '<tr>' +
+                        '<td>' + sr + '</td>' +
+                        ' <td >' + list.propertyNo + '</td>           ' +
+                        ' <td >' + list.registrationNo + '</td>           ' +
+                        ' <td >' + list.cnic + '</td>       ' +
+                        ' <td >' + list.memberName + '</td> ' +
+                        ' <td >' + list.categoryName + '</td> ' +
+                        ' <td >' + list.blockName + '</td> ' +
+                        ' <td >' + list.type + '</td> ' +
+                        '<td><a class="btn btn-primary" onclick="SelectRegistrationB(' + list.id + ')">Select</a></td>' +
+                        '</tr>';
+                    $("#registrationtbodyB").append(row);
+                    sr++;
+                }
+            }
+            $('#registrationListB').dataTable();
+        }
+
+        function SelectRegistrationB(id) 
+        {
+            var url = "/api/COP/GetFilterProperty?id=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 100) {
+                        var result_User = response.data;
+                        // set values
+                        let possessionstatus = result_User.possessionStatus == true ? "Yes" : "No";
+                         let bookingDate = moment(result_User.bookingDate).format('DD-MM-YYYY');
+
+                        $("#Id").val(result_User.id);
+                        $("#DealerB").val(result_User.estateName);
+                        $("#BookingDateB").val(bookingDate);
+                        $("#RegNoB").val(result_User.registrationNo);
+                        $("#PropertyNoB").val(result_User.propertyNo);
+                        $("#MemberCodeB").val(result_User.memberCode);
+                        $("#MemberNameB").val(result_User.memberName);
+                        $("#ConstrucationStatusB").val(result_User.constracutionStatus);
+                        $("#PossessionStatusB").val(possessionstatus);
+                        $("#SizeB").val(result_User.actualSize);
+                        $("#CategoryB").val(result_User.categoryName);
+                        $("#BlockB").val(result_User.blockName);
+                        PropertyDetail(result_User.id);
+                        ShowAlert(result_User.id);
+                        $("#StockIdB").val(result_User.id);
+                        $("#registrationModalB").modal("hide");
+                    } else {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: 'Problem Finding Registration Number',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+        }
+
+        function PostRequest() {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Submit();
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Submit() 
+        {
+            var methodType = 'POST';
+            var url = "/api/COP/SaveCOP";
+
+            var cop = new Object();
+            cop.StockIdA = $('#StockIdA').val();
+            cop.StockIdB = $('#StockIdB').val();
+            cop.CurrentPropertyMarketValue = $('#CurrentPropertyMarketValue').val();
+            cop.ProposedPropertyMarketValue = $('#ProposedPropertyMarketValue').val();
+            cop.Remarks = $('#Remarks').val();
+            cop.COPDate = $('#COPDate').val();
+
+            var model = JSON.stringify(cop);
+
+            $('#Submitp').prop('disabled', true);//disble
+            $('#loader').fadeIn();
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) 
+                {
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+                        //Swal.fire('Saved', response.message, 'success')
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                // location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        $('#Submitp').prop('disabled', false);//disble
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'warning',
+                            text: response.message,
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+            // $('#Submitp').prop('disabled', false); //enable
+        }
+
+
+        function GetPreviousRecords() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/COP/GetAllCOPRequest`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        $("#requesttbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                const requestDateTime = moment(list.createdOn).format('DD-MM-YYYY, h:mmA');
+                                var row = ' <tr> ' +
+                                    ' <td>' + list.id + '</td> ' +
+                                    ' <td>' + list.currentPropertyRegistrationNo + '</td>           ' +
+                                    ' <td>' + list.currentPropertyPropertyNo + '</td>           ' +
+                                    ' <td>' + list.proposedPropertyRegistrationNo + '</td>           ' +
+                                    ' <td>' + list.proposedPropertyPropertyNo + '</td>           ' +
+                                    ' <td>' + requestDateTime + '</td>           ' +
+                                    '<td><a class="fa fa-edit fa-2x" onclick="SelectSinglePPS(' + list.id + ')"></a><a class="fa fa-print fa-2x" onclick="PrintScreen(' + list.id + ')"></a>' +
+                                    '<a class="fa fa-times fa-2x" style="color: red;" onclick="CancelRequest(' + list.id + ')"></a></td> </tr>';
+                                //</tr>';
+                                $("#requesttbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#requestlist').dataTable();
+                    }
+                }
+            });
+        }
+
+        function SelectSinglePPS(id) {
+
+            $('#Submitp').prop('disabled', true);
+
+            var url = "/api/COP/GeFileCOPRequest?id=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        $("#requestmodal").modal("hide");
+                        let result_User = response.data;
+
+                        $("#Doc").val(result_User.id);
+                        $("#RegNoA").val(result_User.currentPropertyRegistrationNo);
+                        $("#PropertyNoA").val(result_User.currentPropertyPropertyNo);
+                        $("#MemberCodeA").val(result_User.currentPropertyMemberCode);
+                        $("#MemberNameA").val(result_User.currentPropertyMemberName);
+                        $("#ConstrucationStatusA").val(result_User.currentPropertyConstructionStatus);
+                        $("#PossessionStatusA").val(result_User.currentPropertyPossessionStatus);
+                        $("#SizeA").val(result_User.currentPropertySize);
+                        $("#CategoryA").val(result_User.currentPropertyCategory);
+                        $("#BlockA").val(result_User.currentPropertyBlock);
+                        $("#RegNoB").val(result_User.proposedPropertyRegistrationNo);
+                        $("#PropertyNoB").val(result_User.proposedPropertyPropertyNo);
+                        $("#MemberCodeB").val(result_User.proposedPropertyMemberCode);
+                        $("#MemberNameB").val(result_User.proposedPropertyMemberName);
+                        $("#ConstrucationStatusB").val(result_User.proposedPropertyConstructionStatus);
+                        $("#PossessionStatusB").val(result_User.proposedPropertyPossessionStatus);
+                        $("#SizeB").val(result_User.proposedPropertySize);
+                        $("#CategoryB").val(result_User.proposedPropertyCategory);
+                        $("#BlockB").val(result_User.proposedPropertyBlock);
+                        $("#CurrentPropertyMarketValue").val(result_User.proposedPropertyMarketValue);
+                        $("#ProposedPropertyMarketValue").val(result_User.currentPropertyMarketValue);
+                        $("#Remarks").val(result_User.remarks);
+                    }
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+                    }
+                }
+            });
+        }
+
+
+         function printInvoice() {
+             //   $("@@media print{<link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css'><style>.hide{display:none}.boldtext{font-size: 12px;font-weight: 500;}.f14{font-size: 12px;}</style>}").appendTo('head');
+             var printContents = document.getElementById('printdiv').innerHTML;
+             var mywindow = window.open(printContents, 'PRINT', 'height=600,width=600');
+             let printElement = document.getElementById('printdiv');
+             var printWindow = window.open('', 'PRINT');
+             printWindow.document.write(document.documentElement.innerHTML);
+         
+             setTimeout(() => { // Needed for large documents
+         
+                 printWindow.document.body.innerHTML = printElement.outerHTML;
+                 printWindow.document.close(); // necessary for IE >= 10
+                 printWindow.focus(); // necessary for IE >= 10*/
+                 printWindow.print();
+                 printWindow.close();
+             }, 1000)
+         }
+        
+
+        function PrintScreen(id) {
+
+
+            var url = "/api/COP/GetCOPRequestForPrint?id=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        $("#requestmodal").modal("hide");
+
+
+                       
+                        let result_User = response.data;
+                        console.log(result_User);
+                        //$("#Doc").val(result_User.id);
+                        $(".PdocDate").text(result_User.docDate.split("T")[0]);
+                        $("#aRegistrationNo").text(result_User.aRegistrationNo);
+                        $("#bRegistrationNo").text(result_User.bRegistrationNo);
+                        $("#aMemberAddress").text(result_User.aMemberAddress);
+                        $("#aMemberMobile").text(result_User.aMemberMobile);
+                        $("#aMemberName").text(result_User.aMemberName);
+                        $("#aNewBlock").text(result_User.aNewBlock);
+                        $("#aNewPropertyNo").text(result_User.aNewPropertyNo);
+                        $("#aOldPropertyNo").text(result_User.aOldPropertyNo);
+                        $("#bMemberAddress").text(result_User.bMemberAddress);
+                        $("#bMemberMobile").text(result_User.bMemberMobile);
+                        $("#bMemberName").text(result_User.bMemberName);
+                        $("#bNewBlock").text(result_User.bNewBlock);
+                        $("#bNewPropertyNo").text(result_User.bNewPropertyNo);
+                        $("#bOldPropertyNo").text(result_User.bOldPropertyNo);
+                       
+                   
+                        printInvoice();
+                    }
+                    else {
+                        notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Eror", response.message);
+                    }
+                }
+            });
+        }
+
+
+        // cancel request
+
+        function CancelRequest(id) {
+            const swalWithBootstrapButtons = Swal.mixin({
+                customClass: {
+                    confirmButton: 'btn btn-success',
+                    cancelButton: 'btn btn-danger'
+                },
+                buttonsStyling: false
+            })
+
+            swalWithBootstrapButtons.fire({
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonText: 'Yes, Save it!',
+                cancelButtonText: 'No, cancel!',
+                reverseButtons: true,
+                allowOutsideClick: false,
+                allowEscapeKey: false
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    Cancel(id);
+                } else if (
+                    result.dismiss === Swal.DismissReason.cancel
+                ) {
+                    swalWithBootstrapButtons.fire({
+                        icon: 'error',
+                        title: 'Cancelled',
+                        text: 'Your data is safe !',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            })
+        }
+
+        function Cancel(id) {
+            debugger;
+            var methodType = 'Delete';
+            var url = "/api/COP/Cancel?id=" + id + "";
+
+            $.ajax({
+                type: methodType,
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+
+                success: function (response) {
+                    debugger;
+                    console.log(response);
+                    if (response.code == 100) {
+
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        })
+                    }
+                }
+            });
+        }
+
+    </script>
+ }
+

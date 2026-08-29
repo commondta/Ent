@@ -1,0 +1,116 @@
+@{
+    // HIDDEN-FORM REVIEW (#133) — temporary scaffolding. Standalone layout on purpose:
+    // it must open even when the main menu/session is unhappy. Delete with the controller.
+    Layout = null;
+    ViewData["Title"] = "Hidden forms — review";
+
+    var hidden = new (string Label, string Url, string View, string Note)[]
+    {
+        ("KYC Form",                    "/Sales/KYCForm",                    "Views/Sales/KYCForm.cshtml",              "620 lines. Largest of the hidden set — looks like real, finished functionality."),
+        ("Deal Merger",                 "/Sales/DealMerger",                 "Views/Sales/DealMerger.cshtml",           "314 lines. Sits beside the live Deal / Bulk Deal forms."),
+        ("Dealer Reservation",          "/Sales/DealerReservation",          "Views/Sales/DealerReservation.cshtml",    "200 lines."),
+        ("Booking Backlog",             "/Sales/BookingBacklog",             "Views/Sales/BookingBackLog.cshtml",       "238 lines. Action spelling differs from the file name (Backlog vs BackLog)."),
+        ("Map Design",                  "/Home/MapDesign",                   "Views/Home/MapDesign.cshtml",             "364 lines. Map Approval is in the menu; its two design forms are not."),
+        ("Re-Design",                   "/Home/ReDesign",                    "Views/Home/ReDesign.cshtml",              "643 lines."),
+        ("Registration NPD",            "/Home/RegistrationNPD",             "Views/Home/RegistrationNPD.cshtml",       "115 lines. Small — may be a stub."),
+        ("Purchase Request",            "/DemandNote/PurchaseRequest",       "Views/DemandNote/PurchaseRequest.cshtml", "719 lines. Action was COMMENTED OUT; restored for this review."),
+        ("Demarcation Charges",         "/Home/DemarcationCharges",          "Views/Home/DemarcationCharges.cshtml",    "217 lines. Pairs with the next one — decide which is live."),
+        ("Demarcation Charges Invoice", "/Home/DemarcChargesI",              "Views/Home/DemarcChargesI.cshtml",        "326 lines. The larger of the pair."),
+        ("Charges Group Form",          "/GlobalSetup/ChargesGroupForm",     "Views/GlobalSetup/ChargesGroupForm.cshtml","405 lines. The MENU points at ...FormTest instead — a test form is in production."),
+        ("Unit of Measure",             "/Home/Unitofmeasure",               "Views/Home/Unitofmeasure.cshtml",         "356 lines. Home/UOMDef is the one in the menu."),
+        ("Admin Dashboard",             "/Dashboard/AdminDashboard",         "Views/Dashboard/AdminDashboard.cshtml",   "487 lines. No dashboard link reaches it."),
+        ("Property Binding (Operations)","/Operations/Propertybinding",      "Views/Operations/Propertybinding.cshtml", "285 lines. Home/PropertyBinding (382 lines) is the one in the menu."),
+        ("Transfer Form (Operations)",  "/Operations/TransferForm",          "Views/Operations/TransferForm.cshtml",     "386 lines. Had NO action at all; added for this review. Operations/Transfer (2 753 lines) is the live one."),
+    };
+
+    var pairs = new (string Live, string LiveUrl, string Other, string OtherUrl, string Read)[]
+    {
+        ("Home/PropertyBinding (382 ln)",       "/Home/PropertyBinding",        "Operations/Propertybinding (285 ln)",  "/Operations/Propertybinding",  "Menu points at Home. Operations copy is smaller — likely the older draft."),
+        ("Home/UOMDef (358 ln)",                "/Home/UOMDef",                 "Home/Unitofmeasure (356 ln)",          "/Home/Unitofmeasure",          "Near-identical size. Genuinely ambiguous — needs your eye."),
+        ("Operations/Transfer (2 753 ln)",      "/Operations/Transfer",         "Operations/TransferForm (386 ln)",     "/Operations/TransferForm",     "Size gap is decisive: Transfer is the real one."),
+        ("Home/DemarcChargesI (326 ln)",        "/Home/DemarcChargesI",         "Home/DemarcationCharges (217 ln)",     "/Home/DemarcationCharges",     "Neither is in the menu. Both need a verdict."),
+        ("GlobalSetup/ChargesGroupForm (405 ln)","/GlobalSetup/ChargesGroupForm","GlobalSetup/ChargesGroupFormTest (215 ln)","/GlobalSetup/ChargesGroupFormTest","The MENU currently ships the Test one. Almost certainly backwards."),
+        ("FingerPrint/FingerPrint (328 ln)",    "/FingerPrint/FingerPrint",     "Home/FingurePrint (104 ln)",           "/Home/FingurePrint",           "Menu links Home/FingurePrint three times, but it is the 104-line one."),
+    };
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hidden forms — review</title>
+    <style>
+        :root { --ink:#111; --mute:#666; --line:#ddd; --bg:#fff; --card:#fafafa; --accent:#000; }
+        * { box-sizing:border-box; }
+        body { margin:0; background:var(--bg); color:var(--ink);
+               font:15px/1.55 "Segoe UI",system-ui,sans-serif; }
+        .wrap { max-width:1100px; margin:0 auto; padding:32px 24px 64px; }
+        h1 { font-size:26px; margin:0 0 4px; letter-spacing:-.01em; }
+        .sub { color:var(--mute); margin:0 0 28px; }
+        h2 { font-size:18px; margin:36px 0 10px; padding-bottom:6px; border-bottom:2px solid var(--accent); }
+        .note { background:var(--card); border:1px solid var(--line); border-left:3px solid var(--accent);
+                padding:12px 16px; margin:0 0 24px; color:#333; }
+        table { width:100%; border-collapse:collapse; }
+        th, td { text-align:left; padding:9px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+        th { font-size:12px; text-transform:uppercase; letter-spacing:.06em; color:var(--mute); }
+        tbody tr:hover { background:var(--card); }
+        a { color:#000; font-weight:600; }
+        a:hover { background:#000; color:#fff; text-decoration:none; }
+        code { font:13px/1.4 Consolas,monospace; color:#444; }
+        .n { color:var(--mute); font-size:13px; }
+        .num { color:var(--mute); width:28px; }
+        .back { display:inline-block; margin-top:32px; font-weight:600; }
+    </style>
+</head>
+<body>
+<div class="wrap">
+
+    <h1>Hidden forms — review</h1>
+    <p class="sub">Every form that exists in the codebase but cannot be reached from the menu. Open each, decide <strong>restore</strong> or <strong>retire</strong>. Task <code>#133</code>.</p>
+
+    <div class="note">
+        This page is temporary scaffolding, not part of the product. Two forms needed a code change to
+        open at all — <strong>Purchase Request</strong> (action was commented out) and
+        <strong>Transfer Form</strong> (no action existed). Both changes are marked in place and reverse
+        by deleting the marked method.
+    </div>
+
+    <h2>1 · The 15 unreachable forms</h2>
+    <table>
+        <thead><tr><th class="num">#</th><th>Form</th><th>Route</th><th>View file</th><th>Note</th></tr></thead>
+        <tbody>
+        @{ var i = 0; }
+        @foreach (var f in hidden)
+        {
+            i++;
+            <tr>
+                <td class="num">@i</td>
+                <td><a href="@f.Url" target="_blank">@f.Label</a></td>
+                <td><code>@f.Url</code></td>
+                <td><code>@f.View</code></td>
+                <td class="n">@f.Note</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <h2>2 · The 6 confusion pairs — which one is live?</h2>
+    <p class="sub">Two views doing the same job. One should stay; the other is a stale copy. Open both side by side.</p>
+    <table>
+        <thead><tr><th>Probably live</th><th>Probably stale</th><th>Why I think so</th></tr></thead>
+        <tbody>
+        @foreach (var p in pairs)
+        {
+            <tr>
+                <td><a href="@p.LiveUrl" target="_blank">@p.Live</a></td>
+                <td><a href="@p.OtherUrl" target="_blank">@p.Other</a></td>
+                <td class="n">@p.Read</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <a class="back" href="/Home/Index">&larr; Back to the application</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     viewBox="0 0 810 856" width="810" height="856"
+     role="img" aria-labelledby="logoTitle">
+  <title id="logoTitle">Real estate logo — skyline in frame with roof</title>
+
+  <g id="logo">
+    <!-- Outer frame: rectangular ring, top rail broken where the tower passes through -->
+    <path id="frame" fill="#384974" fill-rule="evenodd"
+          d="M257,103 L0,103 L0,856 L810,856 L810,103 L618,103 L618,111 L802,111 L802,848 L8,848 L8,111 L257,111 Z"/>
+
+    <!-- Centre tower -->
+    <path id="tower" fill="#384974"
+          d="M374,634.69 L374,401.9 L277,364.93 L277,59.14 L437.93,0 L599,59.23 L599,174.74 L438,236 L438,632.53 L407.88,615.68 Z"/>
+
+    <!-- Right building -->
+    <path id="building-right" fill="#384974"
+          d="M601,174.72 L762,236.08 L762,814.78 L601,724.33 Z"/>
+
+    <!-- Left building -->
+    <path id="building-left" fill="#384974"
+          d="M50,401.92 L211.28,340.47 L277,365.6 L277,689.28 L50,816.98 Z"/>
+
+    <!-- Roof chevron -->
+    <path id="roof" fill="#7E7C7D"
+          d="M407.9,631.3 L730.92,813 L637.95,813 L406.42,682.81 L175.03,813 L85.12,813 Z"/>
+
+    <!-- Four-pane window -->
+    <g id="window" fill="#384974">
+      <rect x="387.17" y="723.19" width="18.15" height="18.15"/>
+      <rect x="409.93" y="723.19" width="18.15" height="18.15"/>
+      <rect x="387.17" y="745.9"  width="18.15" height="18.15"/>
+      <rect x="409.93" y="745.9"  width="18.15" height="18.15"/>
+    </g>
+  </g>
+</svg>

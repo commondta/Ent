@@ -1,0 +1,1775 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Stock Creation</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-box-seam" viewBox="0 0 16 16"><path d="M8.186 1.113a.5.5 0 0 0-.372 0L1.846 3.5l2.404.961L10.404 2zm3.564 1.426L5.596 5 8 5.961 14.154 3.5zm3.25 1.7-6.5 2.6v7.922l6.5-2.6V4.24zM7.5 14.762V6.838L1 4.239v7.923zM7.443.184a1.5 1.5 0 0 1 1.114 0l7.129 2.852A.5.5 0 0 1 16 3.5v8.662a1 1 0 0 1-.629.928l-7.185 2.874a.5.5 0 0 1-.372 0L.63 13.09a1 1 0 0 1-.63-.928V3.5a.5.5 0 0 1 .314-.464z"/></svg></span>
+                    <h1>STOCK CREATION</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" role="form" id="StockCreation">
+                            <div class="row">
+                                <div class="col-sm-3 hide">
+                                    <label>Document No.</label>
+                                    <div>
+                                         <input type="number" class="form-control" placeholder="" id="ID" disabled />
+ 
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                               placeholder=" " id="docdate" disabled />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Status" id="Status" disabled>
+                                            <option value=""> Select Option </option>
+                                            <option value="Draft" selected> Draft  </option>
+                                            <option value="Approved"> Approved </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <br>
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Phase <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Phase" id="Phase">
+                                            <option value=""> -- Select Phase --</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Real Estate Type <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="realstate" id="RealStateType">
+                                            <option value=""> -- Select Real Estate Type -- </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Project <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Project" id="Project">
+                                            <option value=""> -- Select Project -- </option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Block <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Block" id="Block">
+                                            <option value=""> -- Select Block --</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-sm-3">
+                                    <label>Category <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Category" id="Category">
+                                            <option value=""> -- Select Category --</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Type <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Type" id="Type">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Nature <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Nature" id="Nature">
+                                            <option value="">-- Select Nature --</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Finishing</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Finishing" id="Finishing">
+                                            <option value=""> -- Select Finishing --</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+
+                                <div class="col-sm-3">
+                                    <label>Features</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Feature" id="Feature">
+                                            <option value=""> -- Select Features --</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Floor</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Floor" id="Floor">
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-2">
+                                    <label>Sq. Yard <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="number" class="form-control" placeholder=" " id="ActualSize" required />
+                                    </div>
+                                </div>
+                                <div class="col-sm-1" style="margin-top: 4px;">
+                                    <label> </label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="ActualSizeUnit" readonly />
+
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>User</label>
+                                    <div>
+                                        <input type="text" class="form-control" disabled value="@Context.Session.GetString("FullName")"
+                                               placeholder=" " />
+                                        <input type="text" class="form-control hide" id="User" disabled value="@Context.Session.GetString("ID")"
+                                               placeholder=" " />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Inventory Status</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="InventoryStatus" id="InventoryStatus">
+                                            <option value="Balloted"> Balloted</option>
+                                            <option value="Un Balloted">Un Balloted</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Almt</label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="Almt" id="Almt">
+                                            <option value=""> -- Select Almt --</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Code</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="CaseCode"  />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Affidavit Code</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="AffidavitCode" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Sale Deed No</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="SaleDeedNo" />
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-3">
+                                    <label>Sale Deed Date</label>
+                                    <div>
+                                        <input type="date" class="form-control" value="@DateTime.Now.ToString("yyyy-MM-dd")" placeholder=" " id="SaleDeedDate" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Mouza</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="Mouza" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Allocation No</label>
+                                    <div>
+                                        <input type="text" class="form-control" placeholder=" " id="AllocationNo" />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm-3">
+                                    <label>Membership Fee <small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="number" value="0" class="form-control" placeholder=" " id="MembershipFee" name="MembershipFee" required />
+                                    </div>
+                                </div>
+                                <div class="col-sm-3">
+                                    <label>Misc Charges<small style="color:red">*</small></label>
+                                    <div>
+                                        <input type="number" value="0" class="form-control" placeholder=" " id="MiscCharges" name="MiscCharges" required />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row hide">
+                                <div class="col-md-6" style="margin-top: 5px">
+                                    <div class="panel widget">
+                                        <div class="panel-heading vd_bg-grey">
+                                            <h3 class="panel-title">
+                                                <span class="menu-icon"> <i class="fa fa-building"></i> </span> Building
+                                            </h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label>Floor Last No.</label>
+                                                    <div>
+                                                        <input type="text" class="form-control"
+                                                               placeholder=" " id="flno" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Panel Widget -->
+                                    </div>
+                                    <!-- col-md-12 -->
+                                </div>
+                                <div class="col-md-6" style="margin-top: 5px">
+                                    <div class="panel widget">
+                                        <div class="panel-heading vd_bg-grey">
+                                            <h3 class="panel-title">
+                                                <span class="menu-icon"> <i class="fa fa-building"></i> </span> Plot
+                                            </h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+                                                <div class="col-sm-12">
+                                                    <label>Block Last No.</label>
+                                                    <div>
+                                                        <input type="text" class="form-control"
+                                                               placeholder=" " id="blno" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <!-- Panel Widget -->
+                                    </div>
+                                    <!-- col-md-12 -->
+                                </div>
+                                <br />
+
+                            </div>
+
+                            <br>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="panel widget">
+                                        <div class="panel-heading vd_bg-grey">
+                                            <h3 class="panel-title"> <span class="menu-icon"><i class="fa fa-circle"></i> </span> Reference No.</h3>
+                                        </div>
+                                        <div class="panel-body">
+
+                                            <div class="row">
+                                                <div class="col-sm-4">
+                                                    <label>Prefix</label>
+                                                    <div>
+                                                        <select class="js-example-basic-single" name="prefixRegistration" id="prefixRegistration">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label>Postfix</label>
+                                                    <div>
+                                                        <select class="form-control" name="RPostfix" id="postfixForRegistration">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label>Number</label>
+                                                    <div>
+                                                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+                                                               placeholder=" " name="RNumber" id="numForRegistration" />
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-sm-4">
+                                                    <label>Quantity <small style="color:red">*</small></label>
+                                                    <div>
+                                                        <input type="number" min="0" oninput="validity.valid||(value='');" class="form-control"
+                                                               placeholder=" " id="qtyForRegistration" name="qtyForRegistration" />
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                    <!-- Panel Widget -->
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="panel widget">
+                                        <div class="panel-heading vd_bg-grey">
+                                            <h3 class="panel-title"> <span class="menu-icon"><i class="fa fa-circle"></i> </span> Property No.</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="row">
+
+                                                <div class="col-sm-4">
+                                                    <label>Sector</label>
+                                                    <div>
+                                                        <select class="form-control" name="Prefix" id="prefixPropertyNo">
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label>Plot No.</label>
+                                                    <div>
+                                                        <input type="number" class="form-control"
+                                                               placeholder=" " name="numForProperty" id="numForProperty" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-4">
+                                                    <label>Street</label>
+                                                    <div>
+                                                        <input class="form-control" name="Postfix" id="postfixForProperty"/>
+                                                        
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Panel Widget -->
+                                </div>
+                                <!-- col-md-12 -->
+                            </div>
+
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn dha_theme_btn" id="AddStockCreation">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);" onclick="refreshPage();">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Reset
+                                </button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+            @*
+            </form>*@
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<div class="modal" id="Sizesmodal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Size</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+                <div class="container-fluid">
+                    <div class="card p-3">
+
+                        <div class="col-md-12">
+                            <div class="">
+                                <table id="Blocktable" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Code</th>
+                                            <th class="text-white">Description</th>
+                                            <th class="text-white">Short Description</th>
+                                            <th class="text-white">Standard Size</th>
+                                            <th class="text-white">Actual Size</th>
+                                            <th class="text-white">Action</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="blocktbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+<div class="modal" id="registrationModal" data-backdrop="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-sm-12" style="text-align:center">
+                            <h3>
+                                Below is stock list that will be created on clicking Submit Button
+                            </h3>
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="proplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Type</th>
+                                            <th class="text-white">Real Estate</th>
+                                            <th class="text-white">Status</th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+            <div class="modal-footer background-login">
+                <a onclick="AddStockCreation()" class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);" id="sbt">
+                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                </a>
+                <a class="btn vd_btn vd_black" data-dismiss="modal" onclick="resetIsconfirmed()" href="javascript:void(0);">
+                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Close
+                </a>
+                @*        <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                <button type="button" onclick="AddStockCreation()" class="btn btn-primary btn-sm btn-theme">Submit</button>*@
+
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+<div class="modal" id="conflictModal" data-backdrop="false" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Conflicting Stock List</h4>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="container">
+
+                    <div class="row">
+                        <div class="col-sm-12" style="text-align:center">
+                        </div>
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Type</th>
+                                            <th class="text-white">Real Estate</th>
+                                            <th class="text-white">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="conflictModaltbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                @*   <a onclick="AddStockCreation()" class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);">
+                <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                </a>*@
+                <a class="btn vd_btn vd_black" data-dismiss="modal" href="javascript:void(0);">
+                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Close
+                </a>
+                @*        <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                <button type="button" onclick="AddStockCreation()" class="btn btn-primary btn-sm btn-theme">Submit</button>*@
+
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+
+
+
+
+<input id="confirmation" value="0" />
+
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            "use strict";
+
+
+            $("#StockCreation").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    Phase: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    realstate: {
+                        // minlength: 3,
+                        required: true
+                    },
+                    Almt: {
+                        // minlength: 3,
+                        required: true
+                    },
+                    Project: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    Block: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    Category: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    Type: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    Nature: {
+                        // minlength: 3,
+                        required: true
+                    },
+                    ActualSize: {
+                        // minlength: 3,
+                        required: true
+                    },
+                    //RNumber: {
+                    //    // minlength: 3,
+                    //    required: true
+                    //},
+                    qtyForRegistration: {
+                        //minlength: 3,
+                        required: true
+                    },
+                    MembershipFee: {
+                required: true
+                    },
+                MiscCharges: {
+                required: true
+            },
+                },
+
+                errorPlacement: function (error, element) {
+                    debugger;
+                    if (element.parent().hasClass("vd_checkbox") || element.parent().hasClass("vd_radio")) {
+                        element.parent().append(error);
+                    } else if (element.parent().hasClass("vd_input-wrapper")) {
+                        error.insertAfter(element.parent());
+                    } else if (element.hasClass("js-example-basic-single")) {
+                        error.insertAfter(element.parent());
+                    } else {
+                        error.insertAfter(element);
+                    }
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Form Data");
+                    //Swal.fire({
+                    //    icon: 'error',
+                    //    title: 'Error',
+                    //    text: 'Enter Valid Data',
+                    //})
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Form Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    //   label
+                    //       .addClass('valid').addClass('help-inline fa fa-check vd_green mgl-10') // mark the current input as valid and display OK icon
+                    //       .closest('.control-group').removeClass('error').addClass('success'); // set success class to the control group
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    
+                    AddStockCreation();
+                }
+
+            });
+          
+            GetAllPhases();
+            GetAllAlmt();
+            GetAllBlocks();
+            GetAllFinishing();
+            GetAllFeatures();
+            GetAllPrefix();
+            GetAllPostfix();
+            GetAllFloor();
+            GetAllTypes();
+            GetAllSector();
+
+        });
+
+
+
+        $('#Almt').select2();
+        $('#Project').select2();
+        $('#Category').select2();
+        $('#Nature').select2();
+
+        $('#RealStateType').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetAllCategories(value);
+            GetAllNatures(value);
+            GetAllProjects(value);
+            GetAllSizes(value);
+
+        });
+
+        $('#Phase').on('select2:selecting', function (e) {
+            debugger;
+            var value = e.params.args.data.id;
+            GetAllRealEstate(value);
+        });
+
+        $('#Block').on('select2:selecting', function (e) {
+            debugger;
+            var value = e.params.args.data.id;
+            getlastpropertynumberByBlock(value);
+        });
+
+        function resetIsconfirmed() {
+            $("#confirmation").val(0);
+
+        }
+
+        function refreshPage() {
+            location.reload();
+        }
+        function GetAllTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PropertyType/GetAllPropertyTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Type").empty();
+                        var row = ' <option value="">-- Select Type --</option> ';
+
+                        $("#Type").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Type").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#Type').select2();
+                    }
+                }
+            });
+        }
+
+
+        function GetAllFloor() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Floor/GetAllBlocks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Floor").empty();
+                        var row = ' <option value="">-- Select Floor --</option> ';
+
+                        $("#Floor").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Floor").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Floor').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllBlocks() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Block/GetAllBlocks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Block").empty();
+                        var row = ' <option value="">-- Select Block --</option> ';
+
+                        $("#Block").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Block").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Block').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllFinishing() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Finishes/GetAllFinishes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Finishing").empty();
+                        var row = ' <option value="">-- Select Finishing --</option> ';
+
+                        $("#Finishing").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.finishesType + '</option> ';
+
+                                $("#Finishing").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Finishing').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllCategories(id) {
+            var url = "/api/StockCreation/GetCategoryDropdownByRealEstateId?realEstateId=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                data: id,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Category").empty();
+                        var row = ' <option value="">-- Select Category --</option> ';
+
+                        $("#Category").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Category").append(row);
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Category').select2();
+                    }
+                }
+            });
+        }
+
+        $("#Category").change(function () {
+
+            var id = $("#Category").val();
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Category/GetSingleCategory`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 0) {
+                        var result_User = response.data;
+
+                        $("#ActualSizeUnit").val(result_User.uom);
+
+                    }
+                }
+            });
+        });
+
+        function GetAllNatures(id) {
+            var url = "/api/StockCreation/GetNatureDropdownByRealEstateId?realEstateId=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: id,
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Nature").empty();
+                        var row = ' <option value="">-- Select Nature --</option> ';
+
+                        $("#Nature").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Nature").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Nature').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllAlmt() {
+      
+            $.ajax({
+                type: 'GET',
+                url: `/api/Almt/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#Almt").empty();
+                        var row = ' <option value="">-- Select Almt --</option> ';
+
+                        $("#Almt").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.name + '</option> ';
+
+                                $("#Almt").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Almt').select2();
+                    }
+                }
+            });
+        }
+        function GetAllPhases() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Phase/GetAllPhases`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Phase").empty();
+                        var row = ' <option value="">-- Select Phase --</option> ';
+
+                        $("#Phase").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Phase").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Phase').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllFeatures() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Feature/GetAllFeatures`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Feature").empty();
+                        var row = ' <option value="">-- Select Feature --</option> ';
+
+                        $("#Feature").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+                                $("#Feature").append(row);
+
+                                sr++;
+                            }
+                        }
+                        $('#Feature').select2();
+                    }
+                }
+            });
+        }
+
+
+        function AddStockCreation() {
+     
+            if ($("#Floor").val() != "-1" && $("#Nature").val() != "-1" && $("#Type").val() != "-1" && $("#Block").val() != "-1" && $("#Category").val() != "-1" && $("#RealStateType").val() != "-1" && $("#Project").val() != "-1" && $("#Phase").val() != "-1" && ($("#prefixRegistration").val() != "" || $("#numForProperty").val() != "") && $("#ActualSize").val() != "") {
+               
+                var id = $("#ID").val();
+                var confirmation;
+                var newid;
+                if (id == "") {
+                    newid = 0;
+                }
+                else {
+                    newid = parseInt(id);
+                }
+                if ($("#confirmation").val() == "0" || $("#confirmation").val() == 0) {
+                    confirmation = false;
+                }
+                else {
+                    confirmation = true;
+                }
+                if ($("#numForProperty").val() == "") {
+                    var numForProperty = 0;
+                }
+                else {
+                    var numForProperty = parseInt($("#numForProperty").val());
+                }
+                if ($("#numForRegistration").val() == "") {
+                    var numForRegistration = 0;
+                }
+                else {
+                    var numForRegistration = parseInt($("#numForRegistration").val());
+                }
+                var SC =
+                {
+                    ID: newid,
+                    RealStateType: $("#RealStateType").val(),
+                    Project: $("#Project").val(),
+                    Phase: $("#Phase").val(),
+                    Block: $("#Block").val(),
+                    Category: $("#Category").val(),
+                    Type: $("#Type").val(),
+                    Nature: $("#Nature").val(),
+                    Finishing: $("#Finishing").val(),
+                    Floor: $("#Floor").val(),
+                    ActualSize: $("#ActualSize").val(),
+                    ActualSizeUnit: $("#ActualSizeUnit").val(),
+                    Status: $("#Status").val(),
+                    User: $("#User").val(),
+                    PrefixRegistration: $("#prefixRegistration").val(),
+                    numForRegistration: numForRegistration,
+                    postfixForRegistration: $("#postfixForRegistration").val(),
+                    PrefixProperty: $("#prefixPropertyNo").val(),
+                    numForProperty: numForProperty,
+                    postfixForProperty: $("#postfixForProperty").val(),
+                    Quantity: $("#qtyForRegistration").val(),
+                    InventoryStatus: $("#InventoryStatus").val(),
+                    Almt: $("#Almt").val(),
+                    CaseCode: $("#CaseCode").val(),
+                    AffidavitCode: $("#AffidavitCode").val(),
+                    SaleDeedNo: $("#SaleDeedNo").val(),
+                    SaleDeedDate: $("#SaleDeedDate").val(),
+                    Mouza: $("#Mouza").val(),
+                    MembershipFee: $("#MembershipFee").val(),
+                    MiscCharges: $("#MiscCharges").val(),
+                    AllocationNo: $("#AllocationNo").val(),
+                    IsConfirmed: confirmation,
+                };
+
+                var ModelData = JSON.stringify(SC);
+                
+                $('#sbt').prop('disabled', true); //disble
+                $('#loader').fadeIn();
+                NProgress.start();
+                NProgress.set(0.0);
+    
+                $.ajax({
+                    type: "POST",
+                    url: `/api/StockCreation/AddStockCreation`,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    data: ModelData,
+                    success: function (response) {
+                        if (response.code === 100) {
+                            $('#loader').fadeOut();
+                            NProgress.done();
+
+                            //Swal.fire('Saved', response.message, 'success')
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+                        }
+                        else if (response.code === 2) {
+                            $('#loader').fadeOut();
+                            NProgress.done();
+                            Swal.fire(
+                                'warning!',
+                                response.message,
+                                'warning'
+                            )
+                        }
+                        else if (response.code === 3) {
+                            //notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+                            //swal with loading and update text
+                            //Swal.fire('After mignight I will turn into a pumpkin')
+                            //    swal.showLoading()
+
+                            //    // change the title after 2 seconds
+                            //    setTimeout(() => {
+                            //      Swal.update({ title: 'I am a pumpkin now!' })
+                            //      Swal.hideLoading()
+                            //    }, 2000)
+                            //-=-=-=-=-=-=--=-=----showing list start in modal----=-=-=--=-=-=-=-
+                            $('#loader').fadeOut();
+                            NProgress.done();
+                            $("#confirmation").val(1);
+                            $("#Propertytbody").empty();
+                            var relist = response.data;
+                            if (relist != null && relist.length > 0) {
+                                var sr = 1;
+                                for (let list of relist) {
+                                    var row = ' <tr> ' +
+                                        ' <td>' + sr + '</td> ' +
+                                        ' <td class="registrationNo">' + list.registrationNo + '</td>           ' +
+                                        ' <td class="propertyNo">' + list.propertyNo + '</td>           ' +
+                                        ' <td>' + list.typeName + '</td>       ' +
+                                        ' <td>' + list.realStateTypeName + '</td>       ' +
+
+                                        ' <td>' + list.status + '</td> </tr>';
+                                    //</tr>';
+                                    $("#Propertytbody").append(row);
+
+
+                                    sr++;
+
+                                }
+                            }
+                            $("#registrationModal").modal("show");
+
+                            //-=-=-=-=-=-=--=-=----showing list end in modal----=-=-=--=-=-=-=-
+                        }
+                        else if (response.code === 4) {
+                            //notification("bottomleft", "warning", "fa fa-exclamation-circle vd_red", "Warning", response.message);
+                            $('#loader').fadeOut();
+                            NProgress.done();
+                            Swal.fire({
+                                icon: 'warning',
+                                title: 'Warning',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                            
+                            //-=-=-=-=-=-=--=-=----showing list start in modal----=-=-=--=-=-=-=-
+                            $("#confirmation").val(0);
+                            $("#conflictModaltbody").empty();
+                            var relist = response.data;
+                            if (relist != null && relist.length > 0) {
+                                var sr = 1;
+                                for (let list of relist) {
+                                    var row = ' <tr> ' +
+                                        ' <td>' + sr + '</td> ' +
+                                        ' <td class="propertyNo">' + list.propertyNo + '</td>           ' +
+                                        ' <td class="registrationNo">' + list.registrationNo + '</td>           ' +
+                                        ' <td>' + list.typeName + '</td>       ' +
+                                        ' <td>' + list.realStateTypeName + '</td>       ' +
+
+                                        ' <td>' + list.status + '</td> </tr>';
+                                    //</tr>';
+                                    $("#conflictModaltbody").append(row);
+                                    sr++;
+                                }
+                            }
+                            $("#conflictModal").modal("show");
+
+                            //-=-=-=-=-=-=--=-=----showing list end in modal----=-=-=--=-=-=-=-
+                        }
+
+                        else {
+                            $('#loader').fadeOut();
+                            NProgress.done();
+                            //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", response.message);
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+
+                        }
+                    }
+                });
+              
+                $('#sbt').prop('disabled', false); //enable
+            }
+            else {
+                $('#loader').fadeOut();
+                NProgress.done();
+                
+                if ($("#prefixRegistration").val() == "" && $("#numForProperty").val() == "") {
+                    //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "You can't create new without Registration Number or Property Number Please select one of them");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'You cant create new without Registration Number or Property Number Please select one of them',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+                else {
+                    
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Error',
+                        text: 'Enter Valid Data',
+                        customClass: 'swal-wide',
+                        allowOutsideClick: false,
+                        allowEscapeKey: false
+                    });
+                }
+            }
+        }
+
+        function GetAllRealEstate(id) {
+            
+
+            $.ajax({
+
+                type: 'GET',
+                url: `/api/RealEstate/GetRealEstatesByPhaseId`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#RealStateType").empty();
+                        var row = ' <option value="">-- Select Real State Type --</option> ';
+
+                        $("#RealStateType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#RealStateType").append(row);
+
+
+                                sr++;
+
+                            }
+                            $('#RealStateType').select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        function GetAllProjects(id) {
+            var realEstateId = id;
+            var url = "/api/StockCreation/GetProjectDropdownByRealEstateId?realEstateId=" + id + "";
+
+            
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                  
+                    if (response.code == 100) {
+
+                        $("#Project").empty();
+                        var row = ' <option value="">-- Select Project --</option> ';
+
+                        $("#Project").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Project").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Project').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllPrefix() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Prefix/GetAllPrefixes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#prefixRegistration").empty();
+                        var row = ' <option value="">-- Select Prefix --</option> ';
+
+                        $("#prefixRegistration").append(row);
+                       
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#prefixRegistration").append(row);
+                               
+
+                                sr++;
+                            }
+                        }
+
+                        $('#prefixRegistration').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllSector() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Sector/GetAllSectors`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#prefixPropertyNo").empty();
+                        var row = ' <option value="">-- Select Sector --</option> ';
+
+                         $("#prefixPropertyNo").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                 $("#prefixPropertyNo").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#prefixPropertyNo').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllPostfix() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Postfix/GetAllPrefixes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#postfixForRegistration").empty();
+                        $("#postfixForProperty").empty();
+                        var row = ' <option value="">-- Select Postfix --</option> ';
+
+                        $("#postfixForRegistration").append(row);
+                       // $("#postfixForProperty").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#postfixForRegistration").append(row);
+                               // $("#postfixForProperty").append(row);
+                                sr++;
+
+                            }
+                        }
+                        $('#postfixForRegistration').select2();
+                      //  $('#postfixForProperty').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllSizes(id) {
+            debugger;
+
+            var realEstateId = id;
+            var url = "/api/StockCreation/GetSizeDropdownByRealEstateId?realEstateId=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        debugger;
+                        $("#blocktbody").empty();
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <tr> ' +
+                                    ' <td>' + sr + '</td> ' +
+                                    ' <td>' + list.id + '</td>           ' +
+                                    ' <td>' + list.description + '</td>       ' +
+                                    ' <td>' + list.shortDescription + '</td>       ' +
+                                    ' <td>' + list.standardSize + '</td>       ' +
+                                    ' <td>' + list.actualSize + '</td>       ' +
+                                    '<td><a class="btn btn-primary" onclick="selectSize(' + list.id + ')">Select</a> </td>' +
+                                    '</tr>';
+                                $("#blocktbody").append(row);
+
+                                sr++;
+                            }
+                        }
+
+                        $('#Blocktable').dataTable();
+                    }
+                }
+            });
+        }
+
+        function selectSize(id) {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Size/GetSingleSize`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 0) {
+                        var result_User = response.data;
+
+                        $("#ActualSize").val(result_User.actualSize);
+
+                        $("#StandardSize").val(result_User.standardSize);
+
+
+
+                        $("#Sizesmodal").modal("hide");
+                    }
+
+                    else {
+                        //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", response.message);
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Error',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                        // window.alert(response.message);
+                    }
+                }
+            });
+        }
+
+        // $(document.body).on("change", "#prefixPropertyNo", function () {
+        //     getlastpropertynumber();
+        // });
+        // $(document.body).on("change", "#postfixForProperty", function () {
+        //     getlastpropertynumber();
+        // });
+        $(document.body).on("change", "#prefixRegistration", function () {
+            getlastregistrationnumber();
+        });
+        $(document.body).on("change", "#postfixForRegistration", function () {
+            getlastregistrationnumber();
+        });
+
+        //getlastpropertynumber
+        function getlastpropertynumber() {
+
+            var prefix = $("#prefixPropertyNo").val();
+            //var postfix = $("#postfixForProperty").val();
+            if (prefix != "-1" && postfix != "-1") {
+                var url = '/api/StockCreation/GetLastPropNo?prefix=' + prefix;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    processData: false,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    async: false,
+                    success: function (response) {
+                        debugger;
+                        console.log(response);
+                        if (response.code == 100) {
+                            debugger;
+                            $("#numForProperty").val(response.data + 1);
+                            //notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+
+                        }
+                        else {
+
+                            //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Error Occured");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Error Occured',
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+
+                            //  alert(response.message);
+                        }
+                    }
+                });
+            }
+
+        }
+        //getlastpropertynumber
+
+        //getlastregistrationnumber
+        function getlastregistrationnumber() {
+
+            var prefix = $("#prefixRegistration").val();
+            var postfix = $("#postfixForRegistration").val();
+            if (prefix != "-1" && postfix != "-1") {
+                var url = '/api/StockCreation/GetLastRegNo?prefix=' + prefix;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    processData: false,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    async: false,
+                    success: function (response) {
+                        debugger;
+                        console.log(response);
+                        if (response.code == 100) {
+                            debugger;
+                            $("#numForRegistration").val(response.data + 1);
+                            //notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+
+                        }
+                        else {
+
+                            //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Error Occured");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Error Occured',
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                            //  alert(response.message);
+                        }
+                    }
+                });
+            }
+
+        }
+
+        //getlastpropertynumberByBlock
+        function getlastpropertynumberByBlock(blockId) {
+
+                var url = '/api/StockCreation/GetLastPropNoByBlock?blockId=' + blockId;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    processData: false,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    async: false,
+                    success: function (response) {
+                        debugger;
+                        console.log(response);
+                        if (response.code == 100) {
+                            debugger;
+                            $("#numForProperty").val(response.data + 1);
+                          
+                        }
+                        else {
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Error Occured',
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                        }
+                    }
+                });
+        }
+ 
+                
+    </script>
+  }

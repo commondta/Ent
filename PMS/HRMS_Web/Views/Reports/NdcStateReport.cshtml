@@ -1,0 +1,755 @@
+﻿<!-- Middle Content Start -->
+@section CSS {
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.5/css/dataTables.bootstrap5.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/responsive/2.2.9/css/responsive.bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.2/css/buttons.dataTables.min.css" />
+
+    <!-- Select2 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+
+    <!-- Summary Styling -->
+    <style>
+        .summary-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .summary-card {
+            background: #f8f9fa;
+            padding: 1rem 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            min-width: 140px;
+            flex: 1 1 150px;
+            transition: transform 0.2s ease;
+        }
+
+            .summary-card:hover {
+                transform: translateY(-4px);
+            }
+
+        .summary-name {
+            font-size: 14px;
+            font-weight: 600;
+            color: #555;
+        }
+
+        .summary-count {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+            margin-top: 5px;
+        }
+
+        .tab-pane .error {
+            color: red;
+            font-weight: bold;
+            padding: 1rem;
+        }
+    </style>
+}
+
+
+<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">NDC State Report</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-graph-up" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M0 0h1v15h15v1H0zm14.817 3.113a.5.5 0 0 1 .07.704l-4.5 5.5a.5.5 0 0 1-.74.037L7.06 6.767l-3.656 5.027a.5.5 0 0 1-.808-.588l4-5.5a.5.5 0 0 1 .758-.06l2.609 2.61 4.15-5.073a.5.5 0 0 1 .704-.07"/></svg></span>
+                    <h1>NDC State Report</h1>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                            @*
+                            <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>
+                            *@
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <div class="col-md-12">
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-sm-12">
+                                        <div class="row g-3">
+                                            <div class="col-sm-3">
+                                                <label for="startDate" class="form-label">Start Date</label>
+                                                <input type="date" id="startDate" class="form-control">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="endDate" class="form-label">End Date</label>
+                                                <input type="date" id="endDate" class="form-control">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="refrenceNo" class="form-label">Ref No.</label>
+                                                <input type="text" id="refrenceNo" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="plotNo" class="form-label">Plot No.</label>
+                                                <input type="text" id="plotNo" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="Block" class="form-label">Sector</label>
+                                                <select id="Block" name="Block" class="js-example-basic-single form-control">
+                                                    <option value="">Select Option</option>
+                                                </select>
+                                            </div>
+@* 
+                                            <div class="col-sm-3">
+                                                <label for="sector" class="form-label">Sector</label>
+                                                <select id="sector" name="sector" class="form-control"></select>
+                                            </div> *@
+                                            <div class="col-sm-3">
+                                                <label for="Phase" class="form-label">Phase</label>
+                                                <select id="Phase" name="Phase" class="js-example-basic-single form-control">
+                                                    <option value="">Select Option</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="RealStateType" class="form-label">Real Estate Type</label>
+                                                <select id="RealStateType" name="RealStateType" class="js-example-basic-single form-control">
+                                                    <option value="">Select Option</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="Category" class="form-label">Category</label>
+                                                <select id="Category" name="Category" class="js-example-basic-single form-control">
+                                                    <option value="">Select Option</option>
+                                                </select>
+                                            </div>
+
+                                          
+                                            <div class="col-sm-3">
+                                                <label for="Type" class="form-label">Type</label>
+                                                <select id="Type" name="Type" class="js-example-basic-single form-control">
+                                                    <option value="">Select Option</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="Nature" class="form-label">Nature</label>
+                                                <select id="Nature" name="Nature" class="js-example-basic-single form-control">
+                                                    <option value="">Select Option</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="requestType" class="form-label">NDC Request Type</label>
+                                                <select id="requestType" name="requestType" class="form-control">
+                                                    <option value="">Select NDC Request Type</option>
+                                                    <option value="Premium Transfer">Premium Transfer</option>
+                                                    <option value="Executive Transfer">Executive Transfer</option>
+                                                    <option value="Regular">Regular</option>
+                                                    <option value="Provisional">Provisional</option>
+                                                    <option value="Open NDC">Open NDC</option>
+                                                    <option value="Urgent">Urgent</option>
+                                                    <option value="Dealer/Investors">Dealer/Investors</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="dealerName" class="form-label">Dealer Name</label>
+                                                <input type="text" id="dealerName" class="form-control" placeholder="">
+                                            </div>
+                                            <div class="col-sm-3">
+                                                <label for="transfer" class="form-label">Transfer Type</label>
+                                                <select id="transfer" name="TransferT" class="form-control"></select>
+                                            </div>
+                                           
+
+                                            <div class="col-sm-12 text-right mt-3">
+                                                <button id="searchButton" class="btn btn-primary">Filter</button>
+                                            </div>
+                                        </div>
+                                        <br>
+                                        <ul class="nav nav-tabs">
+                                            <li class="nav-item active"><a class="nav-link active tab_clr" href="#ndcTabContent" data-toggle="tab">Report</a></li>
+                                            <li class="nav-item"><a class="nav-link tab_clr" href="#summary" data-toggle="tab">Summary</a></li>
+                                        </ul>
+                                        <br />
+                                        <div class="tab-content">
+                                            <div class="tab-pane active" id="ndcTabContent">
+                                            <table id="proplist" class="table table-bordered table-hover mb-0" style="width:100%">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white">Sr #</th>
+                                                        <th class="text-white">Property No.</th>
+                                                        <th class="text-white">Registration No.</th>
+                                                        <th class="text-white">Membership No.</th>
+                                                        <th class="text-white">Member Name</th>
+                                                        <th class="text-white">Estate Name</th>
+                                                        <th class="text-white">Dealer Name</th>
+                                                        <th class="text-white">NDC Request Type</th>
+                                                        <th class="text-white">Transfer Type</th>
+                                                        <th class="text-white">Apply Date</th>
+                                                        <th class="text-white">Validity Date</th>
+                                                        <th class="text-white">Apply Station</th>
+                                                        <th class="text-white">NDC Status</th>
+                                                        <th class="text-white">Phase</th>
+                                                        <th class="text-white">Sector</th>
+                                                        <th class="text-white">Category</th>
+                                                        <th class="text-white">Property Type</th>
+                                                    </tr>
+                                                </thead>
+                                            </table>
+                                            </div>
+                                            <div class="tab-pane" id="summary">
+                                                <div id="summary-tab"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+@section Scripts {
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.11.5/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.2/js/buttons.html5.min.js"></script>
+
+    <!-- Select2 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            "use strict";
+            
+            $('#sector').select2();
+            $('#transfer').select2();
+
+            GetAllPhases();
+            GetAllBlocks();
+            GetAllTypes();
+            GetAllSector();
+            GetAllNDCTransferTypes();
+            GetAllPropertyLists();
+
+            $('#searchButton').on('click', function () {
+                $('#proplist').DataTable().ajax.reload();
+                loadSummaryData();
+            });
+
+            loadSummaryData();
+        });
+
+        function loadSummaryData() {
+
+            const filters = {
+                startDate: $('#startDate').val() || "",
+                endDate: $('#endDate').val() || "",
+                refrenceNo: $('#refrenceNo').val() || "",
+                plotNo: $('#plotNo').val() || "",
+                sector: $('#sector').val() || "",
+                Phase: $('#Phase').val() || "",
+                RealStateType: $('#RealStateType').val() || "",
+                Category: $('#Category').val() || "",
+                Block: $('#Block').val() || "",
+                Type: $('#Type').val() || "",
+                Nature: $('#Nature').val() || "",
+                requestType: $('#requestType').val() || "",
+                transferType: $('#transfer').val() || "",
+                dealerName: $('#dealerName').val() || ""
+            };  
+
+            $.ajax({
+                url: "/api/SP/NDCSummaryReport", 
+                method: "POST",
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                },
+                data: filters,
+                success: function (response) {
+                    renderSummary(response);
+                },
+                error: function () {
+                    $('#summary-tab').html('<div class="error">Failed to load summary data.</div>');
+                }
+            });
+           
+        }
+
+        function renderSummary(data) {
+            if (!Array.isArray(data) || data.length === 0) {
+                $('#summary-tab').html('<div class="error">No summary data found.</div>');
+                return;
+            }
+
+            let html = '<div class="summary-container">';
+            data.forEach(item => {
+                html += `
+                    <div class="summary-card">
+                        <div class="summary-name">${item.name}</div>
+                        <div class="summary-count">${item.count}</div>
+                    </div>
+                `;
+            });
+            html += '</div>';
+
+            $('#summary-tab').html(html);
+        }
+
+        function GetAllPropertyLists() {
+
+            $('#proplist').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllNDCRequestFilters",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                    data: function (d) {
+                        d.startDate = $('#startDate').val() || "";
+                        d.endDate = $('#endDate').val() || "";
+                        d.refrenceNo = $('#refrenceNo').val() || "";
+                        d.plotNo = $('#plotNo').val() || "";
+                        d.sector = $('#sector').val() || "";
+                        d.Phase = $('#Phase').val() || "";
+                        d.RealStateType = $('#RealStateType').val() || "";
+                        d.Category = $('#Category').val() || "";
+                        d.Block = $('#Block').val() || "";
+                        d.Type = $('#Type').val() || "";
+                        d.Nature = $('#Nature').val() || "";
+                        d.requestType = $('#requestType').val() || "";
+                        d.transferType = $('#transfer').val() || "";
+                        d.dealerName = $('#dealerName').val() || "";
+                    }
+
+                },
+                processing: true,
+                serverSide: true,
+                filter: true,
+                lengthMenu: [[10, 25, 50, 10000000], [10, 25, 50, "All"]],
+                filter: true,
+                dom: '<"top"lfB>rt<"bottom"ip><"clear">',
+                buttons: ["copy", "csv", "excel", "print", "pdf"],
+                columns: [
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + 1;
+                        },
+                        title: "#",
+                    },
+                    { data: "propertyNo", name: "Property No" },  
+                    { data: "registrationNo", name: "Registration No" }, 
+                    { data: "membershipNo", name: "Membership No" },
+                    { data: "memberName", name: "Member Name" },
+                    { data: "estateName", name: "Estate Name" },  
+                    { data: "dealerName", name: "Dealer Name" },
+                    { data: "ndcRequestType", name: "NDC Request Type" },
+                    { data: "transferType", name: "Transfer Type" },
+                    { data: "formattedDateTime", name: "Apply Date" },  
+                    { data: "formattedValidityDate", name: "Validity Date" },
+                    { data: "applyStation", name: "Apply Station" },
+                    { data: "status", name: "NDC Status" },
+                    { data: "phase", name: "Phase" },
+                    { data: "block", name: "Block" },
+                    { data: "category", name: "Category" },
+                    { data: "propertyType", name: "Property Type" }
+                ]
+            });
+
+        }
+
+        function GetAllSector() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/Sector/GetAllSectors`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json; charset=utf-8',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#sector").empty();
+                        var row = ' <option value="">-- Select Sector --</option> ';
+
+                        $("#sector").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+                                $("#sector").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#sector').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllNDCTransferTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/TransferType/GetAll`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#transfer").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#transfer").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#transfer").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#transfer').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllPhases() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/Phase/GetAllPhases`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Phase").empty();
+                        var row = ' <option value="">Select Phase</option> ';
+
+                        $("#Phase").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+                                $("#Phase").append(row);
+                                sr++;
+                            }
+                        }
+                        $('#Phase').select2();
+                    }
+                }
+            });
+        }
+        $('#Phase').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetAllRealEstate(value);
+        });
+        $('#RealStateType').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetAllCategories(value);
+            GetAllNatures(value);
+            GetAllProjects(value);
+            // GetAllSizes(value);
+
+        });
+
+        function GetAllBlocks() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Block/GetAllBlocks`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Block").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Block").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Block").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Block').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PropertyType/GetAllPropertyTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Type").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Type").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Type").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Type').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllCategories(id) {
+            var url = "/api/StockCreation/GetCategoryDropdownByRealEstateId?realEstateId=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                data: id,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Category").empty();
+                        var row = ' <option value="">Select Category</option> ';
+
+                        $("#Category").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Category").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Category').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllProjects(id) {
+            var realEstateId = id;
+            var url = "/api/StockCreation/GetProjectDropdownByRealEstateId?realEstateId=" + id + "";
+
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code == 100) {
+
+                        $("#Project").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#Project").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Project").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Project').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllNatures(id) {
+            var url = "/api/StockCreation/GetNatureDropdownByRealEstateId?realEstateId=" + id + "";
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: id,
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Nature").empty();
+                        var row = ' <option value="">Select Nature</option> ';
+
+                        $("#Nature").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Nature").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#Nature').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllRealEstate(id, real) {
+
+            $.ajax({
+
+                type: 'GET',
+                url: `/api/RealEstate/GetRealEstatesByPhaseId`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#RealStateType").empty();
+                        var row = ' <option value="">Select Option</option> ';
+
+                        $("#RealStateType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#RealStateType").append(row);
+
+
+                                sr++;
+
+                            }
+                            $('#RealStateType').select2();
+
+                            if (real != undefined && real != null) {
+                                debugger;
+                                $('#RealStateType').select2('val', [real]);
+                                GetAllCategories(real);
+                                GetAllNatures(real);
+                                GetAllProjects(real);
+                            }
+                        }
+
+                    }
+                }
+            });
+        }
+
+    </script>
+}
+

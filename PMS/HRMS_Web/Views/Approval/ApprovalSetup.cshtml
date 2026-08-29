@@ -1,0 +1,386 @@
+﻿@section css{
+
+    <style>
+
+    </style>
+}
+    <div class="vd_content-wrapper">
+        <div class="vd_container">
+            <div class="vd_content clearfix">
+                <div class="vd_head-section clearfix">
+                    <div class="vd_panel-header">
+                        <ul class="breadcrumb">
+                            <li><a href="/Home/index">Home</a> </li>
+                            <li class="active">Approvals Setup</li>
+                        </ul>
+                        <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                            <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                            <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                            <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- vd_head-section -->
+
+                <div class="vd_title-section clearfix">
+                    <div class="vd_panel-header">
+                    <button style="text-transform:uppercase" class="dha_theme_btn">Approvals Setup</button>
+
+                        <div class="vd_panel-menu  hidden-xs">
+
+
+
+                            <!-- menu -->
+                        </div>
+                        <!-- vd_panel-menu -->
+                    </div>
+                    <!-- vd_panel-header -->
+                </div>
+                <!-- vd_title-section -->
+
+                <div class="vd_content-section clearfix">
+                    <div class="container-fluid">
+                        <div class="row">
+                        <div style="float: right; margin-bottom: .5rem;">
+                            <a href="/Approval/ViewApproval" class="btn dha_theme_btn ">Edit Approvals</a>
+                        </div>
+                            <div >
+                                @*   //form content here*@
+                           
+                               
+                                <div class="row">
+                                    <div class="col-sm-4">
+                                        <label>Approval</label>
+                                        <div>
+                                            <select class="js-example-basic-single" name="ApprovalUIId" id="ApprovalUIId">
+                                                <option value="-1"> Select Option </option>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label>Stage</label>
+                                        <div>
+                                            <select class="js-example-basic-single" name="StageNo" id="StageNo">
+                                                <option value="-1"> Select Option </option>
+                                                <option value="1"> Stage One </option>
+                                                <option value="2">Stage Two </option>
+                                                <option value="3"> Stage Three </option>
+                                                <option value="4"> Stage Four </option>
+                                                <option value="5">Stage Five </option>
+                                                <option value="6"> Stage Six</option>
+
+                                            </select>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-sm-4">
+                                        <label>No of Approval Required</label>
+                                        <div>
+                                            <input class="form-control" type="number" name="NumberOfApprovalRequired" id="NumberOfApprovalRequired" />
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                               
+                                <div class="row">
+                                
+                                    <div class="card p-3">
+                                        <div class="col-md-12">
+                                        <div style="float: right; margin-bottom:.5rem; ">
+                                            <a class="btn btn-primary btn-sm btn-theme" style="padding: 6px 20px;" onclick="AddRow()"> Add User</a>
+
+                                        </div>
+                                            <div class="">
+                                                <table id="PMSUsersTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white" style="width: 90px; text-align: center;">#</th>
+                                                            <th class="text-white" style="text-align: center;">Select User</th>
+                                                            <th class="text-white" style="text-align: center;">User Designation</th>
+                                                            <th class="text-white" style="text-align: center;">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="PMSUsersTabletbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                            <div  style="float: right; ">
+                    <button type="submit" class="btn dha_theme_btn" href="javascript:void(0);" onclick="SubmitRequest()" id="sbt">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Save
+                                </button>
+                            </div>
+
+
+
+                </div>
+                <!-- .vd_content-section -->
+
+            </div>
+            <!-- .vd_content -->
+        </div>
+        <!-- .vd_container -->
+    </div>
+    <!-- .vd_content-wrapper -->
+    <!-- Middle Content End -->
+    <input value="0" id="rownumber" />
+    <input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+    <input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+    @section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $("#StageNo").select2();
+            GetAllApprovalsUI();
+        });
+
+        function GetAllApprovalsUI() {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/Approvals/GetAllActiveApprovalUIDropdown`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#ApprovalUIId").empty();
+                        var row = ' <option value="-1">Select Approval</option> ';
+
+                        $("#ApprovalUIId").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                if (list.level == 3) {
+                                    var row = ' <option value="' + list.serialNo + '" >' + list.moduleORSubModule + '</option> ';
+
+                                    $("#ApprovalUIId").append(row);
+                                }
+                                sr++;
+                            }
+                        }
+
+                        $('#ApprovalUIId').select2();
+                    }
+                }
+            });
+        }
+
+
+        function AddRow() {
+            var rownumber = parseInt($("#rownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            debugger;
+            if ($("#NumberOfApprovalRequired").val() >= rownumber && $("#NumberOfApprovalRequired").val() && $("#NumberOfApprovalRequired").val() != null && $("#NumberOfApprovalRequired").val() != "" && $("#StageNo").val() != "-1" && $("#ApprovalUIId").val() != "-1") {
+
+
+                $("#rownumber").val(rownumber);
+
+
+                var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                    '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                    '<td> <select id="UserId' + rownumber + '" class="form-control UserId" style="width:100%" /></td>' +
+                    '<td> <input  class="form-control UserDesignation" disabled /></td>' +
+                    '<td style="padding-top:10px"><a class="fa fa-trash-o fa-2x text-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"></a> </td>' +
+                    '</tr>';
+
+
+                $("#PMSUsersTabletbody").append(row);
+                BindPMSUsers(rownumber);
+            }
+            else {
+                notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Addition of row not allowed");
+            }
+        }
+
+        function DeleteItemRow(id) {
+            $('#' + id).remove();
+        }
+
+        function BindPMSUsers(rownumber) {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/PMSUser/GetAllPMSUsers`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#UserId" + rownumber).empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#UserId" + rownumber).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.emP_FULL_NAME + '-' + list.desiG_DESC + '</option> ';
+
+                                $("#UserId" + rownumber).append(row);
+
+                                sr++;
+
+                            }
+                            $('#UserId' + rownumber).select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+        $('body').on('select2:select', '.UserId', SetuserDesignation);
+
+
+        function SetuserDesignation() {
+            debugger;
+            var data_arr = $(this).parents('tr').find('.UserId').select2('data');
+
+            var PMSUserarray = data_arr[0].text;
+            var PMSUserdesignation = PMSUserarray.split('-');
+
+            $(this).parents('tr').find('.UserDesignation').val(PMSUserdesignation[1]);
+        }
+
+        function SubmitRequest() {
+
+            if ($("#ApprovalUIId").val() != "-1" && $("#StageNo").val() != "-1" && $("#NumberOfApprovalRequired").val() > 0) {
+                var AS = new Object();
+                var ApprovalUIArr = new Array();
+
+                AS.ApprovalUIId = $("#ApprovalUIId").val();
+                AS.StageNo = $("#StageNo").val();
+                AS.NumberOfApprovalRequired = $("#NumberOfApprovalRequired").val();
+                AS.CreatedBy = $("#User_Id").val();
+                AS.ModifiedBy = $("#User_Id").val();
+                AS.LastModifiedUserName = $("#User_Name").val();
+
+
+                $("#PMSUsersTabletbody tr").each(function () {
+                    var row = $(this);
+
+
+                    var ApprovalArray = new Object();
+
+                    ApprovalArray.UserId = row.find(".UserId").val(),
+                        ApprovalArray.UserDesignation = row.find(".UserDesignation").val(),
+
+                        ApprovalUIArr.push(ApprovalArray);
+                });
+
+                AS.ApprovalUsers = ApprovalUIArr;
+
+                var ModelData = JSON.stringify(AS);
+
+                debugger;
+                $('#sbt').prop('disabled', true); //disble
+                $('#loader').fadeIn();
+                $.ajax({
+                    type: "POST",
+                    url: `/api/Approvals/AddNewApprovalSetup`,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    processData: false,
+                    dataType: "json",
+                    async: false,
+                    data: ModelData,
+                    success: function (response) {
+                        
+                        $('#loader').fadeOut();
+                        console.log(response);
+                        if (response.code === 100) {
+                            //notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+                            Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                            $("#PMSUsersTabletbody").empty();
+                            $("#rownumber").val(0);
+                            $("#NumberOfApprovalRequired").val(0);
+                            $("#ApprovalUIId").val("-1");
+                            $("#ApprovalUIId").trigger("change");
+                            $("#StageNo").val("-1");
+                            $("#StageNo").trigger("change");
+                        }
+
+                    }
+                });
+                
+                        $('#sbt').prop('disabled', false); //enable
+            }
+            else {
+                notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Data");
+            }
+        }
+        $(document.body).on("change", "#ApprovalUIId", function () {
+            GetPreviousApprovalSetup();
+        });
+        $(document.body).on("change", "#StageNo", function () {
+            GetPreviousApprovalSetup();
+        });
+        function GetPreviousApprovalSetup() {
+            var documentId = $("#ApprovalUIId").val();
+            var stageNo = $("#StageNo").val();
+            if (documentId != "-1" && stageNo != "-1") {
+                $.ajax({
+                    type: 'GET',
+                    url: `/api/Approvals/GetApprovalSetupByDocumentId`,
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    dataType: "json",
+                    data: { documentId: documentId, stageNo: stageNo },
+                    async: false,
+                    contentType: 'application/json',
+                    success: function (response) {
+                        debugger;
+                        if (response.code === 100) {
+                            var documentId=$("#ApprovalUIId option:selected").text();
+                            var stageNo = $("#StageNo option:selected").text();
+                            $("#ApprovalUIId").val("-1").trigger("change");
+                            $("#StageNo").val("-1").trigger("change");
+                            var msg=documentId+ " and " +stageNo +" Already defined Approval forms And stage No respectively please click edit button to update..";
+                            Swal.fire(
+                                'Warning!',
+                                msg,
+                                'error'
+
+                            );
+                          
+                             //notification("bottomleft", "warning", "fa fa-check-circle vd_green", "Warning",msg );
+                        }
+                    }
+                });
+            }
+
+        }
+
+
+
+    </script>
+}
+

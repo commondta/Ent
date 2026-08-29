@@ -1,0 +1,87 @@
+﻿@using DataLayer
+@using Payroll_HCC.Infrastructure
+@{
+    ViewBag.Title = "My profile";
+    UserModel u = ViewBag.User;
+    SessionUser me = Payroll_HCC.Infrastructure.App.CurrentUser;
+    var recent = (List<ActivityLogModel>)ViewBag.Recent;
+    var mine = (List<ApprovalRequestModel>)ViewBag.MyRequests;
+}
+<div class="content-wrapper">
+    <section class="content-header">
+        <h1>My profile</h1>
+        <ol class="breadcrumb"><li><a href="@Url.Action("Index", "Home")">Home</a></li><li class="active">My profile</li></ol>
+    </section>
+    <section class="content">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="box">
+                    <div class="box-body">
+                        <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px">
+                            <span class="avatar" style="width:52px;height:52px;background:#242729;color:#fff;font-size:17px">@me.Initials</span>
+                            <div><b style="font-size:16px;font-weight:600">@me.DisplayName</b><br /><span class="text-muted">@me.RoleName</span></div>
+                        </div>
+                        <dl class="kv">
+                            <dt>Username</dt><dd>@u.Username</dd>
+                            <dt>Email</dt><dd>@(string.IsNullOrEmpty(u.Email) ? "—" : u.Email)</dd>
+                            <dt>Status</dt><dd><span class="status @(u.IsActive ? "status-Active" : "status-Inactive")">@(u.IsActive ? "Active" : "Inactive")</span></dd>
+                            <dt>Last sign-in</dt><dd>@(u.LastLoginAt.HasValue ? u.LastLoginAt.Value.ToString("dd MMM yyyy HH:mm") : "—")</dd>
+                            <dt>This session</dt><dd>since @me.LoginAt.ToString("HH:mm")</dd>
+                            <dt>Account created</dt><dd>@u.CreatedAt.ToString("dd MMM yyyy")@(string.IsNullOrEmpty(u.CreatedBy) ? "" : " by " + u.CreatedBy)</dd>
+                        </dl>
+                        <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
+                            <a href="@Url.Action("ChangePassword")" class="btn btn-default">@Icons.Svg("lock", 13) Change password</a>
+                            <form method="post" action="@Url.Action("Logout", "Account")" style="display:inline">@Html.AntiForgeryToken()<button type="submit" class="btn btn-danger">@Icons.Svg("box-arrow-right", 13) Sign out</button></form>
+                        </div>
+                    </div>
+                </div>
+                <div class="box">
+                    <div class="box-header"><h3 class="box-title">My access</h3></div>
+                    <div class="box-body">
+                        @if (me.IsAdministrator) { <p class="text-muted">Administrator — full access to every module.</p> }
+                        else
+                        {
+                            <ul style="padding-left:18px;margin:0;font-size:13px;line-height:1.7">
+                                @foreach (var m in FormRegistry.Modules.Where(x => x.Key != "Home" && x.Forms.Any(f => me.CanView(f.Key))))
+                                {
+                                    <li><b>@m.Title</b>: @string.Join(", ", m.Forms.Where(f => me.CanView(f.Key)).Select(f => f.Title))</li>
+                                }
+                            </ul>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="box">
+                    <div class="box-header"><h3 class="box-title">My recent activity</h3></div>
+                    @if (recent.Count == 0) { <div class="box-body"><div class="empty"><span>No activity recorded yet.</span></div></div> }
+                    else
+                    {
+                        <ul class="act-list">
+                            @foreach (var a in recent)
+                            {
+                                <li><span class="act-ico">@Icons.Svg("activity", 13)</span><div class="act-body"><div>@a.Detail</div><small>@a.OccurredAt.ToString("dd MMM yyyy HH:mm") · @a.Action@(string.IsNullOrEmpty(a.Module) ? "" : " · " + a.Module)</small></div></li>
+                            }
+                        </ul>
+                    }
+                </div>
+                <div class="box">
+                    <div class="box-header"><h3 class="box-title">My approval requests</h3><a href="@Url.Action("Approvals", "Security", new { status = "All" })" class="btn btn-default btn-sm">Open approvals</a></div>
+                    @if (mine.Count == 0) { <div class="box-body"><div class="empty"><span>You have not submitted any requests.</span></div></div> }
+                    else
+                    {
+                        <div class="table-responsive"><table class="table">
+                            <thead><tr><th>Request</th><th>Type</th><th>Submitted</th><th>Status</th><th>Reviewer</th></tr></thead>
+                            <tbody>
+                                @foreach (var r in mine)
+                                {
+                                    <tr><td>@r.Title</td><td><span class="tag">@r.RequestType</span></td><td>@r.RequestedAt.ToString("dd MMM yyyy")</td><td><span class="status status-@r.Status">@r.Status</span></td><td>@(string.IsNullOrEmpty(r.ReviewedBy) ? "—" : r.ReviewedBy)@if (!string.IsNullOrEmpty(r.ReviewComment)) { <br /><small class="text-muted">@r.ReviewComment</small> }</td></tr>
+                                }
+                            </tbody>
+                        </table></div>
+                    }
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

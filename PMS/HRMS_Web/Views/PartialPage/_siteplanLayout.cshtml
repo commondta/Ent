@@ -1,0 +1,1064 @@
+﻿<style>
+/* FINAL IMPROVED CSS */
+/* FULL PAGE WIDTH + CLEAR SECTIONS + VISIBLE LAST CONTENT */
+
+@@page {
+    size: A4;
+    margin: 0;
+}
+
+html, body {
+    margin: 0;
+    padding: 0px;
+    background: #fff;
+}
+
+.ns-possession-page * {
+    box-sizing: border-box;
+}
+
+
+ .field-line,
+    .field-line-sm,
+    .field-line-lg,
+    .field-line-lg-address,
+    .signature-line,
+    .top-line {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        vertical-align: middle;
+        border-bottom: 1px solid #000;
+        min-height: 20px;
+        padding: 0 0px;
+        font-weight: 400;
+        word-break: break-word;
+    }
+
+    .field-line {
+        min-width: 120px;
+    }
+
+    .field-line-sm {
+        min-width: 80px;
+    }
+
+    .field-line-lg {
+        min-width: 270px;
+    }
+
+    .field-line-lg-address {
+        min-width: 500px;
+    }
+
+    .top-line {
+        min-width: 120px;
+    }
+
+    .signature-line {
+        min-width: 400px;
+    }
+
+
+    .cnic-box {
+        display: inline-block;
+        text-align: center;
+    }
+
+.ns-possession-page {
+
+    /* FULL A4 PAGE */
+    width: 250mm;
+    min-height: 297mm;
+
+    /* MORE WIDTH */
+    padding: 7mm 6mm 5mm 6mm;
+
+    font-family: 'Times New Roman';
+    color: #000;
+
+    /* BETTER FONT */
+    font-size: 16px;
+    line-height: 1.22;
+
+    overflow: hidden;
+}
+
+    /* PARAGRAPHS */
+    .ns-possession-page p {
+        margin: 0 !important;
+        padding: 0 !important;
+        line-height: 1.22 !important;
+    }
+
+    /* ROW SPACING */
+    .ns-possession-page .row {
+        margin-top: 6px !important;
+        margin-bottom: 0 !important;
+    }
+
+    .ns-possession-page .mt-1 {
+        margin-top: 4px !important;
+    }
+
+    .ns-possession-page .mt-2 {
+        margin-top: 8px !important;
+    }
+
+    .ns-possession-page .mt-3 {
+        margin-top: 14px !important;
+    }
+
+    .ns-possession-page .mt-4 {
+        margin-top: 20px !important;
+    }
+
+    /* HEADER */
+    .ns-possession-page .form-title {
+        font-size: 21px;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        line-height: 1.1;
+    }
+
+    /* N-Stack LOGO */
+    .ns-possession-page .ns-logo {
+        font-size: 44px;
+        font-weight: bold;
+        line-height: 1;
+        color: #8c5d19;
+    }
+
+    /* LINES */
+    .ns-possession-page .top-line {
+        border-bottom: 1px solid #000;
+        min-width: 100px;
+        display: inline-block;
+        height: 17px;
+    }
+
+    .ns-possession-page .field-line {
+        border-bottom: 1px solid #000;
+        display: inline-block;
+        min-width: 145px;
+        height: 17px;
+        vertical-align: bottom;
+    }
+
+    .ns-possession-page .field-line-sm {
+        border-bottom: 1px solid #000;
+        display: inline-block;
+        min-width: 60px;
+        height: 17px;
+        vertical-align: bottom;
+    }
+
+    .ns-possession-page .field-line-lg {
+        border-bottom: 1px solid #000;
+        display: inline-block;
+        min-width: 250px;
+        height: 17px;
+        vertical-align: bottom;
+    }
+
+    /* SECTION TITLE */
+    .ns-possession-page .section-title {
+
+        border-top: 2px solid #000;
+        border-bottom: 2px solid #000;
+
+        text-align: center;
+        font-weight: bold;
+
+        font-size: 16px;
+
+        padding: 3px 0;
+
+        margin-top: 12px;
+        margin-bottom: 10px;
+
+        line-height: 1.15;
+
+        background: #fff;
+    }
+
+    /* PHOTO BOX */
+    .ns-possession-page .photo-box {
+
+        width: 115px;
+        height: 130px;
+
+        border: 1px solid #000;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        font-size: 13px;
+
+        padding: 5px;
+
+        margin-left: auto;
+
+        line-height: 1.2;
+    }
+
+    /* CNIC BOX */
+    .ns-possession-page .cnic-box {
+
+        width: 15px;
+        height: 18px;
+
+        border: 1px solid #000;
+
+        display: inline-block;
+
+        margin-right: 1px;
+    }
+
+    /* ORDER LIST */
+    .ns-possession-page ol {
+
+        margin: 0;
+
+        padding-left: 18px;
+    }
+
+        .ns-possession-page ol li {
+
+            margin-bottom: 10px;
+
+            padding-left: 5px;
+
+            line-height: 1.22;
+        }
+
+    /* SIGNATURE LINE */
+    .ns-possession-page .footer-line {
+
+        border-bottom: 1px solid #000;
+
+        height: 24px;
+
+        margin-bottom: 3px;
+    }
+
+    /* FINAL N-Stack INFO */
+    .ns-possession-page .bottom-footer {
+
+        border-top: 2px solid #d9a52b;
+
+        text-align: center;
+
+        padding-top: 4px;
+
+        font-size: 11px;
+
+        margin-top: 14px;
+
+        line-height: 1.25;
+
+        width: 100%;
+    }
+
+    /* COMMON FONT HELPERS */
+    .ns-possession-page .compact-text {
+        font-size: 15px !important;
+    }
+
+    .ns-possession-page .normal-text {
+        font-size: 16px !important;
+    }
+
+    .ns-possession-page .small-text {
+        font-size: 12px !important;
+    }
+
+    .ns-possession-page .tiny-text {
+        font-size: 10px !important;
+    }
+
+/* PAGE 2 */
+
+.instruction-page {
+
+    width: 210mm;
+    min-height: 297mm;
+
+    padding: 18mm 15mm;
+
+    font-family: 'Times New Roman';
+
+    color: #000;
+
+    page-break-before: always;
+}
+
+    .instruction-page .title {
+
+        text-align: center;
+
+        font-size: 26px;
+
+        font-weight: bold;
+
+        text-decoration: underline;
+
+        margin-bottom: 35px;
+    }
+
+    .instruction-page ol {
+
+        padding-left: 25px;
+
+        font-size: 22px;
+
+        line-height: 1.75;
+    }
+
+    .instruction-page li {
+
+        margin-bottom: 22px;
+
+        text-align: justify;
+    }
+
+    .instruction-page .sub-list {
+
+        padding-left: 35px;
+
+        margin-top: 10px;
+    }
+
+        .instruction-page .sub-list li {
+
+            margin-bottom: 6px;
+        }
+
+@@media print {
+
+    html, body {
+        width: 210mm;
+        height: auto;
+    }
+
+    .ns-possession-page,
+    .instruction-page {
+        margin: 0;
+    }
+}
+</style>
+
+
+<!-- PAGE 1 -->
+
+<div class="container-fluid ns-possession-page" id="printdivSitePlan">
+
+    <!-- TOP -->
+    <div class="row">
+
+        <div class="col-3 text-center">
+
+            <img style="height:70px;width:70px;" src="~/img/n-stack-logo.png" />
+
+            @* <div style="font-size:38px;font-weight:bold;color:#9b6b2c;line-height:1;">
+            N-Stack
+            </div>
+
+            <div style="font-size:12px;font-weight:bold;">
+            BAHAWALPUR
+            </div> *@
+
+        </div>
+
+        <div class="col-6 text-center">
+
+            <div class="form-title">
+                N-STACK
+            </div>
+
+            <div class="form-title" style="font-size:16px;">
+                APPLICATION FOR POSSESSION OF PLOT (SITE PLAN)
+            </div>
+
+        </div>
+
+        <div class="col-3">
+
+            <div style="font-size:15px;text-align:right;">
+
+                <b>Possession No</b>
+
+                <span class="top-line ppossessionNo"></span>
+
+            </div>
+
+            <div class="photo-box mt-1">
+
+                <div>
+                    <img id="PreviewUrl" width="150px;height:120px" src="/img/placeholder-photo.svg" />
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- TO -->
+    <div class="row mt-2">
+
+        <div class="col-8">
+
+            <p style="font-size:16px;">
+                To:
+            </p>
+
+            <div style="padding-left:30px;font-size:15px;">
+                Director Transfer & Record<br />
+                N-Stack,<br />
+                Bahawalpur.
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SUBJECT -->
+    <div class="row mt-2">
+
+        <div class="col-2">
+
+            <p style="font-size:16px;">
+                Subject:
+            </p>
+
+        </div>
+
+        <div class="col-10">
+
+            <span style="border-bottom:1px solid #000;font-size:16px;font-weight:bold;">
+                POSSESSION OF PLOT (SITE PLAN)
+            </span>
+
+        </div>
+
+    </div>
+
+    <!-- BODY -->
+    <div class="row mt-2">
+
+        <div class="col-12">
+
+            <p style="font-size:16px;">
+                Dear Sir,
+            </p>
+
+            <ol>
+
+                <li>
+
+                    <p style="font-size:15px;text-align:justify;">
+
+                        Please issue site plan of my plot having File Ref. No.
+
+                        <span class="field-line pfileRefNo"></span>,
+
+                        Plot No.
+
+                        <span class="field-line-sm pplotNo"></span>,
+
+                        Sector
+
+                        <span class="field-line-sm psector"></span>,
+
+                        Phase
+
+                        <span class="field-line-sm pphase"></span>
+
+                        and hand over possession of plot to me.
+
+                    </p>
+
+                </li>
+
+                <li>
+
+                    <p style="font-size:15px;text-align:justify;">
+                        Photocopy of CNIC and Intimation / Transfer / Allocation letter are attached.
+                        Details are as under:
+                    </p>
+
+                </li>
+
+            </ol>
+
+        </div>
+
+    </div>
+
+    <!-- DETAILS -->
+    <div class="row mt-2">
+
+        <div class="col-6">
+
+            <p style="font-size:15px;">
+
+                Owner's Name
+
+                <span class="field-line-lg pownerName"></span>
+
+            </p>
+
+        </div>
+
+        <div class="col-6">
+
+            <p style="font-size:15px;">
+
+                Owner's Signature
+
+                <span class="field-line-lg pownerSignature"></span>
+
+            </p>
+
+            <span style="font-size:10px;padding-left:115px;">
+                (As Per CNIC)
+            </span>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+
+        <div class="col-12">
+
+            <p style="font-size:15px;">
+
+                Address
+
+                <span class="field-line-lg-address paddress"></span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+
+        <div class="col-6">
+
+            <p style="font-size:15px;">
+
+                Contact No.
+
+                <span class="field-line-lg pcontactNo"></span>
+
+            </p>
+
+        </div>
+
+        <div class="col-6">
+
+            <p style="font-size:15px;">
+
+                Email Address
+
+                <span class="field-line-lg pemail"></span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- CNIC -->
+    <div class="row mt-3">
+
+        <div class="col-12">
+
+            <p style="font-size:15px;">
+
+                CNIC No.
+
+                <span style="margin-left:10px;">
+
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+                    <span class="cnic-box"></span>
+
+                    <span class="cnic-box"></span>
+
+                </span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- PART I -->
+    <div class="section-title">
+        PART I - TRANSFER AND RECORD BRANCH
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <p style="font-size:14px;text-align:justify;">
+
+                The above particulars are correct as per N-Stack Transfer &
+                Record Branch and it is certified that ownership is legal.
+                Hence, possession is recommended.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-3">
+
+        <div class="col-6 text-center">
+
+            <div class="signature-line pTransferRecordOfficerName"></div>
+
+            <p style="font-size:13px;">
+                Name
+            </p>
+
+        </div>
+
+        <div class="col-6 text-center">
+
+            <div class="signature-line pTransferRecordDirectorName"></div>
+
+            <p style="font-size:13px;">
+                Additional Director / Director (Transfer & Record)
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- PART II -->
+    <div class="section-title">
+        PART II - (P&D BRANCH) BUILDING CONTROL SECTION
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <p style="font-size:14px;">
+                Demarcation of the plot is as under:
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-6">
+
+            <p style="font-size:14px;">
+
+                (1) Front Side
+
+                <span class="field-line pFrontSide"></span>
+
+            </p>
+
+            <p style="font-size:14px;" class="mt-1">
+
+                (2) Rear Side
+
+                <span class="field-line pRearSide"></span>
+
+            </p>
+
+            <p style="font-size:14px;" class="mt-1">
+
+                (3) Left Side
+
+                <span class="field-line pLeftSide"></span>
+
+            </p>
+
+            <p style="font-size:14px;" class="mt-1">
+
+                (4) Right Side
+
+                <span class="field-line pRightSide"></span>
+
+            </p>
+
+        </div>
+
+        <div class="col-6">
+
+            <p style="font-size:14px;">
+
+                Bounded By
+
+                <span class="field-line pFrontBoundary"></span>
+
+            </p>
+
+            <p style="font-size:14px;" class="mt-1">
+
+                Bounded By
+
+                <span class="field-line pRearBoundary"></span>
+
+            </p>
+
+            <p style="font-size:14px;" class="mt-1">
+
+                Bounded By
+
+                <span class="field-line pLeftBoundary"></span>
+
+            </p>
+
+            <p style="font-size:14px;" class="mt-1">
+
+                Bounded By
+
+                <span class="field-line pRightBoundary"></span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- AREA -->
+    <div class="row mt-2">
+
+        <div class="col-6">
+
+            <p style="font-size:14px;">
+
+                Standard Area of Plot:
+
+                <span class="field-line pStandardAreaOfPlot"></span>
+
+                Sq ft.
+
+            </p>
+
+        </div>
+
+        <div class="col-6">
+
+            <p style="font-size:14px;">
+
+                Area of Plot:
+
+                <span class="field-line pAreaOfPlot"></span>
+
+                Sq ft.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-1">
+
+        <div class="col-6">
+
+            <p style="font-size:14px;">
+
+                Excess Area:
+
+                <span class="field-line pExcessArea"></span>
+
+                Sq ft.
+
+            </p>
+
+        </div>
+
+        <div class="col-6">
+
+            <p style="font-size:14px;">
+
+                Less Area:
+
+                <span class="field-line pLessArea"></span>
+
+                Sq ft.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-2">
+
+        <div class="col-12">
+
+            <p style="font-size:14px;">
+
+                Ref No. of approved min sheet
+
+                <span class="field-line-lg pApprovedMinSheetReferenceNo"></span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- CHECKS -->
+    <div class="row mt-4">
+
+        <div class="col-4" style="font-size:14px;">
+
+            • Corner
+            (<span class="pIsCornerPlot" style="font-weight:bold;"></span>)
+
+        </div>
+
+        <div class="col-4" style="font-size:14px;">
+
+            • Park Facing
+            (<span class="pIsParkFacing" style="font-weight:bold;"></span>)
+
+        </div>
+
+        <div class="col-4" style="font-size:14px;">
+
+            • Main Boulevard
+            (<span class="pIsMainBoulevard" style="font-weight:bold;"></span>)
+
+        </div>
+
+    </div>
+
+    <!-- SIGN -->
+    <div class="row mt-4">
+
+        <div class="col-6 text-center">
+
+            <div class="signature-line pSurveyorName"></div>
+
+            <p style="font-size:13px;">
+                Surveyor
+            </p>
+
+        </div>
+
+        <div class="col-6 text-center">
+
+            <div class="signature-line pBuildingControlDirectorName"></div>
+
+            <p style="font-size:13px;">
+                Additional Director / Director (Building Control)
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- PART III -->
+    <div class="section-title">
+        PART III - FINANCE BRANCH
+    </div>
+
+    <div class="row">
+
+        <div class="col-12">
+
+            <p style="font-size:14px;">
+
+                All dues applicable till
+
+                <span class="field-line pDuesClearedTillDate"></span>
+
+                have been cleared by the applicant,
+                hence possession is recommended.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-1">
+
+        <div class="col-12">
+
+            <p style="font-size:14px;">
+
+                NDC No.
+
+                <span class="field-line pNdcNo"></span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-6 text-center">
+
+            <div class="signature-line pFinanceOfficerName"></div>
+
+            <p style="font-size:13px;">
+                Name
+            </p>
+
+        </div>
+
+        <div class="col-6 text-center">
+
+            <div class="signature-line pFinanceDirectorName"></div>
+
+            <p style="font-size:13px;">
+                Director (Finance)
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- PART IV -->
+    <div class="section-title">
+        PART IV (P&D BRANCH) BUILDING CONTROL SECTION
+    </div>
+
+    <div class="row mt-2">
+
+        <div class="col-12">
+
+            <p style="font-size:14px;">
+
+                Possession handed over on
+
+                <span class="field-line-lg pPossessionHandedOverOn"></span>
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <div class="row mt-4">
+
+        <div class="col-6 text-center">
+
+            <div class="signature-line pPossessionSurveyorName"></div>
+
+            <p style="font-size:13px;">
+                Surveyor
+            </p>
+
+        </div>
+
+        <div class="col-6 text-center">
+
+            <div class="signature-line pOwnerName"></div>
+
+            <p style="font-size:13px;">
+                Owner
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <div class="row mt-4">
+
+        <div class="col-12">
+
+            <div class="bottom-footer">
+
+                <b>N-Stack</b>,
+                Head Office, Jinnah Avenue (MB-2),
+                APE Canal Road Bahawalpur
+
+                <br />
+
+                Phone: +92 62 111 111 518.
+                Website www.dhabahawalpur.com
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PAGE 2 -->
+<div class="instruction-page">
+
+    <div class="title">
+        INSTRUCTIONS FOR POSSESSION OF PLOT
+    </div>
+
+    <ol>
+
+        <li>
+            Following documents should be submitted with possession form.
+
+            <ol type="a" class="sub-list">
+
+                <li>2 x attested recent passport size pictures</li>
+
+                <li>1 x copy of Intimation / Transfer / Allocation letter</li>
+
+                <li>1 x copy of CNIC</li>
+
+            </ol>
+
+        </li>
+
+        <li>
+            All overseas customers who have not completed their transfer /
+            allocation process at DHAB cannot apply for possession.
+        </li>
+
+        <li>
+            Customers residing in Pakistan will come to DHAB Main office /
+            Sub Office in person and submit their application and verify
+            their credentials.
+        </li>
+
+        <li>
+            Member / owner shall arrange four pieces of 4” x 4” concrete pillar
+            having length 2’-6” each at the time of demarcation. Member will
+            get the demarcation pillar grouted / installed at the location
+            indicated by DHAB survey team in their presence and shall remain
+            there till the final demarcation of boundary wall up to DPC level.
+        </li>
+
+    </ol>
+
+</div>

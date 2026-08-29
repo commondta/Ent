@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 474 474" width="474" height="474">
+  <title>HRMS People Icon</title>
+  <desc>Simple black outlined icon representing a group of people.</desc>
+
+  <!-- Left person -->
+  <circle cx="113" cy="160" r="36" fill="#fff" stroke="#000" stroke-width="14"/>
+  <path d="M47 307V263c0-18 7-32 20-42 10-8 22-12 37-12h19c15 0 27 4 37 12 7 6 12 13 16 22"
+        fill="#fff" stroke="#000" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Right person -->
+  <circle cx="361" cy="160" r="36" fill="#fff" stroke="#000" stroke-width="14"/>
+  <path d="M427 307V263c0-18-7-32-20-42-10-8-22-12-37-12h-19c-15 0-27 4-37 12-7 6-12 13-16 22"
+        fill="#fff" stroke="#000" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Center person -->
+  <circle cx="237" cy="160" r="40" fill="#fff" stroke="#000" stroke-width="14"/>
+  <path d="M144 355V295c0-19 7-34 21-44 11-8 24-12 39-12h13l20 35 20-35h13c15 0 28 4 39 12 14 10 21 25 21 44v60H144Z"
+        fill="#fff" stroke="#000" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>

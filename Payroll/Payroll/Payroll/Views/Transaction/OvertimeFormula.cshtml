@@ -1,0 +1,710 @@
+﻿
+@{
+    ViewBag.Title = "Overtime Formulas";
+}
+
+<!-- Add Modal -->
+<div id="myModal" class="modal fade" role="dialog" style="float:none;margin:auto; ">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Overtime Formulas</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row topSectionMargin">
+                    <div class="col-md-12">
+                        <div class="row topMargin">
+                            <div class="col-md-6">
+                                <div class="row topMargin">
+                                    <div class="col-md-4" style="border-bottom:solid 0.1px;">
+                                        <label style="color:black; font-size:small;">Location</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="location" style="width:150px; border-radius:3%;">
+                                            <option>abc</option>
+                                            <option>xyz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row topMargin">
+                                    <div class="col-md-4" style="border-bottom:solid 0.1px;">
+                                        <label style="color:black; font-size:small;">Employee Type</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="employeetype" style="width:150px; border-radius:3%;">
+                                            <option>abc</option>
+                                            <option>xyz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row topMargin" style="float:right;">
+                                    <div class="col-md-4">
+                                        <label style="color:black; font-size:small;">Department</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="department" style="width:150px; border-radius:3%;">
+                                            <option>abc</option>
+                                            <option>xyz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row topMargin" style="float:right;">
+                                    <div class="col-md-4">
+                                        <label style="color:black; font-size:small;">Designation</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="designation" style="width:150px; border-radius:3%;">
+                                            <option>abc</option>
+                                            <option>xyz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row topSectionMargin">
+                    <div class="col-md-12">
+                        <div class="row topMargin">
+                            <div class="col-md-12">
+                                <div class="row topMargin">
+                                    <table class="table table-bordered" style="margin-top:2%;">
+                                        <thead style="background-color:gainsboro;">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">OT Max Hour</th>
+                                                <th scope="col">OT Max Amount</th>
+                                                <th scope="col">Factor</th>
+                                                <th scope="col">OT Allowance Element</th>
+                                                <th scope="col">Deduction OT Hours</th>
+                                                <th scope="col">Applied OT Hours after</th>
+                                                <th scope="col">Holiay's Hour's Factor</th>
+                                                <th scope="col">Holiday's OT Max</th>
+                                                <th scope="col">Remarks</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable>1</div></th>
+                                                <th><div contenteditable id="ot1"></div></th>
+                                                <th><div contenteditable id="ot2">0.0000</div></th>
+                                                <th><div contenteditable id="factor"></div></th>
+                                                <th><div contenteditable id="o"></div></th>
+                                                <th><div contenteditable id="ded"></div></th>
+                                                <th><div contenteditable id="applic"></div></th>
+                                                <th><div contenteditable id="holid1"></div></th>
+                                                <th><div contenteditable id="holid2"></div></th>
+                                                <th><div contenteditable id="remarks"></div></th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"></th>
+                                                <th><div contenteditable id="ot1"></div></th>
+                                                <th><div contenteditable id="ot2"></div></th>
+                                                <th><div contenteditable id="factor"></div></th>
+                                                <th><div contenteditable id="o"></div></th>
+                                                <th><div contenteditable id="ded"></div></th>
+                                                <th><div contenteditable id="applic"></div></th>
+                                                <th><div contenteditable id="holid1"></div></th>
+                                                <th><div contenteditable id="holid2"></div></th>
+                                                <th><div contenteditable id="remarks"></div></th>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="margin-left:4%">
+                <button type="submit" class="btn btn-primary" onclick="save()" style="float:left; border:solid 1px;">ADD</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:left;border:solid 1px;">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div id="myModal2" class="modal fade" role="dialog" style="float:none;margin:auto; ">
+    <div class="modal-dialog modal-lg">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit OT Formula Master</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row topSectionMargin">
+                    <div class="col-md-12">
+                        <div class="row topMargin">
+                            <div class="col-md-6">
+                                <div class="row topMargin">
+                                    <div class="col-md-4" style="border-bottom:solid 0.1px;">
+                                        <label style="color:black; font-size:small;">Location</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="elocation" style="width:150px; border-radius:3%;">
+                                            <option>abc</option>
+                                            <option>xyz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row topMargin">
+                                    <div class="col-md-4" style="border-bottom:solid 0.1px;">
+                                        <label style="color:black; font-size:small;">Employee Type</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="eemployeetype" style="width:150px; border-radius:3%;">
+                                            <option>abc</option>
+                                            <option>xyz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="row topMargin" style="float:right;">
+                                    <div class="col-md-4">
+                                        <label style="color:black; font-size:small;">Department</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="edepartment" style="width:150px; border-radius:3%;">
+                                            <option>abc</option>
+                                            <option>xyz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="row topMargin" style="float:right;">
+                                    <div class="col-md-4">
+                                        <label style="color:black; font-size:small;">Designation</label>
+                                    </div>
+                                    <div class="col-md-8">
+                                        <select id="edesignation" style="width:150px; border-radius:3%;">
+                                            <option>abc</option>
+                                            <option>xyz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row topSectionMargin">
+                    <div class="col-md-12">
+                        <div class="row topMargin">
+                            <div class="col-md-12">
+                                <div class="row topMargin">
+                                    <table class="table table-bordered" style="margin-top:2%;">
+                                        <thead style="background-color:gainsboro;">
+                                            <tr>
+                                                <th scope="col">#</th>
+                                                <th scope="col">OT Max Hour</th>
+                                                <th scope="col">OT Max Amount</th>
+                                                <th scope="col">Factor</th>
+                                                <th scope="col">OT Allowance Element</th>
+                                                <th scope="col">Deduction OT Hours</th>
+                                                <th scope="col">Applied OT Hours after</th>
+                                                <th scope="col">Holiay's Hour's Factor</th>
+                                                <th scope="col">Holiday's OT Max</th>
+                                                <th scope="col">Remarks</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable id="etid">1</div></th>
+                                                <td><div contenteditable id="eot1"></div></td>
+                                                <td><div contenteditable id="eot2">0.0000</div></td>
+                                                <td><div contenteditable id="efactor"></div></td>
+                                                <td><div contenteditable id="eo"></div></td>
+                                                <td><div contenteditable id="eded"></div></td>
+                                                <td><div contenteditable id="eapplic"></div></td>
+                                                <td><div contenteditable id="eholid1"></div></td>
+                                                <td><div contenteditable id="eholid2"></div></td>
+                                                <td><div contenteditable id="eremarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                            <tr>
+                                                <th scope="row" style="background-color:gainsboro;"><div contenteditable></div></th>
+                                                <td><div contenteditable id="ot1"></div></td>
+                                                <td><div contenteditable id="ot2"></div></td>
+                                                <td><div contenteditable id="factor"></div></td>
+                                                <td><div contenteditable id="o"></div></td>
+                                                <td><div contenteditable id="ded"></div></td>
+                                                <td><div contenteditable id="applic"></div></td>
+                                                <td><div contenteditable id="holid1"></div></td>
+                                                <td><div contenteditable id="holid2"></div></td>
+                                                <td><div contenteditable id="remarks"></div></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer" style="margin-left:4%">
+                <button type="submit" class="btn btn-primary" onclick="update()" style="float:left; border:solid 1px;">Update</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal" style="float:left;border:solid 1px;">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="content-wrapper">
+
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <h1>Overtime Formulas</h1>
+        <ol class="breadcrumb">
+            <li><a href="~/Home/Index">Home</a></li>
+            <li>Overtime Management</li>
+            <li class="active">Overtime Formulas</li>
+        </ol>
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="box">
+            <div class="box-header">
+                <h3 class="box-title">Overtime Formulas</h3>
+                <button type="submit" class="btn btn-primary" onclick="save()">Save</button>
+            </div>
+            <div class="box-body">
+                <div class="row" style="padding: 0 20px 20px 20px;">
+                    <div class="col-sm-4">
+                        
+                        <div class="row">
+                            <div class="form-group" style="margin-top: unset;">
+                                <label for="location" class="col-sm-4 control-label">Location</label>
+                                <div class="col-sm-8">
+                                    <select id="location" class="form-control">
+                                        <option selected>this</option>
+                                        <option>that</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="employee-type" class="col-sm-4 control-label">Employee Type</label>
+                                <div class="col-sm-8">
+                                    <select id="employee-type" class="form-control">
+                                        <option selected>this</option>
+                                        <option>that</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4 col-sm-offset-1">
+                        <div class="row">
+                            <div class="form-group" style="margin-top: unset;">
+                                <label for="department" class="col-sm-4 control-label">Department</label>
+                                <div class="col-sm-8">
+                                    <select id="department" class="form-control">
+                                        <option selected>this</option>
+                                        <option>that</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="designation" class="col-sm-4 control-label">Designation</label>
+                                <div class="col-sm-8">
+                                    <select id="designation" class="form-control">
+                                        <option selected>this</option>
+                                        <option>that</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <table id="myTable" class="table table-responsive table-hover" style="margin-top:2%;">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>OT Max Hour</th>
+                            <th>OT Max Amount</th>
+                            <th>Factor</th>
+                            <th>OT Allowance Element</th>
+                            <th>Deduction OT Hours</th>
+                            <th>Applied OT Hours after</th>
+                            <th>Holiay's Hour's Factor</th>
+                            <th>Holiday's OT Max</th>
+                            <th>Remarks</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                            <td>dummy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+</div>
+
+@*Script part*@
+<script>
+    let Global_Array = new Array();
+    //show data
+    $(document).ready(function () {
+        view();
+    });
+
+    function view() {
+        $.ajax({
+            type: "get",
+            url: "@Url.Action("list", "otFormalMaster")",
+            success: function (result) {
+                if (result != "error") {
+                    Global_Array = result;
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].location + "</td>", "<td>" + result[i].employeetype + "</td>", "<td>" + result[i].department + "</td>", "<td>" + result[i].designation + "</td>", "<td>" + result[i].otMaxHour + "</td>", "<td>" + result[i].otMaxAmount + "</td>", "<td>" + result[i].factor + "</td>", "<td>" + result[i].otAllowance + "</td>", "<td>" + result[i].deductionOTHour + "</td>", "<td>" + result[i].appliedOTHour + "</td>", "<td>" + result[i].holidaysHours + "</td>", "<td>" + result[i].holidaysOTMax + "</td>", "<td>" + result[i].remarks + "</td>", "<td >" + "<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+    //add Data
+    function Add() {
+        $('#myModal').modal('show');
+    }
+
+    function save() {
+        let l = $("#location").val();
+        let et = $("#employeetype").val();
+        let dep = $("#department").val();
+        let d = $("#designation").val();
+        let tid = $("#tid").val();
+        let ot = $("#ot1").val();
+        let ott = $("#ot2").val();
+        let fac = $("#factor").val();
+        let o = $("#o").val();
+        let ded = $("#ded").val();
+        let app = $("#applic").val();
+        let hol = $("#holid1").val();
+        let holl = $("#holid2").val();
+        let r = $("#remarks").val();
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("Add", "otFormalMaster")",
+            data: {
+                l: l,
+                et: et,
+                dep: dep,
+                d: d,
+                tid: tid,
+                ot: ot,
+                ott: ott,
+                fac: fac,
+                o: o,
+                ded: ded,
+                app: app,
+                hol: hol,
+                holl: holl,
+                r: r
+            },
+            success: function (result) {
+                $('#myModal').modal('hide');
+                if (result != "error") {
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].location + "</td>", "<td>" + result[i].employeetype + "</td>", "<td>" + result[i].department + "</td>", "<td>" + result[i].designation + "</td>", "<td>" + result[i].otMaxHour + "</td>", "<td>" + result[i].otMaxAmount + "</td>", "<td>" + result[i].factor + "</td>", "<td>" + result[i].otAllowance + "</td>", "<td>" + result[i].deductionOTHour + "</td>", "<td>" + result[i].appliedOTHour + "</td>", "<td>" + result[i].holidaysHours + "</td>", "<td>" + result[i].holidaysOTMax + "</td>", "<td>" + result[i].remarks + "</td>", "<td >" + "<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+
+    //Edit data
+    function Edit(idRow) {
+        for (let i = 0; i < Global_Array.length; i++) {
+            if (Global_Array[i].id == idRow) {
+                $('#myModal2').modal('show');
+                $("#eid").val(idRow);
+                $('#elocation').val(Global_Array[i].location);
+                $('#eemployeetype').val(Global_Array[i].employeetype);
+                $('#edepartment').val(Global_Array[i].department);
+                $('#edesignation').val(Global_Array[i].designation);
+                $('#etid').val(Global_Array[i].tid);
+                $('#eot1').val(Global_Array[i].otMaxHour);
+                $('#eot2').val(Global_Array[i].otMaxAmount);
+                $('#efactor').val(Global_Array[i].factor);
+                $('#eo').val(Global_Array[i].otAllowance);
+                $('#eded').val(Global_Array[i].deductionOTHour);
+                $('#eapplic').val(Global_Array[i].appliedOTHour);
+                $('#eholid1').val(Global_Array[i].holidaysHours);
+                $('#eholid2').val(Global_Array[i].holidaysOTMax);
+                $('#eremarks').val(Global_Array[i].remarks);
+            }
+        }
+    }
+    function update() {
+        let id = $("#eid").val();
+        let l = $("#elocation").val();
+        let et = $("#eemployeetype").val();
+        let dep = $("#edepartment").val();
+        let d = $("#edesignation").val();
+        let tid = $("#etid").val();
+        let ot = $("#eot1").val();
+        let ott = $("#eot2").val();
+        let fac = $("#efactor").val();
+        let o = $("#eo").val();
+        let ded = $("#eded").val();
+        let app = $("#eapplic").val();
+        let hol = $("#eholid1").val();
+        let holl = $("#eholid2").val();
+        let r = $("#eremarks").val();
+        debugger;
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("Edit", "otFormalMaster")",
+            data: {
+                id: id,
+                l: l,
+                et: et,
+                dep: dep,
+                d: d,
+                tid: tid,
+                ot: ot,
+                ott: ott,
+                fac: fac,
+                o: o,
+                ded: ded,
+                app: app,
+                hol: hol,
+                holl: holl,
+                r: r
+            },
+            success: function (result) {
+                $('#myModal2').modal('hide');
+                if (result != "error") {
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].location + "</td>", "<td>" + result[i].employeetype + "</td>", "<td>" + result[i].department + "</td>", "<td>" + result[i].designation + "</td>", "<td>" + result[i].otMaxHour + "</td>", "<td>" + result[i].otMaxAmount + "</td>", "<td>" + result[i].factor + "</td>", "<td>" + result[i].otAllowance + "</td>", "<td>" + result[i].deductionOTHour + "</td>", "<td>" + result[i].appliedOTHour + "</td>", "<td>" + result[i].holidaysHours + "</td>", "<td>" + result[i].holidaysOTMax + "</td>", "<td>" + result[i].remarks + "</td>", "<td >" + "<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+
+    // Delete data
+    function del(idrow) {
+        var id = idrow
+        $.ajax({
+            type: "post",
+            url: "@Url.Action("Delete", "otFormalMaster")",
+            data: {
+                id: id,
+            },
+            success: function (result) {
+                if (result != "error") {
+                    $("td").remove();
+                    for (let i = 0; i < result.length; i++) {
+                        var tab = $('<tr />');
+                        tab.append("<td>" + result[i].id + "</td>", "<td>" + result[i].location + "</td>", "<td>" + result[i].employeetype + "</td>", "<td>" + result[i].department + "</td>", "<td>" + result[i].designation + "</td>", "<td>" + result[i].otMaxHour + "</td>", "<td>" + result[i].otMaxAmount + "</td>", "<td>" + result[i].factor + "</td>", "<td>" + result[i].otAllowance + "</td>", "<td>" + result[i].deductionOTHour + "</td>", "<td>" + result[i].appliedOTHour + "</td>", "<td>" + result[i].holidaysHours + "</td>", "<td>" + result[i].holidaysOTMax + "</td>", "<td>" + result[i].remarks + "</td>", "<td >" + "<a onclick='Edit(" + result[i].id + ")'>Edit</a> | <a onclick='del(" + result[i].id + ")'>DELETE</a>" + "</td>");
+                        $('#myTable').append(tab);
+                    }
+                }
+            }
+        });
+    }
+</script>

@@ -1,0 +1,98 @@
+﻿<style>
+
+    .dcontainer {
+        border: 5px solid black;
+        padding : 20px;
+        background-color: #f9f9f9;
+    }
+
+    .dheader {
+        font-size: 22px;
+        font-weight: bold;
+        margin-bottom: 20px;
+    }
+
+     .dcontent, .dinstructions {
+            font-size: 22px;
+            margin-bottom: 10px;
+            padding-left: 15px;
+            position: relative;
+        }
+        .dcontent::before, .dinstructions::before {
+            content: "> ";
+            font-size: 22px;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+        .dcontent span, .dinstructions span {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+    .footer-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: 25px;   
+    }
+
+    .footer {
+        text-align: left;
+    }
+
+    .date {
+        text-align: right;
+    }
+</style>
+
+<div class="container mt-5 pt-5" style="padding-left:0px;padding-right:60px;">
+    <div class="row">
+        <div class="col-sm-3">
+            <img class="img-fluid" src="~/img/n-stack-logo.png" />
+        </div>
+        <div class="col-sm-6 text-center mt-2">
+            <h4 style="font-size:20px; font-weight:400;"><u><b>Transfer Completion Certificate</b></u></h4>
+        </div>
+        <div class="col-sm-3">
+            <div class="qrcode-container1" style="margin-left:30px;">
+                <div id="qrcode4" style="margin-left:30px;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="dcontainer mt-5">
+
+    <div class="dheader">
+        Dear Customer,
+    </div>
+    <div class="dcontent">
+            Your transfer process has been completed. <span id="dTransferCertificateTimeLineStatement"></span>
+    </div>
+    <div class="dcontent">
+         For further tracking, your Reference Number
+        <span style="font-weight: bold;" id="dRegno">________</span>, Plot No
+        <span style="font-weight: bold;" id="dPlot">___</span>, Sec
+        <span style="font-weight: bold;" id="dSector">__</span>, Name
+        <span style="font-weight: bold;" class="buyerMembers">__________</span>.
+    </div>
+ @*    <div class="dinstructions">
+        Visit yourself along with original CNIC for collection of Transfer Letter.
+    </div> *@
+    <div class="dcontent">
+            Sta <span id="dApplyStation">____________</span>
+    </div>
+
+    <div class="footer-container" style="margin-top:180px">
+        <div class="date">
+                Date: <span>@DateTime.Now.ToString("dd-MM-yyyy")</span>
+        </div>
+        <div class="footer">
+            Transfer & Record Officer
+            <br />
+                N-Stack
+        </div>
+    </div>
+    </div>
+</div>

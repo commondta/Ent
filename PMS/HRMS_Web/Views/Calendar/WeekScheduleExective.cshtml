@@ -1,0 +1,277 @@
+﻿<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="index.html">Home</a> </li>
+                        <li class="active">Week Schedule Exective</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-left-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1 11.5a.5.5 0 0 0 .5.5h11.793l-3.147 3.146a.5.5 0 0 0 .708.708l4-4a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 11H1.5a.5.5 0 0 0-.5.5m14-7a.5.5 0 0 1-.5.5H2.707l3.147 3.146a.5.5 0 1 1-.708.708l-4-4a.5.5 0 0 1 0-.708l4-4a.5.5 0 1 1 .708.708L2.707 4H14.5a.5.5 0 0 1 .5.5"/></svg></span>
+                    <h1>WEEK SCHEDULE EXECUTIVE TRANSFER</h1>
+
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="MeterInstallation">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <label>Select Day <small style="color:red">*</small></label>
+                                    <div>
+                                        <select class="js-example-basic-single" name="weekdays" id="weekdays">
+                                            <option value=""> Select Option </option>
+                                            <option value="Monday">Monday</option>
+                                            <option value="Tuesday">Tuesday</option>
+                                            <option value="Wednesday">Wednesday</option>
+                                            <option value="Thursday">Thursday</option>
+                                            <option value="Friday">Friday</option>
+                                            <option value="Saturday">Saturday</option>
+                                            <option value="Sunday">Sunday</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+                            <div >
+                                <div class="card p-3">
+                                    <div >
+                                        <div class="menu" style="float: right; margin-bottom: .5rem;">
+                                            <a class="btn btn-primary btn-sm btn-theme" onclick="AddNewRow()" style="padding: 6px 20px; margin-right: -1px;">Add New</a>
+                                            <input type="text" id="rownumberM" value="0" class="hide" />
+                                        </div>
+                                       
+                                        <div class="table-responsive">
+                                            <table id="timing" class="table table-bordered table-hover mb-0">
+                                                <thead class="bg-theme">
+                                                    <tr>
+                                                        <th class="text-white" style="min-width: 110px;">#</th>
+                                                        <th class="text-white" style="min-width: 180px;">Hour</th>
+                                                        <th class="text-white" style="min-width: 180px;">Mintues</th>
+                                                        <th class="text-white">Remarks</th>
+                                                        <th class="text-white">Action</th>
+                                                </thead>
+                                                <tbody id="timingtbody">
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                        <div class="col-12" style="float: right;">
+                            <button type="submit" class="btn dha_theme_btn" onclick="SaveWeekScheduleExective()">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                                <button class="btn btn-light" href="javascript:void(0);">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-times-circle"></i></span> Cancel
+                                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+@section Scripts {
+
+    <script type="text/javascript">
+
+        $("#weekdays").change(function () {
+            let weekday = $(this).val();
+            GetWeeklySchedule(weekday);
+        });
+
+        function GetWeeklySchedule(weekday) {
+            debugger;
+
+            var url = "/api/Calendar/GetExecutive?dayOfWeek=" + weekday + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#timingtbody").empty();
+                        $("#rownumberM").val("0");
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            for (let item of relist) {
+                                const rowNumber = parseInt($("#rownumberM").val()) + 1;
+                                $("#rownumberM").val(rowNumber);
+
+                                const row = `<tr id="M${rowNumber}" DetailId="0">
+                                    <td> <input disabled class="form-control line" value="${rowNumber}"/></td>
+                                    <td>
+                                        <select class="form-control hour" id="hour_${rowNumber}">
+                                            ${generateOptions(0, 23,)}
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select class="form-control mintues" id="mintues_${rowNumber}">
+                                            ${generateOptions(0, 59)}
+                                        </select>
+                                    </td>
+                                    <td> <input type="text" class="form-control remarks " value="${item.remarks}"/></td>
+                                    <td style="padding-top:10px">
+                                        <a class="btn btn-sm btn-danger" onclick="return deleteItemRow('${rowNumber}')">
+                                            <span class="append-icon fa fa-trash-o"></span>
+                                        </a>
+                                    </td>
+                                </tr>`;
+
+                                $("#timingtbody").append(row);
+
+                                $("#hour_" + rowNumber).val(item.hour);
+                                $("#mintues_" + rowNumber).val(item.mintues);
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function AddNewRow() {
+            const rowNumber = parseInt($("#rownumberM").val()) + 1;
+            $("#rownumberM").val(rowNumber);
+
+            const row = `<tr id="M${rowNumber}" DetailId="0">
+                            <td> <input disabled class="form-control line" value="${rowNumber}"/></td>
+                            <td>
+                                <select class="form-control hour">
+                                    ${generateOptions(0, 23)}
+                                </select>
+                            </td>
+                            <td>
+                                <select class="form-control mintues">
+                                    ${generateOptions(0, 59)}
+                                </select>
+                            </td>
+                            <td> <input type="text" class="form-control remarks " /></td>
+                            <td style="padding-top:10px">
+                                <a class="btn btn-sm btn-danger" onclick="return deleteItemRow('${rowNumber}')">
+                                    <span class="append-icon fa fa-trash-o"></span>
+                                </a>
+                            </td>
+                        </tr>`;
+
+            $("#timingtbody").append(row);
+        }
+
+        function deleteItemRow(id) {
+            $(`#M${id}`).remove();
+            let rowNumber = 1;
+            $("#timingtbody tr").each(function () {
+                $(this).find('.line').val(rowNumber);
+                rowNumber++;
+            });
+            $("#rownumberM").val(rowNumber);
+            return false;
+        }
+
+        function generateOptions(start, end) {
+            let options = '';
+            for (let i = start; i <= end; i++) {
+                const formattedNumber = i < 10 ? `0${i}` : `${i}`;
+                options += `<option value="${formattedNumber}">${formattedNumber}</option>`;
+            }
+            return options;
+        }
+
+        function SaveWeekScheduleExective() {
+            debugger;
+            var methodType = 'POST';
+            var url = "/api/Calendar/SaveWeekScheduleExective";
+
+            var weekScheduleArr = new Array();
+            var dayofweek = $('#weekdays').val();
+
+            $('#timingtbody tr').each(function () {
+
+                var row = $(this);
+                var weekscdedule = new Object();
+
+                weekscdedule.DayOfWeek = dayofweek;
+                weekscdedule.Hour = row.find('.hour').val();
+                weekscdedule.Mintues = row.find('.mintues').val();
+                weekscdedule.Remarks = row.find('.remarks').val();
+                weekscdedule.CreatedBy = $("#User_Id").val();
+                weekscdedule.ModifiedBy = $("#User_Id").val();
+                weekscdedule.LastModifiedUserName = $("#User_Name").val();
+
+                weekScheduleArr.push(weekscdedule);
+            });
+
+            var model = JSON.stringify(weekScheduleArr);
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json",
+                data: model,
+                success: function (response) {
+                    if (response.code === 100) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'success',
+                            text: 'Weekly Setup Saved Successfully',
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                }
+            });
+        }
+    </script>
+}

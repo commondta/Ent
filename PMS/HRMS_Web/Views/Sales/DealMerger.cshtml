@@ -1,0 +1,382 @@
+﻿<!-- Middle Content Start -->
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Deal Merger Form</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-briefcase" viewBox="0 0 16 16"><path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5m1.886 6.914L15 7.151V12.5a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5V7.15l6.614 1.764a1.5 1.5 0 0 0 .772 0M1.5 4h13a.5.5 0 0 1 .5.5v1.616L8.129 7.948a.5.5 0 0 1-.258 0L1 6.116V4.5a.5.5 0 0 1 .5-.5"/></svg></span>
+                    <h1>DEAL MERGER FORM</h1>
+                    <small class="subtitle">DEAL MERGER FORM</small>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+
+                            @*  <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>*@
+
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form class="custom-validation" id="DealMerger">
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Document No.</label>
+                                    <div>
+
+                                        <div class="row">
+                                                                <div class="col-sm-10">
+                                                                   <input type="text" class="form-control"
+                                                                        placeholder="" id="docNo" data-toggle="modal" data-target="#myModal" />
+                                                                </div>
+                                                                <div class="col-sm-2">
+                                                                    <button data-toggle="" data-target="" type="button" class="btn btn-outline-primary srchbtn" style="margin-left:-9%" onmouseover="this.style.background = '#005A7F'; this.style.color = 'white'" onmouseout="this.style.background='#eee'; this.style.color = 'black'">search</button>
+                                                                </div>
+                                        </div>
+
+                                        @*<div class="vd_input-wrapper">
+                                            <span class="menu-icon">
+                                                <i class="fa fa-search"></i>
+                                            </span>
+                                            <input type="text" class="form-control"
+                                                   placeholder="" id="docNo" data-toggle="modal" data-target="#myModal" />
+                                        </div>*@
+
+
+                                    </div>
+                                </div>
+
+                                <div class="col-sm-6">
+                                    <label>Document Date</label>
+                                    <div>
+                                        <input type="date" class="form-control"
+                                               placeholder=" " id="docdt" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <label>Dealer Code</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Dcode" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Dealer Name</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="Dname" />
+                                    </div>
+                                </div>
+                                <div class="col-sm-6">
+                                    <label>Document Status</label>
+                                    <div>
+                                        <input type="text" class="form-control"
+                                               placeholder=" " id="docstatus" />
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <br>
+
+
+                            <ul class="nav nav-pills nav-justified">
+                                <li class="active"><a href="#CurrentDeal" data-toggle="tab">Current Deal</a></li>
+                                <li><a href="#MergeInto" data-toggle="tab">Merge Into</a></li>
+                                <li><a href="#AfterMerger" data-toggle="tab">After Merger</a></li>
+                            </ul>
+                            <br>
+                            <div class="tab-content  mgbt-xs-20">
+                                <div class="tab-pane active" id="CurrentDeal">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddRow()">Add New</a>
+                                                <input type="text" id="rownumber" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="">
+                                                <table id="CurrentDeal" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Deal Code</th>
+                                                            <th class="text-white">Deal Name</th>
+                                                            <th class="text-white">Block</th>
+                                                            <th class="text-white">Property No.(From)</th>
+                                                            <th class="text-white">Property No.(To)</th>
+                                                            <th class="text-white">Net Receivable</th>
+                                                            <th class="text-white">Outstanding Balance</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="CurrentDealtbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="MergeInto">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddRow1()">Add New</a>
+                                                <input type="text" id="rownumber1" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="">
+                                                <table id="MergeInto" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Deal Code</th>
+                                                            <th class="text-white">Deal Name</th>
+                                                            <th class="text-white">Block</th>
+                                                            <th class="text-white">Property No.(From)</th>
+                                                            <th class="text-white">Property No.(To)</th>
+                                                            <th class="text-white">Net Receivable</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="MergeIntotbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" id="AfterMerger">
+                                    <div class="row mt-5">
+                                        <div class="col-md-12">
+                                            <div class="menu" style="float: right;">
+                                                <a class="btn btn-primary btn-sm btn-theme" onclick="AddRow2()">Add New</a>
+                                                <input type="text" id="rownumber2" value="0" class="hide" />
+                                            </div>
+                                            <br>
+                                            <br>
+                                            <div class="">
+                                                <table id="AfterMerger" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Deal Code</th>
+                                                            <th class="text-white">Property No.(From)</th>
+                                                            <th class="text-white">Property No.(To)</th>
+                                                            <th class="text-white">Total Advance</th>
+                                                            <th class="text-white">Rebate</th>
+                                                            <th class="text-white">Net Receivable</th>
+                                                            <th class="text-white">Adjustment</th>
+                                                            <th class="text-white">Outstanding Balance</th>
+                                                            <th class="text-white">Remarks</th>
+                                                            <th class="text-white">Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="AfterMergertbody">
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </form>
+
+                        <br>
+                        <div class="col-12" style="float: right;">
+                            <input type="button" class="btn btn-primary btn-sm btn-theme" style="margin:5px;" value="Add " />
+                            <input type="button" class="btn btn-primary btn-sm btn-theme" style="margin:5px;" value="Cancel">
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header vd_bg-blue vd_white">
+                    <h4 class="modal-title" id="myModalLabel">Document No.</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+
+                        @* <div class="container">
+                        <div class="row">
+                        <div class="col-6">
+                        <label>Code</label>
+                        <input class="form-control" />
+                        </div>
+                        <div class="col-6">
+                        <label>Description</label>
+                        <input class="form-control" />
+                        </div>
+                        </div>
+                        </div>*@
+
+                    </form>
+
+                </div>
+                <div class="modal-footer background-login">
+                    <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary btn-theme">Save</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+
+    @section Scripts {
+
+        <script>
+            function AddRow() {
+
+
+                var rownumber = parseInt($("#rownumber").val());
+                var LineId = rownumber;
+                rownumber = rownumber + 1;
+                $("#rownumber").val(rownumber);
+
+
+                var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                    '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                    '<td> <select  class="form-control DealCode " /></td>' +
+                    '<td> <input disabled  class="form-control DealName " /></td>' +
+                    '<td> <select  class="form-control  Block " /></td>' +
+                    '<td> <select  class="form-control PropertyNo.(From)" /></td>' +
+                    '<td> <select  class="form-control PropertyNo.(To) " /></td>' +
+                    '<td> <input  class="form-control  NetReceivable " /></td>' +
+                    '<td> <input  class="form-control  OutstandingBalance " /></td>' +
+                    '<td> <input  class="form-control Remarks" /></td>' +
+
+
+                    '<td style="padding-top:20px"><a class="btn btn-sm btn-danger"  onclick="return DeleteItemRow(\'' + rownumber + '\')">X</a> </td>' +
+                    '</tr>';
+
+
+                $("#CurrentDealtbody").append(row);
+
+
+            }
+
+            function DeleteItemRow(id) {
+                $('#' + id).remove();
+            }
+        </script>
+
+        <script>
+            function AddRow1() {
+
+
+                var rownumber1 = parseInt($("#rownumber1").val());
+                var LineId = rownumber1;
+                rownumber1 = rownumber1 + 1;
+                $("#rownumber1").val(rownumber1);
+
+
+                var row = '<tr id="' + rownumber1 + '" DetailId="0"> ' +
+                    '<td> <input disabled class="form-control line" value="' + rownumber1 + '"/></td>' +
+                    '<td> <select  class="form-control DealCode " /></td>' +
+                    '<td> <input disabled  class="form-control DealName " /></td>' +
+                    '<td> <select  class="form-control  Block " /></td>' +
+                    '<td> <select  class="form-control PropertyNo.(From)" /></td>' +
+                    '<td> <select  class="form-control PropertyNo.(To) " /></td>' +
+                    '<td> <input  class="form-control  NetReceivable " /></td>' +
+
+
+                    '<td style="padding-top:20px"><a class="btn btn-sm btn-danger"  onclick="return DeleteItemRow(\'' + rownumber1 + '\')">X</a> </td>' +
+                    '</tr>';
+
+
+                $("#MergeIntotbody").append(row);
+
+
+            }
+
+            function DeleteItemRow(id) {
+                $('#' + id).remove();
+            }
+        </script>
+
+        <script>
+            function AddRow2() {
+
+
+                var rownumber2 = parseInt($("#rownumber2").val());
+                var LineId = rownumber2;
+                rownumber2 = rownumber2 + 1;
+                $("#rownumber2").val(rownumber2);
+
+
+                var row = '<tr id="' + rownumber2 + '" DetailId="0"> ' +
+                    '<td> <input disabled class="form-control line" value="' + rownumber2 + '"/></td>' +
+                    '<td> <select  class="form-control DealCode " /></td>' +
+                    '<td> <select  class="form-control PropertyNo.(From)" /></td>' +
+                    '<td> <select  class="form-control PropertyNo.(To) " /></td>' +
+                    '<td> <input  class="form-control  TotalAdvance" /></td>' +
+                    '<td> <input  class="form-control  Rebate" /></td>' +
+                    '<td> <input  class="form-control NetReceivable" /></td>' +
+                    '<td> <input  class="form-control  Adjustment" /></td>' +
+                    '<td> <input  class="form-control  OutstandingBalance" /></td>' +
+                    '<td> <input  class="form-control  Remarks" /></td>' +
+
+                    '<td style="padding-top:20px"><a class="btn btn-sm btn-danger"  onclick="return DeleteItemRow(\'' + rownumber2 + '\')">X</a> </td>' +
+                    '</tr>';
+
+
+                $("#AfterMergertbody").append(row);
+
+
+            }
+
+            function DeleteItemRow(id) {
+                $('#' + id).remove();
+            }
+        </script>
+
+    }
+

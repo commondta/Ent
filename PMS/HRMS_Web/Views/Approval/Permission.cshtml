@@ -1,0 +1,449 @@
+﻿@section css{
+
+    <style>
+
+    </style>
+}
+
+
+
+    <div class="vd_content-wrapper">
+        <div class="vd_container">
+            <div class="vd_content clearfix">
+                <div class="vd_head-section clearfix">
+                    <div class="vd_panel-header">
+                        <ul class="breadcrumb">
+                            <li><a href="/Home/index">Home</a> </li>
+                            <li><a href="/Approval/Permissiom">Permissiom</a> </li>
+                            <li class="active">Permissiom</li>
+                        </ul>
+                        <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                            <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                            <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                            <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <!-- vd_head-section -->
+
+                <div class="vd_title-section clearfix">
+                    <div class="vd_panel-header">
+                        <h1 style="text-transform:uppercase">Permission</h1>
+
+                        <div class="vd_panel-menu  hidden-xs">
+
+
+                            <!-- menu -->
+                        </div>
+                        <!-- vd_panel-menu -->
+                    </div>
+                    <!-- vd_panel-header -->
+                </div>
+                <!-- vd_title-section -->
+
+                <div class="vd_content-section clearfix">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                @*   //form content here*@
+
+                                <div class="row" style="margin-bottom: 1rem;">
+                                    <div class="col-sm-6">
+                                        <label>Permission</label>
+                                        <div>
+                                            @*<select class="js-example-basic-single" name="ApprovalUIId" id="ApprovalUIId">
+                                                <option value="-1"> Select Option </option>
+                                                <option value="IT Admin"> IT Admin </option>
+                                                <option value="Finance Admin"> Finance Admin </option>
+
+                                            </select>*@
+                                            <select class="js-example-basic-single" name="Role" id="RolePermissionId">
+                                           
+                                          </select>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="card p-3">
+                                        <div class="col-md-12">
+
+                                            <div class="">
+                                                <table id="PermissionTable" class="table table-bordered table-hover mb-0">
+                                                    <thead class="bg-theme">
+                                                        <tr>
+                                                            <th class="text-white">#</th>
+                                                            <th class="text-white">Form Name</th>
+                                                            <th class="text-white">Is Permitted</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody id="PermissionTabletbody">
+
+                                                        <tr>
+                                                            <td>1</td> 
+                                                            <td>Town Planning</td> 
+                                                        </tr>
+                                                        <tr>
+                                                            <td>2</td>
+                                                            <td>Stock Creation</td>
+
+                                                        </tr>
+                                                        <tr>
+                                                            <td>3</td>
+                                                            <td>Property Binding</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>4</td>
+                                                            <td>Possession Announcement</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>5</td>
+                                                            <td>Demarcation Request Form</td>
+                                                        </tr>
+                                                       
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   
+                        
+                            
+                            <div style="float:right">
+                            <button class="btn dha_theme_btn" style="float:right;" onclick="SubmitRequest()">
+                                    Update
+                                </button>
+                            </div>
+                        
+                   
+
+
+                </div>
+                <!-- .vd_content-section -->
+
+            </div>
+            <!-- .vd_content -->
+        </div>
+        <!-- .vd_container -->
+    </div>
+    <!-- .vd_content-wrapper -->
+    <!-- Middle Content End -->
+    <input value="0" id="rownumber" class="hide" />
+    <input type="number" value="0" class="hide" id="ApprovalObjectId" />
+<input type="text" class="hide" id="User_Id" value='@Context.Session.GetString("ID")' />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+    @section Scripts {
+
+    <script>
+        $(document).ready(function () {
+            $("#StageNo").select2();
+            GetAllApprovalsUI();
+            GetAllRolePermission();
+        });
+
+
+       //role permision
+       function GetAllRolePermission() {
+            $.ajax({
+                type: 'GET',
+                url: `/api/RolesPermissions/GetDesignations`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    debugger;
+                    if (response.code === 0) {
+
+                        $("#RolePermissionId").empty();
+                        var row = ' <option value="">-- Select Role --</option> ';
+                        debugger;
+                        $("#RolePermissionId").append(row);
+
+                        var relist = response.data;
+                        debugger;
+                        if (relist != null && relist.length > 0) {
+
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.designation + '" >' + list.designation + '</option> ';
+                               
+                                debugger;
+                                $("#RolePermissionId").append(row);
+                            }
+                        }
+
+
+                    }
+                }
+            });
+        }
+       //role permision
+
+
+
+
+
+        function GetAllApprovalsUI() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/RolesPermissions/GetDesignations`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+
+                        $("#ApprovalUIId").empty();
+                        var row = ' <option value="-1">Select Approval</option> ';
+
+                        $("#ApprovalUIId").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+
+                                if (list.level == 3) {
+                                    var row = ' <option value="' + list.serialNo + '" >' + list.moduleORSubModule + '</option> ';
+
+                                    $("#ApprovalUIId").append(row);
+                                }
+
+                                sr++;
+                            }
+                        }
+
+                        $('#ApprovalUIId').select2();
+                    }
+                }
+            });
+        }
+
+
+        function FillGrid(obj) {
+            var rownumber = parseInt($("#rownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumber").val(rownumber);
+            var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control UserRowId hide" value="' + obj.id + '"/><input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <select id="UserId' + rownumber + '" class="form-control UserId" style="width:100%" /></td>' +
+                '<td> <input  class="form-control UserDesignation" value="' + obj.userDesignation + '" disabled /></td>' +
+                '<td style="padding-top:10px"><a class="fa fa-trash-o fa-2x text-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"></a> </td>' +
+                '</tr>';
+            $("#PMSUsersTabletbody").append(row);
+            BindPMSUsers(rownumber, obj.userId);
+
+            //$('#UserId' + rownumber).val(obj.userId);
+            //$('#UserId' + rownumber).trigger("change");
+
+
+        }
+
+        function DeleteItemRow(id) {
+            $('#' + id).remove();
+        }
+
+        function BindPMSUsers(rownumber, obj) {
+            debugger;
+            $.ajax({
+                type: 'GET',
+                url: `/api/PMSUser/GetAllPMSUsers`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 100) {
+                        debugger;
+                        $("#UserId" + rownumber).empty();
+                        var row = ' <option value="-1">Select Option</option> ';
+
+                        $("#UserId" + rownumber).append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.emP_FULL_NAME + '-' + list.desiG_DESC + '</option> ';
+
+                                $("#UserId" + rownumber).append(row);
+
+                                sr++;
+
+                            }
+                            $('#UserId' + rownumber).select2();
+
+                            if (obj != "" && obj != null) {
+
+                                $('#UserId' + rownumber).select2('val', [obj]);
+                            }
+                        }
+
+
+                    }
+                }
+            });
+        }
+
+        $('body').on('select2:select', '.UserId', SetuserDesignation);
+
+
+        function SetuserDesignation() {
+            var data_arr = $(this).parents('tr').find('.UserId').select2('data');
+            var PMSUserarray = data_arr[0].text;
+            var PMSUserdesignation = PMSUserarray.split('-');
+            $(this).parents('tr').find('.UserDesignation').val(PMSUserdesignation[1]);
+        }
+
+
+
+        function SubmitRequest() {
+
+            if ($("#ApprovalUIId").val() != "-1" && $("#StageNo").val() != "-1" && $("#NumberOfApprovalRequired").val() > 0) {
+                var AS = new Object();
+                var ApprovalUIArr = new Array();
+
+                AS.Id = $("#ApprovalObjectId").val();
+                AS.ApprovalUIId = $("#ApprovalUIId").val();
+                AS.StageNo = $("#StageNo").val();
+                AS.NumberOfApprovalRequired = $("#NumberOfApprovalRequired").val();
+                AS.CreatedBy = $("#User_Id").val();
+                AS.ModifiedBy = $("#User_Id").val();
+                AS.LastModifiedUserName = $("#User_Name").val();
+
+
+
+                $("#PMSUsersTabletbody tr").each(function () {
+                    var row = $(this);
+
+
+                    var ApprovalArray = new Object();
+
+                    ApprovalArray.Id = row.find(".UserRowId").val(),
+                        ApprovalArray.UserId = row.find(".UserId").val(),
+                        ApprovalArray.UserDesignation = row.find(".UserDesignation").val(),
+
+                        ApprovalUIArr.push(ApprovalArray);
+                });
+
+                AS.ApprovalUsers = ApprovalUIArr;
+
+                var ModelData = JSON.stringify(AS);
+
+
+                $.ajax({
+                    type: "POST",
+                    url: `/api/Approvals/UpdateApprovalSetup`,
+                    contentType: 'application/json; charset=utf-8',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    processData: false,
+                    dataType: "json",
+                    async: false,
+                    data: ModelData,
+                    success: function (response) {
+
+                        console.log(response);
+                        if (response.code === 100) {
+
+                            $("#PMSUsersTabletbody").empty();
+                            $("#rownumber").val(0);
+                            $("#NumberOfApprovalRequired").val("");
+                            $("#ApprovalUIId").val("-1");
+                            $("#ApprovalUIId").trigger("change");
+                            $("#StageNo").val("-1");
+                            $("#StageNo").trigger("change");
+                        }
+
+                    }
+                });
+            }
+            else {
+                notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Enter Valid Data");
+            }
+        }
+
+        $(document.body).on("change", "#ApprovalUIId", function () {
+            GetPreviousApprovalSetup();
+        });
+        $(document.body).on("change", "#StageNo", function () {
+            GetPreviousApprovalSetup();
+        });
+
+
+        function GetPreviousApprovalSetup() {
+            var documentId = $("#ApprovalUIId").val();
+            var stageNo = $("#StageNo").val();
+            if (documentId != "-1" && stageNo != "-1") {
+                $.ajax({
+                    type: 'GET',
+                    url: `/api/Approvals/GetApprovalSetupByDocumentId`,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    data: { documentId: documentId, stageNo: stageNo },
+                    async: false,
+                    contentType: 'application/json',
+                    success: function (response) {
+
+                        if (response.code === 100) {
+                            $("#PMSUsersTabletbody").empty();
+                            $("#NumberOfApprovalRequired").val(response.data.numberOfApprovalRequired);
+                            $("#ApprovalObjectId").val(response.data.id);
+                            if (response.data.approvalUsers != null) {
+                                debugger;
+                                $.each(response.data.approvalUsers, function (i, item) {
+
+                                    FillGrid(item);
+
+
+                                });
+                            }
+
+                            // notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+                        }
+                    }
+                });
+            }
+
+        }
+
+        function AddRow() {
+
+
+
+            var rownumber = parseInt($("#rownumber").val());
+            var LineId = rownumber;
+            rownumber = rownumber + 1;
+            $("#rownumber").val(rownumber);
+
+
+            var row = '<tr id="' + rownumber + '" DetailId="0"> ' +
+                '<td> <input disabled class="form-control line" value="' + rownumber + '"/></td>' +
+                '<td> <select id="UserId' + rownumber + '" class="form-control UserId" style="width:100%" /></td>' +
+                '<td> <input  class="form-control UserDesignation" disabled /></td>' +
+                '<td style="padding-top:10px"><a class="btn btn-sm btn-danger" onclick="return DeleteItemRow(\'' + rownumber + '\')"><span class="append-icon fa fa-trash-o"></span></a> </td>' +
+                '</tr>';
+
+
+            $("#PMSUsersTabletbody").append(row);
+            BindPMSUsers(rownumber);
+
+
+
+
+        }
+
+    </script>
+}
+
+

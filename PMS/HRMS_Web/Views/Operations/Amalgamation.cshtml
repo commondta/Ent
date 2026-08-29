@@ -1,0 +1,1164 @@
+﻿<!-- Middle Content Start -->
+@section css {
+    <link media="print" rel="stylesheet" href="~/bootstrap/bootstrapcss.css">
+    <style>
+        .vd_panel-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        #propertyModal {
+            margin-left: auto;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 250px;
+        }
+
+            .image-container img {
+                max-width: 100%;
+                height: auto;
+                margin: 2px;
+                box-sizing: border-box;
+                flex: 1 1 calc(25% - 4px);
+            }
+
+        .cards_style {
+            box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px;
+            border-radius: 10px;
+            padding: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .img_input {
+            position: relative;
+            top: 8.5rem
+        }
+    </style>
+}
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Property List</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-house" viewBox="0 0 16 16"><path d="M8.707 1.5a1 1 0 0 0-1.414 0L.646 8.146a.5.5 0 0 0 .708.708L2 8.207V13.5A1.5 1.5 0 0 0 3.5 15h9a1.5 1.5 0 0 0 1.5-1.5V8.207l.646.647a.5.5 0 0 0 .708-.708L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293zM13 7.207V13.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V7.207l5-5z"/></svg></span>
+                    <h1>PROPERTY LIST </h1>
+                    <div class="vd_panel-menu  hidden-xs">
+
+                        <div class="menu">
+                            @*
+                            <a class="btn btn-primary btn-sm btn-theme" data-toggle="modal" data-target="#myModal">Add New</a>
+                            *@
+                        </div>
+                        <!-- menu -->
+                    </div>
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">                      
+                        <div class="row">
+
+                            <div class="col-sm-2" style="margin-top:20px;">
+                                <button id="btnFindMode" class="btn btn-warning ml-2">
+                                    <i class="fa fa-search"></i> Find Mode
+                                </button>
+                            </div>
+                           
+                            <div class="col-sm-2">
+
+                                <label>Document Date</label>
+                                <div>
+                                    <input type="date" class="form-control" id="DocDate" value="@DateTime.Now.ToString("yyyy-MM-dd")"
+                                           placeholder="" />
+
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+
+                            </div>
+                         
+                            <div class="col-sm-2">
+                                <button class="btn btn-success mb-2" onclick="OpenAmalgamationModal()">
+                                    Process Amalgamate
+                                </button>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="">
+                               
+                                <table id="proplistPP" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>                                           
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Registration No.</th>
+                                            <th class="text-white">Member Name</th>
+                                            <th class="text-white">CNIC</th>
+                                            <th class="text-white">Relationship With</th>
+                                            <th class="text-white">Phase</th>
+                                            <th class="text-white">Block</th>
+                                            <th class="text-white">Category</th>
+                                            <th class="text-white">Property Type</th>
+                                            <th><input type="checkbox" id="selectAll" /></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="PropertytbodyPP"></tbody>
+                                </table>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+    <!-- .vd_container -->
+</div>
+<!-- .vd_content-wrapper -->
+<!-- Middle Content End -->
+
+<div class="modal" id="amalgamationModal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Amalgamation</h5>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+
+
+                <div class="row">
+
+                    <div class="col-md-12">
+                        <label>Prefix</label>
+                        <select class="form-control js-example-basic-single" id="prefixRegistration" style="width:100%"></select>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Postfix</label>
+                        <select class="form-control js-example-basic-single" id="postfixForRegistration" style="width:100%"></select>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Number</label>
+                        <input type="number" class="form-control" id="numForRegistration" />
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Phase *</label>
+                        <select class="form-control js-example-basic-single" id="Phase" style="width:100%"></select>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Real Estate Type *</label>
+                        <select class="form-control js-example-basic-single" id="RealStateType" style="width:100%"></select>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Category *</label>
+                        <select class="form-control js-example-basic-single" id="Category" style="width:100%"></select>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Type *</label>
+                        <select class="form-control js-example-basic-single" id="Type" style="width:100%"></select>
+                    </div>
+
+                    <div class="col-md-12">
+                        <label>Remarks</label>
+                        <textarea id="remarks" class="form-control"></textarea>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-primary" onclick="SubmitAmalgamation()">Submit</button>
+                <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="findStandaloneModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <!-- HEADER -->
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Amalgamation</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- BODY -->
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="standaloneTable" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Registration No</th>
+                                            <th class="text-white">Property No</th>
+                                            <th class="text-white">Remarks</th>
+                                            <th class="text-white">Old Registration No's</th>
+                                            <th class="text-white">Old Property No's</th>
+                                            <th class="text-white"> Date</th>                                         
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="StandaloneTbody">
+                                        <!-- Filled via DataTable / JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FOOTER -->
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">
+                    Close
+                </button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="previewModal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+
+            <div class="modal-header">
+                <h5 class="modal-title">Amalgamation Preview</h5>
+                <button class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <div class="modal-body">
+
+                <h6>Selected Properties</h6>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Property No</th>
+                            <th>Size</th>
+                        </tr>
+                    </thead>
+                    <tbody id="previewProperties"></tbody>
+                </table>
+
+                <hr />
+
+                <h6>New Property</h6>
+                <p><strong>Registration No:</strong> <span id="previewReg"></span></p>
+                <p><strong>Total Size:</strong> <span id="previewSize"></span></p>
+
+            </div>
+
+            <div class="modal-footer">
+                <button class="btn btn-success" onclick="ConfirmSubmit()">Confirm</button>
+                <button class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="hide">
+    <div id="printdiv" class="container">
+        <partial name="~/Views/PartialPage/_amalgamationLetter.cshtml" />
+    </div>
+</div>
+<input type="text" id="userid" value="@Context.Session.GetString("ID")" class="hide" />
+<input type="text" class="hide" id="User_Name" value='@Context.Session.GetString("FullName")' />
+
+@section Scripts {
+    <script type="text/javascript">
+
+        let propertyTable;
+        let selectedProperties = [];
+
+        $(document).ready(function () {
+            "use strict";
+            LoadPropertyTable();           
+            GetAllPhases();
+            GetAllPrefix();
+            GetAllPostfix();
+            GetAllTypes();
+            
+        });
+
+            $("#btnFindMode").click(function () {
+            $("#findStandaloneModal").modal("show");
+            loadStandaloneInvoices();
+        });
+
+        function loadStandaloneInvoices() {
+
+            if ($.fn.DataTable.isDataTable('#standaloneTable')) {
+                $('#standaloneTable').DataTable().destroy();
+            }
+
+            $('#standaloneTable').DataTable({
+                processing: true,
+                serverSide: true,
+                paging: true,
+                pageLength: 10,
+                lengthMenu: [10, 25, 50, 100],
+                searching: true,
+                ordering: false,
+
+                ajax: {
+                    url: "/api/Amalgamation/GetAllAmalgamation",
+                    type: "GET",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    },
+                    data: function (d) {
+                        return {
+                            draw: d.draw,
+                            start: d.start,
+                            length: d.length,
+                            search: d.search.value
+                        };
+                    }
+                },
+
+                columns: [
+                    {
+                        data: null,
+                        render: (d, t, r, m) => m.row + m.settings._iDisplayStart + 1
+                    },
+                    { data: "registrationNo" },
+                    { data: "propertyNo" },
+                    { data: "remarks" },
+                    { data: "oldRegistrationNums" },
+                    { data: "oldPropertyNums" },
+                    { data: "date" },
+                    {
+                        data: null,
+                        orderable: false,
+                        render: function (data) {
+
+                            let viewBtn = `
+                    <a class="btn btn-sm btn-primary"
+                        onclick="Print(${data.amalgamationId})">
+                        <i class="fa fa-print"></i>
+                    </a>
+                `;
+
+                          
+                            return viewBtn;
+                        }
+                    }
+                ]
+            });
+        }
+
+        // ===============================
+        // LOAD DATATABLE (FIXED VERSION)
+        // ===============================
+
+
+        // ===============================
+        // LOAD DATATABLE
+        // ===============================
+        function LoadPropertyTable() {
+
+            // destroy if already exists
+            if ($.fn.DataTable.isDataTable('#proplistPP')) {
+                $('#proplistPP').DataTable().destroy();
+            }
+
+            propertyTable = $('#proplistPP').DataTable({
+                ajax: {
+                    url: "/api/SP/GetAllProprtties",
+                    type: "POST",
+                    headers: {
+                        Authorization: `Bearer ${localStorage.getItem("token")}`
+                    }
+                },
+                processing: true,
+                serverSide: true,
+                lengthMenu: [10, 25, 50, 100,100000],
+                filter: true,
+                ordering: false,
+
+                columns: [
+
+                    // ===============================
+                    // SERIAL NUMBER
+                    // ===============================
+                    {
+                        data: null,
+                        render: function (data, type, row, meta) {
+                            return meta.row + meta.settings._iDisplayStart + 1;
+                        }
+                    },
+
+                    { data: "propertyNo" },
+                    { data: "registrationNo" },
+                    { data: "memberName" },
+                    { data: "cnic" },
+                    { data: "relationshipWith" },
+                    { data: "phase" },
+                    { data: "block" },
+                    { data: "category" },
+                    { data: "propertyType" },
+
+                    // ===============================
+                    // CHECKBOX (PERSIST SELECTION)
+                    // ===============================
+                    {
+                        data: null,
+                        orderable: false,
+                        render: function (data) {
+
+                            const isChecked = selectedProperties.includes(data.id) ? "checked" : "";
+                            const isDisabled = data.isAmalgamated ? "disabled" : "";
+
+                            return `<input type="checkbox"
+                                           class="prop-select"
+                                           value="${data.id}"
+                                           ${isChecked}
+                                           ${isDisabled} />`;
+                        }
+                    }
+                ],
+
+                // ===============================
+                // KEEP SELECTION AFTER PAGINATION
+                // ===============================
+                drawCallback: function () {
+
+                    $('.prop-select').each(function () {
+                        const id = parseInt($(this).val());
+
+                        $(this).prop('checked', selectedProperties.includes(id));
+                    });
+                }
+            });
+        }
+
+        // ===============================
+        // SINGLE CHECKBOX CHANGE
+        // ===============================
+        $(document).on("change", ".prop-select", function () {
+
+            const id = parseInt($(this).val());
+
+            if ($(this).is(":checked")) {
+
+                if (!selectedProperties.includes(id)) {
+                    selectedProperties.push(id);
+                }
+
+            } else {
+
+                selectedProperties = selectedProperties.filter(x => x !== id);
+            }
+        });
+
+        // ===============================
+        // SELECT ALL (CURRENT PAGE ONLY)
+        // ===============================
+        $(document).on("click", "#selectAll", function () {
+
+            const isChecked = this.checked;
+
+            $('.prop-select:not(:disabled)').each(function () {
+
+                const id = parseInt($(this).val());
+
+                $(this).prop('checked', isChecked);
+
+                if (isChecked) {
+
+                    if (!selectedProperties.includes(id)) {
+                        selectedProperties.push(id);
+                    }
+
+                } else {
+
+                    selectedProperties = selectedProperties.filter(x => x !== id);
+                }
+            });
+        });
+
+        // ===============================
+        // OPEN MODAL
+        // ===============================
+        function OpenAmalgamationModal() {
+
+            const selected = $(".prop-select:checked");
+
+            if (selected.length < 2 || selected.length > 2) {
+               Swal.fire(
+                                'warning!',
+                                'Max and Min Select 2 properties',
+                                'warning'
+                            )
+                return;
+            }
+
+            // reset
+
+
+            $("#prefixRegistration").val('');
+            $("#postfixForRegistration").val('');
+            $("#numForRegistration").val('');
+
+            $("#Phase").val('');
+            $("#RealStateType").val('');
+            $("#Category").val('');
+            $("#Type").val('');
+
+            $("#remarks").val('');
+
+            $("#amalgamationModal").modal("show");
+        }
+
+        // ===============================
+        // SUBMIT
+        // ===============================
+
+          function SubmitAmalgamation() {
+
+
+
+            const selectedIds = $(".prop-select:checked")
+                .map(function () { return parseInt($(this).val()); })
+                .get();
+
+            // =========================
+            // GET VALUES
+            // =========================
+            const prefix = $("#prefixRegistration").val();
+            const postfix = $("#postfixForRegistration").val();
+            const number = $("#numForRegistration").val();
+
+            const phase = $("#Phase").val();
+            const realEstateType = $("#RealStateType").val();
+            const category = $("#Category").val();
+            const type = $("#Type").val();
+
+            const remarks = $("#remarks").val();
+            const userName = $("#User_Name").val();
+
+            // =========================
+            // VALIDATION
+            // =========================
+                    if (selectedIds.length > 2) {
+            Swal.fire('Limit Exceeded', 'Max 2 properties allowed', 'warning');
+            return;
+        }
+            if (selectedIds.length < 2) {
+                 Swal.fire(
+                                'warning!',
+                                'Select at least 2 properties',
+                                'warning'
+                            )
+                return;
+            }
+
+            if (!prefix || !number) {
+                 Swal.fire(
+                                'warning!',
+                                'Registration No is required',
+                                'warning'
+                            )
+                return;
+            }
+
+            if (!phase || !realEstateType || !category || !type) {
+                Swal.fire(
+                                'warning!',
+                                'Please fill all required fields',
+                                'warning'
+                            )
+                return;
+            }
+
+            // =========================
+            // BUILD REGISTRATION NO
+            // =========================
+            const newRegistrationNo = `${prefix}-${number}${postfix ? '-' + postfix : ''}`;
+
+            // =========================
+            // PAYLOAD
+            // =========================
+            const payload = {
+                propertyIds: selectedIds,
+                newRegistrationNo: newRegistrationNo,
+                prefix: prefix,
+                postfix: postfix,
+                number: parseInt(number),
+                phaseId: parseInt(phase),
+                realEstateTypeId: parseInt(realEstateType),
+                categoryId: parseInt(category),
+                typeId: parseInt(type),
+                remarks: remarks,
+                userName: userName
+            };
+
+            // =========================
+            // API CALL
+            // =========================
+            $.ajax({
+                url: "/api/Amalgamation/Amalgamate",
+                type: "POST",
+                data: JSON.stringify(payload),
+                contentType: "application/json",
+                headers: {
+                    Authorization: `Bearer ${localStorage.getItem("token")}`
+                },
+                 success: function (response) {
+
+                 if (response.code === 100){
+                   Swal.fire({
+                                icon: 'success',
+                                title: 'Success',
+                                text: response.message,
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    location.reload(true);
+                                }
+                                else if (result.isDenied) {
+                                    Swal.fire('Changes are not saved', '', 'info')
+                                }
+                            })
+
+                    $("#amalgamationModal").modal("hide");
+
+                    selectedProperties = []; // RESET
+
+                    propertyTable.ajax.reload(null, false);
+
+                    $("#selectAll").prop("checked", false);
+                    }
+                    else{
+                          Swal.fire(
+                                'warning!',
+                                response.message,
+                                'warning'
+                            )
+                    }
+                },
+                error: function (err) {
+                    Swal.fire(
+                                'warning!',
+                                'something went wrong',
+                                'warning'
+                            )
+                }
+            });
+        }
+
+        // ===============================
+        // PRINT (UNCHANGED - IMPROVED DATE)
+        // ===============================
+
+        function Print(id) {
+
+            var methodType = 'GET';
+            var url = "/api/Amalgamation/GetAllotmentLetter?Id=" + id + "";
+            $.ajax({
+                type: methodType,
+                url: url,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+
+                    var printdata = response;
+
+                    $(".ppropertyNo").text(printdata.propertyNo);
+                    $(".pregistrationNo").text(printdata.registrationNo);
+
+                    var buyerDetails = printdata.buyerWithJointMembers;
+                    var sellerDetails = printdata.sellerWithJointMembers;
+
+                    $(".pmemberNameAndDetails").empty();
+                    $(".pmemberNameAndDetails").empty();
+                    $('.messcountmembersdiv').hide();
+                    $('.lesscountmembersdiv').show();
+                    $('.lesscountmembersdiv').find('.pmemberNameAndDetails').text(buyerDetails);
+
+
+                    $(".ppermanentAddress").text(printdata.permanentAddress);
+                    $(".pblock").text(printdata.block);
+                    $(".pbuyerPhone").text(printdata.buyerPhone);
+                    // $(".pmembershipNo").text(printdata.membershipNo);
+                    $(".ptype").text(printdata.type + " " + printdata.realEstateType);
+                    $(".parea").text(printdata.area + " " + printdata.unitArea);
+
+                    $(".psqryard").text(printdata.area);
+                    $(".pcategory").text(printdata.category);
+                    $(".pcnic").text(printdata.buyerCnic);
+                    $(".pllot").text(printdata.nature);
+                    $(".InternalNo").text(printdata.internalNo);
+                    $(".psector").text(printdata.sectorName);
+                    $(".pphase").text(printdata.phase);
+                    $(".ptitle").text(printdata.title);
+                    $(".pPlotNo").text(printdata.plotNo);
+                    $(".pSignatoryRank").text(printdata.signatoryRank);
+                    $(".pSignatoryDesignation").text(printdata.signatoryDesignation);
+                    $(".pSignatoryName").text(printdata.signatoryName);
+                    $(".pbuyerDetail").text(sellerDetails);
+                    $(".pAmalgamatedPlot1").text(printdata.amalgamatedPlot1);
+                    $(".pAmalgamatedPlot2").text(printdata.amalgamatedPlot2);
+                    $(".pAmalgamatedReg1").text(printdata.amalgamatedReg1);
+                    $(".pAmalgamatedReg2").text(printdata.amalgamatedReg2);
+                    $(".pamalgamatedSector").text(printdata.amalgamatedSector);
+                    $(".pamalgamatedPhase").text(printdata.amalgamatedPhase);
+
+                    // $("#SellerNames").val(sellerDetails);
+                    // $("#BuyerNames").val(buyerDetails);
+
+                    printdata.letterDate = $("#DocDate").val();
+                    var date = new Date(printdata.letterDate);
+                    var options = { month: 'short', year: 'numeric' };
+                    $(".pppdate").text(date.toLocaleDateString('en-GB', options));
+
+                    var allotmentDate = new Date($("#AllotmentDate").val());
+                    var allotmentOptions = { day: 'numeric', month: 'short', year: 'numeric' };
+                    $(".ppdate").text(allotmentDate.toLocaleDateString('en-GB', allotmentOptions));
+
+                    $(".qrcode").empty();
+                    $(".imgContainerForPrint").empty();
+
+                    var Adress = printdata.permanentAddress;
+                    var Name = printdata.buyerName;
+                    var RegistrationNo = printdata.propertyNo;
+                    let udno = printdata.block;
+
+                    var qrcodeContent = "BWP" + "/" + RegistrationNo + "/" + udno;
+                    $(".RefNum").text(qrcodeContent);
+
+                    $(".qrcode").each(function () {
+                        $(this).empty();
+                        new QRCode(this, {
+                            text: qrcodeContent,
+                            width: 90,
+                            height: 90
+                        });
+                    });
+
+                    $(".imgContainerForPrint").empty();
+
+                    //var selectedFile = $('#docImageUpload')[0].files[0];
+
+                    // if (selectedFile) {
+                    //     // ✅ PRIORITY 1: Use uploaded image
+                    //     var reader = new FileReader();
+
+                    //     reader.onload = function (e) {
+                    //         var row = '<img style="width:100%;height:100%;margin:0px;" src="' + e.target.result + '" />';
+                    //         $(".imgContainerForPrint").append(row);
+                    //     };
+
+                    //     reader.readAsDataURL(selectedFile);
+                    // }
+                    if (printdata.imageUrl && printdata.imageUrl !== "") {
+                        // ✅ PRIORITY 2: Use backend image
+                        var row = '<img style="width:100%;height:100%;margin:0px;" src="' + printdata.imageUrl + '" />';
+                        $(".imgContainerForPrint").append(row);
+                    }
+
+
+                    $(".ptext").text("purchased");
+                    $(".pPropertyNo").text(printdata.propertyNo);
+
+                    printInvoice("printdiv");
+
+                }, error: function (xhr) {
+                    // ✅ Handle backend NotFound (404) or any other error
+                    if (xhr.status === 404) {
+                        alert(xhr.responseText || "No record found. Please wait for letter print approval.");
+                    } else if (xhr.status === 401) {
+                        alert("Unauthorized access. Please log in again.");
+                        // optional: redirect to login
+                        // window.location.href = "/login";
+                    } else {
+                        alert("An error occurred while fetching print data. Please try again later.");
+                    }
+                }
+            });
+        }
+
+        function printInvoice(transferType) {
+            var printContents = document.getElementById(transferType).innerHTML;
+            var mywindow = window.open(printContents, 'PRINT', 'height=500,width=600');
+            let printElement = document.getElementById(transferType);
+            var printWindow = window.open('', 'PRINT');
+            printWindow.document.write(document.documentElement.innerHTML);
+            setTimeout(() => { // Needed for large documents
+                printWindow.document.body.style.margin = '0 0';
+                printWindow.document.body.innerHTML = printElement.outerHTML;
+                printWindow.document.close(); // necessary for IE >= 10
+                printWindow.focus(); // necessary for IE >= 10*/
+                printWindow.print();
+                printWindow.close();
+            }, 1000);
+        }
+
+
+         function GetAllPrefix() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Prefix/GetAllPrefixes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#prefixRegistration").empty();
+                        $("#prefixPropertyNo").empty();
+                        var row = ' <option value="">-- Select Prefix --</option> ';
+
+                        $("#prefixRegistration").append(row);
+                        $("#prefixPropertyNo").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#prefixRegistration").append(row);
+                                $("#prefixPropertyNo").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#prefixRegistration').select2();
+                        $('#prefixPropertyNo').select2();
+                    }
+                }
+            });
+        }
+
+        function GetAllPostfix() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Postfix/GetAllPrefixes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#postfixForRegistration").empty();
+                        $("#postfixForProperty").empty();
+                        var row = ' <option value="">-- Select Postfix --</option> ';
+
+                        $("#postfixForRegistration").append(row);
+                        $("#postfixForProperty").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.description + '" >' + list.description + '</option> ';
+
+                                $("#postfixForRegistration").append(row);
+                                $("#postfixForProperty").append(row);
+                                sr++;
+
+                            }
+                        }
+                        $('#postfixForRegistration').select2();
+                        $('#postfixForProperty').select2();
+                    }
+                }
+            });
+        }
+
+         $(document.body).on("change", "#prefixRegistration", function () {
+            getlastregistrationnumber();
+        });
+        $(document.body).on("change", "#postfixForRegistration", function () {
+            getlastregistrationnumber();
+        });
+
+            function getlastregistrationnumber() {
+
+            var prefix = $("#prefixRegistration").val();
+            var postfix = $("#postfixForRegistration").val();
+            if (prefix != "-1" && postfix != "-1") {
+                var url = '/api/StockCreation/GetLastRegNo?prefix=' + prefix;
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    processData: false,
+                    dataType: "json",
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    async: false,
+                    success: function (response) {
+
+                        console.log(response);
+                        if (response.code == 100) {
+
+                            $("#numForRegistration").val(response.data + 1);
+                            //notification("bottomleft", "success", "fa fa-check-circle vd_green", "Success", response.message);
+
+                        }
+                        else {
+
+                            //notification("bottomleft", "error", "fa fa-exclamation-circle vd_red", "Error", "Error Occured");
+                            Swal.fire({
+                                icon: 'error',
+                                title: 'Error',
+                                text: 'Error Occured',
+                                customClass: 'swal-wide',
+                                allowOutsideClick: false,
+                                allowEscapeKey: false
+                            });
+                            //  alert(response.message);
+                        }
+                    }
+                });
+            }
+
+        }
+
+         function GetAllCategories(id) {
+            var url = "/api/StockCreation/GetCategoryDropdownByRealEstateId?realEstateId=" + id + "";
+
+            $.ajax({
+                type: 'GET',
+                url: url,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                data: id,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code == 100) {
+
+                        $("#Category").empty();
+                        var row = ' <option value="">-- Select Category --</option> ';
+
+                        $("#Category").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Category").append(row);
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Category').select2();
+                    }
+                }
+            });
+        }
+
+        $("#Category").change(function () {
+
+            var id = $("#Category").val();
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Category/GetSingleCategory`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code === 0) {
+                        var result_User = response.data;
+
+                        $("#ActualSizeUnit").val(result_User.uom);
+
+                    }
+                }
+            });
+        });
+
+        function GetAllTypes() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/PropertyType/GetAllPropertyTypes`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Type").empty();
+                        var row = ' <option value="">-- Select Type --</option> ';
+
+                        $("#Type").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Type").append(row);
+
+
+                                sr++;
+                            }
+                        }
+
+                        $('#Type').select2();
+                    }
+                }
+            });
+        }
+
+         function GetAllPhases() {
+
+            $.ajax({
+                type: 'GET',
+                url: `/api/Phase/GetAllPhases`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#Phase").empty();
+                        var row = ' <option value="">-- Select Phase --</option> ';
+
+                        $("#Phase").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#Phase").append(row);
+
+
+                                sr++;
+
+                            }
+                        }
+
+                        $('#Phase').select2();
+                    }
+                }
+            });
+        }
+
+        $('#Phase').on('select2:selecting', function (e) {
+
+            var value = e.params.args.data.id;
+            GetAllRealEstate(value);
+        });
+
+        function GetAllRealEstate(id) {
+
+            $.ajax({
+
+                type: 'GET',
+                url: `/api/RealEstate/GetRealEstatesByPhaseId`,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: { id: id },
+                async: false,
+                contentType: 'application/json',
+                success: function (response) {
+
+                    if (response.code === 0) {
+
+                        $("#RealStateType").empty();
+                        var row = ' <option value="">-- Select Real State Type --</option> ';
+
+                        $("#RealStateType").append(row);
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = ' <option value="' + list.id + '" >' + list.description + '</option> ';
+
+                                $("#RealStateType").append(row);
+
+
+                                sr++;
+
+                            }
+                            $('#RealStateType').select2();
+                        }
+
+                    }
+                }
+            });
+        }
+
+            $('#RealStateType').on('select2:selecting', function (e) {
+            var value = e.params.args.data.id;
+            GetAllCategories(value);
+
+        });
+
+    </script>
+}

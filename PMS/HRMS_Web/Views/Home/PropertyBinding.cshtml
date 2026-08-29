@@ -1,0 +1,450 @@
+﻿<!-- Middle Content Start -->
+<style>
+    .vd_red {
+        display: none;
+    }
+</style>
+
+<div class="vd_content-wrapper">
+    <div class="vd_container">
+
+        <div class="vd_content clearfix">
+            <div class="vd_head-section clearfix">
+                <div class="vd_panel-header">
+                    <ul class="breadcrumb">
+                        <li><a href="/Home/index">Home</a> </li>
+                        <li class="active">Property Binding</li>
+                    </ul>
+                    <div class="vd_panel-menu hidden-sm hidden-xs" data-intro="<strong>Expand Control</strong><br/>To expand content page horizontally, vertically, or Both. If you just need one button just simply remove the other button code." data-step=5 data-position="left">
+                        <div data-action="remove-navbar" data-original-title="Remove Navigation Bar Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-navbar-button menu"> <i class="fa fa-arrows-h"></i> </div>
+                        <div data-action="remove-header" data-original-title="Remove Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="remove-header-button menu"> <i class="fa fa-arrows-v"></i> </div>
+                        <div data-action="fullscreen" data-original-title="Remove Navigation Bar and Top Menu Toggle" data-toggle="tooltip" data-placement="bottom" class="fullscreen-button menu"> <i class="glyphicon glyphicon-fullscreen"></i> </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- vd_head-section -->
+
+            <div class="vd_title-section clearfix">
+                <div class="vd_panel-header">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <span class="tp-head-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-link-45deg" viewBox="0 0 16 16"><path d="M4.715 6.542 3.343 7.914a3 3 0 1 0 4.243 4.243l1.828-1.829A3 3 0 0 0 8.586 5.5L8 6.086a1 1 0 0 0-.154.199 2 2 0 0 1 .861 3.337L6.88 11.45a2 2 0 1 1-2.83-2.83l.793-.792a4 4 0 0 1-.128-1.287z"/><path d="M6.586 4.672A3 3 0 0 0 7.414 9.5l.775-.776a2 2 0 0 1-.896-3.346L9.12 3.55a2 2 0 1 1 2.83 2.83l-.793.792c.112.42.155.855.128 1.287l1.372-1.372a3 3 0 1 0-4.243-4.243z"/></svg></span>
+                    <h1>PROPERTY BINDING</h1>
+                        </div>
+                    </div>
+
+
+                    <!-- vd_panel-menu -->
+                </div>
+                <!-- vd_panel-header -->
+            </div>
+            <!-- vd_title-section -->
+
+            <div class="vd_content-section clearfix">
+                <div class="container-fluid">
+                    <div class="card p-3">
+                        <form id="propertyBindingForm" class="custom-validation">
+                            <div class="col-sm-6">
+                                <label>Select Type <small style="color:red">*</small></label>
+                                <div>
+                                    <select class="js-example-basic-single" name="binding" id="binding">
+                                        <option value=""> Select Option </option>
+                                        <option value="1"> Property No. List </option>
+                                        <option value="2">Reference No. List</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="row mt-5">
+                                <div class="col-md-12">
+                                    <br />
+                                    <br />
+                                    <h3>Binding List</h3>
+                                    <div class="">
+                                        <table id="properrtyr" class="table table-bordered table-hover mb-0">
+                                            <thead class="bg-theme">
+                                                <tr>
+                                                    <th class="text-white width-20">#</th>
+                                                    <th class="text-white width-20">Search</th>
+                                                    <th class="text-white width-20">Property No.</th>
+                                                    <th class="text-white width-10">Sector</th>
+                                                    <th class="text-white width-10">Category</th>
+                                                    <th class="text-white width-30">Reference No.</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="propertytbody">
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-12" style="float: right;">
+                                <button type="submit" class="btn btn-primary btn-sm btn-theme" href="javascript:void(0);" id="sbbtn">
+                                    <span class="menu-icon"><i class="fa fa-fw fa-check-circle"></i></span>Submit
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <!-- .vd_content-section -->
+
+        </div>
+        <!-- .vd_content -->
+    </div>
+</div>
+
+<input type="number" id="stockCreationId" value="0" class="hide" />
+<input type="number" id="RowNum" value="0" class="hide" />
+<input type="number" id="memberProfileId" value="0" class="hide" />
+<input type="number" id="dealerId" value="0" class="hide" />
+<input type="text" id="userid" value="@Context.Session.GetString("ID")" class="hide" />
+<div class="modal" id="registrationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header vd_bg-blue vd_white">
+                <h4 class="modal-title">Select Reference Or Property No.</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+            </div>
+            <div class="modal-body">
+
+
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="">
+                                <table id="proplist" class="table table-bordered table-hover mb-0">
+                                    <thead class="bg-theme">
+                                        <tr>
+                                            <th class="text-white">#</th>
+                                            <th class="text-white">Property No.</th>
+                                            <th class="text-white">Reference No.</th>
+                                            <th class="text-white">Phase</th>
+                                            <th class="text-white">Sector</th>
+                                            <th class="text-white">Category</th>
+                                            <th class="text-white">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="Propertytbody">
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer background-login">
+                <button type="button" class="btn vd_btn vd_bg-grey" data-dismiss="modal">Close</button>
+
+            </div>
+        </div>
+        <!-- /.modal-content -->
+    </div>
+    <!-- /.modal-dialog -->
+</div>
+@section Scripts {
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            "use strict";
+            $("#propertyBindingForm").validate({
+                errorElement: 'div', //default input error message container
+                errorClass: 'vd_red', // default input error message class
+                focusInvalid: false, // do not focus the last invalid input
+                ignore: "",
+                rules: {
+                    //PropertyNo: {
+                    //    required: true
+                    //},
+                    //RegistrationNo: {
+                    //    required: true
+                    //}
+
+                },
+
+                errorPlacement: function (error, element) {
+
+                },
+
+                invalidHandler: function (event, validator) { //display error alert on form submit
+                    Swal.fire({
+                        icon: 'warning',
+                        title: 'Warning',
+                        text: "Please Fill Data Properly",
+
+
+                    });
+
+                },
+
+                highlight: function (element) { // hightlight error inputs
+
+                    $(element).addClass('vd_bd-red');
+                    $(element).siblings('.help-inline').removeClass('help-inline fa fa-check vd_green mgl-10');
+
+                },
+
+                unhighlight: function (element) { // revert the change dony by hightlight
+                    $(element)
+                        .closest('.control-group').removeClass('error'); // set error class to the control group
+                },
+
+                success: function (label, element) {
+                    $(element).removeClass('vd_bd-red');
+                },
+
+                submitHandler: function (form) {
+                    PostRequest();
+
+                }
+            });
+            $('#properrtyr').dataTable();
+            GetAllPropertybinding(2);
+        });
+
+        document.getElementById('binding').addEventListener('change', function () {
+            GetAllPropertybinding(this.value);
+        });
+
+
+        function GetAllPropertybinding(keyval) {
+            var key = keyval;
+            var urlval = "/api/SP/GetFilteredPropertyBinding?key=" + key;
+
+            $.ajax({
+                type: 'GET',
+                url: urlval,
+                dataType: "json",
+                contentType: 'application/json',
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                success: function (response) {
+                    if (response.code == 100) {
+                        // Destroy existing DataTable instance if it exists
+                        if ($.fn.DataTable.isDataTable('#properrtyr')) {
+                            $('#properrtyr').DataTable().destroy();
+                        }
+
+                        // Clear the table body
+                        $("#propertytbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var searchbtn = `<td>
+                                    <a class="btn btn-primary" onclick="GetAllPropertyBindingLists(${list.propertyNo ? 2 : 1}, ${sr})" style="width:100%;">
+                                        <i class="fa fa-search"></i> Search
+                                    </a>
+                                </td>`;
+
+                                var row = `<tr id="Row_${sr}">
+                                               <td><input readonly class="form-control id" value="${list.id}" /></td>
+                                               ${searchbtn}
+                                               <td><input readonly name="PropertyNo" class="form-control propertyval" value="${list.propertyNo}" /></td>
+                                               <td><input readonly name="BlockNo" class="form-control blockval" value="${list.block ?? ""}" /></td>
+                                               <td><input readonly name="CategoryNo" class="form-control categoryval" value="${list.category ?? ""}" /></td>
+                                               <td><input readonly name="RegistrationNo" class="form-control registerval" value="${list.registrationNo}" /></td>
+                                           </tr>`;
+
+                                $("#propertytbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        // Initialize DataTable without altering the input element in display mode
+                        $('#properrtyr').DataTable({
+                            "destroy": true,
+                            "responsive": true,
+                            "searching": true,
+                            "paging": true,
+                            "ordering": true,
+                            // For display and filtering, we want to extract the value from the input.
+                            "columnDefs": [
+                                {
+                                    "targets": [2,3,4,5],
+                                    "render": function (data, type, row, meta) {
+                                        if (type === 'filter') {
+                                            var container = $("<div/>").html(data);
+                                            var input = container.find("input");
+                                            if (input.length > 0) {
+                                                return input.val();
+                                            }
+                                            return data;
+                                        }
+                                        // For display (and other types), return the full HTML so the input remains in the DOM.
+                                        return data;
+                                    }
+                                }
+                            ]
+                        });
+                    }
+                }
+            });
+        }
+
+        function GetAllPropertyBindingLists(key, rownum) {
+            var urlas = "/api/SP/GetAllPropertyBinding?key=" + key;
+
+            // Set the row number before loading the modal
+            $("#RowNum").val(rownum);
+
+            $.ajax({
+                type: 'GET',
+                url: urlas,
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                contentType: 'application/json',
+                success: function (response) {
+                    if (response.code == 100) {
+                        // Destroy existing DataTable instance if needed
+                        if ($.fn.DataTable.isDataTable('#proplist')) {
+                            $('#proplist').DataTable().destroy();
+                        }
+                        $("#Propertytbody").empty();
+
+                        var relist = response.data;
+                        if (relist != null && relist.length > 0) {
+                            var sr = 1;
+                            for (let list of relist) {
+                                var row = `<tr>
+                                            <td>${list.id}</td>
+                                            <td class="propertyNo">${list.propertyNo}</td>
+                                            <td class="registrationNo">${list.registrationNO}</td>
+                                            <td>${list.phase}</td>
+                                            <td>${list.block}</td>
+                                            <td>${list.category}</td>
+                                            <td><a class="btn btn-primary" onclick="SelectRegistration(this)">Select</a></td>
+                                        </tr>`;
+                                $("#Propertytbody").append(row);
+                                sr++;
+                            }
+                        }
+
+                        $('#proplist').DataTable();
+                        $('#registrationModal').modal("show"); // Open modal
+                    }
+                }
+            });
+        }
+
+        function SelectRegistration(el) {
+            var modalRow = $(el).closest("tr"); // Get the selected row from the modal
+            // For the modal, propertyNo is in the 2nd column and registrationNo in the 3rd column
+            var PropNum = modalRow.find("td:nth-child(2)").text().trim();
+            var BlockNum = modalRow.find("td:nth-child(5)").text().trim();
+            var CategoryNum = modalRow.find("td:nth-child(6)").text().trim();
+            var RegNum = modalRow.find("td:nth-child(3)").text().trim();
+            var rownum = $("#RowNum").val(); // Row number stored in the hidden field
+
+
+            var table = $('#properrtyr').DataTable();
+            var targetRow = $("#Row_" + rownum);
+            if (targetRow.length === 0) {
+                //console.log("Error: Target row not found!");
+                return;
+            }
+
+            // Instead of replacing the entire cell, update the input value directly.
+            // Get the cell nodes using the DataTables API.
+            var cellProperty = table.cell(targetRow, 2).node();
+            var cellBlock = table.cell(targetRow, 3).node();
+            var cellCategory = table.cell(targetRow, 4).node();
+            var cellRegistration = table.cell(targetRow, 5).node();
+
+            // Update the input fields in the corresponding cell(s)
+            if (PropNum !== "") {
+                $(cellProperty).find("input.propertyval").val(PropNum);
+            }
+            if (BlockNum !== "") {
+                $(cellBlock).find("input.blockval").val(BlockNum);
+            }
+            if (CategoryNum !== "") {
+                $(cellCategory).find("input.categoryval").val(CategoryNum);
+            }
+            if (RegNum !== "") {
+                $(cellRegistration).find("input.registerval").val(RegNum);
+            }
+
+
+            // Invalidate the DataTable's cached data for the updated row and redraw.
+            table.row(targetRow).invalidate().draw(false);
+
+            $('#registrationModal').modal("hide"); // Close the modal
+        }
+
+
+
+        function PostRequest() {
+
+            var bindingArray = new Array();
+
+            $('#propertytbody tr').each(function () {
+
+                var row = $(this);
+                var bindingArr = new Object();
+
+                bindingArr.id = row.find('.id').val();
+                bindingArr.registrationNo = row.find('.registerval').val();
+                bindingArr.propertyNo = row.find('.propertyval').val();
+                bindingArr.blockNo = row.find('.blockval').val();
+                bindingArr.category = row.find('.categoryval').val();
+
+                bindingArray.push(bindingArr);
+            });
+
+            var model = JSON.stringify(bindingArray);
+
+            $('#sbbtn').prop('disabled', true); //disble
+            $('#loader').fadeIn();
+            $.ajax({
+                type: 'POST',
+                url: `/api/StockCreation/SaveBindProperty`,
+                contentType: 'application/json; charset=utf-8',
+                dataType: "json",
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                data: model,
+
+                success: function (response) {
+
+                    $('#loader').fadeOut();
+                    if (response.code === 100) {
+
+                        //Swal.fire('Saved', response.message, 'success')
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Success',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                location.reload(true);
+                            }
+                            else if (result.isDenied) {
+                                Swal.fire('Changes are not saved', '', 'info')
+                            }
+                        })
+                    }
+                    else {
+                        Swal.fire({
+                            icon: 'warning',
+                            title: 'Warning',
+                            text: response.message,
+                            customClass: 'swal-wide',
+                            allowOutsideClick: false,
+                            allowEscapeKey: false
+                        });
+                    }
+                }
+            });
+            $('#sbbtn').prop('disabled', false); //enable
+        }
+
+
+
+    </script>
+}

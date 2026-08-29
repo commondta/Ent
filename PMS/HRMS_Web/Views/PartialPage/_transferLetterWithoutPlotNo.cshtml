@@ -1,0 +1,221 @@
+﻿<style>
+    #lesscountmembersdiv, #messcountmembersdiv {
+        display: none;
+    }
+
+    ol {
+        list-style-type: none;
+        counter-reset: item;
+        padding: 0;
+        margin: 0;
+    }
+
+        ol li {
+            counter-increment: item;
+            position: relative;
+            margin: 0;
+            padding: 0;
+            line-height: 1;
+        }
+
+            ol li::marker {
+                content: counter(item) ".";
+                font-size: 24px;
+                
+                margin-right: 10px;
+            }
+
+            ol li p {
+                font-size: 21px;
+                margin: 0;
+                padding: 0;
+                line-height: 1;
+            }
+
+    table {
+        width: 100%;
+        border-collapse: collapse; /* Ensures table borders are merged */
+    }
+
+    tr {
+        border-bottom: 10px solid transparent; /* Adds space between rows */
+    }
+
+    td {
+        padding: 0px; /* Adds padding inside each cell */
+    }
+</style>
+
+
+<div class="container" style="padding-left:70px;padding-right:75px;margin-top:255px; font-family: 'Times New Roman';">
+    <div class="row">
+        <div class="col-sm-4">
+            @*<img class="img-fluid" src="~/img/urbanLogo.jpg" />*@
+        </div>
+        <div class="col-sm-4 text-center">
+            @* <div class="qrcode-container" style="text-align: center;">
+            <div class="qrcode" style="display:inline-block;margin-left: 30px; margin-bottom:1rem"></div>
+            </div> *@
+        </div>
+        <br />
+        <div class="col-sm-4">
+            <div style="margin-bottom: 0px;font-size: 22px;">
+                <span><b></b></span>
+                <span style="
+              
+                    margin-left: 10px;
+                    min-width: 160px;
+                    float: right;
+                  ">241/15/Tfr/N-Stack</span>
+            </div>
+            <div style="font-size: 22px;">
+                <span><b></b></span>
+                <span style="
+   
+       margin-left: 10px;
+       min-width: 160px;
+       float: right;
+     " class="pppdate">@DateTime.Now.ToString("dd MMMM, yyyy")</span>
+                <div style="clear: both"></div>
+            </div>
+        </div>
+    </div>
+
+    @*     <div class="row mt-3 pt-3">
+    <div class="col-sm-12">
+    <p style="font-weight:600; font-size: 24px">
+    UAN: 042-111-109-109
+    </p>
+    <p style="font-weight:400; font-size: 18px; margin-bottom: 0; ">
+    www.urbandevelopersgroup.com
+    </p>
+    </div>
+    </div> *@
+
+    <div class="row">
+        <div class="col-sm-9">
+            <p style="padding-left: 20px;font-size: 21px;  margin-bottom: 10px;">
+                <span class="ptitle"></span>
+            </p>
+            <div class="lesscountmembersdiv">
+                <p style="padding-left: 20px; font-size: 21px;  margin-bottom: 0;">
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <div class="messcountmembersdiv">
+                <p style="padding-left: 20px; font-size: 16px;  margin-bottom: 0;">
+                    <span class="pmemberNameAndDetails"></span>
+                </p>
+            </div>
+            <p class="ppermanentAddress" style="padding-left: 20px;font-size: 21px;  margin-bottom: 0; "></p>
+            <p class="pbuyerPhone" style="padding-left: 20px;font-size: 21px;  margin-bottom: 0; "></p>
+            <p class="pmembershipNo" style="padding-left: 20px;font-size: 21px;  margin-bottom: 0; "></p>
+
+        </div>
+        <div class="col-sm-3">
+            <div class="imgContainerForPrint" style="float: right; margin-right:0px; height: 160px;width:160px">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-1 mt-2">
+            <p>
+                <b style="font-size: 22px">Subject:</b>
+            </p>
+        </div>
+        <div class="col-sm-11 mt-2 ms-2">
+            <span style=" margin-left: 10px;
+                    border-bottom: 1px solid black;
+                    font-size: 23px;
+                  font-weight: bold;
+                  ">Transfer Letter - <span class="ptype"></span> <span class="pllot"></span> – <span class="pcategory"></span> (Ref No <span class="pregistrationNo"></span>)</span>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 mt-2 mb-5" style="text-align:justify;">
+            <ol style="padding-left: 7px;">
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        The Management of N-Stack is pleased to inform that you have <span class="ptext"></span> a <span class="ptype"></span> <span class="pllot"></span> <span class="pcategory"></span> (<span class="psqryard"></span> Square Yards) in <span class="pphase"></span>, <span class="pPropertyNo"></span>, Sector-<span class="psector"></span>, N-Stack from <b><u><span class="pbuyerDetail"></span></u></b>.<span class="swapOverStatement"></span>
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        The Plot Number and development charges will be decided at the time of next ballot specifically held for allotment of plot numbers and shall be intimated to you through N-Stack.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        All leftover charges to N-Stack will be paid through a Bank Draft/Pay Order in favour of N-Stack.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        Members are required to make payments of development charges when levied. A surcharge @@18.75% per annum (reviewable on yearly basis) for each day of delay shall be levied on the defaulted amount as per N-Stack By laws.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        In case of corner/ park facing plot, 10% additional charges will be paid to N-Stack.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        After the possession is opened, the owner is required to construct the building (Residential or Commercial, as the case may be) within three years. In case of failure to construct the building, non construction penalty will be levied as per N-Stack Byelaws/ Policy till the commencement of construction.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        Excess area upto 5 Marlas can be given to the member on request. Excess area over and above 5 Marla will be given to the member, subject to approval of the Executive Board. Excess area charges will be determined by the N-Stack Management.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        N-Stack reserves the right to make adjustment and relocate the plot, if need arises due to site constraints or change in town planning. In view of escalation and other essential reasons, additional development charges may be imposed, if necessary.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        Any tax imposed by Federal/Provincial government shall be payable by the current owner as and when enforced.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        Formal allotment letters will be issued after payment of development charges/miscellaneous charges.
+                    </p>
+                </li>
+                <li style="padding-left: 0.5rem;">
+                    <p style="font-size: 21px;">
+                        We assure you of our best cooperation at all times.
+                    </p>
+                </li>
+
+            </ol>
+
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+        </div>
+
+        <div class="col-sm-6">
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryRank"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;"><span class="pSignatoryDesignation"></span></p>
+            <p style="font-size: 22px; line-height:1!important; text-align:right;">(<span class="pSignatoryName"></span>)</p>
+        </div>
+    </div>
+
+    <div class="row" style="">
+        <div class="col-sm-9">
+        </div>
+
+        <div class="col-sm-3">
+            <p style="font-size: 14px;  text-align: center; position: fixed; bottom: 22px;">
+                <b><span class="InternalNo"></span></b>
+            </p>
+        </div>
+    </div>
+
+</div>

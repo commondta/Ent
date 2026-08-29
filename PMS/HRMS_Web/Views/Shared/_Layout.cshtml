@@ -1,0 +1,2643 @@
+<!DOCTYPE html>
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+<html>
+<!--<![endif]-->
+<!-- Specific Page Data -->
+<!-- End of Data -->
+@{
+    //var permission = Context.Session.GetPermissions();
+    //@*@if (permission.HasPermission("Setup Forms"))
+    //                                   {
+    //                                   }*@
+}
+<head>
+    <meta charset="utf-8" />
+    <title>@(ViewData["Title"] != null ? ViewData["Title"] + " · " : "")Property Management System</title>
+    @* PMS product mark — see docs/brand/ and AGENTS.md "PMS product identity" *@
+    <link rel="icon" type="image/svg+xml" href="~/img/brand/favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="~/img/brand/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="~/img/brand/favicon-16.png">
+    <link rel="shortcut icon" href="~/favicon.ico">
+    <meta name="keywords" content="HTML5 Template, CSS3, All Purpose Admin Template, " />
+    <meta name="description" content="Responsive Admin Template for e-commerce dashboard">
+    <meta name="description" content="Responsive Admin Template for e-commerce dashboard">
+    <meta name="author" content="Venmond">
+
+    <!-- Set the viewport width to device width for mobile -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="~/img/brand/favicon-180.png">
+    @* <link rel="shortcut icon" href="~/img/ico/favicon.png">*@
+
+
+    <!-- CSS -->
+    <!-- Bootstrap & FontAwesome & Entypo CSS -->
+    <link href="~/css/bootstrap.min.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <link href="~/css/font-awesome.min.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <!--[if IE 7]><link type="text/css" rel="stylesheet" href="css/font-awesome-ie7.min.css"><![endif]-->
+    <link href="~/css/font-entypo.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <link href="~/css/customstyle.css" rel="stylesheet" asp-append-version="true" />
+    <!-- Fonts CSS -->
+    <link href="~/css/fonts.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <!-- Inter (theme spec 2026-08-20) — falls back to local Open Sans offline -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link href="~/plugins/jquery-ui/jquery-ui.custom.min.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/prettyPhoto-plugin/css/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/isotope/css/isotope.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/pnotify/css/jquery.pnotify.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="~/plugins/google-code-prettify/prettify.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/morris/morris.css" rel="stylesheet" />
+
+    <link href="~/plugins/mCustomScrollbar/jquery.mCustomScrollbar.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/tagsInput/jquery.tagsinput.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/bootstrap-switch/bootstrap-switch.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/daterangepicker/daterangepicker-bs3.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/bootstrap-timepicker/bootstrap-timepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="~/plugins/colorpicker/css/colorpicker.css" rel="stylesheet" type="text/css">
+
+    <!-- Specific CSS -->
+    <link href="~/plugins/introjs/css/introjs.min.css" rel="stylesheet" type="text/css">
+    <link href="~/nprogress/nprogress.css" rel="stylesheet" />
+    <!-- Theme CSS -->
+    <link href="~/css/theme.min.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <!--[if IE]> <link href="css/ie.css" rel="stylesheet" > <![endif]-->
+    <link href="~/css/chrome.css" rel="stylesheet" type="text/chrome"> <!-- chrome only css -->
+    <!-- Responsive CSS -->
+    <link href="~/css/theme-responsive.min.css" rel="stylesheet" asp-append-version="true" type="text/css">
+    <!-- for specific page in style css -->
+    <!-- for specific page responsive in style css -->
+    <!-- Custom CSS -->
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/custom/custom.css" rel="stylesheet" type="text/css">
+    <link href="~/css/select2.css" rel="stylesheet" />
+
+    <link href="~/css/customstyling.css" rel="stylesheet" asp-append-version="true" />
+
+    <link href="~/lightbox/simple-lightbox.css" rel="stylesheet" />
+    <!-- Head SCRIPTS -->
+    <script type="text/javascript" src="~/js/modernizr.js"></script>
+    <script type="text/javascript" src="~/js/mobile-detect.min.js"></script>
+    <script type="text/javascript" src="~/js/mobile-detect-modernizr.js"></script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    @*sweet alert*@
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.8/sweetalert2.min.css" integrity="sha512-y4S4cBeErz9ykN3iwUC4kmP/Ca+zd8n8FDzlVbq5Nr73gn1VBXZhpriQ7avR+8fQLpyq4izWm0b8s6q4Vedb9w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.8/sweetalert2.min.js" integrity="sha512-7x7HoEikRZhV0FAORWP+hrUzl75JW/uLHBbg2kHnPdFmScpIeHY0ieUVSacjusrKrlA/RsA2tDOBvisFmKc3xw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    @*sweet alert*@
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/apexcharts@3.27.3/dist/apexcharts.min.css" />
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script type="text/javascript" src="js/html5shiv.js"></script>
+      <script type="text/javascript" src="js/respond.min.js"></script>
+    <![endif]-->
+    @RenderSection("css", false)
+    <style>
+        #loader {
+            color: #fff
+        }
+        /*Swl Styling*/
+        .text-red {
+            color: red;
+        }
+
+        .swal2-styled.swal2-confirm {
+            border: 0;
+            border-radius: 0.25em;
+            background: initial;
+            background-color: #111111;
+            color: #fff;
+            font-size: 1em;
+            width: 76px;
+        }
+
+        .red_error {
+            border: 1px solid red;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 3px 6px;
+            font-size: 12px;
+            font-weight: 500;
+            line-height: 1;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            background-color: #dc3545;
+            color: #fff;
+            border-radius: 10px;
+        }
+
+        .badge-top {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+        }
+
+        .logo img {
+            width: 100%;
+        }
+
+        .logo {
+            padding-top: 0rem;
+        }
+
+        /* One header system: the top bar is 61px (set by the profile item) —
+           brand, icon groups and search all share its centerline. */
+        .vd_top-nav .vd_panel-header {
+            display: flex;
+            align-items: center;
+            height: 61px;
+        }
+
+        /* Brand lockup: house mark + name, minimalist real-estate style */
+        /* The theme forces .logo a to inline-block/120px/17px-top — beat its
+           specificity so the lockup is a real flex row: icon left, text right */
+        header .vd_top-nav .vd_panel-header .logo a.brand-lockup,
+        .brand-lockup {
+            display: inline-flex !important;
+            flex-direction: row !important;
+            align-items: center;
+            gap: 9px;
+            width: auto !important;
+            margin-top: 0 !important;
+            text-decoration: none !important;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .brand-svg { display: block; }
+
+        /* The anchor is inline-level, so .logo grows ~7px of baseline dead space
+           below it and flex centers the wrong box — center the SVG itself */
+        header .vd_top-nav .vd_panel-header .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Profile: plain person glyph + name (no round avatar image).
+           Selectors mirror the theme's own so cascade order decides */
+        .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > li.profile > .mega-link {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > li.profile .mega-name {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            float: none;
+            margin-left: 0;
+            margin-top: 0;
+        }
+
+        .mega-li.profile .user-glyph { display: block; }
+
+        .sidebar_fix {
+            background-color: #FFFFFF !important;
+            border-right: 1px solid #E5E5E5;
+        }
+
+        /* Navigation panel = flex column: the menu scrolls, the size toggle stays pinned at the
+           bottom-left (LIMS-style "Collapsed View"); the header hamburger is gone. */
+        #dashboard .vd_navbar.vd_nav-width.vd_navbar-left {
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        #dashboard .vd_navbar-left > .navbar-menu {
+            flex: 1 1 auto;
+            min-height: 0;
+            overflow-y: auto;
+            overflow-x: hidden;
+            -webkit-overflow-scrolling: touch;
+        }
+        #dashboard .vd_navbar-left > .navbar-menu::-webkit-scrollbar { width: 7px; }
+        #dashboard .vd_navbar-left > .navbar-menu::-webkit-scrollbar-thumb { background: rgba(0,0,0,.16); border-radius: 4px; }
+        #dashboard .vd_navbar-left > .navbar-spacing,
+        #dashboard .vd_navbar-left > .vd_navbar-bottom-widget { display: none; }
+        .nav-footer {
+            flex: 0 0 auto;
+            border-top: 1px solid #E5E5E5;
+            padding: 8px 10px;
+            background: #FFFFFF;
+        }
+        .nav-footer-btn {
+            display: flex;
+            align-items: center;
+            gap: 9px;
+            width: 100%;
+            border: 0;
+            background: transparent;
+            color: #4D4D4D;
+            font-size: 13px;
+            font-weight: 500;
+            padding: 7px 10px;
+            border-radius: 6px;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background .15s ease, color .15s ease;
+        }
+        .nav-footer-btn:hover { background: #F3F3F3; color: #111111; }
+        .nav-footer-btn svg { flex: 0 0 auto; color: #111111; transition: transform .2s ease; }
+        /* Short bar: the fly-out panels hang outside the 60px bar — release both the panel
+           column and the menu's private scroll region (the same reason customStyling.css
+           releases .vd_navbar in these modes). */
+        body#dashboard.nav-left-medium .vd_navbar.vd_nav-width.vd_navbar-left,
+        body#dashboard.nav-left-small .vd_navbar.vd_nav-width.vd_navbar-left,
+        body#dashboard.nav-left-medium .vd_navbar-left > .navbar-menu,
+        body#dashboard.nav-left-small .vd_navbar-left > .navbar-menu { overflow: visible !important; }
+        .nav-left-medium .nav-footer { padding: 8px 6px; }
+        .nav-left-medium .nav-footer-btn { justify-content: center; padding: 7px 0; }
+        .nav-left-medium .nav-footer-btn .nav-footer-text { display: none; }
+        .nav-left-medium .nav-footer-btn svg { transform: scaleX(-1); }   /* points the other way while collapsed */
+        header .vd_top-nav .vd_panel-header #menu_m { display: none !important; }
+
+
+
+
+        /* =====================================================================
+           Navigation grid (redesign brief 2026-08-17): every row is one flex
+           line — [icon][text][chevron] — so the chevron sits at the same right
+           edge on every expandable item, no matter how long the label is.
+           ===================================================================== */
+        .vd_menu > ul > li > a,
+        .vd_menu .child-menu a {
+            display: flex;
+            align-items: center;
+        }
+
+        .vd_menu a .menu-icon {
+            float: none;
+            flex: 0 0 24px;
+        }
+
+        .vd_menu a .menu-text {
+            flex: 1 1 auto;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        /* Every chevron on ONE vertical line at every depth. Two parts:
+           1) the theme pads each nested child-menu 16px but pulls its rows
+              out -20px, so rows grew 4px wider per level — pin padding and
+              margins to the same 16px so every row spans the exact same
+              width at any depth;
+           2) the chip is then pinned at the same right offset of its row.
+           (Also neutralises theme.min.css's legacy .menu-badge top:-23px
+           float hack. !important: the theme's descendant selectors outrank
+           these class selectors.) */
+        .vd_menu ul li .child-menu {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+        }
+
+        .vd_menu ul li .child-menu ul li {
+            margin-left: -16px !important;
+            margin-right: -16px !important;
+        }
+
+        .vd_menu a.nav-link,
+        .vd_menu a.nav-group {
+            position: relative;
+            padding-right: 46px !important;
+        }
+
+        .vd_menu a .menu-badge {
+            float: none;
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            margin-left: 0;
+            padding-left: 0;
+        }
+
+        /* Medium (icons-only) mode centers a lone icon — keep its block layout */
+        .nav-left-medium .vd_navbar-left .vd_menu > ul > li > a {
+            display: block;
+        }
+
+        /* Active form (persistent — exactly one leaf at a time, marked from the
+           URL server-side). Hover is temporary; this stays until the user opens
+           another form. */
+        /* section label between Home and the modules (Payroll parity); hidden in icons-only mode */
+        .vd_menu > ul > li.nav-label { list-style: none; padding: 12px 20px 4px; font-size: 10.5px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; color: #8A8A8A; }
+        .nav-left-medium .vd_navbar-left .vd_menu > ul > li.nav-label { display: none; }
+        .vd_menu a.nav-active {
+            background: #F0F0F0;
+            box-shadow: inset 3px 0 0 #111111;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .vd_menu a.nav-active .menu-text {
+            color: #111111;
+            font-weight: 500;
+        }
+
+        /* Recent / Favourites header icons + popovers.
+           The theme pins every .vd_panel-menu to the same absolute corner
+           (right:0), which put this block on top of the hamburger — anchor it
+           just PAST the panel header's right edge instead, so the order reads
+           menu icon → recent → favourites. */
+        .hdr-quick {
+            left: calc(100% + 18px);
+            right: auto;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .hdr-quick-btn {
+            cursor: pointer;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            float: none !important;
+        }
+
+        .hdr-quick .hdr-quick-btn.open {
+            background: #FFFFFF !important;
+            color: #111111 !important;
+        }
+
+        .hdr-pop {
+            position: fixed;
+            display: none;
+            min-width: 260px;
+            max-width: 340px;
+            max-height: 340px;
+            overflow-y: auto;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            box-shadow: 0 6px 24px rgba(16,21,31,.18);
+            z-index: 3000;
+            padding: 8px 0;
+        }
+
+        .hdr-pop.show { display: block; }
+
+        .hdr-pop-title {
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            padding: 4px 14px 8px;
+            border-bottom: 1px solid #f1f5f9;
+            margin-bottom: 4px;
+        }
+
+        .hdr-pop ul { list-style: none; margin: 0; padding: 0; }
+
+        .hdr-pop li {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 8px;
+            padding: 6px 14px;
+        }
+
+        .hdr-pop li:hover { background: #f8fafc; }
+
+        .hdr-pop a.hq-link {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+            text-decoration: none;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            min-width: 0;
+            flex: 1 1 auto;
+        }
+
+        .hdr-pop a.hq-link:hover { color: #111111; }
+
+        .hq-star {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 15px;
+            line-height: 1;
+            color: #cbd5e1;
+            padding: 2px 4px;
+            flex: 0 0 auto;
+        }
+
+        .hq-star.on, .hq-star:hover { color: #ca8a04; }
+
+        .hq-empty {
+            font-size: 12px;
+            color: #94a3b8;
+            font-style: italic;
+            padding: 8px 14px;
+        }
+
+        /* Legacy float pattern on many forms: an action link floated right,
+           followed by a card that overlaps it (Form Watcher's "Add User" etc).
+           Keep the float clickable and start the card below it. */
+        .vd_content-section .row > div[style*="float"] {
+            position: relative;
+            z-index: 5;
+        }
+
+        .vd_content-section .row > div[style*="float"] + .card {
+            clear: both;
+        }
+
+        /* =====================================================================
+           Header refinement (redesign brief 2026-08-16): standalone icons, one
+           consistent treatment left and right, crisp badge, calm hover states.
+           ===================================================================== */
+
+        /* Right-side icons: drop the 36px circle + border — standalone glyphs.
+           Flex-centered so the vector sits dead centre of the hit area (it was
+           riding the text baseline and looked lifted). */
+        .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > li.one-icon > .mega-link {
+            border: none !important;
+            background: transparent !important;
+            border-radius: 8px;
+            width: 34px;
+            height: 34px;
+            line-height: 1 !important;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            color: #FFFFFF;
+            transition: background .15s ease, color .15s ease;
+            overflow: visible !important;
+        }
+
+        .mega-icon {
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mega-icon > svg { display: block; }
+
+        .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > li.one-icon .mega-link:hover {
+            background: rgba(255,255,255,.18) !important;
+            color: #FFFFFF !important;
+        }
+
+        /* Active/selected header icon: white container, black icon */
+        .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > li.one-icon .mega-link.open {
+            background: #FFFFFF !important;
+            color: #111111 !important;
+        }
+
+        /* Vertically centre both header icon groups on one line (search bar
+           keeps its own placement) */
+        .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > li.one-icon {
+            padding: 0 3px !important;
+            display: flex;
+            align-items: center;
+            height: 61px; /* matches the profile item that sets the bar height */
+        }
+
+        /* Left icon group: nudge to the same centerline as the right side
+           (the 50%/transform approach collapsed against the panel header's
+           height and threw the icons off-screen — fixed offset instead). */
+        .vd_top-nav .vd_panel-menu {
+            top: 14px;
+        }
+
+        .mega-icon { position: relative; display: inline-block; }
+
+        /* Notification badge: crisp count chip, ringed against the header */
+        .badge-top {
+            top: -7px;
+            right: -9px;
+            background: #dc2626;
+            border: 2px solid #242729;
+            font-size: 10px;
+            font-weight: 700;
+            min-width: 17px;
+            height: 17px;
+            line-height: 13px;
+            padding: 0 4px;
+            border-radius: 9px;
+        }
+
+        .badge-top:empty { display: none; }
+
+        /* Header icon buttons are real <button>s — neutralise UA styles and
+           give them a visible keyboard focus ring */
+        button.hdr-quick-btn {
+            padding: 0;
+            font: inherit;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        button.hdr-quick-btn:focus-visible,
+        .mega-link:focus-visible,
+        .gs-input:focus-visible,
+        .fts-star:focus-visible,
+        .hq-star:focus-visible {
+            outline: 2px solid #BBBBBB;
+            outline-offset: 2px;
+        }
+
+        /* Numbers align in columns and badges */
+        .badge-top,
+        .gs-results,
+        .hdr-pop {
+            font-variant-numeric: tabular-nums;
+        }
+
+        /* Honour reduced-motion preferences on everything the shell animates */
+        @@media (prefers-reduced-motion: reduce) {
+            .gs-icon, .gs-input, .nav-chevron svg, .hdr-quick-btn,
+            .vd_menu .child-menu a, .fts-star, .ga-send,
+            .vd_top-nav .vd_panel-menu .menu,
+            .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > li.one-icon > .mega-link {
+                transition: none !important;
+            }
+        }
+
+        /* Left icon group (hamburger, recent, favourites, alert): same flat
+           treatment as the right side */
+        .vd_top-nav .vd_panel-menu .menu {
+            background: transparent !important;
+            border: none !important;
+            color: #FFFFFF !important;
+            border-radius: 8px;
+            width: 32px !important;
+            height: 32px !important;
+            line-height: 1 !important;
+            display: inline-flex !important;
+            align-items: center;
+            justify-content: center;
+            transition: background .15s ease, color .15s ease;
+        }
+
+        .vd_top-nav .vd_panel-menu .menu svg { display: block; }
+
+        .vd_top-nav .vd_panel-menu .menu:hover {
+            background: rgba(255,255,255,.18) !important;
+            color: #FFFFFF !important;
+        }
+
+        /* Active/selected left-group icon: white container, black icon */
+        .vd_top-nav .vd_panel-menu .menu.open,
+        .nav-left-medium .vd_top-nav .vd_panel-menu .menu[data-action^="nav-left-medium"],
+        .nav-left-small .vd_top-nav .vd_panel-menu .menu[data-action^="nav-left-small"] {
+            background: #FFFFFF !important;
+            color: #111111 !important;
+        }
+
+        /* Profile name typography — white on the charcoal bar, never gray */
+        .mega-name {
+            font-size: 12.5px;
+            font-weight: 600;
+            letter-spacing: .01em;
+        }
+
+        .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > li.profile .mega-link,
+        .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > li.profile .mega-name {
+            color: #FFFFFF !important;
+        }
+
+        /* Navigation chevron: proper icon, not a text-like pill */
+        .vd_menu .menu-badge,
+        .vd_menu .menu-badge span {
+            background: none !important;
+            border: none !important;
+            box-shadow: none !important;
+            padding: 0 !important;
+        }
+
+        /* Chevron as a proper icon chip: rounded token holding the custom
+           double-chevron SVG; brightens and grows slightly on hover, fills with
+           the warm accent while its folder is open. */
+        .vd_menu .nav-chevron {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            background: #F7F7F7;
+            border: 1px solid #E5E5E5;
+            color: #777777;
+            opacity: 1;
+            transition: color .15s ease, background .15s ease, border-color .15s ease,
+                        opacity .2s ease-in-out, transform .2s ease-in-out;
+        }
+
+        .vd_menu a:hover .nav-chevron {
+            background: #EBEBEB;
+            border-color: #D9D9D9;
+            color: #111111;
+            opacity: 1;
+            transform: scale(1.06);
+        }
+
+        .vd_menu a.open .nav-chevron {
+            background: #111111;
+            border-color: #111111;
+            color: #FFFFFF;
+            opacity: 1;
+        }
+
+        /* Navigation rhythm: consistent row height, quieter forms vs groups */
+        .vd_menu .child-menu a {
+            padding-top: 6px;
+            padding-bottom: 6px;
+        }
+
+        .vd_menu .child-menu a .menu-text {
+            font-size: 12.5px;
+            color: #4D4D4D;
+            transition: color .18s ease;
+        }
+
+        .vd_menu .child-menu a.nav-group .menu-text {
+            color: #333333;
+        }
+
+        /* Global search — centered inside the fixed top bar */
+        .gs-wrap {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            top: 14px; /* (61px bar − 32px field) / 2 — same centerline as the icons */
+            width: 430px;
+            max-width: 36vw;
+            z-index: 1005;
+        }
+
+        /* White enterprise search pill: the idle field clearly reads "Search";
+           the glyph slides in on the left only while the user is typing. */
+        .gs-icon {
+            position: absolute;
+            left: 11px;
+            top: 50%;
+            transform: translateY(-50%) translateX(-6px);
+            opacity: 0;
+            color: #64748b;
+            pointer-events: none;
+            display: inline-flex;
+            transition: opacity .18s ease, transform .18s ease;
+        }
+
+        .gs-wrap.typing .gs-icon {
+            opacity: 1;
+            transform: translateY(-50%) translateX(0);
+        }
+
+        .gs-input {
+            width: 100%;
+            height: 32px;
+            border: 1px solid #E5E5E5;
+            border-radius: 16px;
+            background: #ffffff;
+            color: #111111;
+            font-size: 12.5px;
+            padding: 0 14px;
+            outline: none;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+            transition: box-shadow .15s ease, border-color .15s ease, padding-left .18s ease;
+        }
+
+        /* A theme input[type=text] rule outranks .gs-input and re-adds 6/7px
+           vertical padding + 23px line-height, floating the text above the
+           centerline — pin the vertical metrics at higher specificity */
+        #gsWrap .gs-input {
+            padding-top: 0;
+            padding-bottom: 0;
+            line-height: 30px; /* 32px field − 2×1px border */
+        }
+
+        .gs-wrap.typing .gs-input { padding-left: 32px; }
+
+        .gs-input::placeholder { color: #777777; opacity: 1; }
+
+        .gs-input:focus {
+            border-color: #111111;
+            box-shadow: 0 0 0 3px rgba(17,17,17,0.06);
+        }
+
+        .gs-results {
+            position: absolute;
+            top: 38px;
+            left: 0;
+            right: 0;
+            display: none;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+            box-shadow: 0 10px 32px rgba(16,21,31,.22);
+            max-height: 420px;
+            overflow-y: auto;
+            padding: 6px 0;
+        }
+
+        .gs-results.show { display: block; }
+
+        .gs-group {
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #94a3b8;
+            text-transform: uppercase;
+            letter-spacing: .08em;
+            padding: 8px 14px 4px;
+        }
+
+        .gs-item {
+            display: block;
+            padding: 7px 14px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .gs-item:hover, .gs-item.active {
+            background: #f1f5f9;
+        }
+
+        .gs-item-name {
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+
+        .gs-item-sub {
+            font-size: 11px;
+            color: #94a3b8;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .gs-none {
+            font-size: 12px;
+            color: #94a3b8;
+            font-style: italic;
+            padding: 10px 14px;
+        }
+
+        /* Desktop: the centered field must never reach the icon groups on
+           either side (left group ends ≈400px in, right group ≈300px wide). */
+        @@media (min-width: 1200px) {
+            .gs-wrap { max-width: min(36vw, calc(100vw - 860px)); }
+        }
+
+        /* Generate Alert — small in-window box over the current screen */
+        .ga-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,.35);
+            z-index: 4000;
+            display: none;
+            align-items: flex-start;
+            justify-content: center;
+            padding-top: 9vh;
+        }
+
+        .ga-overlay.show { display: flex; }
+
+        .ga-modal {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 12px 40px rgba(16,21,31,.25);
+            width: 400px;
+            max-width: calc(100vw - 32px);
+            padding: 18px 20px 16px;
+            overscroll-behavior: contain;
+        }
+
+        .ga-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .ga-close {
+            border: none;
+            background: transparent;
+            font-size: 18px;
+            line-height: 1;
+            cursor: pointer;
+            color: #94a3b8;
+        }
+
+        .ga-close:hover { color: #1e293b; }
+
+        .ga-field { margin-bottom: 10px; }
+
+        .ga-field label {
+            display: block;
+            font-size: 11px;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            margin-bottom: 4px;
+        }
+
+        .ga-field select,
+        .ga-field textarea {
+            width: 100%;
+            border: 1px solid #cbd5e1;
+            border-radius: 5px;
+            font-size: 13px;
+            padding: 7px 9px;
+            background: #fff;
+        }
+
+        .ga-field textarea { min-height: 74px; resize: vertical; }
+
+        .ga-send {
+            width: 100%;
+            border: none;
+            border-radius: 6px;
+            background: #111111;
+            color: #fff;
+            font-weight: 600;
+            font-size: 13px;
+            padding: 9px 0;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .ga-send:hover { background: #3A3A3A; }
+        .ga-send:disabled { opacity: .6; cursor: default; }
+
+        .ga-toast {
+            position: fixed;
+            bottom: 22px;
+            left: 22px;
+            background: #14532d;
+            color: #fff;
+            font-size: 13px;
+            font-weight: 600;
+            border-radius: 8px;
+            padding: 11px 18px;
+            box-shadow: 0 6px 20px rgba(16,21,31,.3);
+            z-index: 4100;
+            display: none;
+        }
+
+        /* Short Bar: the hamburger's medium mode shows icons ONLY (the theme
+           only hid names in its small mode) — child menus fly out on click. */
+        .nav-left-medium .vd_navbar-left .vd_menu > ul > li > a > .menu-text,
+        .nav-left-medium .vd_navbar-left .vd_menu > ul > li > a > .menu-badge,
+        .nav-left-small .vd_navbar-left .vd_menu > ul > li > a > .menu-badge {
+            display: none !important;
+        }
+
+        /* Chevron visibility is owned by CSS, never by inline styles (a legacy
+           hamburger handler used to blind-toggle them): full-width modes show
+           every chevron; icons-only modes hide only the top-level ones while
+           the fly-out panels keep theirs so folders stay recognisable. */
+        body:not(.nav-left-medium):not(.nav-left-small) .vd_menu a > .menu-badge {
+            display: block !important;
+        }
+
+        .nav-left-medium .vd_navbar-left .vd_menu .child-menu a > .menu-badge,
+        .nav-left-small .vd_navbar-left .vd_menu .child-menu a > .menu-badge {
+            display: block !important;
+        }
+
+        .nav-left-medium .vd_navbar-left .vd_menu .child-menu a > .menu-text,
+        .nav-left-small .vd_navbar-left .vd_menu .child-menu a > .menu-text {
+            display: block !important;
+        }
+
+        /* Expand chevron: points right while collapsed; rotates to point down
+           while its folder is open (the theme toggles class "open" on the
+           trigger anchor). Only the icon animates — the text never moves. */
+        .vd_menu .nav-chevron {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .vd_menu .nav-chevron svg {
+            transition: transform .22s ease-in-out;
+        }
+
+        .vd_menu a.open .nav-chevron svg {
+            transform: rotate(90deg);
+        }
+
+        /* Open folders are visibly distinct: tinted background, warm accent bar
+           on the left, full-white label — closed folders stay flat. */
+        .vd_menu a.open {
+            background: #F0F0F0;
+            box-shadow: inset 3px 0 0 #111111;
+        }
+
+        .vd_menu a.open > .menu-text {
+            color: #111111;
+            font-weight: 600;
+        }
+
+        /* Typography hierarchy (redesign brief 2026-08-17):
+           main module 600 · expanded folder 600 · sub-folder 500 · form 400.
+           Hover emphasis comes from color, never weight — text must not move. */
+        .vd_menu > ul > li > a > .menu-text {
+            font-weight: 600;
+        }
+
+        .vd_menu .child-menu a .menu-text {
+            font-weight: 400;
+        }
+
+        .vd_menu .child-menu a.nav-group .menu-text {
+            font-weight: 500;
+            opacity: .95;
+        }
+
+        /* Navigation hover: subtle background lift + brighter text and icon,
+           150–200ms ease. Temporary by design — the persistent state is
+           .nav-active (form) / .open (folder). */
+        .vd_menu > ul > li > a:hover {
+            background: #F3F3F3;
+        }
+
+        .vd_menu .child-menu a {
+            border-radius: 6px;
+            transition: background .18s ease, color .18s ease;
+        }
+
+        .vd_menu .child-menu a:hover {
+            background: #F3F3F3;
+        }
+
+        .vd_menu a:hover .menu-text {
+            color: #111111;
+        }
+
+        .vd_menu a:hover .menu-icon {
+            color: #111111;
+        }
+
+        /* Hover for tabs inside forms (both Bootstrap tab flavours in use). */
+        .nav-tabs > li > a:hover,
+        .nav-tabs .nav-link:hover {
+            background-color: #F3F3F3;
+            transition: background-color .12s ease;
+        }
+
+        /* Registry-driven form title strip — THE single header of every form.
+           The legacy per-form breadcrumb row and title banner are hidden when a
+           strip is present; the banner's icon and action buttons are relocated
+           into the strip by script. */
+        .fts-active .vd_head-section,
+        .fts-active .vd_title-section {
+            display: none;
+        }
+
+        .fts {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #fff;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 10px 16px;
+            margin: 12px 15px 4px;
+            box-shadow: 0 1px 2px rgba(16,21,31,.05);
+        }
+
+        .fts-icon {
+            display: none;
+            flex: 0 0 38px;
+            width: 38px;
+            height: 38px;
+            border-radius: 9px;
+            background: #111111;
+            color: #fff;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fts-icon.has-icon { display: inline-flex; }
+
+        .fts-left { min-width: 0; }
+
+        .fts-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-left: auto;
+        }
+
+        .fts-actions .btn { margin: 0; }
+
+        .fts-crumbs {
+            font-size: 11px;
+            color: #94a3b8;
+            letter-spacing: .02em;
+            margin-bottom: 2px;
+        }
+
+        /* h1 semantics with strip-scale visuals; long names truncate cleanly */
+        h1.fts-title, .fts-title {
+            font-size: 16px;
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.2;
+            margin: 0;
+            padding: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            max-width: 48vw;
+        }
+
+        .fts-star {
+            border: none;
+            background: transparent;
+            cursor: pointer;
+            font-size: 22px;
+            line-height: 1;
+            color: #cbd5e1;
+            padding: 4px 6px;
+            flex: 0 0 auto;
+            transition: color .12s ease, transform .12s ease;
+        }
+
+        .fts-star:hover { color: #ca8a04; transform: scale(1.15); }
+        .fts-star.on { color: #ca8a04; }
+
+        /* Expand controls in the title strip (restored from the legacy per-form
+           panel menu). The strip lives in the content area, so it stays visible
+           in every mode and can always restore the layout. */
+        .fts-view {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            flex: 0 0 auto;
+        }
+
+        .fts-view-btn {
+            width: 28px;
+            height: 28px;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            background: #fff;
+            color: #64748b;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+            transition: background .15s ease, color .15s ease;
+        }
+
+        .fts-view-btn:hover { background: #f1f5f9; color: #1e293b; }
+
+        /* pressed state while that mode's class is active on the body element */
+        .remove-navbar .fts-view .remove-navbar-button,
+        .remove-header .fts-view .remove-header-button,
+        .fullscreen .fts-view .fullscreen-button {
+            background: #111111;
+            border-color: #111111;
+            color: #fff;
+        }
+
+        /* The theme's remove-navbar / fullscreen classes only ever hid the
+           HEADER (the navbar hiding was never wired in its CSS) — mirror the
+           theme's own nav-left-hide mechanics so both modes really hide the
+           navigation pane too. */
+        .remove-navbar .vd_navbar-left,
+        .fullscreen .vd_navbar-left {
+            margin-left: -260px;
+        }
+
+        .remove-navbar .content .vd_container,
+        .fullscreen .content .vd_container {
+            margin-left: 0;
+        }
+
+        .remove-navbar .vd_head-section,
+        .fullscreen .vd_head-section,
+        .remove-navbar .vd_content-section,
+        .fullscreen .vd_content-section,
+        .remove-navbar .vd_title-section,
+        .fullscreen .vd_title-section {
+            margin-left: -15px;
+        }
+
+        /* =====================================================================
+           Responsive header (brief 2026-08-21 §6–8, §10). Desktop (≥1200) keeps
+           the theme geometry. Below 1200px the bar becomes ONE flex row —
+           [menu][brand][quick icons] … [search] … [bell][inbox][⋮][user] — and
+           discloses progressively: the user's name goes first (≤767), then the
+           quick icons and the inbox fold into the ⋮ More menu (≤767), then the
+           bell (≤480). Menu button, brand and user never leave the bar.
+           ===================================================================== */
+        header .mega-ul > li.hdr-more { display: none !important; }
+
+        button.hdr-more-btn {
+            padding: 0;
+            font: inherit;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .hdr-more-dot {
+            position: absolute;
+            top: -3px;
+            right: -4px;
+            width: 9px;
+            height: 9px;
+            border-radius: 50%;
+            background: #dc2626;
+            border: 2px solid #242729;
+            display: none;
+        }
+
+        .hdr-more-btn.has-new .hdr-more-dot { display: block; }
+
+        .hdr-more-pop { min-width: 220px; }
+
+        .hdr-more-pop li { padding: 0; }
+
+        .hdr-more-pop .hm-notif { display: none; }
+
+        .hm-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            width: 100%;
+            border: none;
+            background: transparent;
+            text-align: left;
+            font-size: 13px;
+            font-weight: 600;
+            color: #1e293b;
+            padding: 8px 14px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .hm-item:hover, .hm-item:focus-visible { background: #f8fafc; color: #111111; text-decoration: none; outline: none; }
+
+        .hm-item svg { flex: 0 0 auto; color: #475569; }
+
+        .hm-count {
+            margin-left: auto;
+            font-size: 10.5px;
+            font-weight: 700;
+            color: #fff;
+            background: #dc2626;
+            border-radius: 9px;
+            min-width: 18px;
+            height: 18px;
+            line-height: 18px;
+            text-align: center;
+            padding: 0 5px;
+        }
+
+        .hm-count:empty { display: none; }
+
+        /* Search toggle (icon-only search on small screens) */
+        .gs-toggle {
+            display: none;
+            width: 32px;
+            height: 32px;
+            border: none;
+            border-radius: 8px;
+            background: transparent;
+            color: #FFFFFF;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .gs-toggle:hover { background: rgba(255,255,255,.18); }
+
+        @@media (max-width: 1199px) {
+            header .vd_top-menu-wrapper > .container.topNav {
+                display: flex;
+                align-items: center;
+                height: 61px;
+                padding: 0 8px 0 0;
+                position: relative;
+            }
+
+            header .vd_top-nav.vd_nav-width {
+                position: static !important;
+                width: auto !important;
+                height: 61px !important;
+                padding: 0 0 0 12px !important;
+                margin: 0 !important;
+                flex: 0 0 auto;
+                float: none;
+                order: 1;
+                min-width: 0;
+            }
+
+            header .vd_top-nav .vd_panel-header {
+                display: flex;
+                align-items: center;
+                gap: 4px;
+                height: 61px;
+                position: static;
+            }
+
+            header .vd_top-nav .vd_panel-header .logo {
+                float: none;
+                text-align: left;
+                margin: 0 6px 0 0;
+                flex: 0 0 auto;
+            }
+
+            header .vd_top-nav .vd_panel-menu {
+                position: static !important;
+                top: auto !important;
+                right: auto !important;
+                left: auto !important;
+                margin: 0 !important;
+                float: none;
+                display: flex;
+                align-items: center;
+                gap: 4px;
+            }
+
+            header .vd_top-nav .vd_panel-menu.visible-sm,
+            header .vd_top-nav .vd_panel-menu.visible-xs { display: none !important; }
+
+            /* search becomes a flexible middle item */
+            header .gs-wrap {
+                position: relative;
+                left: auto;
+                top: auto;
+                transform: none;
+                flex: 1 1 auto;
+                min-width: 0;
+                width: auto;
+                max-width: 430px;
+                margin: 0 12px;
+                order: 2;
+                display: block;
+            }
+
+            header .vd_container.width_set {
+                order: 3;
+                margin-left: auto !important;
+                margin-right: 0 !important;
+                padding: 0 !important;
+                height: 61px !important;
+                display: block !important;
+                flex: 0 0 auto;
+                float: none;
+                min-width: 0;
+            }
+
+            header .vd_container > .row { margin: 0; display: block; }
+            header .vd_container > .row > .col { padding: 0; }
+            header .vd_mega-menu-wrapper .vd_mega-menu { float: none !important; }
+
+            header .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul {
+                display: flex;
+                align-items: center;
+                flex-wrap: nowrap;
+            }
+
+            header .vd_mega-menu-wrapper .vd_mega-menu > .mega-ul > .mega-li { float: none; }
+            header .container { padding: 0; }
+        }
+
+        /* Below the desktop sidebar rules (customStyling ≥992px) the theme
+           offsets content 50px beside a 60px icons-only bar — keep them apart. */
+        @@media (max-width: 991px) {
+            .nav-left-medium .content .vd_container { margin-left: 60px !important; }
+        }
+
+        @@media (max-width: 767px) {
+            header .mega-user-name { display: none; }
+            header .hdr-quick { display: none !important; }          /* → ⋮ */
+            header .mega-ul > li#top-menu-inbox { display: none !important; }  /* → ⋮ */
+            header .mega-ul > li.hdr-more { display: flex !important; }
+
+            /* search collapses to an icon; tapping it drops the field below the bar */
+            header .gs-wrap { flex: 0 0 auto; width: 32px; max-width: 32px; margin: 0 4px; }
+            header .gs-wrap .gs-input, header .gs-wrap .gs-icon { display: none; }
+            header .gs-toggle { display: inline-flex; }
+
+            header .gs-wrap.gs-open {
+                position: absolute;
+                left: 8px;
+                right: 8px;
+                top: 61px;
+                width: auto;
+                max-width: none;
+                margin: 0;
+                padding: 8px;
+                background: #242729;
+                border-radius: 0 0 10px 10px;
+                box-shadow: 0 10px 24px rgba(0,0,0,.25);
+                z-index: 1006;
+            }
+
+            header .gs-wrap.gs-open .gs-input { display: block; }
+            header .gs-wrap.gs-open .gs-toggle { display: none; }
+            header .gs-wrap.gs-open.typing .gs-icon { display: inline-flex; left: 19px; }
+            header .gs-wrap.gs-open .gs-results { top: 46px; left: 8px; right: 8px; }
+
+            .brand-svg { width: 150px; height: auto; }
+
+            /* the theme floats the content 717px wide when the nav is hidden on
+               phones — never let the header or content overflow sideways */
+            .nav-left-hide .content .vd_container { float: none; min-width: 0; }
+        }
+
+        @@media (max-width: 480px) {
+            header .mega-ul > li#top-menu-3 { display: none !important; }   /* bell → ⋮ */
+            .hdr-more-pop .hm-notif { display: flex; }
+            .brand-svg { width: 132px; }
+            header .vd_top-nav.vd_nav-width { padding-left: 6px !important; }
+            header .vd_top-nav .vd_panel-header .logo { margin-right: 2px; }
+        }
+
+        @@media (max-width: 375px) {
+            .brand-svg { width: 118px; }
+        }
+
+        /* =====================================================================
+           Notifications panel — opens from the bell over the current screen
+           (same overlay pattern as Generate Alert). Header stays put, the list
+           scrolls on its own; DataTables provides search, page size and pages.
+           The full page /Notification/Index stays reachable from the header.
+           ===================================================================== */
+        .np-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15,23,42,.28);
+            z-index: 4000;
+            display: none;
+        }
+
+        .np-overlay.show { display: block; }
+
+        .np-panel {
+            position: absolute;
+            top: 66px;
+            right: 12px;
+            width: 760px;
+            max-width: calc(100vw - 24px);
+            max-height: calc(100vh - 80px);
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 12px 40px rgba(16,21,31,.25);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            overscroll-behavior: contain;
+        }
+
+        .np-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            padding: 12px 16px;
+            border-bottom: 1px solid #e5e7eb;
+            flex: 0 0 auto;
+        }
+
+        .np-title {
+            font-size: 14px;
+            font-weight: 700;
+            color: #1e293b;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .np-count {
+            font-size: 11px;
+            font-weight: 700;
+            color: #64748b;
+            background: #f1f5f9;
+            border-radius: 10px;
+            padding: 2px 8px;
+        }
+
+        .np-count:empty { display: none; }
+
+        .np-head-actions { display: flex; align-items: center; gap: 6px; }
+
+        .np-full {
+            font-size: 12px;
+            font-weight: 600;
+            color: #64748b;
+            text-decoration: none;
+            padding: 4px 8px;
+            border-radius: 6px;
+        }
+
+        .np-full:hover { background: #f1f5f9; color: #111111; text-decoration: none; }
+
+        .np-close {
+            border: none;
+            background: transparent;
+            font-size: 20px;
+            line-height: 1;
+            cursor: pointer;
+            color: #94a3b8;
+            padding: 2px 6px;
+        }
+
+        .np-close:hover { color: #1e293b; }
+
+        .np-body { flex: 1 1 auto; min-height: 0; display: flex; flex-direction: column; }
+
+        .np-body .dataTables_wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+            flex: 1 1 auto;
+        }
+
+        .np-tools { padding: 10px 16px; border-bottom: 1px solid #f1f5f9; flex: 0 0 auto; }
+        .np-tools .dataTables_filter { float: none; text-align: left; }
+        .np-tools .dataTables_filter label { display: block; margin: 0; font-weight: 400; }
+
+        .np-tools .dataTables_filter input {
+            width: 100%;
+            margin: 0;
+            height: 32px;
+            border: 1px solid #E5E5E5;
+            border-radius: 16px;
+            padding: 0 14px;
+            font-size: 12.5px;
+            outline: none;
+        }
+
+        .np-tools .dataTables_filter input:focus { border-color: #111111; box-shadow: 0 0 0 3px rgba(17,17,17,.06); }
+
+        .np-scroll { flex: 1 1 auto; min-height: 0; overflow: auto; }
+
+        .np-table { width: 100% !important; margin: 0 !important; font-size: 12.5px; }
+
+        .np-table thead th {
+            position: sticky;
+            top: 0;
+            background: #f8fafc;
+            z-index: 1;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: .04em;
+            color: #64748b;
+            border-bottom: 1px solid #e5e7eb !important;
+            padding: 8px 10px;
+            white-space: nowrap;
+        }
+
+        .np-table tbody td {
+            padding: 8px 10px;
+            vertical-align: top;
+            border-top: 1px solid #f1f5f9;
+            color: #1e293b;
+        }
+
+        .np-table td.np-narr { white-space: normal; min-width: 220px; line-height: 1.45; }
+        .np-table td.np-when { white-space: nowrap; color: #64748b; }
+
+        .np-type {
+            display: inline-block;
+            font-size: 10.5px;
+            font-weight: 700;
+            border-radius: 10px;
+            padding: 2px 8px;
+            background: #f1f5f9;
+            color: #334155;
+            white-space: nowrap;
+        }
+
+        .np-type.critical { background: #fee2e2; color: #b91c1c; }
+
+        .np-foot {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 10px;
+            flex-wrap: wrap;
+            padding: 8px 16px;
+            border-top: 1px solid #e5e7eb;
+            flex: 0 0 auto;
+            font-size: 12px;
+            color: #64748b;
+        }
+
+        .np-foot .dataTables_length,
+        .np-foot .dataTables_info,
+        .np-foot .dataTables_paginate { float: none; padding: 0; margin: 0; }
+
+        .np-foot .dataTables_length label { margin: 0; font-weight: 400; }
+
+        .np-foot .dataTables_length select {
+            height: 26px;
+            border: 1px solid #E5E5E5;
+            border-radius: 6px;
+            padding: 0 6px;
+            font-size: 12px;
+            margin: 0 2px;
+        }
+
+        .np-foot .dataTables_paginate .paginate_button {
+            padding: 3px 8px;
+            min-width: 26px;
+            font-size: 12px;
+            border-radius: 6px;
+            margin-left: 2px;
+        }
+
+        .np-foot .dataTables_paginate .paginate_button.current,
+        .np-foot .dataTables_paginate .paginate_button.current:hover {
+            background: #111111;
+            color: #fff !important;
+            border-color: #111111;
+        }
+
+        .np-empty, .np-loading {
+            padding: 28px 16px;
+            text-align: center;
+            color: #94a3b8;
+            font-size: 13px;
+            font-style: italic;
+        }
+
+        .np-error { padding: 16px; color: #b91c1c; font-size: 12.5px; display: none; }
+
+        @@media (max-width: 600px) {
+            .np-panel {
+                top: 61px;
+                right: 0;
+                left: 0;
+                width: auto;
+                max-width: none;
+                max-height: calc(100vh - 61px);
+                border-radius: 0 0 10px 10px;
+            }
+
+            .np-table .np-hide-sm { display: none; }
+            .np-table td.np-narr { min-width: 0; }
+        }
+    </style>
+    <link href="~/css/erp-platform.css" rel="stylesheet" asp-append-version="true" />
+</head>
+
+<body id="dashboard" class="full-layout  nav-right-hide nav-right-start-hide  nav-top-fixed      responsive    clearfix" data-active="dashboard " data-smooth-scrolling="1">
+    <div class="vd_body">
+        <!-- Header Start -->
+        <header class="header-1" id="header">
+            <div class="vd_top-menu-wrapper">
+                <div class="container topNav">
+                    @* Global search — top center of the bar (AI file.xlsx N-6). The wrapper is
+                       position:absolute z-index:999, so the box must live INSIDE it. *@
+                    <div class="gs-wrap" id="gsWrap">
+                        <span class="gs-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
+                        </span>
+                        @* Small screens: the field folds into this icon; tapping it drops the field below the bar *@
+                        <button type="button" class="gs-toggle" id="gsToggle" title="Search" aria-label="Open search" aria-expanded="false">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0"/></svg>
+                        </button>
+                        <input type="text" id="gsInput" class="gs-input" placeholder="Search or type a command..." autocomplete="off" aria-label="Search forms and records" role="searchbox" />
+                        <div class="gs-results" id="gsResults" aria-live="polite"></div>
+                    </div>
+                    <div class="vd_top-nav vd_nav-width  width_set">
+                        <div class="vd_panel-header">
+                            <div class="logo">
+                                @* One vector: house mark + wordmark in a single SVG — layout-proof *@
+                                @await Html.PartialAsync("_ErpAppSwitcher")
+                            </div>
+                            <!-- logo -->
+                            @*<div class="vd_panel-menu  hidden-sm hidden-xs" data-intro="<strong>Minimize Left Navigation</strong><br/>Toggle navigation size to medium or small size. You can set both button or one button only. See full option at documentation." data-step=1>*@
+                            <div id="menu_m" class="vd_panel-menu" data-intro="<strong>Minimize Left Navigation</strong><br/>Toggle navigation size to medium or small size. You can set both button or one button only. See full option at documentation." data-step=1>
+                                <span class="nav-medium-button menu" data-toggle="tooltip" data-placement="bottom" data-action="nav-left-medium">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/></svg>
+                                </span>
+                            </div>
+                            @* Recent / Favourites header icons — top-left after the menu icon (your
+                               instruction 2026-08-16, amends D29). Fed by the same localStorage
+                               stores as the My Home cards. *@
+                            <div class="vd_panel-menu hdr-quick">
+                                <button type="button" class="menu hdr-quick-btn" id="hdrRecentBtn" title="Recent forms" aria-label="Recent forms" aria-haspopup="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-clock-history" viewBox="0 0 16 16"><path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/><path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/><path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"/></svg>
+                                </button>
+                                <button type="button" class="menu hdr-quick-btn" id="hdrFavBtn" title="Favourite forms" aria-label="Favourite forms" aria-haspopup="true">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
+                                </button>
+                                <button type="button" class="menu hdr-quick-btn" id="hdrAlertBtn" title="Generate alert" aria-label="Generate alert" aria-haspopup="dialog">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-megaphone" viewBox="0 0 16 16"><path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 75 75 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0m-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233q.27.015.537.036c2.568.189 5.093.744 7.463 1.993zm-9 6.215v-4.13a95 95 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A61 61 0 0 1 4 10.065m-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68 68 0 0 0-1.722-.082z"/></svg>
+                                </button>
+                            </div>
+                            <div class="vd_panel-menu left-pos visible-sm visible-xs">
+                            </div>
+                            <div class="vd_panel-menu visible-sm visible-xs">
+                            </div>
+                            <!-- vd_panel-menu -->
+                        </div>
+                        <!-- vd_panel-header -->
+
+                    </div>
+                    <div class="vd_container width_set">
+                        <div class="row">
+
+
+                            <div class="col">
+                                <div class="vd_mega-menu-wrapper">
+                                    <div class="vd_mega-menu pull-right">
+                                        <ul class="mega-ul">
+                                            <li id="top-menu-3" class="one-icon mega-li">
+                                                @* Opens the notifications PANEL over the page (script below); the href is the no-script fallback *@
+                                                <a href="/Notification/Index" class="mega-link" id="hdrBellLink" title="Notifications" aria-label="Notifications" aria-haspopup="dialog" aria-expanded="false">
+                                                    <span class="mega-icon">
+                                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-bell-fill" viewBox="0 0 16 16"><path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/></svg>
+                                                        <span class="badge badge-top" id="unSeenBadge"></span> <!-- Add the badge with a number here -->
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li id="top-menu-inbox" class="one-icon mega-li">
+                                                <a href="/Approval/inbox" class="mega-link" title="Approval inbox" aria-label="Approval inbox">
+                                                    <span class="mega-icon">
+                                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-inbox-fill" viewBox="0 0 16 16"><path d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4zm-1.17-.437A1.5 1.5 0 0 1 4.98 3h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374z"/></svg>
+                                                        <span class="badge badge-top" id="approvalBadge"></span>
+                                                    </span>
+                                                </a>
+                                            </li>
+
+                                            @* ⋮ More — overflow home for the secondary header features on small
+                                               screens (shown by CSS ≤767px); menu button, brand and user never move here *@
+                                            <li id="top-menu-more" class="one-icon mega-li hdr-more">
+                                                <button type="button" class="mega-link hdr-more-btn" id="hdrMoreBtn" title="More options" aria-label="More options" aria-haspopup="true" aria-expanded="false">
+                                                    <span class="mega-icon">
+                                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="17" height="17" fill="currentColor" class="bi bi-three-dots-vertical" viewBox="0 0 16 16"><path d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0m0-5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0"/></svg>
+                                                        <span class="hdr-more-dot" id="hdrMoreDot" aria-hidden="true"></span>
+                                                    </span>
+                                                </button>
+                                            </li>
+
+                                            <li id="top-menu-profile" class="profile mega-li">
+                                                <a href="#" class="mega-link" data-action="click-trigger">
+                                                    <span class="mega-name">
+                                                        <svg class="user-glyph" xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16" aria-hidden="true"><rect x="5" y="1.5" width="6" height="6" rx="1.5"/><rect x="3" y="9" width="10" height="5.5" rx="1.5"/></svg>
+                                                        <span class="mega-user-name">@Context.Session.GetString("FullName")</span>
+                                                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708"/></svg>
+                                                    </span>
+                                                </a>
+                                                <div class="vd_mega-menu-content  width-xs-2  left-xs left-sm" data-action="click-target">
+                                                    <div class="child-menu">
+                                                        <div class="content-list content-menu">
+                                                            <ul class="list-wrapper pd-lr-10">
+                                                                @* <li> <a href="#"> <div class="menu-icon"><i class=" fa fa-user"></i></div> <div class="menu-text">Edit Profile</div> </a> </li>
+                                                                <li> <a href="#"> <div class="menu-icon"><i class=" fa fa-cogs"></i></div> <div class="menu-text">Settings</div> </a> </li>
+                                                                <li> <a data-toggle="modal" data-target="#myModal"> <div class="menu-icon"><i class=" fa fa-lock"></i></div>  <div class="menu-text">Change Password</div> </a> </li>*@
+                                                                <li> <a href="/Login/SignOut"> <div class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/><path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/></svg></div>  <div class="menu-text">Sign Out</div> </a> </li>
+
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </li>
+
+                                        </ul>
+                                        <!-- Head menu search form ends -->
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <!-- container -->
+            </div>
+            <!-- vd_primary-menu-wrapper -->
+
+        </header>
+        <!-- Header Ends -->
+        <div class="content">
+            <div class="container">
+                <div class="vd_navbar vd_nav-width vd_navbar-tabs-menu vd_navbar-left  sidebar_fix">
+
+                    <div class="navbar-menu clearfix">
+                        @* Registry-driven navigation (AI file.xlsx Instructions §5).
+                           The 2,460-line hard-coded menu this replaces is preserved in git
+                           history (commit 20364cf and earlier). *@
+                        <div class="vd_menu">
+                            <ul>
+                                @await Html.PartialAsync("_NavigationMenu")
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="navbar-spacing clearfix">
+                    </div>
+                    @* Navigation size toggle — bottom-left of the panel, as in LIMS (user instruction
+                       2026-08-23; replaces the header hamburger). Same data-action, same theme handler. *@
+                    <div class="nav-footer">
+                        <button type="button" class="nav-footer-btn" data-action="nav-left-medium" title="Collapsed View" aria-label="Toggle navigation size">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-layout-sidebar" viewBox="0 0 16 16" aria-hidden="true"><path d="M0 3a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm5-1v12h9a1 1 0 0 0 1-1V3a1 1 0 0 0-1-1zM4 2H2a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h2z"/></svg>
+                            <span class="nav-footer-text">Collapsed View</span>
+                        </button>
+                    </div>
+                    <div class="vd_menu vd_navbar-bottom-widget">
+                        <ul>
+                            <li>
+                                @*  <a href="pages-logout.html">
+                                <span class="menu-icon"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-box-arrow-right" viewBox="0 0 16 16"><path fill-rule="evenodd" d="M10 12.5a.5.5 0 0 1-.5.5h-8a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h8a.5.5 0 0 1 .5.5v2a.5.5 0 0 0 1 0v-2A1.5 1.5 0 0 0 9.5 2h-8A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h8a1.5 1.5 0 0 0 1.5-1.5v-2a.5.5 0 0 0-1 0z"/><path fill-rule="evenodd" d="M15.854 8.354a.5.5 0 0 0 0-.708l-3-3a.5.5 0 0 0-.708.708L14.293 7.5H5.5a.5.5 0 0 0 0 1h8.793l-2.147 2.146a.5.5 0 0 0 .708.708z"/></svg></span>
+                                <span class="menu-text">Logout</span>
+                                </a>*@
+
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="vd_page-scroll">
+                    @await Html.PartialAsync("_FormTitleStrip")
+                    @RenderBody()
+                </div>
+            </div>
+        </div>
+        <!-- Head menu search form ends -->
+    </div>
+
+    <!-- .vd_body END  -->
+    <a id="back-top" href="#" data-action="backtop" class="vd_back-top visible"> <i class="fa  fa-angle-up"> </i> </a>
+
+    <!--
+    <a class="back-top" href="#" id="back-top"> <i class="icon-chevron-up icon-white"> </i> </a> -->
+    <!-- Javascript =============================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/javascript" src="~/js/jquery.js"></script>
+    <script src="~/lightbox/simple-lightbox.jquery.js"></script>
+    <script src="~/js/validate.js"></script>
+    <script type="text/javascript" src="~/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src='~/plugins/jquery-ui/jquery-ui.custom.min.js'></script>
+    <script type="text/javascript" src="~/plugins/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js"></script>
+
+    <script type="text/javascript" src="~/js/caroufredsel.js"></script>
+    <script type="text/javascript" src="~/js/plugins.js"></script>
+
+    <script type="text/javascript" src="~/plugins/breakpoints/breakpoints.js"></script>
+    <script type="text/javascript" src="~/plugins/dataTables/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="~/plugins/prettyPhoto-plugin/js/jquery.prettyPhoto.js"></script>
+
+    <script type="text/javascript" src="~/plugins/mCustomScrollbar/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script type="text/javascript" src="~/plugins/tagsInput/jquery.tagsinput.min.js"></script>
+    <script type="text/javascript" src="~/plugins/bootstrap-switch/bootstrap-switch.min.js"></script>
+    <script type="text/javascript" src="~/plugins/blockUI/jquery.blockUI.js"></script>
+    <script type="text/javascript" src="~/plugins/pnotify/js/jquery.pnotify.min.js"></script>
+    <script src="~/plugins/moment/moment.min.js"></script>
+    <script type="text/javascript" src="~/js/theme.js"></script>
+    <script src="~/nprogress/nprogress.js"></script>
+    <script src="~/plugins/morris/morris.min.js"></script>
+    <script src="~/js/select2.js"></script>
+    <script type="text/javascript" src="~/custom/custom.js"></script>
+
+    <!-- Specific Page Scripts Put Here -->
+    <!-- Flot Chart  -->
+
+
+    <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog ">
+            <div class="modal-content">
+                <div class="modal-header vd_bg-blue vd_white">
+                    <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="label-wrapper">
+                                        <label class="control-label sr-only" for="password">Previous Password</label>
+                                    </div>
+                                    <div class="vd_input-wrapper" id="password-input-wrapper">
+                                        <span class="menu-icon"> <i class="fa fa-lock"></i> </span>
+                                        <input type="password" placeholder="Previous Password" id="ppassword" name="ppassword" class="required" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="label-wrapper">
+                                        <label class="control-label sr-only" for="password">New Password</label>
+                                    </div>
+                                    <div class="vd_input-wrapper" id="password-input-wrapper">
+                                        <span class="menu-icon"> <i class="fa fa-lock"></i> </span>
+                                        <input type="password" placeholder="New Password" id="npassword" name="npassword" class="required" required>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="label-wrapper">
+                                        <label class="control-label sr-only" for="password">Confirm Password</label>
+                                    </div>
+                                    <div class="vd_input-wrapper" id="password-input-wrapper">
+                                        <span class="menu-icon"> <i class="fa fa-lock"></i> </span>
+                                        <input type="password" placeholder="Confirm Password" id="cpassword" name="cpassword" class="required" required>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer background-login">
+                    <button class="btn vd_bg-blue vd_white width-100" type="submit" id="submit-password" name="submit-password">Change Password</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
+    <script>
+        let settings = { backgroundColor: "rgba(000,000,000,0.7)", filterBrightness: 2, timeOnScreen: 10 },
+            u = document.querySelector("*"), s = document.createElement("style"), a = document.createElement("div");
+        a.setAttribute("id", "loader"); m = "http://www.w3.org/2000/svg", g = document.createElementNS(m, "svg"),
+            c = document.createElementNS(m, "circle"); document.head.appendChild(s),
+                s.innerHTML = "@@keyframes swell{to{transform:rotate(360deg)}}",
+                a.setAttribute("style", "background-color:" + settings.backgroundColor + ";color:#fff;display:flex;align-items:center;justify-content:center;position:fixed;top:0;height:100vh;width:100vw;z-index:2147483647"),
+                document.body.prepend(a), g.setAttribute("style", "height:50px;color:#fff;filter:brightness(" + settings.filterBrightness + ");animation:.8s swell infinite linear"), g.setAttribute("viewBox", "0 0 100 100"), a.prepend(g),
+                c.setAttribute("cx", "50"), c.setAttribute("cy", "50"), c.setAttribute("r", "35"), c.setAttribute("fill", "none"),
+                c.setAttribute("stroke", "currentColor"), c.setAttribute("stroke-dasharray", "165 57"), c.setAttribute("stroke-width", "10"),
+                g.prepend(c), u.style.pointerEvents = "none", u.style.userSelect = "none", u.style.cursor = "wait",
+                $("#loader").append("Please Wait..."); $("#loader").css("color", "#fff")
+        window.onload = () => { (u.style.pointerEvents = ""), (u.style.userSelect = ""), (u.style.cursor = "") }
+        @* Legacy hamburger handler removed 2026-08-20: it blind-toggled inline
+           display on every .menu-text/.menu-badge, desyncing from the actual
+           nav mode (chevrons vanished or appeared at random). The
+           nav-left-medium CSS rules own that hiding now. *@
+        /* One active form at a time: the server marks the current form from the
+           URL (class nav-active in _NavigationMenu). This only moves the
+           highlight instantly on click, before the new page loads — the old
+           active state disappears immediately. Folders never take it. */
+        $(document).ready(function () {
+            $(document).on('click', '.vd_menu .child-menu a:not(.nav-group)', function () {
+                $('.vd_menu a.nav-active').removeClass('nav-active');
+                $(this).addClass('nav-active');
+            });
+        });
+
+    </script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+    @RenderSection("Scripts", false)
+    <script src="~/custom/custom.js"></script>
+    <input type="text" id="userid" value="@Context.Session.GetString("ID")" class="hide" />
+
+    @* Generate Alert — small box over the current screen; the open form stays as it is *@
+    <div class="ga-overlay" id="gaOverlay">
+        <div class="ga-modal" role="dialog" aria-modal="true" aria-labelledby="gaTitleText">
+            <div class="ga-title">
+                <span id="gaTitleText">Generate Alert</span>
+                <button type="button" class="ga-close" id="gaClose" title="Close" aria-label="Close">&times;</button>
+            </div>
+            <div class="ga-field">
+                <label for="gaUser">Send to</label>
+                <select id="gaUser"><option value="">Loading users…</option></select>
+            </div>
+            <div class="ga-field">
+                <label for="gaType">Type</label>
+                <select id="gaType">
+                    <option value="Non-Critical">Non-Critical</option>
+                    <option value="Critical">Critical</option>
+                </select>
+            </div>
+            <div class="ga-field">
+                <label for="gaMessage">Message</label>
+                <textarea id="gaMessage" placeholder="Write the alert message…"></textarea>
+            </div>
+            <button type="button" class="ga-send" id="gaSend">Send Alert</button>
+        </div>
+    </div>
+    <div class="ga-toast" id="gaToast" role="status" aria-live="polite">Alert is sent</div>
+
+    @* Notifications panel — opened by the header bell over the current screen (brief 2026-08-21 §4–5).
+       Same data and behaviour as /Notification/Index (api/Notification/GetAll marks the alerts
+       viewed); DataTables supplies search, page size and page numbers inside the panel. *@
+    <div class="np-overlay" id="npOverlay">
+        <div class="np-panel" role="dialog" aria-modal="true" aria-labelledby="npTitle">
+            <div class="np-head">
+                <div class="np-title"><span id="npTitle">Notifications</span><span class="np-count" id="npCount"></span></div>
+                <div class="np-head-actions">
+                    <a href="/Notification/Index" class="np-full" title="Open the notifications page">Open page</a>
+                    <button type="button" class="np-close" id="npClose" title="Close" aria-label="Close">&times;</button>
+                </div>
+            </div>
+            <div class="np-body">
+                <div class="np-loading" id="npLoading">Loading…</div>
+                <div class="np-error" id="npError"></div>
+                <div class="np-empty" id="npEmpty" style="display:none">No notifications yet.</div>
+                <table id="npTable" class="table np-table" style="display:none">
+                    <thead>
+                        <tr>
+                            <th class="np-hide-sm">#</th>
+                            <th>Alert type</th>
+                            <th>Sender</th>
+                            <th class="np-hide-sm">Designation</th>
+                            <th>Date &amp; time</th>
+                            <th>Narration</th>
+                        </tr>
+                    </thead>
+                    <tbody id="npTbody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    @* ⋮ More menu contents — the secondary header features, reachable when the bar is too
+       narrow to show them (brief §7–8). Each item runs the SAME handler as the header control. *@
+    <div class="hdr-pop hdr-more-pop" id="hdrMorePop" role="menu" aria-label="More options">
+        <div class="hdr-pop-title">More options</div>
+        <ul>
+            <li class="hm-notif">
+                <button type="button" class="hm-item" role="menuitem" data-act="notifications">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M8 16a2 2 0 0 0 2-2H6a2 2 0 0 0 2 2m.995-14.901a1 1 0 1 0-1.99 0A5 5 0 0 0 3 6c0 1.098-.5 6-2 7h14c-1.5-1-2-5.902-2-7 0-2.42-1.72-4.44-4.005-4.901"/></svg>
+                    Notifications <span class="hm-count" id="hdrMoreNotifCount"></span>
+                </button>
+            </li>
+            <li>
+                <a class="hm-item" role="menuitem" href="/Approval/inbox">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M4.98 4a.5.5 0 0 0-.39.188L1.54 8H6a.5.5 0 0 1 .5.5 1.5 1.5 0 1 0 3 0A.5.5 0 0 1 10 8h4.46l-3.05-3.812A.5.5 0 0 0 11.02 4zm-1.17-.437A1.5 1.5 0 0 1 4.98 3h6.04a1.5 1.5 0 0 1 1.17.563l3.7 4.625a.5.5 0 0 1 .106.374l-.39 3.124A1.5 1.5 0 0 1 14.117 13H1.883a1.5 1.5 0 0 1-1.489-1.314l-.39-3.124a.5.5 0 0 1 .106-.374z"/></svg>
+                    Approval inbox <span class="hm-count" id="hdrMoreInboxCount"></span>
+                </a>
+            </li>
+            <li>
+                <button type="button" class="hm-item" role="menuitem" data-act="alert">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M13 2.5a1.5 1.5 0 0 1 3 0v11a1.5 1.5 0 0 1-3 0v-.214c-2.162-1.241-4.49-1.843-6.912-2.083l.405 2.712A1 1 0 0 1 5.51 15.1h-.548a1 1 0 0 1-.916-.599l-1.85-3.49-.202-.003A2.014 2.014 0 0 1 0 9V7a2.02 2.02 0 0 1 1.992-2.013 75 75 0 0 0 2.483-.075c3.043-.154 6.148-.849 8.525-2.199zm1 0v11a.5.5 0 0 0 1 0v-11a.5.5 0 0 0-1 0m-1 1.35c-2.344 1.205-5.209 1.842-8 2.033v4.233q.27.015.537.036c2.568.189 5.093.744 7.463 1.993zm-9 6.215v-4.13a95 95 0 0 1-1.992.052A1.02 1.02 0 0 0 1 7v2c0 .55.448 1.002 1.006 1.009A61 61 0 0 1 4 10.065m-.657.975 1.609 3.037.01.024h.548l-.002-.014-.443-2.966a68 68 0 0 0-1.722-.082z"/></svg>
+                    Generate alert
+                </button>
+            </li>
+            <li>
+                <button type="button" class="hm-item" role="menuitem" data-act="recent">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M8.515 1.019A7 7 0 0 0 8 1V0a8 8 0 0 1 .589.022zm2.004.45a7 7 0 0 0-.985-.299l.219-.976q.576.129 1.126.342zm1.37.71a7 7 0 0 0-.439-.27l.493-.87a8 8 0 0 1 .979.654l-.615.789a7 7 0 0 0-.418-.302zm1.834 1.79a7 7 0 0 0-.653-.796l.724-.69q.406.429.747.91zm.744 1.352a7 7 0 0 0-.214-.468l.893-.45a8 8 0 0 1 .45 1.088l-.95.313a7 7 0 0 0-.179-.483m.53 2.507a7 7 0 0 0-.1-1.025l.985-.17q.1.58.116 1.17zm-.131 1.538q.05-.254.081-.51l.993.123a8 8 0 0 1-.23 1.155l-.964-.267q.069-.247.12-.501m-.952 2.379q.276-.436.486-.908l.914.405q-.24.54-.555 1.038zm-.964 1.205q.183-.183.35-.378l.758.653a8 8 0 0 1-.401.432z"/><path d="M8 1a7 7 0 1 0 4.95 11.95l.707.707A8.001 8.001 0 1 1 8 0z"/><path d="M7.5 3a.5.5 0 0 1 .5.5v5.21l3.248 1.856a.5.5 0 0 1-.496.868l-3.5-2A.5.5 0 0 1 7 9V3.5a.5.5 0 0 1 .5-.5"/></svg>
+                    Recent forms
+                </button>
+            </li>
+            <li>
+                <button type="button" class="hm-item" role="menuitem" data-act="favs">
+                    <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="15" height="15" fill="currentColor" viewBox="0 0 16 16"><path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.522-3.356c.33-.314.16-.888-.282-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767-3.686 1.894.694-3.957a.56.56 0 0 0-.163-.505L1.71 6.745l4.052-.576a.53.53 0 0 0 .393-.288L8 2.223l1.847 3.658a.53.53 0 0 0 .393.288l4.052.575-2.906 2.77a.56.56 0 0 0-.163.506l.694 3.957-3.686-1.894a.5.5 0 0 0-.461 0z"/></svg>
+                    Favourite forms
+                </button>
+            </li>
+        </ul>
+    </div>
+    <script>
+
+        $(document).ready(function () {
+            localStorage.setItem("token", '@Context.Session.GetString("token")');
+            setTimeout(function () {
+                $('#loader').fadeOut();
+            }, 1000);
+            GetNotificationCount();
+            GetPendingApprovalCount();
+        });
+
+        /* Recent / Favourites — header icons (top-left, after the menu icon) AND
+           the My Home cards read the same two localStorage stores. Star clicks
+           here refresh the My Home cards live when that page is open. */
+        (function () {
+            var RECENT_KEY = 'pms_recent_forms';
+            var FAV_KEY = 'pms_fav_forms';
+
+            function load(key) {
+                try { return JSON.parse(localStorage.getItem(key)) || []; } catch (e) { return []; }
+            }
+            function save(key, list) {
+                try { localStorage.setItem(key, JSON.stringify(list)); } catch (e) { }
+            }
+            function esc(s) {
+                return String(s == null ? '' : s).replace(/[&<>"']/g, function (ch) {
+                    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch];
+                });
+            }
+
+            var $recentPop = $('<div class="hdr-pop" id="hdrRecentPop"><div class="hdr-pop-title">Recent forms</div><ul></ul><div class="hq-empty">Nothing yet — forms you open will appear here.</div></div>');
+            var $favPop = $('<div class="hdr-pop" id="hdrFavPop"><div class="hdr-pop-title">Favourite forms</div><ul></ul><div class="hq-empty">No favourites yet — star a form in the Recent list.</div></div>');
+            $('body').append($recentPop, $favPop);
+
+            function itemHtml(entry, isFav) {
+                var starLabel = (isFav ? 'Remove from favourites' : 'Add to favourites') + ': ' + entry.t;
+                return '<li>' +
+                    '<a class="hq-link" href="' + esc(entry.u) + '">' + esc(entry.t) + '</a>' +
+                    '<button type="button" class="hq-star ' + (isFav ? 'on' : '') + '" title="' + esc(starLabel) + '" aria-label="' + esc(starLabel) + '" aria-pressed="' + (isFav ? 'true' : 'false') + '" data-u="' + esc(entry.u) + '" data-t="' + esc(entry.t) + '">&#9733;</button>' +
+                    '</li>';
+            }
+
+            function renderPops() {
+                var favs = load(FAV_KEY);
+                var favMap = {};
+                favs.forEach(function (f) { favMap[f.u] = true; });
+                var recents = load(RECENT_KEY).slice(0, 10);
+
+                $recentPop.find('ul').html(recents.map(function (r) { return itemHtml(r, !!favMap[r.u]); }).join(''));
+                $recentPop.find('.hq-empty').toggle(recents.length === 0);
+                $favPop.find('ul').html(favs.map(function (f) { return itemHtml(f, true); }).join(''));
+                $favPop.find('.hq-empty').toggle(favs.length === 0);
+            }
+
+            function closePops() {
+                $('.hdr-pop').removeClass('show');
+                $('.hdr-quick-btn, .hdr-more-btn').removeClass('open').filter('[aria-expanded]').attr('aria-expanded', 'false');
+            }
+            window.pmsCloseHeaderPops = closePops;
+
+            // $anchor: the visible control the popover hangs from — the button
+            // itself, or the ⋮ More button when the original is folded away.
+            // Right-aligns under the anchor when it would otherwise run off-screen.
+            function togglePop($btn, $pop, $anchor) {
+                var wasOpen = $pop.hasClass('show');
+                closePops();
+                if (wasOpen) return;
+                renderPops();
+                var $a = ($anchor && $anchor.length) ? $anchor : $btn;
+                var r = $a[0].getBoundingClientRect();
+                var left = Math.max(6, r.left - 10);
+                var w = Math.min(340, Math.max(260, $pop.outerWidth() || 260));
+                if (left + w > window.innerWidth - 6) left = Math.max(6, window.innerWidth - 6 - w);
+                $pop.css({ top: (r.bottom + 6) + 'px', left: left + 'px' }).addClass('show');
+                $a.addClass('open').filter('[aria-expanded]').attr('aria-expanded', 'true');
+            }
+
+            $(document).on('click', '#hdrRecentBtn', function (e) { e.stopPropagation(); try { togglePop($(this), $recentPop); } catch (ex) { } });
+            $(document).on('click', '#hdrFavBtn', function (e) { e.stopPropagation(); try { togglePop($(this), $favPop); } catch (ex) { } });
+
+            /* ⋮ More menu (small screens): opens like the other header
+               popovers; its items run the same handlers as the header controls. */
+            var $morePop = $('#hdrMorePop');
+            $(document).on('click', '#hdrMoreBtn', function (e) {
+                e.stopPropagation();
+                try {
+                    var wasOpen = $morePop.hasClass('show');
+                    closePops();
+                    if (wasOpen) return;
+                    var r = this.getBoundingClientRect();
+                    var w = 220;
+                    var left = Math.min(r.left - 10, window.innerWidth - 6 - w);
+                    $morePop.css({ top: (r.bottom + 6) + 'px', left: Math.max(6, left) + 'px' }).addClass('show');
+                    $(this).addClass('open').attr('aria-expanded', 'true');
+                } catch (ex) { }
+            });
+            $(document).on('click', '#hdrMorePop .hm-item[data-act]', function (e) {
+                e.stopPropagation();
+                var act = $(this).data('act');
+                var $more = $('#hdrMoreBtn');
+                try {
+                    if (act === 'recent') { togglePop($('#hdrRecentBtn'), $recentPop, $more); return; }
+                    if (act === 'favs') { togglePop($('#hdrFavBtn'), $favPop, $more); return; }
+                    closePops();
+                    if (act === 'alert') { $('#hdrAlertBtn').trigger('click'); return; }
+                    if (act === 'notifications' && typeof window.pmsOpenNotifications === 'function') { window.pmsOpenNotifications(); }
+                } catch (ex) { }
+            });
+
+            // Shared favourite API — used by the header popovers, the form title
+            // strip star, and the My Home cards.
+            window.pmsFavHas = function (url) {
+                return load(FAV_KEY).some(function (f) { return f.u === url; });
+            };
+            window.pmsFavToggle = function (url, title) {
+                if (!url) return false;
+                var favs = load(FAV_KEY);
+                var isOn;
+                if (favs.some(function (f) { return f.u === url; })) {
+                    favs = favs.filter(function (f) { return f.u !== url; });
+                    isOn = false;
+                } else {
+                    favs.unshift({ u: url, t: title || url });
+                    isOn = true;
+                }
+                save(FAV_KEY, favs);
+                renderPops();
+                if (typeof window.mhRenderLists === 'function') { try { window.mhRenderLists(); } catch (e2) { } }
+                return isOn;
+            };
+
+            $(document).on('click', '.hdr-pop .hq-star', function (e) {
+                e.stopPropagation();
+                window.pmsFavToggle($(this).data('u'), $(this).data('t'));
+            });
+
+            // Form title strip: the Add-to-Favourite star for the open form.
+            var $fts = $('#ftsFavBtn');
+            if ($fts.length) {
+                if (window.pmsFavHas($fts.data('u'))) {
+                    $fts.addClass('on').attr({ 'title': 'Remove from favourites', 'aria-pressed': 'true' });
+                }
+                $fts.on('click', function () {
+                    var on = window.pmsFavToggle($(this).data('u'), $(this).data('t'));
+                    $(this).toggleClass('on', on).attr({
+                        'title': on ? 'Remove from favourites' : 'Add to favourites',
+                        'aria-pressed': on ? 'true' : 'false'
+                    });
+                });
+            }
+
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('.hdr-pop, .hdr-quick-btn, .hdr-more-btn').length) closePops();
+            });
+            $(window).on('resize scroll', closePops);
+        })();
+
+        /* Merge the form title strip with the legacy form header: move the strip
+           INSIDE the form's content wrapper (so it resizes with the navigation
+           pane and shares the form's edges), then absorb the legacy banner's
+           icon and action buttons. The legacy breadcrumb row and banner are
+           hidden by the fts-active class the strip set at render time. */
+        (function () {
+            try {
+                var $fts = $('.fts').first();
+                if (!$fts.length) return;
+                var $content = $('.vd_content-wrapper .vd_content').first();
+                if ($content.length) { $fts.prependTo($content); }
+                var $ts = $('.vd_title-section').first();
+                if ($ts.length) {
+                    var $svg = $ts.find('.tp-head-icon svg').first();
+                    if ($svg.length) { $('#ftsIcon').append($svg).addClass('has-icon'); }
+                    $ts.find('button, a.btn').appendTo('#ftsActions');
+                }
+            } catch (e) { }
+        })();
+
+        /* Folder open-state sync: the theme leaves the "open" class on anchors
+           whose submenu has actually closed (e.g. after moving to another
+           folder), so the tint lingered. After each menu click, settle the
+           classes to match what is really visible. */
+        (function () {
+            function syncOpenState() {
+                $('.vd_menu a[data-action^="click-trigger"]').each(function () {
+                    var visible = $(this).siblings('.child-menu').is(':visible');
+                    $(this).toggleClass('open', visible).attr('aria-expanded', visible ? 'true' : 'false');
+                });
+            }
+            $(document).on('click', '.vd_menu a[data-action^="click-trigger"]', function () {
+                setTimeout(syncOpenState, 450);
+            });
+            setTimeout(syncOpenState, 600);
+        })();
+
+        /* Icons-only bar ↔ full bar: collapse every open folder on the way in
+           AND out, so the active trail's pre-expanded submenus don't hang as
+           stale fly-out panels beside the short bar (they carry inline
+           display:block from the server render). */
+        $(document).on('click', '[data-action="nav-left-medium"], [data-action="nav-left-small"]', function () {
+            $('.vd_navbar-left .vd_menu .child-menu').css('display', 'none');
+            $('.vd_navbar-left .vd_menu a[data-action^="click-trigger"]')
+                .removeClass('open').attr('aria-expanded', 'false');
+        });
+
+        /* In the icons-only bar, opening one module's fly-out closes the
+           others — one cascade chain at a time, like a top-nav menu. */
+        $(document).on('click', '.nav-left-medium .vd_navbar-left .vd_menu > ul > li > a[data-action^="click-trigger"], .nav-left-small .vd_navbar-left .vd_menu > ul > li > a[data-action^="click-trigger"]', function () {
+            var $li = $(this).closest('li');
+            $('.vd_navbar-left .vd_menu > ul > li').not($li).find('.child-menu').css('display', 'none');
+            $('.vd_navbar-left .vd_menu > ul > li').not($li).find('a[data-action^="click-trigger"]')
+                .removeClass('open').attr('aria-expanded', 'false');
+        });
+
+        /* Global search — debounced query against api/Workspace/GlobalSearch,
+           grouped results, click or Enter to open. */
+        (function () {
+            var timer = null, lastQ = '';
+
+            function esc(s) { return $('<i>').text(s == null ? '' : s).html(); }
+
+            function hide() { $('#gsResults').removeClass('show'); }
+
+            function render(d) {
+                var html = '';
+                function group(title, items, map) {
+                    if (!items || !items.length) return;
+                    html += '<div class="gs-group">' + title + '</div>';
+                    items.forEach(function (it) { html += map(it); });
+                }
+                group('Forms', d.forms, function (f) {
+                    return '<a class="gs-item" href="' + esc(f.route) + '"><div class="gs-item-name">' + esc(f.name) + '</div>' +
+                        (f.path ? '<div class="gs-item-sub">' + esc(f.path) + '</div>' : '') + '</a>';
+                });
+                group('Properties', d.properties, function (p) {
+                    var href = d.propertyForm.route + (p.profileId ? '?gs=' + p.profileId : '');
+                    return '<a class="gs-item" href="' + esc(href) + '"><div class="gs-item-name">' + esc(p.propertyNo || p.registrationNo) + '</div>' +
+                        '<div class="gs-item-sub">Reg No: ' + esc(p.registrationNo) + ' &middot; in ' + esc(d.propertyForm.name) + '</div></a>';
+                });
+                group('Members', d.members, function (m) {
+                    return '<a class="gs-item" href="' + esc(d.memberForm.route + '?gs=' + m.id) + '"><div class="gs-item-name">' + esc(m.name) + '</div>' +
+                        '<div class="gs-item-sub">CNIC: ' + esc(m.cnic) + ' &middot; in ' + esc(d.memberForm.name) + '</div></a>';
+                });
+                group('Dealers', d.dealers, function (dl) {
+                    return '<a class="gs-item" href="' + esc(d.dealerForm.route + '?gs=' + dl.id) + '"><div class="gs-item-name">' + esc(dl.name) + '</div>' +
+                        '<div class="gs-item-sub">CNIC: ' + esc(dl.cnic) + ' &middot; in ' + esc(d.dealerForm.name) + '</div></a>';
+                });
+                if (!html) html = '<div class="gs-none">No matches for &ldquo;' + esc(lastQ) + '&rdquo;</div>';
+                $('#gsResults').html(html).addClass('show');
+            }
+
+            function run(q) {
+                lastQ = q;
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Workspace/GlobalSearch?q=' + encodeURIComponent(q),
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    dataType: 'json'
+                }).done(function (response) {
+                    if (response.code === 100 && response.data && $('#gsInput').val().trim() === q) render(response.data);
+                });
+            }
+
+            $(document).on('input', '#gsInput', function () {
+                var q = $(this).val().trim();
+                $('#gsWrap').toggleClass('typing', $(this).val().length > 0);
+                clearTimeout(timer);
+                if (q.length < 2) { hide(); return; }
+                timer = setTimeout(function () { run(q); }, 300);
+            });
+
+            $(document).on('keydown', '#gsInput', function (e) {
+                if (e.key === 'Escape') { hide(); $(this).blur(); }
+                if (e.key === 'Enter') {
+                    var $first = $('#gsResults .gs-item').first();
+                    if ($first.length) window.location.href = $first.attr('href');
+                }
+            });
+
+            $(document).on('click', function (e) {
+                if (!$(e.target).closest('#gsWrap').length) hide();
+            });
+
+            /* Deep-link contract: a search hit arrives as ?gs=<recordId>; each
+               deep-linkable form maps to its existing record-select function.
+               Adding a form to search deep-linking = one line here (this map
+               moves into the registry when the search contract formalises). */
+            var gsOpeners = {
+                '/home/registrationnoprofile': 'SelectRegistrationNoProfile',
+                '/sales/memberprofile': 'SelectMember',
+                '/sales/dealerprofile': 'SelectDealerProfile'
+            };
+            $(function () {
+                try {
+                    var gs = new URLSearchParams(window.location.search).get('gs');
+                    if (!gs) return;
+                    var fn = gsOpeners[window.location.pathname.toLowerCase().replace(/\/$/, '')];
+                    if (!fn) return;
+                    // let the page's own ready handlers (select2, lookups) settle first
+                    setTimeout(function () {
+                        try { if (typeof window[fn] === 'function') window[fn](parseInt(gs, 10)); } catch (e) { }
+                    }, 700);
+                } catch (e) { }
+            });
+        })();
+
+        /* Generate Alert box */
+        (function () {
+            var usersLoaded = false;
+
+            function loadUsers() {
+                if (usersLoaded) return;
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Workspace/GetActiveUsers',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    dataType: 'json'
+                }).done(function (response) {
+                    if (response.code !== 100 || !response.data) return;
+                    var self = $('#userid').val();
+                    var opts = '<option value="">Select user…</option>';
+                    response.data.forEach(function (u) {
+                        var label = String(u.id) === String(self) ? u.name + ' (me)' : u.name;
+                        opts += '<option value="' + u.id + '">' + $('<i>').text(label).html() + '</option>';
+                    });
+                    $('#gaUser').html(opts);
+                    usersLoaded = true;
+                });
+            }
+
+            function closeGa() { $('#gaOverlay').removeClass('show'); }
+
+            $(document).on('click', '#hdrAlertBtn', function () {
+                $('#gaOverlay').addClass('show');
+                loadUsers();
+            });
+            $(document).on('click', '#gaClose', closeGa);
+            $(document).on('click', '#gaOverlay', function (e) { if (e.target === this) closeGa(); });
+            $(document).on('keydown', function (e) {
+                if (e.key === 'Escape' && $('#gaOverlay').hasClass('show')) closeGa();
+            });
+
+            $(document).on('click', '#gaSend', function () {
+                var receiver = $('#gaUser').val();
+                var message = $.trim($('#gaMessage').val());
+                if (!receiver) { $('#gaUser').focus(); return; }
+                if (!message) { $('#gaMessage').focus(); return; }
+                var $btn = $(this).prop('disabled', true);
+                $.ajax({
+                    type: 'POST',
+                    url: '/api/Workspace/SendAlert',
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    contentType: 'application/json',
+                    data: JSON.stringify({ receiverId: parseInt(receiver, 10), message: message, type: $('#gaType').val() })
+                }).done(function (response) {
+                    if (response && response.code === 100) {
+                        closeGa();
+                        $('#gaMessage').val('');
+                        $('#gaToast').stop(true, true).fadeIn(150).delay(2500).fadeOut(400);
+                    }
+                }).always(function () { $btn.prop('disabled', false); });
+            });
+        })();
+
+        // My Home workspace: record every visited form page into the per-browser
+        // recent list (AI file.xlsx UI sheet — RECENT). The form registry will
+        // later supply real display names; until then the name is derived from
+        // the URL. Never allowed to break a page.
+        (function () {
+            try {
+                var path = window.location.pathname;
+                var name = null;
+                // Prefer the registry identity set by the form title strip.
+                if (window.__pmsForm && window.__pmsForm.u) {
+                    path = window.__pmsForm.u;
+                    name = window.__pmsForm.t;
+                }
+                if (!path || path === '/') return;
+                var lower = path.toLowerCase();
+                if (lower === '/home/index' || lower.indexOf('/login') === 0 || lower.indexOf('/hiddenforms') === 0) return;
+                if (!name) {
+                    var seg = path.split('/').filter(Boolean);
+                    if (!seg.length) return;
+                    name = seg[seg.length - 1]
+                        .replace(/[-_]/g, ' ')
+                        .replace(/([a-z0-9])([A-Z])/g, '$1 $2')
+                        .replace(/\s+/g, ' ')
+                        .trim();
+                    if (!name) return;
+                    name = name.charAt(0).toUpperCase() + name.slice(1);
+                }
+                var key = 'pms_recent_forms';
+                var list = [];
+                try { list = JSON.parse(localStorage.getItem(key)) || []; } catch (e) { }
+                list = list.filter(function (it) { return it.u !== path; });
+                list.unshift({ u: path, t: name, ts: Date.now() });
+                if (list.length > 10) list = list.slice(0, 10);
+                localStorage.setItem(key, JSON.stringify(list));
+            } catch (e) { }
+        })();
+
+        /* Unread alerts for this user — the existing count endpoint feeds the
+           bell badge (hidden by CSS when empty), the ⋮ More menu's item count
+           and the dot on the ⋮ button. Large counts compact to 99+. Refreshed
+           on load, every minute, when the tab regains focus, and after the
+           panel loads (GetAll marks the alerts viewed). */
+        function pmsSetUnseen(n) {
+            n = parseInt(n, 10) || 0;
+            var label = n > 99 ? '99+' : (n > 0 ? String(n) : '');
+            $("#unSeenBadge").text(label);
+            $("#hdrMoreNotifCount").text(label);
+            $("#hdrMoreBtn").toggleClass('has-new', n > 0);
+            var $bell = $('#hdrBellLink');
+            if ($bell.length) { $bell.attr('title', n > 0 ? 'Notifications (' + label + ' unread)' : 'Notifications'); }
+        }
+
+        function GetNotificationCount() {
+            var userId = $("#userid").val();
+            if (!userId) return;
+            $.ajax({
+                type: 'GET',
+                url: "/api/Notification/GetNotificationCount?userId=" + encodeURIComponent(userId),
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json"
+            }).done(function (response) {
+                if (response && response.code == 100) pmsSetUnseen(response.data);
+            });
+        }
+
+        setInterval(function () { try { GetNotificationCount(); } catch (e) { } }, 60000);
+        document.addEventListener('visibilitychange', function () {
+            if (!document.hidden) { try { GetNotificationCount(); } catch (e) { } }
+        });
+
+        /* Notifications panel — the bell opens it over the current page instead
+           of navigating away (brief 2026-08-21 §4–5). Same source as the
+           /Notification/Index page: api/Notification/GetAll, which also marks
+           the alerts viewed — so the badge is refreshed once the list loads.
+           DataTables gives the panel its search box, page size and pages. */
+        (function () {
+            var table = null, loading = false;
+
+            function esc(s) { return $('<i>').text(s == null ? '' : s).html(); }
+
+            function typeChip(t) {
+                var crit = String(t || '').toLowerCase() === 'critical';
+                return '<span class="np-type' + (crit ? ' critical' : '') + '">' + esc(t) + '</span>';
+            }
+
+            function render(list) {
+                if (table) { try { table.destroy(); } catch (e) { } table = null; }
+                var rows = '';
+                (list || []).forEach(function (n, i) {
+                    var when = n.createdOn ? moment(n.createdOn).format('DD-MM-YYYY, h:mmA') : '';
+                    rows += '<tr>' +
+                        '<td class="np-hide-sm">' + (i + 1) + '</td>' +
+                        '<td>' + typeChip(n.type) + '</td>' +
+                        '<td>' + esc(n.senderName) + '</td>' +
+                        '<td class="np-hide-sm">' + esc(n.designation) + '</td>' +
+                        '<td class="np-when">' + esc(when) + '</td>' +
+                        '<td class="np-narr">' + esc(n.narration) + '</td>' +
+                        '</tr>';
+                });
+                $('#npTbody').html(rows);
+                var any = !!(list && list.length);
+                $('#npCount').text(any ? list.length : '');
+                $('#npEmpty').toggle(!any);
+                $('#npTable').toggle(any);
+                if (any) {
+                    table = $('#npTable').DataTable({
+                        dom: '<"np-tools"f><"np-scroll"t><"np-foot"<"np-len"l><"np-info"i><"np-pages"p>>',
+                        order: [],
+                        pageLength: 10,
+                        lengthMenu: [5, 10, 25, 50],
+                        pagingType: 'simple_numbers',
+                        autoWidth: false,
+                        language: {
+                            search: '',
+                            searchPlaceholder: 'Search notifications…',
+                            lengthMenu: 'Show _MENU_',
+                            info: '_START_–_END_ of _TOTAL_',
+                            infoEmpty: 'No notifications',
+                            infoFiltered: '(filtered from _MAX_)',
+                            zeroRecords: 'No notifications match your search',
+                            paginate: { previous: '‹', next: '›' }
+                        }
+                    });
+                }
+            }
+
+            function load() {
+                if (loading) return;
+                loading = true;
+                $('#npLoading').show();
+                $('#npError').hide();
+                $.ajax({
+                    type: 'GET',
+                    url: '/api/Notification/GetAll?userId=' + encodeURIComponent($('#userid').val()),
+                    headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                    dataType: 'json'
+                }).done(function (r) {
+                    if (r && r.code == 100) { render(r.data || []); }
+                    else { $('#npError').text('Could not load notifications.').show(); }
+                }).fail(function () {
+                    $('#npError').text('Could not load notifications.').show();
+                }).always(function () {
+                    loading = false;
+                    $('#npLoading').hide();
+                    try { GetNotificationCount(); } catch (e) { }
+                });
+            }
+
+            function closeNp() {
+                $('#npOverlay').removeClass('show');
+                $('#hdrBellLink').removeClass('open').attr('aria-expanded', 'false');
+            }
+
+            function openNp() {
+                if (typeof window.pmsCloseHeaderPops === 'function') window.pmsCloseHeaderPops();
+                $('#gaOverlay').removeClass('show');
+                $('#npOverlay').addClass('show');
+                $('#hdrBellLink').addClass('open').attr('aria-expanded', 'true');
+                load();
+                setTimeout(function () { $('#npClose').trigger('focus'); }, 30);
+            }
+
+            window.pmsOpenNotifications = openNp;
+
+            $(document).on('click', '#hdrBellLink', function (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                if ($('#npOverlay').hasClass('show')) closeNp(); else openNp();
+            });
+            $(document).on('click', '#npClose', closeNp);
+            $(document).on('click', '#npOverlay', function (e) { if (e.target === this) closeNp(); });
+            $(document).on('keydown', function (e) {
+                if (e.key === 'Escape' && $('#npOverlay').hasClass('show')) closeNp();
+            });
+        })();
+
+        /* Small-screen search: the field folds into an icon (≤767px, CSS); the
+           icon drops the same field and results below the bar — one search. */
+        (function () {
+            function closeSearch() {
+                $('#gsWrap').removeClass('gs-open');
+                $('#gsToggle').attr('aria-expanded', 'false');
+                $('#gsResults').removeClass('show');
+            }
+            $(document).on('click', '#gsToggle', function (e) {
+                e.stopPropagation();
+                var open = !$('#gsWrap').hasClass('gs-open');
+                $('#gsWrap').toggleClass('gs-open', open);
+                $(this).attr('aria-expanded', open ? 'true' : 'false');
+                if (open) {
+                    if (typeof window.pmsCloseHeaderPops === 'function') window.pmsCloseHeaderPops();
+                    setTimeout(function () { $('#gsInput').trigger('focus'); }, 20);
+                }
+            });
+            $(document).on('click', function (e) {
+                if ($('#gsWrap').hasClass('gs-open') && !$(e.target).closest('#gsWrap').length) closeSearch();
+            });
+            $(document).on('keydown', function (e) {
+                if (e.key === 'Escape' && $('#gsWrap').hasClass('gs-open')) closeSearch();
+            });
+            $(window).on('resize', function () { if (window.innerWidth > 767) closeSearch(); });
+        })();
+
+        /* Coordinated responsiveness (brief 2026-08-21 §9–10): below 1200px the
+           navigation runs in its icons-only mode so the bar and the header
+           shrink together. The theme's own tablet behaviour hid the whole bar
+           and re-showed it on any tap in the content — that toggle is retired;
+           the hamburger still switches icons-only ↔ full at any width. */
+        (function () {
+            var NARROW = 1199, lastNarrow = null, autoMedium = false;
+
+            function collapseFolders() {
+                $('.vd_navbar-left .vd_menu .child-menu').css('display', 'none');
+                $('.vd_navbar-left .vd_menu a[data-action^="click-trigger"]').removeClass('open').attr('aria-expanded', 'false');
+            }
+
+            function apply(force) {
+                var narrow = window.innerWidth <= NARROW;
+                var $b = $('body');
+                if (narrow) {
+                    $b.removeClass('nav-left-hide');
+                    if ((narrow !== lastNarrow || force) && !$b.hasClass('nav-left-medium')) {
+                        $b.addClass('nav-left-medium');
+                        autoMedium = true;
+                        collapseFolders();
+                    }
+                } else if (narrow !== lastNarrow && autoMedium) {
+                    $b.removeClass('nav-left-medium');
+                    autoMedium = false;
+                    collapseFolders();
+                }
+                lastNarrow = narrow;
+            }
+
+            $(function () {
+                $('.vd_container').off('click');
+                apply(true);
+                setTimeout(function () { apply(true); }, 60);
+            });
+
+            var t;
+            $(window).on('resize', function () {
+                clearTimeout(t);
+                t = setTimeout(function () { apply(false); }, 120);
+                // the theme's breakpoint handlers re-hide the bar a beat later
+                setTimeout(function () { if (window.innerWidth <= NARROW) $('body').removeClass('nav-left-hide'); }, 400);
+            });
+        })();
+
+        /* Pending approvals waiting on this user — red count over the inbox icon,
+           same pattern as the alerts badge (empty badge is hidden by CSS). */
+        function GetPendingApprovalCount() {
+            var userId = $("#userid").val();
+            if (!userId) return;
+            $.ajax({
+                type: 'GET',
+                url: "/api/Approvals/GetPendingApprovalCount?userId=" + userId,
+                headers: { Authorization: `Bearer ${localStorage.getItem("token")}` },
+                dataType: "json"
+            }).done(function (response) {
+                if (response.code == 100) {
+                    var count = parseInt(response.data, 10) || 0;
+                    var label = count > 99 ? '99+' : (count > 0 ? String(count) : '');
+                    $("#approvalBadge").text(label);
+                    $("#hdrMoreInboxCount").text(label);
+                }
+            });
+        }
+
+    </script>
+    <script src="~/js/erp-platform.js" asp-append-version="true"></script>
+</body>
+</html>
