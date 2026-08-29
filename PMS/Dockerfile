@@ -1,3 +1,6 @@
+# =========================
+# BUILD
+# =========================
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
 
 WORKDIR /src
@@ -12,14 +15,16 @@ RUN dotnet publish "HRMS_Web/HRMS_Web.csproj" \
     --no-restore
 
 
-FROM mcr.microsoft.com/dotnet/aspnet:6.0
+# =========================
+# RUNTIME
+# =========================
+FROM mcr.microsoft.com/dotnet/aspnet:6.0 AS runtime
 
 WORKDIR /app
 
 COPY --from=build /app/publish .
 
-ENV ASPNETCORE_URLS=http://0.0.0.0:10000
-
-EXPOSE 10000
+# Render assigns the PORT environment variable
+ENV ASPNETCORE_URLS=http://0.0.0.0:${PORT}
 
 ENTRYPOINT ["dotnet", "HRMS_Web.dll"]
