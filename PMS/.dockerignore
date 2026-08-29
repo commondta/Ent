@@ -2,21 +2,24 @@
 **/obj/
 **/.vs/
 **/.git/
-.git/
-.vscode/
+**/.vscode/
+
+.git
+.gitignore
 
 *.user
 *.suo
-*.userosscache
-*.sln.docstates
-
-packages/
-node_modules/
-
-**/logs/
-**/Log/
-
 *.log
+
+node_modules/
+packages/
 
 TestResults/
 coverage/
+
+.vs/
+bin/
+obj/
+
+Dockerfile
+.dockerignore
